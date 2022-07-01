@@ -1,7 +1,7 @@
 {
-  "name": "eleventy-base-blog",
-  "version": "7.0.0",
-  "description": "A starter repository for a blog web site using the Eleventy static site generator.",
+  "name": "red-hat-israel-site",
+  "version": "1.0.0",
+  "description": "Red Hat Israel site blog",
   "scripts": {
     "build": "npx @11ty/eleventy",
     "bench": "DEBUG=Eleventy:Benchmark* npx @11ty/eleventy",
@@ -12,18 +12,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/11ty/eleventy-base-blog.git"
-  },
-  "author": {
-    "name": "Zach Leatherman",
-    "email": "zachleatherman@gmail.com",
-    "url": "https://zachleat.com/"
+    "url": "git://github.com/RedHat-Israel/red-hat-israel-site.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/11ty/eleventy-base-blog/issues"
+    "url": "https://github.com/RedHat-Israel/red-hat-israel-site/issues"
   },
-  "homepage": "https://github.com/11ty/eleventy-base-blog#readme",
+  "homepage": "https://github.com/RedHat-Israel/red-hat-israel-site#readme",
   "dependencies": {
     "@11ty/eleventy": "^1.0.1",
     "@11ty/eleventy-navigation": "^0.3.3",

@@ -24,13 +24,13 @@ Or, read more about [Deploying an Eleventy project](https://www.11ty.dev/docs/de
 ### 1. Clone this Repository
 
 ```
-git clone https://github.com/11ty/eleventy-base-blog.git my-blog-name
+git clone https://github.com/RedHat-Israel/red-hat-israel-site
 ```
 
 ### 2. Navigate to the directory
 
 ```
-cd my-blog-name
+cd red-hat-israel-site
 ```
 
 Specifically have a look at `.eleventy.js` to see if you want to configure any Eleventy options differently.
@@ -38,21 +38,21 @@ Specifically have a look at `.eleventy.js` to see if you want to configure any E
 ### 3. Install dependencies
 
 ```
-npm install
+npm ci
 ```
 
-### 4. Edit \_data/metadata.json
+### 4. Run Eleventy Dev Server
 
-### 5. Run Eleventy
+build and host locally for local development
+
+```
+npm start
+```
+
+Or build the site for deployment
 
 ```
 npx @11ty/eleventy
-```
-
-Or build and host locally for local development
-
-```
-npx @11ty/eleventy --serve
 ```
 
 Or build automatically when a template changes:

@@ -1,0 +1,39 @@
+---
+name: Deploy GH Pages
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy-pages:
+    runs-on: ubuntu-latest
+    name: Build site and deploy to GHPages
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v3
+
+      - name: Install node 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: npm
+
+      - name: Install project modules
+        run: npm ci
+
+      - name: Build site
+        run: npm build
+
+      - name: Configure git
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+
+      - name: Checkout pages branch
+        run: git checkout gh-pages
+
+      - name: Push generated site
+        run: |
+          git add docs
+          git commit -m 'docs: deployed to gh-pages for ${{ github.ref }}'
+          git push origin gh-pages

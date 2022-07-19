@@ -47,11 +47,6 @@
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/tags/another-tag/</loc>
-    <lastmod>2022-07-19</lastmod>
-  </url>
-  
-  <url>
     <loc>https://israel.redhat.com/tags/second-tag/</loc>
     <lastmod>2022-07-19</lastmod>
   </url>
@@ -63,6 +58,11 @@
   
   <url>
     <loc>https://israel.redhat.com/tags/posts-with-two-tags/</loc>
+    <lastmod>2022-07-19</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/tags/another-tag/</loc>
     <lastmod>2022-07-19</lastmod>
   </url>
 </urlset>

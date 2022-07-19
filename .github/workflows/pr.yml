@@ -10,10 +10,16 @@ on:
       - reopened
       - synchronize
       - closed
+    paths-ignore:
+      - '.github/**'
 
-    # TODO: ADD EXCLUSIONS FOR UNRELATED SOURCES
+concurrency:
+  group: preview-${{ github.ref }}
+  cancel-in-progress: true
 
-concurrency: preview-${{ github.ref }}
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
   build-site-preview:
@@ -38,6 +44,11 @@ jobs:
       - name: Build site
         run: npm run build
 
+      - name: Configure git
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+
       - name: Checkout pages branch
         run: git checkout gh-pages
 
@@ -52,7 +63,27 @@ jobs:
           git commit -m "docs: deployed preview for pr #${{ github.event.number }}"
           git push origin gh-pages
 
-      # TODO: ADD STICKY COMMENT WITH TARGET URL
+      - name: Create a preview link
+        id: pr_preview
+        run: |
+          repoName="${{ github.event.repository.name }}"
+          cnameFile="CNAME"
+          if [ -f "$cnameFile" ]; then
+              cname=$(<$cnameFile)
+              echo "::set-output name=link::https://$cname/$repoName/pr-previews/pr-${{ github.event.number }}/"
+          else
+              owner="${{ github.event.repository.owner.login }}"
+              echo "::set-output name=link::https://$owner.github.io/$repoName/pr-previews/pr-${{ github.event.number }}/"
+          fi
+
+      - name: Comment with the preview link
+        uses: marocchino/sticky-pull-request-comment@v2.2.0
+        with:
+          header: site-preview
+          message: |
+            :rocket: Deployed site preview ${{ steps.pr_preview.outputs.link }}
+
+            * will be up and ready in a couple of minuets.
 
   remove-site-preview:
     runs-on: ubuntu-latest
@@ -73,10 +104,15 @@ jobs:
         run: git checkout gh-pages
 
       - name: Remove preview target
+        continue-on-error: true
         run: |
           rm -r pr-previews/pr-${{ github.event.number }}
           git add pr-previews/pr-${{ github.event.number }}
           git commit -m "docs: removed preview for pr #${{ github.event.number }}"
           git push origin gh-pages
 
-      # TODO: UPDATE STICKY COMMENT WITH TARGET URL
+      - name: Remove the preview link comment
+        uses: marocchino/sticky-pull-request-comment@v2.2.0
+        with:
+          header: site-preview
+          delete: true

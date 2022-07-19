@@ -43,16 +43,16 @@ jobs:
 
       - name: Create preview target
         run: |
-          mkdir -p docs/pr-previews/pr-${{ github.event.number }}
-          cp -rf _site/* docs/pr-previews/pr-${{ github.event.number }}
+          mkdir -p pr-previews/pr-${{ github.event.number }}
+          cp -rf _site/* pr-previews/pr-${{ github.event.number }}
 
       - name: Push preview target
         run: |
-          git add docs/pr-previews/pr-${{ github.event.number }}
+          git add pr-previews/pr-${{ github.event.number }}
           git commit -m "docs: deployed preview for pr #${{ github.event.number }}"
           git push origin gh-pages
 
-      # TODO: ADD/UPDATE STICKY COMMENT WITH TARGET URL
+      # TODO: ADD STICKY COMMENT WITH TARGET URL
 
   remove-site-preview:
     runs-on: ubuntu-latest
@@ -74,8 +74,8 @@ jobs:
 
       - name: Remove preview target
         run: |
-          rm -r docs/pr-previews/pr-${{ github.event.number }}
-          git add docs/pr-previews/pr-${{ github.event.number }}
+          rm -r pr-previews/pr-${{ github.event.number }}
+          git add pr-previews/pr-${{ github.event.number }}
           git commit -m "docs: removed preview for pr #${{ github.event.number }}"
           git push origin gh-pages
 

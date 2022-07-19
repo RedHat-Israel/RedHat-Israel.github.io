@@ -35,10 +35,10 @@ jobs:
         run: git checkout gh-pages
 
       - name: Copy new files
-        run: cp -rf _site/* docs
+        run: cp -rf _site/* .
 
       - name: Push generated site
         run: |
-          git add docs
-          git commit -m 'docs: deployed to gh-pages for ${{ github.ref }}'
+          git add .
+          git commit -m "docs: deployed to gh-pages for ${{ github.ref }}"
           git push origin gh-pages

@@ -83,7 +83,7 @@ jobs:
           message: |
             :rocket: Deployed site preview ${{ steps.pr_preview.outputs.link }}
 
-            * will be up and ready in a couple of minuets.
+            * will be up and ready in a couple of minutes.
 
   remove-site-preview:
     runs-on: ubuntu-latest

@@ -1,0 +1,118 @@
+---
+name: PR site preview
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+    paths-ignore:
+      - '.github/**'
+
+concurrency:
+  group: preview-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  build-site-preview:
+    runs-on: ubuntu-latest
+    name: Build site preview
+    if: contains(fromJson('["opened", "reopened", "synchronize"]'), github.event.action)
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Install node 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: npm
+
+      - name: Install project modules
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      - name: Configure git
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+
+      - name: Checkout pages branch
+        run: git checkout gh-pages
+
+      - name: Create preview target
+        run: |
+          mkdir -p pr-previews/pr-${{ github.event.number }}
+          cp -rf _site/* pr-previews/pr-${{ github.event.number }}
+
+      - name: Push preview target
+        run: |
+          git add pr-previews/pr-${{ github.event.number }}
+          git commit -m "docs: deployed preview for pr #${{ github.event.number }}"
+          git push origin gh-pages
+
+      - name: Create a preview link
+        id: pr_preview
+        run: |
+          repoName="${{ github.event.repository.name }}"
+          cnameFile="CNAME"
+          if [ -f "$cnameFile" ]; then
+              cname=$(<$cnameFile)
+              echo "::set-output name=link::https://$cname/$repoName/pr-previews/pr-${{ github.event.number }}/"
+          else
+              owner="${{ github.event.repository.owner.login }}"
+              echo "::set-output name=link::https://$owner.github.io/$repoName/pr-previews/pr-${{ github.event.number }}/"
+          fi
+
+      - name: Comment with the preview link
+        uses: marocchino/sticky-pull-request-comment@v2.2.0
+        with:
+          header: site-preview
+          message: |
+            :rocket: Deployed site preview ${{ steps.pr_preview.outputs.link }}
+
+            * will be up and ready in a couple of minutes.
+
+  remove-site-preview:
+    runs-on: ubuntu-latest
+    name: Remove site preview
+    if: ${{ github.event.action == 'closed' }}
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Configure git
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+
+      - name: Checkout pages branch
+        run: git checkout gh-pages
+
+      - name: Remove preview target
+        continue-on-error: true
+        run: |
+          rm -r pr-previews/pr-${{ github.event.number }}
+          git add pr-previews/pr-${{ github.event.number }}
+          git commit -m "docs: removed preview for pr #${{ github.event.number }}"
+          git push origin gh-pages
+
+      - name: Remove the preview link comment
+        uses: marocchino/sticky-pull-request-comment@v2.2.0
+        with:
+          header: site-preview
+          delete: true

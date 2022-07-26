@@ -23,46 +23,46 @@
   
   <url>
     <loc>https://israel.redhat.com/about/</loc>
-    <lastmod>2022-07-19</lastmod>
+    <lastmod>2022-07-26</lastmod>
   </url>
   
   <url>
     <loc>https://israel.redhat.com/posts/</loc>
-    <lastmod>2022-07-19</lastmod>
+    <lastmod>2022-07-26</lastmod>
   </url>
   
   <url>
     <loc>https://israel.redhat.com/</loc>
-    <lastmod>2022-07-19</lastmod>
+    <lastmod>2022-07-26</lastmod>
   </url>
   
   <url>
     <loc>https://israel.redhat.com/page-list/</loc>
-    <lastmod>2022-07-19</lastmod>
+    <lastmod>2022-07-26</lastmod>
   </url>
   
   <url>
     <loc>https://israel.redhat.com/tags/</loc>
-    <lastmod>2022-07-19</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://israel.redhat.com/tags/second-tag/</loc>
-    <lastmod>2022-07-19</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://israel.redhat.com/tags/number-2/</loc>
-    <lastmod>2022-07-19</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://israel.redhat.com/tags/posts-with-two-tags/</loc>
-    <lastmod>2022-07-19</lastmod>
+    <lastmod>2022-07-26</lastmod>
   </url>
   
   <url>
     <loc>https://israel.redhat.com/tags/another-tag/</loc>
-    <lastmod>2022-07-19</lastmod>
+    <lastmod>2022-07-26</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/tags/second-tag/</loc>
+    <lastmod>2022-07-26</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/tags/number-2/</loc>
+    <lastmod>2022-07-26</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/tags/posts-with-two-tags/</loc>
+    <lastmod>2022-07-26</lastmod>
   </url>
 </urlset>

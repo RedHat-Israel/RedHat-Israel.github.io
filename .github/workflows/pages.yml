@@ -35,7 +35,9 @@ jobs:
           git config user.email "${{ github.actor }}@users.noreply.github.com"
 
       - name: Checkout pages branch
-        run: git checkout gh-pages
+        run: |
+          git checkout gh-pages
+          git pull origin gh-pages
 
       - name: Copy new files
         run: cp -rf _site/* .

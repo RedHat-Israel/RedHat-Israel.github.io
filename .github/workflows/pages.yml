@@ -27,7 +27,7 @@ jobs:
         run: npm ci
 
       - name: Build site
-        run: npm run build
+        run: npm run build --pathprefix ${{ github.event.repository.name }}
 
       - name: Configure git
         run: |

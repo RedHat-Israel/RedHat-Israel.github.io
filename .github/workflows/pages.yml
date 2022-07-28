@@ -44,11 +44,15 @@ jobs:
       - name: Copy new files
         run: cp -rf _site/* .
 
-      - name: Commit generated site
-        continue-on-error: true
+      - name: Count changed
+        id: git_status
+        run: |
+            changedCount=$(git status --porcelain=v1 --short --untracked-files=all | wc -l)
+            echo "::set-output name=changedCount::$changedCount"
+
+      - name: Push generated site
+        if: ${{ steps.git_status.outputs.changedCount }} > 0
         run: |
           git add .
           git commit -m "docs: deployed to gh-pages for ${{ github.ref }}"
-
-      - name: Push generated site
-        run: git push origin gh-pages -f
+          git push origin gh-pages

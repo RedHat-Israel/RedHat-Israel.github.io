@@ -51,7 +51,7 @@ jobs:
             echo "::set-output name=changedCount::$changedCount"
 
       - name: Push generated site
-        if: ${{ steps.git_status.outputs.changedCount }} > 0
+        if: steps.git_status.outputs.changedCount > 0
         run: |
           git add .
           git commit -m "docs: deployed to gh-pages for ${{ github.ref }}"

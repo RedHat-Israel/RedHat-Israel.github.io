@@ -2,67 +2,67 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://israel.redhat.com/posts/firstpost/</loc>
+    <loc>https://israel.redhat.com/red-hat-israel-site/posts/firstpost/</loc>
     <lastmod>2018-05-01</lastmod>
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/posts/secondpost/</loc>
+    <loc>https://israel.redhat.com/red-hat-israel-site/posts/secondpost/</loc>
     <lastmod>2018-07-04</lastmod>
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/posts/thirdpost/</loc>
+    <loc>https://israel.redhat.com/red-hat-israel-site/posts/thirdpost/</loc>
     <lastmod>2018-08-24</lastmod>
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/posts/fourthpost/</loc>
+    <loc>https://israel.redhat.com/red-hat-israel-site/posts/fourthpost/</loc>
     <lastmod>2018-09-30</lastmod>
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/about/</loc>
-    <lastmod>2022-07-26</lastmod>
+    <loc>https://israel.redhat.com/red-hat-israel-site/about/</loc>
+    <lastmod>2022-07-28</lastmod>
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/posts/</loc>
-    <lastmod>2022-07-26</lastmod>
+    <loc>https://israel.redhat.com/red-hat-israel-site/posts/</loc>
+    <lastmod>2022-07-28</lastmod>
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/</loc>
-    <lastmod>2022-07-26</lastmod>
+    <loc>https://israel.redhat.com/red-hat-israel-site/</loc>
+    <lastmod>2022-07-28</lastmod>
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/page-list/</loc>
-    <lastmod>2022-07-26</lastmod>
+    <loc>https://israel.redhat.com/red-hat-israel-site/page-list/</loc>
+    <lastmod>2022-07-28</lastmod>
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/tags/</loc>
-    <lastmod>2022-07-26</lastmod>
+    <loc>https://israel.redhat.com/red-hat-israel-site/tags/</loc>
+    <lastmod>2022-07-28</lastmod>
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/tags/another-tag/</loc>
-    <lastmod>2022-07-26</lastmod>
+    <loc>https://israel.redhat.com/red-hat-israel-site/tags/another-tag/</loc>
+    <lastmod>2022-07-28</lastmod>
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/tags/second-tag/</loc>
-    <lastmod>2022-07-26</lastmod>
+    <loc>https://israel.redhat.com/red-hat-israel-site/tags/second-tag/</loc>
+    <lastmod>2022-07-28</lastmod>
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/tags/number-2/</loc>
-    <lastmod>2022-07-26</lastmod>
+    <loc>https://israel.redhat.com/red-hat-israel-site/tags/number-2/</loc>
+    <lastmod>2022-07-28</lastmod>
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/tags/posts-with-two-tags/</loc>
-    <lastmod>2022-07-26</lastmod>
+    <loc>https://israel.redhat.com/red-hat-israel-site/tags/posts-with-two-tags/</loc>
+    <lastmod>2022-07-28</lastmod>
   </url>
 </urlset>

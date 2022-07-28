@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-8/posts/firstpost/</loc>
+    <lastmod>2018-05-01</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-8/posts/secondpost/</loc>
+    <lastmod>2018-07-04</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-8/posts/thirdpost/</loc>
+    <lastmod>2018-08-24</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-8/posts/fourthpost/</loc>
+    <lastmod>2018-09-30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-8/about/</loc>
+    <lastmod>2022-07-28</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-8/posts/</loc>
+    <lastmod>2022-07-28</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-8/</loc>
+    <lastmod>2022-07-28</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-8/page-list/</loc>
+    <lastmod>2022-07-28</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-8/tags/</loc>
+    <lastmod>2022-07-28</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-8/tags/second-tag/</loc>
+    <lastmod>2022-07-28</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-8/tags/another-tag/</loc>
+    <lastmod>2022-07-28</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-8/tags/number-2/</loc>
+    <lastmod>2022-07-28</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-8/tags/posts-with-two-tags/</loc>
+    <lastmod>2022-07-28</lastmod>
+  </url>
+</urlset>

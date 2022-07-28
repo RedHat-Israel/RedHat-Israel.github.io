@@ -59,13 +59,21 @@ jobs:
           mkdir -p pr-previews/pr-${{ github.event.number }}
           cp -rf _site/* pr-previews/pr-${{ github.event.number }}
 
+      - name: Count changed
+        id: git_status
+        run: |
+            changedCount=$(git status pr-previews/pr-${{ github.event.number }} --porcelain=v1 --short --untracked-files=all | wc -l)
+            echo "::set-output name=changedCount::$changedCount"
+
       - name: Push preview target
+        if: steps.git_status.outputs.changedCount > 0
         run: |
           git add pr-previews/pr-${{ github.event.number }}
           git commit -m "docs: deployed preview for pr #${{ github.event.number }}"
           git push origin gh-pages
 
       - name: Create a preview link
+        if: steps.git_status.outputs.changedCount > 0
         id: pr_preview
         run: |
           repoName="${{ github.event.repository.name }}"
@@ -79,6 +87,7 @@ jobs:
           fi
 
       - name: Comment with the preview link
+        if: steps.git_status.outputs.changedCount > 0
         uses: marocchino/sticky-pull-request-comment@v2.2.0
         with:
           header: site-preview

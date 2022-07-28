@@ -3,9 +3,9 @@
 	<title>Red Hat Israel</title>
 	<subtitle>About the Red Hat Israel site</subtitle>
 	
-	<link href="https://israel.redhat.com/feed/feed.xml" rel="self"/>
+	<link href="https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/feed/feed.xml" rel="self"/>
 	<link href="https://israel.redhat.com/"/>
-	<updated>2022-07-26T00:00:00Z</updated>
+	<updated>2022-07-28T21:04:12Z</updated>
 	<id>https://israel.redhat.com/</id>
 	<author>
 		<name>Red Hat Israel Associates</name>
@@ -13,68 +13,72 @@
 	</author>
 	
 	<entry>
-		<title>תרבות ארגונית</title>
-		<link href="https://israel.redhat.com/posts/%D7%AA%D7%9B%D7%99%D7%A8%D7%95%20%D7%90%D7%AA%20%D7%A8%D7%93%20%D7%94%D7%90%D7%98/"/>
-		<updated>2022-07-26T00:00:00Z</updated>
-		<id>https://israel.redhat.com/posts/%D7%AA%D7%9B%D7%99%D7%A8%D7%95%20%D7%90%D7%AA%20%D7%A8%D7%93%20%D7%94%D7%90%D7%98/</id>
-		<content type="html">&lt;p&gt;&lt;strong&gt;נעים להכיר, אנחנו Red  Hat&lt;/strong&gt;
-רד האט, החברה המובילה בעולם לפתרונות תוכנה מבוססי קוד פתוח לארגוני Enterprise.
-רד האט מבוססת על כוחה של קהילת הקוד הפתוח בפיתוח ואספקת טכנולוגיות Linux, ענן, קונטיינרים ו-Kubernetes. אנחנו מסייעים ללקוחות לשלב בין יישומי IT חדשים וקיימים, לפתח יישומים מוטי-ענן (cloud-native), לבצע סטנדרטיזציה של מערכת ההפעלה, יחד עם אוטומציה, אבטחה וניהול של סביבות מורכבות. שירותי התמיכה, ההדרכה והייעוץ שלנו זכו להכרה ופרסים בתעשייה והופכים אותנו לשותפים ויועצים מוערכים עבור חברות רבות ברשימת ה-Fortune 500.&lt;/p&gt;
-&lt;p&gt;רד האט וקוד פתוח
-אנחנו מאמינים ש open unlocks the world’s potential.
-100% מפרוטפוליו המוצרים של רד האט  מבוסס על קוד פתוח. תהליך הפיתוח שלנו  מתחיל בקהילות הקוד הפתוח, שבהן משתתפים עובדי רד האט יחד עם אלפי תורמים אחרים מחברות מרחבי העולם. באמצעות דיון משותף בין חברי הקהילה , מגיעים יחד לתוצר ברמה גבוהה שאינו בבעלות של אף חברה. אנחנו ברד האט עורכים למוצרים מבחנים, הסמכות, ובדיקות  ומטמיעים אותם באלפי ארגוני Enterprise ברחבי העולם ובישראל כולל תעשיות ביטחונית, מגזר הפיננסים, ארגוני בריאות, גופים ממשלתיים וגופים מסחריים אחרים ומעניקים ללקוחות שלנו מעטפת של שירותי תמיכה.&lt;/p&gt;
+		<title>תכירו את רד האט</title>
+		<link href="https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/posts/%D7%AA%D7%9B%D7%99%D7%A8%D7%95%20%D7%90%D7%AA%20%D7%A8%D7%93%20%D7%94%D7%90%D7%98/"/>
+		<updated>2022-07-28T21:04:12Z</updated>
+		<id>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/posts/%D7%AA%D7%9B%D7%99%D7%A8%D7%95%20%D7%90%D7%AA%20%D7%A8%D7%93%20%D7%94%D7%90%D7%98/</id>
+		<content type="html">&lt;p&gt;&lt;strong&gt;נעים להכיר, אנחנו Red  Hat&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;רד האט, החברה המובילה בעולם לפתרונות תוכנה מבוססי קוד פתוח לארגוני Enterprise.
+רד האט מבוססת על כוחה של קהילת הקוד הפתוח בפיתוח ואספקת טכנולוגיות Linux, ענן ,Containers ו-Kubernetes. אנחנו מסייעים ללקוחות לשלב בין יישומי IT חדשים וקיימים, לפתח יישומים מוטי-ענן (cloud-native), לבצע סטנדרטיזציה של מערכת ההפעלה, יחד עם אוטומציה, אבטחה וניהול של סביבות מורכבות. שירותי התמיכה, ההדרכה והייעוץ שלנו זכו להכרה ופרסים בתעשייה והופכים אותנו לשותפים ויועצים מוערכים עבור חברות רבות ברשימת ה-Fortune 500.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;רד האט וקוד פתוח&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;אנחנו מאמינים ש open unlocks the world’s potential. &lt;br /&gt;
+כל תמהיל המוצרים של רד האט מבוסס על קוד פתוח. תהליך הפיתוח שלנו מתחיל בקהילות הקוד הפתוח, שבהן משתתפים עובדי רד האט יחד עם אלפי תורמים אחרים מחברות מרחבי העולם. באמצעות דיון משותף בין חברי הקהילה, מגיעים יחד לתוצר ברמה גבוהה שאינו בבעלות של אף חברה. אנחנו ברד האט עורכים למוצרים מבחנים, הסמכות, ובדיקות  ומטמיעים אותם באלפי ארגוני Enterprise ברחבי העולם ובישראל כולל תעשיות ביטחונית, מגזר הפיננסים, ארגוני בריאות, גופים ממשלתיים וגופים מסחריים אחרים ומעניקים ללקוחות שלנו מעטפת של שירותי תמיכה.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;התרבות הארגונית שלנו&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;מודל הקוד הפתוח הוא לא רק הדרך שבה אנו מפתחים קוד אלא חלק אינטגרלי מהתרבות הארגנית שלנו ומודל העבודה הארגוני. כארגון פתוח, התרבות שלנו מגדירה אותנו ומשפיעה על האופן שבו אנו מתקשרים עם העולם. זה בא לידי ביטוי במוצרים ובשירותים שלנו, אבל גם באופן שבו אנחנו חיים, ועובדים.
-תפיסת הארגון הפתוח (Open Organization) מתאפנית במודל ארגוני שפועל מלמטה למעלה, בו העובדים לוקחים לעצמם את יוזמת ההובלה ומטילים על עצמם משימות לביצוע. לארגון הפתוח מאפיינים של שקיפות, שיתופיות, קהילתיות, גמישות ואחריות. אנחנו מאמינים שהתרבות הפתוחה שלנו מטפחת מעצימה אנשים להביא את הרעיונות הטובים ביותר שלהם - ואת האני הטוב ביותר שלהם - לעבודה.  Red Hatters מחליפים בחופשיות נקודות מבט שונות, תורמים רעיונות ופותרים בעיות ביחד.&lt;/p&gt;
-&lt;p&gt;רד האט ישראל
+תפיסת הארגון הפתוח (Open Organization) מתאפיינת במודל ארגוני שפועל מלמטה למעלה, בו העובדים לוקחים לעצמם את יוזמת ההובלה ומטילים על עצמם משימות לביצוע. לארגון הפתוח מאפיינים של שקיפות, שיתופיות, קהילתיות, גמישות ואחריות. Red Hatters מחליפים בחופשיות נקודות מבט שונות, תורמים רעיונות ופותרים בעיות ביחד.
+אנחנו מאמינים שהתרבות הפתוחה שלנו מעצימה אנשים להביא את הרעיונות הטובים ביותר שלהם - ואת האני הטוב ביותר שלהם - לעבודה.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;רד האט ישראל&lt;/strong&gt;  &lt;br /&gt;
 בשנת 2008 רכשה חברת רד־האט העולמית את חברת Qumranet הישראלית. בכך הפך מרכז הפיתוח של החברה לשלוחה הישראלית של רד־האט.
 חברת Qumranet הוקמה בשנת 2005 ועסקה בפיתוח מערכת הווירטואליזציה KVM וכן מערכת קניינית של שולחן עבודה מרוחק בשם SPICE.&lt;/p&gt;
-&lt;p&gt;כיום משרדי רד האט בישראל מונים מעל ל-500 עובדים, מרביתם מהנדסים, אשר עובדים על פיתוח הפתרונות הטכנולוגיים של רד האט בתחום תשתיות הענן. מרכז הפיתוח המקומי שלנו ממקום ברעננה.  אנחנו עובדים במודל היברידי גמיש על פרוייקטים גלובליים, עם צוותים מרחבי העולם.
-האהבה שלנו לשיתוף פעולה, אחריות, תחושת קהילתיות ומידה של אוטונומיה משתלבים כדי ליצור כוח רב עוצמה שמטפח חדשנות והופך את Red Hat למקום מצוין לעבוד בו.&lt;/p&gt;
-&lt;p&gt;הכובע האדום
-כבר 25 שנה שאנחנו מזוהים עם הכובע האדום. אייקון מיתולוגי, מוכר ואהוב.
+&lt;p&gt;כיום משרדי רד האט בישראל מונים מעל ל-500 עובדים, מרביתם מהנדסים, אשר עובדים על פיתוח הפתרונות הטכנולוגיים של רד האט בתחום תשתיות הענן. מרכז הפיתוח המקומי שלנו ממקום ברעננה ואנחנו עובדים על פרוייקטים גלובליים, עם צוותים מרחבי העולם.
+מודל העבודה שלנו גמיש, ובהתאם העובדים בוחרים במודל העבודה שמתאים להם (עבודה מרחוק/ עבודה מהבית/ שילוב).  &lt;br /&gt; האהבה שלנו לשיתוף פעולה, אחריות, תחושת קהילתיות ומידה של אוטונומיה משתלבים כדי ליצור כוח רב עוצמה שמטפח חדשנות והופך את Red Hat למקום מצוין לעבוד בו.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;הכובע האדום&lt;/strong&gt;. &lt;br /&gt;
+כבר 25 שנה שאנחנו מזוהים עם הכובע האדום. אייקון מיתולוגי, מוכר ואהוב.  &lt;br /&gt;
 אז למה כובע?
-הסיפור על הכובע מספר בעצם איך הכל התחיל…
+הסיפור על הכובע מספר בעצם איך הכל התחיל…. &lt;br /&gt;
 רד האט התחילה כשאיש עסקים קטן, בוב יאנג, פגש גיק בכנס טכנולוגי ששמו מארק יואינג.
 מארק עסק בהפצת Linux על גבי תקליטורים מביתו בראלי, צפון קרוליינה.&lt;/p&gt;
-&lt;p&gt;מארק היה מזוהה בימיו כסטונדט במעבדה  ״כאיש עם הכבוע האדום״ כיוון שחבש כובע קורנל לקרוס אדום של סבו והמשפט &amp;quot;אם אתה צריך עזרה, חפש את הבחור עם הכובע האדום״ היה שכיח בקרב הסטודנטים.  שיואינג התחיל להפיץ את הגרסה המאוחדת שלו של לינוקס, הוא בחר ב-Red Hat כשם.&lt;/p&gt;
-&lt;p&gt;בוב יאנג היה איש עסקים קטן בעל חזון שניהל עסק, קטלוג של עסקים המוכרים תוכנות לינוקס ו-UNIX, מחוץ לביתו בקונטיקט. הוא הבחין בעניין גובר בלינוקס, והחל לקנות את תקליטורי Red Hat Linux של יואינג. אחרי שפעמים רבות נגמר המלאי של יאנג, החליטו השניים לאחד כוחות, ורד האט תוכנה נולדה ב-1995 עם יאנג כמנכ&amp;quot;ל.&lt;/p&gt;
+&lt;p&gt;מארק היה מזוהה בימיו כסטונדט במעבדה  ״כאיש עם הכבוע האדום״ כיוון שחבש כובע קורנל לקרוס אדום של סבו והמשפט &amp;quot;אם אתה צריך עזרה, חפש את הבחור עם הכובע האדום״ היה שכיח בקרב הסטודנטים.  כשיאנג התחיל להפיץ את הגרסה המאוחדת שלו של Linux, הוא בחר ב-Red Hat כשם.&lt;/p&gt;
+&lt;p&gt;בוב יאנג היה איש עסקים קטן בעל חזון שניהל עסק, קטלוג של עסקים המוכרים תוכנות Linux ו-UNIX, מחוץ לביתו בקונטיקט. הוא הבחין בעניין גובר ב Linux, והחל לקנות את תקליטורי Red Hat Linux של יואינג. אחרי שפעמים רבות נגמר המלאי של יאנג, החליטו השניים לאחד כוחות, ורד האט תוכנה נולדה ב-1995 עם יאנג כמנכ&amp;quot;ל.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;מוזמנים להמשיך לשוטט בגיט שלנו ולהכיר את האנשים שמאחורי המותג&lt;/strong&gt;  &lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://israel.redhat.com/img/Confetti.jpg&quot; alt=&quot;Red hatters celebrating with confetti&quot; /&gt;&lt;/p&gt;
 </content>
 	</entry>
 	
 	<entry>
 		<title>This is my fourth post.</title>
-		<link href="https://israel.redhat.com/posts/fourthpost/"/>
+		<link href="https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/posts/fourthpost/"/>
 		<updated>2018-09-30T00:00:00Z</updated>
-		<id>https://israel.redhat.com/posts/fourthpost/</id>
+		<id>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/posts/fourthpost/</id>
 		<content type="html">&lt;p&gt;Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.&lt;/p&gt;
 &lt;p&gt;Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.&lt;/p&gt;
-&lt;h2 id=&quot;section-header&quot; tabindex=&quot;-1&quot;&gt;Section Header &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/posts/fourthpost/#section-header&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;section-header&quot; tabindex=&quot;-1&quot;&gt;Section Header &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/posts/fourthpost/#section-header&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.&lt;/p&gt;
 </content>
 	</entry>
 	
 	<entry>
 		<title>This is my third post.</title>
-		<link href="https://israel.redhat.com/posts/thirdpost/"/>
+		<link href="https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/posts/thirdpost/"/>
 		<updated>2018-08-24T00:00:00Z</updated>
-		<id>https://israel.redhat.com/posts/thirdpost/</id>
+		<id>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/posts/thirdpost/</id>
 		<content type="html">&lt;p&gt;Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.&lt;/p&gt;
 &lt;pre class=&quot;language-diff-js&quot;&gt;&lt;code class=&quot;language-diff-js&quot;&gt;// this is a command&lt;br /&gt;function myCommand() {&lt;br /&gt;&lt;span class=&quot;token inserted-sign inserted language-js&quot;&gt;&lt;span class=&quot;token prefix inserted&quot;&gt;+&lt;/span&gt;	&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; counter &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token deleted-sign deleted language-js&quot;&gt;&lt;span class=&quot;token prefix deleted&quot;&gt;-&lt;/span&gt;	counter&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;/span&gt;&lt;br /&gt;}&lt;br /&gt;&lt;br /&gt;// Test with a line break above this line.&lt;br /&gt;console.log(&#39;Test&#39;);&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.&lt;/p&gt;
-&lt;h2 id=&quot;section-header&quot; tabindex=&quot;-1&quot;&gt;Section Header &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/posts/thirdpost/#section-header&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;section-header&quot; tabindex=&quot;-1&quot;&gt;Section Header &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/posts/thirdpost/#section-header&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.&lt;/p&gt;
 </content>
 	</entry>
 	
 	<entry>
 		<title>This is my second post.</title>
-		<link href="https://israel.redhat.com/posts/secondpost/"/>
+		<link href="https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/posts/secondpost/"/>
 		<updated>2018-07-04T00:00:00Z</updated>
-		<id>https://israel.redhat.com/posts/secondpost/</id>
+		<id>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/posts/secondpost/</id>
 		<content type="html">&lt;p&gt;Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.&lt;/p&gt;
-&lt;h2 id=&quot;section-header&quot; tabindex=&quot;-1&quot;&gt;Section Header &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/posts/secondpost/#section-header&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://israel.redhat.com/posts/firstpost/&quot;&gt;First post&lt;/a&gt;
-&lt;a href=&quot;https://israel.redhat.com/posts/thirdpost/&quot;&gt;Third post&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;section-header&quot; tabindex=&quot;-1&quot;&gt;Section Header &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/posts/secondpost/#section-header&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/posts/firstpost/&quot;&gt;First post&lt;/a&gt;
+&lt;a href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/posts/thirdpost/&quot;&gt;Third post&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.&lt;/p&gt;
 &lt;p&gt;Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.&lt;/p&gt;
 </content>
@@ -82,12 +86,12 @@
 	
 	<entry>
 		<title>This is my first post.</title>
-		<link href="https://israel.redhat.com/posts/firstpost/"/>
+		<link href="https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/posts/firstpost/"/>
 		<updated>2018-05-01T00:00:00Z</updated>
-		<id>https://israel.redhat.com/posts/firstpost/</id>
+		<id>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/posts/firstpost/</id>
 		<content type="html">&lt;p&gt;Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.&lt;/p&gt;
 &lt;p&gt;Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.&lt;/p&gt;
-&lt;h2 id=&quot;section-header&quot; tabindex=&quot;-1&quot;&gt;Section Header &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/posts/firstpost/#section-header&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;section-header&quot; tabindex=&quot;-1&quot;&gt;Section Header &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/posts/firstpost/#section-header&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.&lt;/p&gt;
 &lt;pre class=&quot;language-diff-js&quot;&gt;&lt;code class=&quot;language-diff-js&quot;&gt;// this is a command&lt;br /&gt;function myCommand() {&lt;br /&gt;&lt;span class=&quot;token inserted-sign inserted language-js&quot;&gt;&lt;span class=&quot;token prefix inserted&quot;&gt;+&lt;/span&gt;	&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; counter &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token prefix inserted&quot;&gt;+&lt;/span&gt;	counter&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;/span&gt;}&lt;br /&gt;&lt;br /&gt;// Test with a line break above this line.&lt;br /&gt;console.log(&#39;Test&#39;);&lt;/code&gt;&lt;/pre&gt;
 </content>

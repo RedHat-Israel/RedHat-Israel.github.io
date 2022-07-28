@@ -2,72 +2,87 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://israel.redhat.com/posts/firstpost/</loc>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/posts/firstpost/</loc>
     <lastmod>2018-05-01</lastmod>
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/posts/secondpost/</loc>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/posts/secondpost/</loc>
     <lastmod>2018-07-04</lastmod>
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/posts/thirdpost/</loc>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/posts/thirdpost/</loc>
     <lastmod>2018-08-24</lastmod>
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/posts/fourthpost/</loc>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/posts/fourthpost/</loc>
     <lastmod>2018-09-30</lastmod>
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/posts/%D7%AA%D7%9B%D7%99%D7%A8%D7%95%20%D7%90%D7%AA%20%D7%A8%D7%93%20%D7%94%D7%90%D7%98/</loc>
-    <lastmod>2022-07-26</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://israel.redhat.com/about/</loc>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/about/</loc>
     <lastmod>2022-07-28</lastmod>
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/posts/</loc>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/posts/</loc>
     <lastmod>2022-07-28</lastmod>
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/</loc>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/</loc>
     <lastmod>2022-07-28</lastmod>
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/page-list/</loc>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/page-list/</loc>
     <lastmod>2022-07-28</lastmod>
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/tags/</loc>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/posts/%D7%AA%D7%9B%D7%99%D7%A8%D7%95%20%D7%90%D7%AA%20%D7%A8%D7%93%20%D7%94%D7%90%D7%98/</loc>
     <lastmod>2022-07-28</lastmod>
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/tags/another-tag/</loc>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/tags/</loc>
     <lastmod>2022-07-28</lastmod>
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/tags/second-tag/</loc>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/tags/another-tag/</loc>
     <lastmod>2022-07-28</lastmod>
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/tags/number-2/</loc>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/tags/second-tag/</loc>
     <lastmod>2022-07-28</lastmod>
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/tags/posts-with-two-tags/</loc>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/tags/number-2/</loc>
+    <lastmod>2022-07-28</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/tags/posts-with-two-tags/</loc>
+    <lastmod>2022-07-28</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/tags/red-hat/</loc>
+    <lastmod>2022-07-28</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/tags/red-hat-israel/</loc>
+    <lastmod>2022-07-28</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-6/tags/open-source/</loc>
     <lastmod>2022-07-28</lastmod>
   </url>
 </urlset>

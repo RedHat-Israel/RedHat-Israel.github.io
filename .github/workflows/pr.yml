@@ -59,6 +59,9 @@ jobs:
           mkdir -p pr-previews/pr-${{ github.event.number }}
           cp -rf _site/* pr-previews/pr-${{ github.event.number }}
 
+      - name: Remove robots.txt from preview
+        run: rm pr-previews/pr-${{ github.event.number }}/robots.txt
+
       - name: Count changed
         id: git_status
         run: |

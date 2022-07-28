@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>Red Hat Israel</title>
+	<subtitle>About the Red Hat Israel site</subtitle>
+	
+	<link href="https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-10/feed/feed.xml" rel="self"/>
+	<link href="https://israel.redhat.com/"/>
+	<updated>2018-09-30T00:00:00Z</updated>
+	<id>https://israel.redhat.com/</id>
+	<author>
+		<name>Red Hat Israel Associates</name>
+		<email>israel@redhat.com</email>
+	</author>
+	
+	<entry>
+		<title>This is my fourth post.</title>
+		<link href="https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-10/posts/fourthpost/"/>
+		<updated>2018-09-30T00:00:00Z</updated>
+		<id>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-10/posts/fourthpost/</id>
+		<content type="html">&lt;p&gt;Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.&lt;/p&gt;
+&lt;p&gt;Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.&lt;/p&gt;
+&lt;h2 id=&quot;section-header&quot; tabindex=&quot;-1&quot;&gt;Section Header &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-10/posts/fourthpost/#section-header&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>This is my third post.</title>
+		<link href="https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-10/posts/thirdpost/"/>
+		<updated>2018-08-24T00:00:00Z</updated>
+		<id>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-10/posts/thirdpost/</id>
+		<content type="html">&lt;p&gt;Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.&lt;/p&gt;
+&lt;pre class=&quot;language-diff-js&quot;&gt;&lt;code class=&quot;language-diff-js&quot;&gt;// this is a command&lt;br /&gt;function myCommand() {&lt;br /&gt;&lt;span class=&quot;token inserted-sign inserted language-js&quot;&gt;&lt;span class=&quot;token prefix inserted&quot;&gt;+&lt;/span&gt;	&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; counter &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token deleted-sign deleted language-js&quot;&gt;&lt;span class=&quot;token prefix deleted&quot;&gt;-&lt;/span&gt;	counter&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;/span&gt;&lt;br /&gt;}&lt;br /&gt;&lt;br /&gt;// Test with a line break above this line.&lt;br /&gt;console.log(&#39;Test&#39;);&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.&lt;/p&gt;
+&lt;h2 id=&quot;section-header&quot; tabindex=&quot;-1&quot;&gt;Section Header &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-10/posts/thirdpost/#section-header&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>This is my second post.</title>
+		<link href="https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-10/posts/secondpost/"/>
+		<updated>2018-07-04T00:00:00Z</updated>
+		<id>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-10/posts/secondpost/</id>
+		<content type="html">&lt;p&gt;Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.&lt;/p&gt;
+&lt;h2 id=&quot;section-header&quot; tabindex=&quot;-1&quot;&gt;Section Header &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-10/posts/secondpost/#section-header&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-10/posts/firstpost/&quot;&gt;First post&lt;/a&gt;
+&lt;a href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-10/posts/thirdpost/&quot;&gt;Third post&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.&lt;/p&gt;
+&lt;p&gt;Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>This is my first post.</title>
+		<link href="https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-10/posts/firstpost/"/>
+		<updated>2018-05-01T00:00:00Z</updated>
+		<id>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-10/posts/firstpost/</id>
+		<content type="html">&lt;p&gt;Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.&lt;/p&gt;
+&lt;p&gt;Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.&lt;/p&gt;
+&lt;h2 id=&quot;section-header&quot; tabindex=&quot;-1&quot;&gt;Section Header &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-10/posts/firstpost/#section-header&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.&lt;/p&gt;
+&lt;pre class=&quot;language-diff-js&quot;&gt;&lt;code class=&quot;language-diff-js&quot;&gt;// this is a command&lt;br /&gt;function myCommand() {&lt;br /&gt;&lt;span class=&quot;token inserted-sign inserted language-js&quot;&gt;&lt;span class=&quot;token prefix inserted&quot;&gt;+&lt;/span&gt;	&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; counter &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token prefix inserted&quot;&gt;+&lt;/span&gt;	counter&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;/span&gt;}&lt;br /&gt;&lt;br /&gt;// Test with a line break above this line.&lt;br /&gt;console.log(&#39;Test&#39;);&lt;/code&gt;&lt;/pre&gt;
+</content>
+	</entry>
+</feed>

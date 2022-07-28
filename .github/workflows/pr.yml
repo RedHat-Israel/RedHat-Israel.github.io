@@ -63,7 +63,7 @@ jobs:
         run: |
           git add pr-previews/pr-${{ github.event.number }}
           git commit -m "docs: deployed preview for pr #${{ github.event.number }}"
-          git push origin gh-pages -f
+          git push origin gh-pages
 
       - name: Create a preview link
         id: pr_preview

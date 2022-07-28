@@ -44,8 +44,11 @@ jobs:
       - name: Copy new files
         run: cp -rf _site/* .
 
+      - name: Add site to staging
+        continue-on-error: true
+        run: git add .
+
       - name: Push generated site
         run: |
-          git add .
           git commit -m "docs: deployed to gh-pages for ${{ github.ref }}"
           git push origin gh-pages -f

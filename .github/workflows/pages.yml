@@ -48,4 +48,4 @@ jobs:
         run: |
           git add .
           git commit -m "docs: deployed to gh-pages for ${{ github.ref }}"
-          git push origin gh-pages
+          git push origin gh-pages -f

@@ -1,0 +1,5 @@
+
+rh-footer:not(:defined) * {
+  display: initial;
+}
+

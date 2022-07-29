@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-11/posts/firstpost/</loc>
+    <lastmod>2018-05-01</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-11/posts/secondpost/</loc>
+    <lastmod>2018-07-04</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-11/posts/thirdpost/</loc>
+    <lastmod>2018-08-24</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-11/posts/fourthpost/</loc>
+    <lastmod>2018-09-30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-11/about/</loc>
+    <lastmod>2022-07-29</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-11/posts/</loc>
+    <lastmod>2022-07-29</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-11/</loc>
+    <lastmod>2022-07-29</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-11/page-list/</loc>
+    <lastmod>2022-07-29</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-11/tags/</loc>
+    <lastmod>2022-07-29</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-11/tags/another-tag/</loc>
+    <lastmod>2022-07-29</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-11/tags/second-tag/</loc>
+    <lastmod>2022-07-29</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-11/tags/number-2/</loc>
+    <lastmod>2022-07-29</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-11/tags/posts-with-two-tags/</loc>
+    <lastmod>2022-07-29</lastmod>
+  </url>
+</urlset>

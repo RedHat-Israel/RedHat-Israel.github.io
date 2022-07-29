@@ -1,0 +1,118 @@
+socialLinks:
+  - icon: linkedin
+    href: https://www.linkedin.com/company/red-hat
+    content: LinkedIn
+  - icon: youtube
+    href: https://www.youtube.com/user/RedHatVideos
+    content: Youtube
+  - icon: facebook
+    href: https://www.facebook.com/redhatinc
+    content: Facebook
+  - icon: twitter
+    href: https://twitter.com/RedHat
+    content: Twitter
+  - icon: github
+    href: https://github.com/redhat-israel
+    content: GitHub
+
+links:
+  - heading: Products
+    links:
+    - content: Red Hat Ansible Automation Platform
+      href: https://www.redhat.com/en/technologies/management/ansible
+    - href: https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux
+      content: Red Hat Enterprise Linux
+    - href: https://www.redhat.com/en/technologies/cloud-computing/openshift
+      content: Red Hat OpenShift
+    - href: https://www.redhat.com/en/technologies/cloud-computing/openshift-data-foundation
+      content: Red Hat OpenShift Data Foundation
+    - href: https://www.redhat.com/en/technologies/linux-platforms/openstack-platform
+      content: Red Hat OpenStack Platform
+    - href: https://www.redhat.com/en/technologies/all-products
+      content: See all products
+  - heading: Tools
+    links:
+    - href: https://sso.redhat.com/
+      content: My account
+    - href: https://access.redhat.com/
+      content: Customer support
+    - href: https://connect.redhat.com/
+      content: Partner resources
+    - href: https://developers.redhat.com/
+      content: Developer resources
+    - href: https://www.redhat.com/en/services/training-and-certification
+      content: Training and certification
+    - href: https://learn.redhat.com/
+      content: Learning community
+    - href: https://catalog.redhat.com/
+      content: Red Hat Ecosystem Catalog
+    - href: https://www.redhat.com/en/resources
+      content: Resource library
+  - heading: Try, buy, sell
+    links:
+    - href: https://www.redhat.com/en/products/trials
+      content: Product trial center
+    - href: https://www.redhat.com/en/store
+      content: Red Hat Store
+    - href: https://marketplace.redhat.com/
+      content: Red Hat Marketplace
+    - href: https://www.redhat.com/en/about/japan-buy
+      content: Buy online (Japan)
+    - href: http://redhat.force.com/finder/
+      content: Find a partner
+    - href: https://www.redhat.com/en/contact
+      content: Contact sales
+    - href: https://www.redhat.com/en/services/training-and-certification/contact-us
+      content: Contact training
+    - href: https://www.redhat.com/en/services/consulting-overview#contact-us
+      content: Contact consulting
+  - heading: Communicate
+    links:
+    - href: https://www.redhat.com/en/contact
+      content: Contact us
+    - href: https://www.redhat.com/en/about/feedback
+      content: Feedback
+    - href: https://www.redhat.com/en/about/social
+      content: Social
+    - href: https://engage.redhat.com/Global-Preference-Center?newsletter=RH-Shares&intcmp=7016000000154xCAAQ
+      content: Red Hat newsletter
+
+secondary:
+  - heading: About Red Hat
+    content: We’re the world’s leading provider of enterprise open source solutions,
+      using a community-powered approach to deliver high-performing Linux, cloud, container,
+      and Kubernetes technologies. We help you standardize across environments, develop
+      cloud-native applications, and integrate, automate, secure, and manage complex
+      environments with award-winning support, training, and consulting services.
+  - heading: Subscribe to our free newsletter, Red Hat Shares
+    content: <pfe-cta><a href="#blocks">Sign up now</a></pfe-cta>
+
+globalLinks:
+  - href: https://www.redhat.com/about
+    content: About Red Hat
+  - href: https://jobs.redhat.com
+    content: Jobs
+  - href: "#"
+    content: Events
+  - href: "#"
+    content: Locations
+  - href: "#"
+    content: Contact Red Hat
+  - href: "#"
+    content: Red Hat Blog
+  - href: "#"
+    content: Cool Stuff Store
+  - href: "#"
+    content: Diversity, equity, and inclusion
+    
+globalLinksSecondary:
+  - href: "#"
+    content: Privacy statement
+  - href: "#"
+    content: Terms of use
+  - href: "#"
+    content: All policies and guidelines
+  - href: "#"
+    content: Digital accessibility
+  - href: "#"
+    content: Cookie preferences

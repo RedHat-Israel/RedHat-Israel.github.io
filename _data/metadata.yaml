@@ -1,0 +1,17 @@
+title: Red Hat Israel
+url: https://israel.redhat.com/
+language: he
+description: About the Red Hat Israel site
+feed:
+  subtitle: About the Red Hat Israel site
+  filename: feed.xml
+  path: /feed/feed.xml
+  id: https://israel.redhat.com/
+jsonfeed:
+  path: /feed/feed.json
+  url: https://israel.redhat.com/feed/feed.json
+author:
+  name: Red Hat Israel Associates
+  email: israel@redhat.com
+  url: https://israel.redhat.com/about/
+

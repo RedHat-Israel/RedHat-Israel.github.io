@@ -20,20 +20,36 @@ https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javasc
   word-wrap: normal;
   line-height: 1.5;
  
-  tab-size: 4;
+  -moz-tab-size: 4;
+ 
+    -o-tab-size: 4;
+ 
+       tab-size: 4;
   tab-size: 4;
   tab-size: 4;
  
+  -webkit-hyphens: none;
+ 
+          hyphens: none;
   hyphens: none;
   hyphens: none;
   hyphens: none;
-  hyphens: none;
+}
+ 
+pre[class*='language-']::-moz-selection, pre[class*='language-'] ::-moz-selection, code[class*='language-']::-moz-selection, code[class*='language-'] ::-moz-selection {
+  text-shadow: none;
+  background: #b3d4fc;
 }
  
 pre[class*='language-']::selection,
 pre[class*='language-'] ::selection,
 code[class*='language-']::selection,
 code[class*='language-'] ::selection {
+  text-shadow: none;
+  background: #b3d4fc;
+}
+ 
+pre[class*='language-']::-moz-selection, pre[class*='language-'] ::-moz-selection, code[class*='language-']::-moz-selection, code[class*='language-'] ::-moz-selection {
   text-shadow: none;
   background: #b3d4fc;
 }
@@ -185,7 +201,9 @@ div.code-toolbar > .toolbar button {
   line-height: normal;
   overflow: visible;
   padding: 0;
-  user-select: none; /* for button */
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none; /* for button */
   user-select: none;
   user-select: none;
 }

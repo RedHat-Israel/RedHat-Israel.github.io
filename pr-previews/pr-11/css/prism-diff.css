@@ -19,7 +19,8 @@ pre[class*="language-diff-"] {
 .token.prefix.inserted,
 .token.prefix.deleted {
 	-webkit-user-select: none;
-	user-select: none;
+	-moz-user-select: none;
+	     user-select: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;

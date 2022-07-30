@@ -9,17 +9,19 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const { EleventyRenderPlugin } = require("@11ty/eleventy");
 const pluginNavigation = require("@11ty/eleventy-navigation");
+const PostCSSPlugin = require("eleventy-plugin-postcss");
 
 module.exports = function(eleventyConfig) {
   // Copy the `img` and `css` folders to the output
   eleventyConfig.addPassthroughCopy("img");
-  eleventyConfig.addPassthroughCopy("css");
+  // eleventyConfig.addPassthroughCopy("css");
 
   // Add plugins
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
   eleventyConfig.addPlugin(EleventyRenderPlugin);
+  eleventyConfig.addPlugin(PostCSSPlugin);
   eleventyConfig.addDataExtension("yaml", contents => yaml.load(contents));
 
   eleventyConfig.addFilter("readableDate", dateObj => {

@@ -40,7 +40,7 @@ body {
   display: grid;
   min-height: 100vh;
   grid-template-columns: 273px auto;
-  grid-template-rows: 64px auto;
+  grid-template-rows: 64px auto max-content;
   grid-template-areas:
     'head head'
     'side main'

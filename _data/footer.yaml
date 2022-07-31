@@ -31,28 +31,24 @@ links:
     - href: https://www.redhat.com/en/technologies/all-products
       content: See all products
   
-  - heading: Communicate
+  - heading: יצירת קשר
     links:
     - href: https://www.redhat.com/en/contact
-      content: Contact us
+      content: כתבו לנו 
     - href: https://www.redhat.com/en/about/feedback
-      content: Feedback
+      content: שלחו לנו פדיבק
     - href: https://www.redhat.com/en/about/social
-      content: Social
-    - href: https://engage.redhat.com/Global-Preference-Center?newsletter=RH-Shares&intcmp=7016000000154xCAAQ
-      content: Red Hat newsletter
+      content: עקבו אחרינו בסושיאל
+    
 
 secondary:
-  - heading: About Red Hat
+  - heading: רד האט
     content: |
-      We’re the world’s leading provider of enterprise open source solutions,
-      using a community-powered approach to deliver high-performing Linux, cloud, container,
-      and Kubernetes technologies. We help you standardize across environments, develop
-      cloud-native applications, and integrate, automate, secure, and manage complex
-      environments with award-winning support, training, and consulting services.
-  - heading: Subscribe to our free newsletter, Red Hat Shares
-    content: |
-      <pfe-cta><a href="#blocks">Sign up now</a></pfe-cta>
+    רד האט היא החברה המובילה בעולם לפתרונות תוכנה מבוססי קוד פתוח לארגוני Enterprise. 
+רד האט מבוססת על כוחה של קהילת הקוד הפתוח בפיתוח ואספקת טכנולוגיות Linux, Cloud, Container, ו-Kubernetes.
+אנחנו מסייעים ללקוחות לשלב בין יישומי IT חדשים וקיימים, לפתח יישומים מוטי-ענן
+(cloud-native), לבצע סטנדרטיזציה של מערכת ההפעלה, יחד עם אוטומציה, אבטחה וניהול של סביבות מורכבות
+
 
 globalLinks:
   - href: https://www.redhat.com/about

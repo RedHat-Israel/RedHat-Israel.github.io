@@ -34,7 +34,7 @@ links:
   - heading: יצירת קשר
     links:
     - href: https://www.redhat.com/en/contact
-      content: כתבו לנו 
+      content: כתבו לנו
     - href: https://www.redhat.com/en/about/feedback
       content: שלחו לנו פדיבק
     - href: https://www.redhat.com/en/about/social
@@ -44,11 +44,10 @@ links:
 secondary:
   - heading: רד האט
     content: |
-    רד האט היא החברה המובילה בעולם לפתרונות תוכנה מבוססי קוד פתוח לארגוני Enterprise. 
-רד האט מבוססת על כוחה של קהילת הקוד הפתוח בפיתוח ואספקת טכנולוגיות Linux, Cloud, Container, ו-Kubernetes.
-אנחנו מסייעים ללקוחות לשלב בין יישומי IT חדשים וקיימים, לפתח יישומים מוטי-ענן
-(cloud-native), לבצע סטנדרטיזציה של מערכת ההפעלה, יחד עם אוטומציה, אבטחה וניהול של סביבות מורכבות
-
+      רד האט היא החברה המובילה בעולם לפתרונות תוכנה מבוססי קוד פתוח לארגוני Enterprise. 
+      רד האט מבוססת על כוחה של קהילת הקוד הפתוח בפיתוח ואספקת טכנולוגיות Linux, Cloud, Container, ו-Kubernetes.
+      אנחנו מסייעים ללקוחות לשלב בין יישומי IT חדשים וקיימים, לפתח יישומים מוטי-ענן
+      (cloud-native), לבצע סטנדרטיזציה של מערכת ההפעלה, יחד עם אוטומציה, אבטחה וניהול של סביבות מורכבות
 
 globalLinks:
   - href: https://www.redhat.com/about

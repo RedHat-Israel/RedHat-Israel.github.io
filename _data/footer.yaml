@@ -30,42 +30,7 @@ links:
       content: Red Hat OpenStack Platform
     - href: https://www.redhat.com/en/technologies/all-products
       content: See all products
-  - heading: Tools
-    links:
-    - href: https://sso.redhat.com/
-      content: My account
-    - href: https://access.redhat.com/
-      content: Customer support
-    - href: https://connect.redhat.com/
-      content: Partner resources
-    - href: https://developers.redhat.com/
-      content: Developer resources
-    - href: https://www.redhat.com/en/services/training-and-certification
-      content: Training and certification
-    - href: https://learn.redhat.com/
-      content: Learning community
-    - href: https://catalog.redhat.com/
-      content: Red Hat Ecosystem Catalog
-    - href: https://www.redhat.com/en/resources
-      content: Resource library
-  - heading: Try, buy, sell
-    links:
-    - href: https://www.redhat.com/en/products/trials
-      content: Product trial center
-    - href: https://www.redhat.com/en/store
-      content: Red Hat Store
-    - href: https://marketplace.redhat.com/
-      content: Red Hat Marketplace
-    - href: https://www.redhat.com/en/about/japan-buy
-      content: Buy online (Japan)
-    - href: http://redhat.force.com/finder/
-      content: Find a partner
-    - href: https://www.redhat.com/en/contact
-      content: Contact sales
-    - href: https://www.redhat.com/en/services/training-and-certification/contact-us
-      content: Contact training
-    - href: https://www.redhat.com/en/services/consulting-overview#contact-us
-      content: Contact consulting
+  
   - heading: Communicate
     links:
     - href: https://www.redhat.com/en/contact

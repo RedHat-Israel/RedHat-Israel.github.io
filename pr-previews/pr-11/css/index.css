@@ -69,6 +69,10 @@ rh-footer:not(:defined) * {
       display: none;
     }
 
+rh-global-footer.no-links::part(primary) { display: none; }
+
+rh-global-footer.no-secondary-links::part(secondary) { display: none; }
+
 #main-header {
   grid-area: head;
   background-color: var(--rh-color-surface-darkest);

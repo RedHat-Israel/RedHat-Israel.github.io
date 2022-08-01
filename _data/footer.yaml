@@ -18,8 +18,8 @@ socialLinks:
 links:
   - heading: המוצרים שלנו
     links:
-    - content: Red Hat Ansible Automation Platform
-      href: https://www.redhat.com/en/technologies/management/ansible
+    - href: https://www.redhat.com/en/technologies/management/ansible
+      content: Red Hat Ansible Automation Platform
     - href: https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux
       content: Red Hat Enterprise Linux
     - href: https://www.redhat.com/en/technologies/cloud-computing/openshift
@@ -36,7 +36,7 @@ links:
     - href: https://www.redhat.com/en/contact
       content: כתבו לנו
     - href: https://www.redhat.com/en/about/feedback
-      content: שלחו לנו פדיבק
+      content: שלחו לנו פידבק
     - href: https://www.redhat.com/en/about/social
       content: עקבו אחרינו ברשתות החברתיות
     

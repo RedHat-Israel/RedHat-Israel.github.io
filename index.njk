@@ -5,7 +5,7 @@ eleventyNavigation:
   order: 1
 ---
 {% set maxPosts = collections.posts.length | min(3) %}
-<img src="/img/confetti.jpg" alt="עובדי רד הט חוגגים עם קונפטי">
+<img src="{{ '/img/confetti.jpg' | url }}" alt="עובדי רד הט חוגגים עם קונפטי">
 <h1>Latest {% if maxPosts == 1 %}Post{% else %}{{ maxPosts }} Posts{% endif %}</h1>
 
 {% set postslist = collections.posts | head(-3) %}

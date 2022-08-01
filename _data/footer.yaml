@@ -31,14 +31,14 @@ links:
     - href: https://www.redhat.com/en/technologies/all-products
       content: See all products
   
-  - heading: יצירת קשר
+  - heading: צרו קשר
     links:
     - href: https://www.redhat.com/en/contact
       content: כתבו לנו
     - href: https://www.redhat.com/en/about/feedback
       content: שלחו לנו פדיבק
     - href: https://www.redhat.com/en/about/social
-      content: עקבו אחרינו בסושיאל
+      content: עקבו אחרינו ברשתות החברתיות
     
 
 secondary:
@@ -46,15 +46,16 @@ secondary:
     content: |
       רד האט היא החברה המובילה בעולם לפתרונות תוכנה מבוססי קוד פתוח לארגוני Enterprise. 
       רד האט מבוססת על כוחה של קהילת הקוד הפתוח בפיתוח ואספקת טכנולוגיות Linux, Cloud, Container, ו-Kubernetes.
-      אנחנו מסייעים ללקוחות לשלב בין יישומי IT חדשים וקיימים, לפתח יישומים מוטי-ענן
-      (cloud-native), לבצע סטנדרטיזציה של מערכת ההפעלה, יחד עם אוטומציה, אבטחה וניהול של סביבות מורכבות
+      אנחנו מסייעים ללקוחות לשלב בין יישומי IT חדשים וקיימים, לפתח יישומים רב-ענניים
+      (multi-cloud), לבצע סטנדרטיזציה של מערכת ההפעלה, יחד עם אוטומציה, אבטחה וניהול של סביבות מורכבות.
 
 globalLinks:
-  - href: "#"
+  - href: "https://www.redhat.com/en/about/privacy-policy"
     content: הצהרת פרטיות
-  - href: "#"
+  - href: "https://www.redhat.com/en/about/terms-use"
     content: תנאי שימוש
-  - href: "#"
+  - href: "https://www.redhat.com/en/about/digital-accessibility"
     content: נגישות דיגיטלית
-  - href: "#"
-    content: הגדרות עוגיות
+  # needs client-side js
+  # - href: "#"
+  #   content: הגדרות עוגיות

@@ -1,9 +1,9 @@
 ---
 layout: layouts/post.njk
-title: אודותנו
+title: אודותינו
 templateClass: tmpl-post
 eleventyNavigation:
-  key: אודותנו
+  key: אודותינו
   order: 3
 ---
 

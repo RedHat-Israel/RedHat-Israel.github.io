@@ -65,19 +65,23 @@
         <h3 slot="header">{{ block.heading }}</h3>
         {% renderTemplate "njk,md", block %}{{ content | safe }}{% endrenderTemplate %}
       </rh-footer-block>{% endfor %}
-      <rh-global-footer slot="global">
+      <rh-global-footer slot="global" class="{{
+        'no-links' if not (footer.globalLinks.length)
+      }} {{
+        'no-secondary-links' if not (footer.globalLinksSecondary.length)
+      }}">{% if footer.globalLinks.length %}
         <h3 slot="links-primary" hidden>Red Hat legal and privacy links</h3>
         <ul slot="links-primary">{% for link in footer.globalLinks %}
           <li><a href="{{ link.href }}">{{ link.content }}</a></li>{% endfor %}
-        </ul>
+        </ul>{% endif %}{% if footer.globalLinksSecondary.length %}
         <rh-footer-copyright slot="links-secondary"></rh-footer-copyright>
         <h3 slot="links-secondary" hidden>Red Hat legal and privacy links</h3>
         <ul slot="links-secondary">{% for link in footer.globalLinksSecondary %}
           <li><a href="{{ link.href }}">{{ link.content }}</a></li>{% endfor %}
-        </ul>
+        </ul>{% endif %}{#
         <div slot="secondary-end">
           <a href="#">*We’ve updated our privacy statement effective December 30, 202X.</a>
-        </div>
+        </div>#}
       </rh-global-footer>
     </rh-footer>
 

@@ -61,6 +61,11 @@ rh-footer {
   }
 }
 
+rh-global-footer {
+  &.no-links::part(primary) { display: none; }
+  &.no-secondary-links::part(secondary) { display: none; }
+}
+
 #main-header {
   grid-area: head;
   background-color: var(--rh-color-surface-darkest);

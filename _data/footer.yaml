@@ -16,7 +16,7 @@ socialLinks:
     content: GitHub
 
 links:
-  - heading: Products
+  - heading: המוצרים שלנו
     links:
     - content: Red Hat Ansible Automation Platform
       href: https://www.redhat.com/en/technologies/management/ansible
@@ -50,31 +50,11 @@ secondary:
       (cloud-native), לבצע סטנדרטיזציה של מערכת ההפעלה, יחד עם אוטומציה, אבטחה וניהול של סביבות מורכבות
 
 globalLinks:
-  - href: https://www.redhat.com/about
-    content: About Red Hat
-  - href: https://jobs.redhat.com
-    content: Jobs
   - href: "#"
-    content: Events
+    content: הצהרת פרטיות
   - href: "#"
-    content: Locations
+    content: תנאי שימוש
   - href: "#"
-    content: Contact Red Hat
+    content: נגישות דיגיטלית
   - href: "#"
-    content: Red Hat Blog
-  - href: "#"
-    content: Cool Stuff Store
-  - href: "#"
-    content: Diversity, equity, and inclusion
-    
-globalLinksSecondary:
-  - href: "#"
-    content: Privacy statement
-  - href: "#"
-    content: Terms of use
-  - href: "#"
-    content: All policies and guidelines
-  - href: "#"
-    content: Digital accessibility
-  - href: "#"
-    content: Cookie preferences
+    content: הגדרות עוגיות

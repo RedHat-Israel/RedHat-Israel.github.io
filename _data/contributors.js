@@ -1,4 +1,4 @@
-const { Octokit } = require('@octokit/rest');
+const { graphql } = require('@octokit/graphql');
 
 /**
  * Fetch Contributor data from GitHub and elsewhere
@@ -11,17 +11,37 @@ const { Octokit } = require('@octokit/rest');
  *     ```
  */
 async function israelContributors(configData) {
-  const octokit = new Octokit({
-    auth: '',
-    userAgent: `Eleventy v${configData.eleventy.version}`,
-    timeZone: 'Asia/Jerusalem',
-    // eslint-disable-next-line no-console
-    log: { warn: console.warn, error: console.error, }
+  const authGraph = graphql.defaults({
+    headers: {
+      authorization: `bearer ${process.env.GH_TOKEN}`,
+    }
   });
 
-  const { data } = await octokit.rest.users.list();
+  let query = `
+    {
+      organization(login: "RedHat-Israel") {
+        membersWithRole(first: 100) {
+          edges {
+            node {
+              login
+              name
+              contributionsCollection {
+                pullRequestContributions {
+                  totalCount
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
 
-  // yadda yadda
+  const result = await authGraph(query);
+
+  // result.organization.membersWithRole.edges.forEach(
+  //   edge => console.log(edge.node)
+  // );
 }
 
 module.exports = israelContributors;

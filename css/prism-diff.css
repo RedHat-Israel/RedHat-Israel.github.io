@@ -8,10 +8,10 @@ pre[class*="language-diff-"] {
 	padding-right: var(--eleventy-code-padding);
 }
 .token.deleted {
-	background-color: hsl(0, 51%, 37%);
+	background-color: var(--rh-color-red-200);
 }
 .token.inserted {
-	background-color: hsl(126, 31%, 39%);
+	background-color: var(--rh-color-green-100);
 }
 
 /* Make the + and - characters unselectable for copy/paste */
@@ -19,7 +19,8 @@ pre[class*="language-diff-"] {
 .token.prefix.inserted,
 .token.prefix.deleted {
 	-webkit-user-select: none;
-	user-select: none;
+	-moz-user-select: none;
+	     user-select: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;

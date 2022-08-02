@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ metadata.language }}">
+<html lang="{{ metadata.language }}"{{ (' dir="rtl"' | safe) if metadata.language == 'he' }}>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,41 +7,83 @@
     <meta name="description" content="{{ description or metadata.description }}">
     <meta name="generator" content="{{ eleventy.generator }}">
 
+    <link rel="preconnect" href="https://www.redhat.com">
+    <link rel="preconnect" href="https://static.redhat.com">
+    <link rel="shortcut icon" href="https://www.redhat.com/misc/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://static.redhat.com/libs/redhat/redhat-font/2/webfonts/red-hat-font.css" media="all">
+    <link rel="stylesheet" href="{{ '/css/rhds.css' | url }}">
     <link rel="stylesheet" href="{{ '/css/index.css' | url }}">
-    <link rel="stylesheet" href="{{ '/css/prism-base16-monokai.dark.css' | url }}">
+    <link rel="stylesheet" href="{{ '/css/prism.css' | url }}">
     <link rel="stylesheet" href="{{ '/css/prism-diff.css' | url }}">
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
     <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
+
+    <script type="importmap">{{ importMap | dump | safe }}</script>
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.5.9/dist/es-module-shims.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@rhds/elements@1.0.0-beta.12/elements/rh-footer/rh-footer-lightdom.css">
+    <script type="module">
+      import '@rhds/elements';
+      import '@patternfly/pfe-cta'; // TODO: Delete this line (i.e. replace with rh-cta) after https://github.com/RedHat-UX/red-hat-design-system/issues/333
+    </script>
+    <noscript><link rel="stylesheet" href="{{ '/css/noscript.css' | url }}"></noscript>
   </head>
   <body>
-    <header>
-      <h1 class="home"><a href="{{ '/' | url }}">{{ metadata.title }}</a></h1>
-
-      {#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
-      <ul class="nav">
-      {%- for entry in collections.all | eleventyNavigation %}
-        <li class="nav-item{% if entry.url == page.url %} nav-item-active{% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
-      {%- endfor %}
-      </ul>
+    <header id="main-header">
+      <h1 class="home">
+        <a href="{{ '/' | url }}">
+          <img src="{{ '/assets/red-hat-israel-site.svg' | url }}" alt="{{ metadata.title }}"/>
+        </a>
+      </h1>
     </header>
 
+    <aside id="main-sidebar">
+      <nav>
+        <ul>{%- for entry in collections.all | eleventyNavigation %}
+          <li{% if entry.url == page.url %} class="active"{% endif %}>
+            <a href="{{ entry.url | url }}">{{ entry.title }}</a>
+          </li>{%- endfor %}
+        </ul>
+      </nav>
+    </aside>
+
     <main{% if templateClass %} class="{{ templateClass }}"{% endif %}>
-
-      <!-- Delete this message -->
-      <div class="infobox">
-        <ol>
-          <li>Edit the <code>_data/metadata.json</code> with your blog’s information.</li>
-          <li>(Optional) Edit <code>.eleventy.js</code> with your <a href="https://www.11ty.dev/docs/config/">configuration preferences</a>.</li>
-          <li>Delete this message from <code>_includes/layouts/base.njk</code>.</li>
-        </ol>
-        <p><em>This is an <a href="https://www.11ty.dev/">Eleventy project</a> created from the <a href="https://github.com/11ty/eleventy-base-blog"><code>eleventy-base-blog</code> repo</a>.</em></p>
-      </div>
-      <!-- Stop deleting -->
-
       {{ content | safe }}
     </main>
 
-    <footer></footer>
+    <rh-footer>
+      <a slot="logo" href="/en">
+        <img src="{{ '/assets/red-hat-israel-site.svg' | url }}" alt="Red Hat Israel logo" loading="lazy"/> 
+      </a>{% for link in footer.socialLinks %}
+      <rh-footer-social-link slot="social-links" icon="web-icon-{{ link.icon }}">
+        <a href="{{ link.href }}">{{ link.content }}</a>
+      </rh-footer-social-link>{% endfor %}{% for column in footer.links %}
+      <h3 slot="links">{{ column.heading }}</h3>
+      <ul slot="links">{% for link in column.links %}
+        <li><a href="{{ link.href }}">{{ link.content }}</a></li>{% endfor %}
+      </ul>{% endfor %}{% for block in footer.secondary %}
+      <rh-footer-block slot="main-secondary">
+        <h3 slot="header">{{ block.heading }}</h3>
+        {% renderTemplate "njk,md", block %}{{ content | safe }}{% endrenderTemplate %}
+      </rh-footer-block>{% endfor %}
+      <rh-global-footer slot="global" class="{{
+        'no-links' if not (footer.globalLinks.length)
+      }} {{
+        'no-secondary-links' if not (footer.globalLinksSecondary.length)
+      }}">{% if footer.globalLinks.length %}
+        <h3 slot="links-primary" hidden>Red Hat legal and privacy links</h3>
+        <ul slot="links-primary">{% for link in footer.globalLinks %}
+          <li><a href="{{ link.href }}">{{ link.content }}</a></li>{% endfor %}
+        </ul>{% endif %}{% if footer.globalLinksSecondary.length %}
+        <rh-footer-copyright slot="links-secondary"></rh-footer-copyright>
+        <h3 slot="links-secondary" hidden>Red Hat legal and privacy links</h3>
+        <ul slot="links-secondary">{% for link in footer.globalLinksSecondary %}
+          <li><a href="{{ link.href }}">{{ link.content }}</a></li>{% endfor %}
+        </ul>{% endif %}{#
+        <div slot="secondary-end">
+          <a href="#">*We’ve updated our privacy statement effective December 30, 202X.</a>
+        </div>#}
+      </rh-global-footer>
+    </rh-footer>
 
     <!-- Current page: {{ page.url | url }} -->
   </body>

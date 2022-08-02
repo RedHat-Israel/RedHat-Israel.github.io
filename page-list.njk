@@ -10,15 +10,13 @@ permalink: /page-list/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber
   <thead>
     <tr>
       <th>URL</th>
-      <th>Page Title</th>
+      <th>כותרת</th>
     </tr>
   </thead>
-  <tbody>
-{%- for entry in entries %}
-  <tr>
-    <td><a href="{{ entry.url }}"><code>{{ entry.url }}</code></a></td>
-    <td>{{ entry.data.title }}</td>
-  </tr>
-{%- endfor %}
+  <tbody>{%- for entry in entries %}
+    <tr>
+      <td><a href="{{ entry.url }}"><code>{{ entry.url }}</code></a></td>
+      <td>{{ entry.data.title }}</td>
+    </tr>{%- endfor %}
   </tbody>
 </table>

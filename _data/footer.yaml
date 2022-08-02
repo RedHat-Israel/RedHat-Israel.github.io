@@ -1,0 +1,61 @@
+socialLinks:
+  - icon: linkedin
+    href: https://www.linkedin.com/company/red-hat
+    content: LinkedIn
+  - icon: youtube
+    href: https://www.youtube.com/user/RedHatVideos
+    content: Youtube
+  - icon: facebook
+    href: https://www.facebook.com/redhatinc
+    content: Facebook
+  - icon: twitter
+    href: https://twitter.com/RedHat
+    content: Twitter
+  - icon: github
+    href: https://github.com/redhat-israel
+    content: GitHub
+
+links:
+  - heading: המוצרים שלנו
+    links:
+    - href: https://www.redhat.com/en/technologies/management/ansible
+      content: Red Hat Ansible Automation Platform
+    - href: https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux
+      content: Red Hat Enterprise Linux
+    - href: https://www.redhat.com/en/technologies/cloud-computing/openshift
+      content: Red Hat OpenShift
+    - href: https://www.redhat.com/en/technologies/cloud-computing/openshift-data-foundation
+      content: Red Hat OpenShift Data Foundation
+    - href: https://www.redhat.com/en/technologies/linux-platforms/openstack-platform
+      content: Red Hat OpenStack Platform
+    - href: https://www.redhat.com/en/technologies/all-products
+      content: See all products
+  
+  - heading: צרו קשר
+    links:
+    - href: https://www.redhat.com/en/contact
+      content: כתבו לנו
+    - href: https://www.redhat.com/en/about/feedback
+      content: שלחו לנו פידבק
+    - href: https://www.redhat.com/en/about/social
+      content: עקבו אחרינו ברשתות החברתיות
+    
+
+secondary:
+  - heading: רד האט
+    content: |
+      רד האט היא החברה המובילה בעולם לפתרונות תוכנה מבוססי קוד פתוח לארגוני Enterprise. 
+      רד האט מבוססת על כוחה של קהילת הקוד הפתוח בפיתוח ואספקת טכנולוגיות Linux, Cloud, Container, ו-Kubernetes.
+      אנחנו מסייעים ללקוחות לשלב בין יישומי IT חדשים וקיימים, לפתח יישומים רב-ענניים
+      (multi-cloud), לבצע סטנדרטיזציה של מערכת ההפעלה, יחד עם אוטומציה, אבטחה וניהול של סביבות מורכבות.
+
+globalLinks:
+  - href: "https://www.redhat.com/en/about/privacy-policy"
+    content: הצהרת פרטיות
+  - href: "https://www.redhat.com/en/about/terms-use"
+    content: תנאי שימוש
+  - href: "https://www.redhat.com/en/about/digital-accessibility"
+    content: נגישות דיגיטלית
+  # needs client-side js
+  # - href: "#"
+  #   content: הגדרות עוגיות

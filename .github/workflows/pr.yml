@@ -44,6 +44,8 @@ jobs:
         run: npm ci
 
       - name: Build site
+        env:
+          SITE_GITHUB_TOKEN: "${{ secrets.SITE_GITHUB_TOKEN }}"
         run: npm run build
 
       - name: Configure git

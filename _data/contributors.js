@@ -1,7 +1,9 @@
+/* eslint-disable no-undef */
 const { graphql } = require('@octokit/graphql');
 
-const ORG_NAME = 'RedHat-Israel';
+const ORGANIZATION_NAME = 'RedHat-Israel'; // organization namespace
 const MAX_ORG_CONTRIBUTORS = 100; // modify this if/when we have more then 100 members
+const NUM_YEARS_CONTRIBUTING = 3; // number of years until today to search for contributions
 
 /**
  * Fetch Contributor data from GitHub and elsewhere
@@ -14,17 +16,33 @@ const MAX_ORG_CONTRIBUTORS = 100; // modify this if/when we have more then 100 m
  *     ```
  */
 async function israelContributors(configData) {
-  // this is the "straight-forward" version of the query
-  // at the end of this file we commented out the more specific version of this query
-  let query = `
-    {
-      organization(login: "${ORG_NAME}") {
+  // REQUIRED: set token from a Secret into the SITE_GITHUB_TOKEN environment variable in the CI workflow
+  // token requirements: https://docs.github.com/en/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql
+  const requestParams = {
+    headers: {
+      authorization: `bearer ${process.env.SITE_GITHUB_TOKEN}`,
+    }
+  };
+
+  const now = new Date();
+
+  let queries = ''; // organization query operations will be concatenated here
+  let numYears = NUM_YEARS_CONTRIBUTING;
+
+  // concatenate a query operation per year, each query operation is names yX
+  // (X being the year starting the current fetch)
+  while (numYears > 0) {
+    const currentDateTime = new Date(now);
+    currentDateTime.setFullYear(now.getFullYear() - numYears);
+
+    queries += `
+      y${currentDateTime.getFullYear()}: organization (login: "${ORGANIZATION_NAME}") {
         membersWithRole(first: ${MAX_ORG_CONTRIBUTORS}) {
           edges {
             node {
               login
               name
-              contributionsCollection {
+              contributionsCollection (from: "${currentDateTime.toISOString().split('.')[0]}") {
                 contributionCalendar {
                   totalContributions
                 }
@@ -33,52 +51,41 @@ async function israelContributors(configData) {
           }
         }
       }
-    }
-  `;
+    `;
 
-  // REQUIRED: set token from a Secret into the SITE_GITHUB_TOKEN environment variable in the CI workflow
-  // token requirements: https://docs.github.com/en/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql
-  const result = await graphql(query, {
-    headers: {
-      authorization: `bearer ${process.env.SITE_GITHUB_TOKEN}`,
-    }
+    numYears--;
+  }
+
+  const result = await graphql(`{ ${queries} }`, requestParams);
+  const resultMap = new Map(Object.entries(result));
+  const members = new Map();
+  resultMap.forEach((organization, _year) => {
+    organization.membersWithRole.edges.forEach(edge => {
+      const { login } = edge.node;
+      const { name } = edge.node || '';
+      const { totalContributions } = edge.node.contributionsCollection.contributionCalendar;
+
+      if (totalContributions > 0 ) {
+        if (members.has(login)) {
+          const existingLoginInfo = members.get(login);
+          existingLoginInfo.totalContributions += totalContributions;
+        } else {
+          const newLoginInfo = {
+            'name': name,
+            'totalContributions': totalContributions
+          };
+          members.set(login, newLoginInfo);
+        }
+      }
+    });
   });
 
-  // example node print:
-  // {"login":"TomerFi","name":"Tomer Figenblat","contributionsCollection":{"contributionCalendar":{"totalContributions":1679}}}
-  result.organization.membersWithRole.edges.forEach(
-    edge => console.log(JSON.stringify(edge.node)));
+  // eslint-disable-next-line no-console
+  console.log(members);
+  // example of a member from the members map,
+  // the login is the key, and the name and totalContributions are the value:
+  //
+  // 'TomerFi' => { name: 'Tomer Figenblat', totalContributions: 7845 }
 }
 
 module.exports = israelContributors;
-
-
-// let query = `
-// {
-//   organization(login: "RedHat-Israel") {
-//     membersWithRole(first: 100) {
-//       edges {
-//         node {
-//           login
-//           name
-//           contributionsCollection {
-//             totalCommitContributions
-//             totalIssueContributions
-//             totalPullRequestContributions
-//             totalPullRequestReviewContributions
-
-//             totalRepositoriesWithContributedCommits
-//             totalRepositoriesWithContributedIssues
-//             totalRepositoriesWithContributedPullRequests
-//             totalRepositoriesWithContributedPullRequestReviews
-
-//             totalRepositoryContributions
-
-//             restrictedContributionsCount
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
-// `;

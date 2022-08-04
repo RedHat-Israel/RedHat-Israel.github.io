@@ -2,8 +2,7 @@
 const { graphql } = require('@octokit/graphql');
 
 const ORGANIZATION_NAME = 'RedHat-Israel'; // organization namespace
-const MAX_ORG_CONTRIBUTORS = 100; // modify this if/when we have more then 100 members
-const NUM_YEARS_CONTRIBUTING = 3; // number of years until today to search for contributions
+const MAX_CONTRIBUTORS = 100; // modify this if/when we have more then 100 members
 
 /**
  * Fetch Contributor data from GitHub and elsewhere
@@ -24,68 +23,51 @@ async function israelContributors(configData) {
     }
   };
 
-  const now = new Date();
-
-  let queries = ''; // organization query operations will be concatenated here
-  let numYears = NUM_YEARS_CONTRIBUTING;
-
-  // concatenate a query operation per year, each query operation is names yX
-  // (X being the year starting the current fetch)
-  while (numYears > 0) {
-    const currentDateTime = new Date(now);
-    currentDateTime.setFullYear(now.getFullYear() - numYears);
-
-    queries += `
-      y${currentDateTime.getFullYear()}: organization (login: "${ORGANIZATION_NAME}") {
-        membersWithRole(first: ${MAX_ORG_CONTRIBUTORS}) {
-          edges {
-            node {
-              login
-              name
-              contributionsCollection (from: "${currentDateTime.toISOString().split('.')[0]}") {
-                contributionCalendar {
-                  totalContributions
-                }
-              }
+  const query = `
+    {
+      organization (login: "${ORGANIZATION_NAME}") {
+        membersWithRole(first: ${MAX_CONTRIBUTORS}) {
+          nodes {
+            contributionsCollection {
+              hasAnyContributions
+              totalCommitContributions
+              totalIssueContributions
+              totalPullRequestContributions
+              totalPullRequestReviewContributions
+              totalRepositoryContributions
             }
           }
         }
       }
-    `;
+    }
+  `;
 
-    numYears--;
-  }
+  const result = await graphql(query, requestParams);
 
-  const result = await graphql(`{ ${queries} }`, requestParams);
-  const resultMap = new Map(Object.entries(result));
-  const members = new Map();
-  resultMap.forEach((organization, _year) => {
-    organization.membersWithRole.edges.forEach(edge => {
-      const { login } = edge.node;
-      const { name } = edge.node || '';
-      const { totalContributions } = edge.node.contributionsCollection.contributionCalendar;
+  const organizationContributionSummary = {
+    totalCommitContributions: 0,
+    totalIssueContributions: 0,
+    totalPullRequestContributions: 0,
+    totalPullRequestReviewContributions: 0,
+    totalRepositoryContributions: 0
+  };
 
-      if (totalContributions > 0 ) {
-        if (members.has(login)) {
-          const existingLoginInfo = members.get(login);
-          existingLoginInfo.totalContributions += totalContributions;
-        } else {
-          const newLoginInfo = {
-            'name': name,
-            'totalContributions': totalContributions
-          };
-          members.set(login, newLoginInfo);
-        }
-      }
+  result.organization.membersWithRole.nodes
+    .filter(node => node.contributionsCollection.hasAnyContributions)
+    .forEach(node => {
+      organizationContributionSummary.totalCommitContributions +=
+        node.contributionsCollection.totalCommitContributions;
+      organizationContributionSummary.totalIssueContributions +=
+        node.contributionsCollection.totalIssueContributions;
+      organizationContributionSummary.totalPullRequestContributions +=
+        node.contributionsCollection.totalPullRequestContributions;
+      organizationContributionSummary.totalPullRequestReviewContributions +=
+        node.contributionsCollection.totalPullRequestReviewContributions;
+      organizationContributionSummary.totalRepositoryContributions +=
+        node.contributionsCollection.totalRepositoryContributions;
     });
-  });
 
-  // eslint-disable-next-line no-console
-  console.log(members);
-  // example of a member from the members map,
-  // the login is the key, and the name and totalContributions are the value:
-  //
-  // 'TomerFi' => { name: 'Tomer Figenblat', totalContributions: 7845 }
+  // TODO: TBD fetched contributions data usage stored in organizationContributionSummary
 }
 
 module.exports = israelContributors;

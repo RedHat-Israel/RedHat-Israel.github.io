@@ -1,4 +1,5 @@
-/* eslint-disable no-undef */
+require('dotenv/config');
+const { AssetCache } = require('@11ty/eleventy-fetch');
 const { graphql } = require('@octokit/graphql');
 
 const ORGANIZATION_NAME = 'RedHat-Israel'; // organization namespace
@@ -42,7 +43,9 @@ async function israelContributors(configData) {
     }
   `;
 
-  const result = await graphql(query, requestParams);
+  const cache = new AssetCache('github_graphq_contributions');
+
+  const result = cache.isCacheValid('1d') ? cache.getCachedValue() : await graphql(query, requestParams).catch(reason => console.error(reason));
 
   const organizationContributionSummary = {
     totalCommitContributions: 0,
@@ -52,9 +55,9 @@ async function israelContributors(configData) {
     totalRepositoryContributions: 0
   };
 
-  result.organization.membersWithRole.nodes
-    .filter(node => node.contributionsCollection.hasAnyContributions)
-    .forEach(node => {
+  result?.organization?.membersWithRole?.nodes
+    ?.filter(node => node.contributionsCollection.hasAnyContributions)
+    ?.forEach(node => {
       organizationContributionSummary.totalCommitContributions +=
         node.contributionsCollection.totalCommitContributions;
       organizationContributionSummary.totalIssueContributions +=
@@ -68,6 +71,9 @@ async function israelContributors(configData) {
     });
 
   // TODO: TBD fetched contributions data usage stored in organizationContributionSummary
+  return {
+    ...organizationContributionSummary,
+  };
 }
 
 module.exports = israelContributors;

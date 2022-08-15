@@ -5,6 +5,8 @@ eleventyNavigation:
   order: 1
 ---
 {% set maxPosts = collections.posts.length | min(3) %}
+<img src="{{ '/img/confetti.jpg' | url }}" alt="עובדי רד הט חוגגים עם קונפטי">
+
 <h1>{% if maxPosts == 1 %}
   הפוסט האחרון {% else %}
   {{ maxPosts }} הפוסטים האחרונים{% endif %}

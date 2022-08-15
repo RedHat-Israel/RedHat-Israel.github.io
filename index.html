@@ -1,0 +1,62 @@
+---
+layout: layouts/home.njk
+eleventyNavigation:
+  key: בית
+  order: 1
+---
+{% set maxPosts = collections.posts.length | min(3) %}
+<img src="{{ '/img/confetti.jpg' | url }}" alt="עובדי רד הט חוגגים עם קונפטי">
+
+<p>בשנה האחרונה. עובדי רד האט בארץ תרמו לפרוייקטים שונים בגיטהאב...</p>
+
+<div id="stats">
+
+  <rh-stat top="statistic">
+    <span slot="title">קומיטים</span>
+    <span slot="statistic">{{ contributors.totalCommitContributions }}</span>
+    <p slot="description"></p>
+  </rh-stat>
+
+  <rh-stat top="statistic">
+    <span slot="title">אישיוז</span>
+    <span slot="statistic">{{ contributors.totalIssueContributions }}</span>
+    <p slot="description"></p>
+  </rh-stat>
+
+  <rh-stat top="statistic">
+    <span slot="title">PRs</span>
+    <span slot="statistic">{{ contributors.totalPullRequestContributions }}</span>
+    <p slot="description"></p>
+  </rh-stat>
+
+  <rh-stat top="statistic">
+    <span slot="title">PR Reviews</span>
+    <span slot="statistic">{{ contributors.totalPullRequestReviewContributions }}</span>
+    <p slot="description"></p>
+  </rh-stat>
+
+  <rh-stat top="statistic">
+    <span slot="title">רפוים</span>
+    <span slot="statistic">{{ contributors.totalRepositoryContributions }}</span>
+    <p slot="description"></p>
+  </rh-stat>
+  
+</div>
+
+<h2>{% if maxPosts == 1 %}
+  הפוסט האחרון {% else %}
+  {{ maxPosts }} הפוסטים האחרונים{% endif %}
+</h2>
+
+{% set postslist = collections.posts | head(-3) %}
+{% set postslistCounter = collections.posts | length %}
+{% include "postslist.njk" %}
+
+<p>יש עוד פוסטים <a href="{{ '/posts/' | url }}">בארכיון</a>.</p>
+
+<style>
+#stats {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+</style>

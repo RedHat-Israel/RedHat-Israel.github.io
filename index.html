@@ -12,13 +12,13 @@ eleventyNavigation:
 <div id="stats">
 
   <rh-stat top="statistic">
-    <span slot="title">קומיטים</span>
+    <span slot="title">Commits</span>
     <span slot="statistic">{{ contributors.totalCommitContributions }}</span>
     <p slot="description"></p>
   </rh-stat>
 
   <rh-stat top="statistic">
-    <span slot="title">אישיוז</span>
+    <span slot="title">Issues</span>
     <span slot="statistic">{{ contributors.totalIssueContributions }}</span>
     <p slot="description"></p>
   </rh-stat>
@@ -30,17 +30,23 @@ eleventyNavigation:
   </rh-stat>
 
   <rh-stat top="statistic">
-    <span slot="title">PR Reviews</span>
+    <span slot="title">Reviews</span>
     <span slot="statistic">{{ contributors.totalPullRequestReviewContributions }}</span>
     <p slot="description"></p>
   </rh-stat>
 
   <rh-stat top="statistic">
-    <span slot="title">רפוים</span>
+    <span slot="title">Repositories</span>
     <span slot="statistic">{{ contributors.totalRepositoryContributions }}</span>
     <p slot="description"></p>
   </rh-stat>
-  
+
+  <rh-stat top="statistic">
+    <span slot="title">Gists</span>
+    <span slot="statistic">{{ contributors.totalGists }}</span>
+    <p slot="description"></p>
+  </rh-stat>
+
 </div>
 
 <h2>{% if maxPosts == 1 %}

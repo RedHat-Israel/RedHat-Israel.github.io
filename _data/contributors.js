@@ -37,13 +37,16 @@ async function israelContributors(configData) {
               totalPullRequestReviewContributions
               totalRepositoryContributions
             }
+            gists (first: 100) {
+              totalCount
+            }
           }
         }
       }
     }
   `;
 
-  const cache = new AssetCache('github_graphq_contributions');
+  const cache = new AssetCache('github_graphql_contributions');
 
   const result = cache.isCacheValid('1d') ? cache.getCachedValue() : await graphql(query, requestParams).catch(reason => console.error(reason));
 
@@ -52,7 +55,8 @@ async function israelContributors(configData) {
     totalIssueContributions: 0,
     totalPullRequestContributions: 0,
     totalPullRequestReviewContributions: 0,
-    totalRepositoryContributions: 0
+    totalRepositoryContributions: 0,
+    totalGists: 0
   };
 
   result?.organization?.membersWithRole?.nodes
@@ -68,9 +72,9 @@ async function israelContributors(configData) {
         node.contributionsCollection.totalPullRequestReviewContributions;
       organizationContributionSummary.totalRepositoryContributions +=
         node.contributionsCollection.totalRepositoryContributions;
+      organizationContributionSummary.totalGists += node.gists.totalCount;
     });
 
-  // TODO: TBD fetched contributions data usage stored in organizationContributionSummary
   return {
     ...organizationContributionSummary,
   };

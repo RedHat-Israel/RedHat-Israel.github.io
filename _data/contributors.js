@@ -48,7 +48,7 @@ async function israelContributors(configData) {
 
   const cache = new AssetCache('github_graphql_contributions');
 
-  const result = cache.isCacheValid('1d') ? cache.getCachedValue() : await graphql(query, requestParams).catch(reason => console.error(reason));
+  const result = cache.isCacheValid('1d') ? cache.getCachedValue() : await graphql(query, requestParams);
 
   const organizationContributionSummary = {
     totalCommitContributions: 0,

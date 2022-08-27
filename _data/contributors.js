@@ -3,81 +3,91 @@ const { AssetCache } = require('@11ty/eleventy-fetch');
 const { graphql } = require('@octokit/graphql');
 
 const ORGANIZATION_NAME = 'RedHat-Israel'; // organization namespace
-const MAX_CONTRIBUTORS = 100; // modify this if/when we have more then 100 members
+const MAX_CONTRIBUTORS_FETCH = 20;
+// REQUIRED: set token from a Secret into the SITE_GITHUB_TOKEN environment variable in the CI workflow
+// token requirements: https://docs.github.com/en/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql
+const REQUEST_PARAMS = {
+  headers: {
+    authorization: `bearer ${process.env.SITE_GITHUB_TOKEN}`,
+  }
+};
+
+
+module.exports = israelContributors;
 
 /**
- * Fetch Contributor data from GitHub and elsewhere
+ * Fetch Contributors data from GitHub
  * @param {*} configData see https://www.11ty.dev/docs/data-js/#arguments-to-global-data-files
- * @example
- *     ```html
- *     <ul>{% for contributor in contributors %}
- *       <li>{{ contributor.name }}</li>{% endfor %}
- *     </ul>
- *     ```
  */
-async function israelContributors(configData) {
-  // REQUIRED: set token from a Secret into the SITE_GITHUB_TOKEN environment variable in the CI workflow
-  // token requirements: https://docs.github.com/en/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql
-  const requestParams = {
-    headers: {
-      authorization: `bearer ${process.env.SITE_GITHUB_TOKEN}`,
-    }
+async function israelContributors(_configData) {
+  const cache = new AssetCache('github_graphql_contributions');
+  const summary = cache.isCacheValid('1d') ? cache.getCachedValue() : await getStatsForOrgMembers(`first: ${MAX_CONTRIBUTORS_FETCH}`);
+  return {
+    ...summary,
   };
+}
 
+async function getStatsForOrgMembers(members, summary) {
+  if (!summary) {
+    summary = {
+      totalCommitContributions: 0,
+      totalIssueContributions: 0,
+      totalPullRequestContributions: 0,
+      totalPullRequestReviewContributions: 0,
+      totalRepositoryContributions: 0,
+      totalGists: 0
+    };
+  }
+
+  // NOTE: fetching "max-per-page" 100 gists per member
   const query = `
     {
       organization (login: "${ORGANIZATION_NAME}") {
-        membersWithRole(first: ${MAX_CONTRIBUTORS}) {
-          nodes {
-            contributionsCollection {
-              hasAnyContributions
-              totalCommitContributions
-              totalIssueContributions
-              totalPullRequestContributions
-              totalPullRequestReviewContributions
-              totalRepositoryContributions
+        membersWithRole(${members}) {
+          edges {
+            node {
+              contributionsCollection {
+                totalCommitContributions
+                totalIssueContributions
+                totalPullRequestContributions
+                totalPullRequestReviewContributions
+                totalRepositoryContributions
+              }
+              gists (first: 100) {
+                totalCount
+              }
             }
-            gists (first: 100) {
-              totalCount
-            }
+          }
+          pageInfo {
+            endCursor
+            hasNextPage
           }
         }
       }
     }
   `;
 
-  const cache = new AssetCache('github_graphql_contributions');
+  const result = await graphql(query, REQUEST_PARAMS);
 
-  const result = cache.isCacheValid('1d') ? cache.getCachedValue() : await graphql(query, requestParams);
-
-  const organizationContributionSummary = {
-    totalCommitContributions: 0,
-    totalIssueContributions: 0,
-    totalPullRequestContributions: 0,
-    totalPullRequestReviewContributions: 0,
-    totalRepositoryContributions: 0,
-    totalGists: 0
-  };
-
-  result?.organization?.membersWithRole?.nodes
-    ?.filter(node => node.contributionsCollection.hasAnyContributions)
-    ?.forEach(node => {
-      organizationContributionSummary.totalCommitContributions +=
-        node.contributionsCollection.totalCommitContributions;
-      organizationContributionSummary.totalIssueContributions +=
-        node.contributionsCollection.totalIssueContributions;
-      organizationContributionSummary.totalPullRequestContributions +=
-        node.contributionsCollection.totalPullRequestContributions;
-      organizationContributionSummary.totalPullRequestReviewContributions +=
-        node.contributionsCollection.totalPullRequestReviewContributions;
-      organizationContributionSummary.totalRepositoryContributions +=
-        node.contributionsCollection.totalRepositoryContributions;
-      organizationContributionSummary.totalGists += node.gists.totalCount;
+  result?.organization?.membersWithRole?.edges
+    ?.forEach(edge => {
+      summary.totalCommitContributions +=
+        edge.node.contributionsCollection.totalCommitContributions;
+      summary.totalIssueContributions +=
+        edge.node.contributionsCollection.totalIssueContributions;
+      summary.totalPullRequestContributions +=
+        edge.node.contributionsCollection.totalPullRequestContributions;
+      summary.totalPullRequestReviewContributions +=
+        edge.node.contributionsCollection.totalPullRequestReviewContributions;
+      summary.totalRepositoryContributions +=
+        edge.node.contributionsCollection.totalRepositoryContributions;
+      summary.totalGists += edge.node.gists.totalCount;
     });
 
-  return {
-    ...organizationContributionSummary,
-  };
+  if (result?.organization?.membersWithRole?.pageInfo?.hasNextPage) {
+    return getStatsForOrgMembers(
+      `first: ${MAX_CONTRIBUTORS_FETCH}, after: "${result.organization.membersWithRole.pageInfo.endCursor}"`,
+      summary)
+  }
+  return summary;
 }
-
-module.exports = israelContributors;

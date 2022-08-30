@@ -2,16 +2,71 @@ require('dotenv/config');
 const { AssetCache } = require('@11ty/eleventy-fetch');
 const { graphql } = require('@octokit/graphql');
 
-const ORGANIZATION_NAME = 'RedHat-Israel'; // organization namespace
-const MAX_CONTRIBUTORS_FETCH = 20;
-// REQUIRED: set token from a Secret into the SITE_GITHUB_TOKEN environment variable in the CI workflow
+// max members per query for avoiding gh internal timeouts, multiple queries will be performed
 // token requirements: https://docs.github.com/en/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql
-const REQUEST_PARAMS = {
+const requestParams = {
+  org: 'RedHat-Israel',
+  maxMembers: 20,
   headers: {
     authorization: `bearer ${process.env.SITE_GITHUB_TOKEN}`,
   }
 };
 
+// fetching "max-per-page" 100 gists per member
+const initialQuery = `#graphql
+  query ($org: String!, $maxMembers: Int!) {
+    organization (login: $org) {
+      membersWithRole(first: $maxMembers) {
+        edges {
+          node {
+            contributionsCollection {
+              totalCommitContributions
+              totalIssueContributions
+              totalPullRequestContributions
+              totalPullRequestReviewContributions
+              totalRepositoryContributions
+            }
+            gists (first: 100) {
+              totalCount
+            }
+          }
+        }
+        pageInfo {
+          endCursor
+          hasNextPage
+        }
+      }
+    }
+  }
+`;
+
+// fetching "max-per-page" 100 gists per member
+const followupQuery = `#graphql
+  query ($org: String!, $maxMembers: Int!, $lastCursor: String!) {
+    organization (login: $org) {
+      membersWithRole(first: $maxMembers, after: $lastCursor) {
+        edges {
+          node {
+            contributionsCollection {
+              totalCommitContributions
+              totalIssueContributions
+              totalPullRequestContributions
+              totalPullRequestReviewContributions
+              totalRepositoryContributions
+            }
+            gists (first: 100) {
+              totalCount
+            }
+          }
+        }
+        pageInfo {
+          endCursor
+          hasNextPage
+        }
+      }
+    }
+  }
+`;
 
 module.exports = israelContributors;
 
@@ -21,13 +76,13 @@ module.exports = israelContributors;
  */
 async function israelContributors(_configData) {
   const cache = new AssetCache('github_graphql_contributions');
-  const summary = cache.isCacheValid('1d') ? cache.getCachedValue() : await getStatsForOrgMembers(`first: ${MAX_CONTRIBUTORS_FETCH}`);
+  const summary = cache.isCacheValid('1d') ? cache.getCachedValue() : await getStatsForOrgMembers({ ...requestParams, query: initialQuery });
   return {
     ...summary,
   };
 }
 
-async function getStatsForOrgMembers(members, summary) {
+async function getStatsForOrgMembers(variables, summary) {
   if (!summary) {
     summary = {
       totalCommitContributions: 0,
@@ -38,36 +93,7 @@ async function getStatsForOrgMembers(members, summary) {
       totalGists: 0
     };
   }
-
-  // NOTE: fetching "max-per-page" 100 gists per member
-  const query = `
-    {
-      organization (login: "${ORGANIZATION_NAME}") {
-        membersWithRole(${members}) {
-          edges {
-            node {
-              contributionsCollection {
-                totalCommitContributions
-                totalIssueContributions
-                totalPullRequestContributions
-                totalPullRequestReviewContributions
-                totalRepositoryContributions
-              }
-              gists (first: 100) {
-                totalCount
-              }
-            }
-          }
-          pageInfo {
-            endCursor
-            hasNextPage
-          }
-        }
-      }
-    }
-  `;
-
-  const result = await graphql(query, REQUEST_PARAMS);
+  const result = await graphql({ ...variables });
 
   result?.organization?.membersWithRole?.edges
     ?.forEach(edge => {
@@ -86,7 +112,7 @@ async function getStatsForOrgMembers(members, summary) {
 
   if (result?.organization?.membersWithRole?.pageInfo?.hasNextPage) {
     return getStatsForOrgMembers(
-      `first: ${MAX_CONTRIBUTORS_FETCH}, after: "${result.organization.membersWithRole.pageInfo.endCursor}"`,
+      { ...requestParams, query: followupQuery, lastCursor: result.organization.membersWithRole.pageInfo.endCursor },
       summary)
   }
   return summary;

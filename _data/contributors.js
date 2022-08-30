@@ -6,66 +6,56 @@ const { graphql } = require('@octokit/graphql');
 // token requirements: https://docs.github.com/en/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql
 const requestParams = {
   org: 'RedHat-Israel',
-  maxMembers: 20,
+  maxMembers: 15,
   headers: {
     authorization: `bearer ${process.env.SITE_GITHUB_TOKEN}`,
   }
 };
 
 // fetching "max-per-page" 100 gists per member
-const initialQuery = `#graphql
-  query ($org: String!, $maxMembers: Int!) {
-    organization (login: $org) {
-      membersWithRole(first: $maxMembers) {
-        edges {
-          node {
-            contributionsCollection {
-              totalCommitContributions
-              totalIssueContributions
-              totalPullRequestContributions
-              totalPullRequestReviewContributions
-              totalRepositoryContributions
-            }
-            gists (first: 100) {
-              totalCount
-            }
-          }
+const membersFragment = `#graphql
+  fragment memberAttribs on OrganizationMemberConnection {
+    edges {
+      node {
+        contributionsCollection {
+          totalCommitContributions
+          totalIssueContributions
+          totalPullRequestContributions
+          totalPullRequestReviewContributions
+          totalRepositoryContributions
         }
-        pageInfo {
-          endCursor
-          hasNextPage
+        gists (first: 100) {
+          totalCount
         }
       }
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
     }
   }
 `;
 
-// fetching "max-per-page" 100 gists per member
+const initialQuery = `#graphql
+  query ($org: String!, $maxMembers: Int!) {
+    organization (login: $org) {
+      membersWithRole(first: $maxMembers) {
+        ...memberAttribs
+      }
+    }
+  }
+  ${membersFragment}
+`;
+
 const followupQuery = `#graphql
   query ($org: String!, $maxMembers: Int!, $lastCursor: String!) {
     organization (login: $org) {
       membersWithRole(first: $maxMembers, after: $lastCursor) {
-        edges {
-          node {
-            contributionsCollection {
-              totalCommitContributions
-              totalIssueContributions
-              totalPullRequestContributions
-              totalPullRequestReviewContributions
-              totalRepositoryContributions
-            }
-            gists (first: 100) {
-              totalCount
-            }
-          }
-        }
-        pageInfo {
-          endCursor
-          hasNextPage
-        }
+        ...memberAttribs
       }
     }
   }
+  ${membersFragment}
 `;
 
 module.exports = israelContributors;

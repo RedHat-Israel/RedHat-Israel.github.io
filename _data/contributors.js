@@ -1,89 +1,35 @@
 require('dotenv/config');
 const { AssetCache } = require('@11ty/eleventy-fetch');
-const { graphql } = require('@octokit/graphql');
+const { readFileSync } = require('node:fs');
+const { join } = require('node:path');
+const octokitGql = require('@octokit/graphql');
 
-// max members per query for avoiding gh internal timeouts, multiple queries will be performed
-// token requirements: https://docs.github.com/en/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql
-const requestParams = {
-  org: 'RedHat-Israel',
-  maxMembers: 15,
-  headers: {
-    authorization: `bearer ${process.env.SITE_GITHUB_TOKEN}`,
-  }
-};
+const readRelative = path =>
+  readFileSync(join(__dirname, path), 'utf8');
 
-// fetching "max-per-page" 100 gists per member
-const membersFragment = `#graphql
-  fragment memberAttribs on OrganizationMemberConnection {
-    edges {
-      node {
-        contributionsCollection {
-          totalCommitContributions
-          totalIssueContributions
-          totalPullRequestContributions
-          totalPullRequestReviewContributions
-          totalRepositoryContributions
-        }
-        gists (first: 100) {
-          totalCount
-        }
-      }
-    }
-    pageInfo {
-      endCursor
-      hasNextPage
-    }
-  }
-`;
+// QUERIES
+const fragment = readRelative('./members.fragment.graphql');
+const initialQuery = [readRelative('./initial.query.graphql'), fragment].join('\n');
+const followupQuery = [readRelative('./followup.query.graphql'), fragment].join('\n');
 
-const initialQuery = `#graphql
-  query ($org: String!, $maxMembers: Int!) {
-    organization (login: $org) {
-      membersWithRole(first: $maxMembers) {
-        ...memberAttribs
-      }
-    }
-  }
-  ${membersFragment}
-`;
+// VARIABLES
+/** Fetch data for redhat israels github org */
+const org = 'RedHat-Israel';
+/** Max members per query for avoiding gh internal timeouts, multiple queries will be performed */
+const maxMembers = 15;
+/** @see https://docs.github.com/en/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql */
+const headers = { authorization: `bearer ${process.env.SITE_GITHUB_TOKEN}` };
+const graphql = octokitGql.graphql.defaults({ headers });
 
-const followupQuery = `#graphql
-  query ($org: String!, $maxMembers: Int!, $lastCursor: String!) {
-    organization (login: $org) {
-      membersWithRole(first: $maxMembers, after: $lastCursor) {
-        ...memberAttribs
-      }
-    }
-  }
-  ${membersFragment}
-`;
-
-module.exports = israelContributors;
-
-/**
- * Fetch Contributors data from GitHub
- * @param {*} configData see https://www.11ty.dev/docs/data-js/#arguments-to-global-data-files
- */
-async function israelContributors(_configData) {
-  const cache = new AssetCache('github_graphql_contributions');
-  const summary = cache.isCacheValid('1d') ? cache.getCachedValue() : await getStatsForOrgMembers({ ...requestParams, query: initialQuery });
-  return {
-    ...summary,
-  };
-}
-
-async function getStatsForOrgMembers(variables, summary) {
-  if (!summary) {
-    summary = {
-      totalCommitContributions: 0,
-      totalIssueContributions: 0,
-      totalPullRequestContributions: 0,
-      totalPullRequestReviewContributions: 0,
-      totalRepositoryContributions: 0,
-      totalGists: 0
-    };
-  }
-  const result = await graphql({ ...variables });
+async function getStatsForOrgMembers(query, variables = {}, summary = {
+  totalCommitContributions: 0,
+  totalIssueContributions: 0,
+  totalPullRequestContributions: 0,
+  totalPullRequestReviewContributions: 0,
+  totalRepositoryContributions: 0,
+  totalGists: 0
+}) {
+  const result = await graphql({ query, org, maxMembers, ...variables });
 
   result?.organization?.membersWithRole?.edges
     ?.forEach(edge => {
@@ -100,10 +46,20 @@ async function getStatsForOrgMembers(variables, summary) {
       summary.totalGists += edge.node.gists.totalCount;
     });
 
-  if (result?.organization?.membersWithRole?.pageInfo?.hasNextPage) {
-    return getStatsForOrgMembers(
-      { ...requestParams, query: followupQuery, lastCursor: result.organization.membersWithRole.pageInfo.endCursor },
-      summary)
+  if (!result?.organization?.membersWithRole?.pageInfo?.hasNextPage) {
+    return summary;
+  } else {
+    const lastCursor = result.organization.membersWithRole.pageInfo.endCursor
+    return getStatsForOrgMembers(followupQuery, { lastCursor }, summary);
   }
-  return summary;
+}
+
+/**
+ * Fetch Contributors data from GitHub
+ * @param {*} configData see https://www.11ty.dev/docs/data-js/#arguments-to-global-data-files
+ * @return {Promise<*>}
+ */
+module.exports = async function israelContributors(_configData) {
+  const cache = new AssetCache('github_graphql_contributions');
+  return cache.isCacheValid('1d') ? cache.getCachedValue() : getStatsForOrgMembers(initialQuery);
 }

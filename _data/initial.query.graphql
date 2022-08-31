@@ -1,0 +1,7 @@
+query ($org: String!, $maxMembers: Int!) {
+  organization (login: $org) {
+    membersWithRole(first: $maxMembers) {
+      ...memberAttribs
+    }
+  }
+}

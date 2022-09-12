@@ -1,0 +1,22 @@
+# fetching "max-per-page" 100 gists per member
+
+fragment memberAttribs on OrganizationMemberConnection {
+  edges {
+    node {
+      contributionsCollection {
+        totalCommitContributions
+        totalIssueContributions
+        totalPullRequestContributions
+        totalPullRequestReviewContributions
+        totalRepositoryContributions
+      }
+      gists (first: 100) {
+        totalCount
+      }
+    }
+  }
+  pageInfo {
+    endCursor
+    hasNextPage
+  }
+}

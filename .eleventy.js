@@ -24,11 +24,9 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(PostCSSPlugin);
   eleventyConfig.addDataExtension("yaml", contents => yaml.load(contents));
 
-  eleventyConfig.addFilter("readableDate", dateObj => {
-    console.log(DateTime.fromJSDate(dateObj, {zone: 'Asia/Jerusalem', locale: 'he'}))
-    return DateTime.fromJSDate(dateObj, {zone: 'Asia/Jerusalem', locale: 'he'})
-      .toFormat("dd LLL yyyy");
-  });
+  eleventyConfig.addFilter("readableDate", dateObj =>
+    DateTime.fromJSDate(dateObj, {zone: 'Asia/Jerusalem', locale: 'he'})
+      .toFormat("dd LLL yyyy"));
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
   eleventyConfig.addFilter('htmlDateString', (dateObj) => {

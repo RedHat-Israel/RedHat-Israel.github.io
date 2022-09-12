@@ -43,7 +43,17 @@ jobs:
       - name: Install project modules
         run: npm ci
 
-      - name: Build site
+      - name: Build site 1st attempt
+        continue-on-error: true
+        id: firstBuild
+        env:
+          SITE_GITHUB_TOKEN: "${{ secrets.SITE_GITHUB_TOKEN }}"
+        run: npm run build
+
+      - name: Build site 2nd attempt
+        if: steps.firstBuild.outcome == 'failure'
+        env:
+          SITE_GITHUB_TOKEN: "${{ secrets.SITE_GITHUB_TOKEN }}"
         run: npm run build
 
       - name: Configure git

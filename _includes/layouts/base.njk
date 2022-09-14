@@ -28,7 +28,7 @@
     <header id="main-header">
       <h1 class="home">
         <a href="{{ '/' | url }}">
-          <img src="{{ '/assets/red-hat-israel-site.svg' | url }}" alt="{{ metadata.title }}"/>
+          <img src="{{ 'https://static.redhat.com/libs/redhat/brand-assets/2/corp/logo--on-dark.svg' | url }}" alt="{{ metadata.title }}"/>
         </a>
       </h1>
     </header>
@@ -49,7 +49,7 @@
 
     <rh-footer>
       <a slot="logo" href="/en">
-        <img src="{{ '/assets/red-hat-israel-site.svg' | url }}" alt="Red Hat Israel logo" loading="lazy"/> 
+        <img src="{{ 'https://static.redhat.com/libs/redhat/brand-assets/2/corp/logo--on-dark.svg' | url }}" alt="Red Hat Israel logo" loading="lazy"/> 
       </a>{% for link in footer.socialLinks %}
       <rh-footer-social-link slot="social-links" icon="web-icon-{{ link.icon }}">
         <a href="{{ link.href }}">{{ link.content }}</a>

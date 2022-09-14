@@ -1,3 +1,6 @@
 _site/
 node_modules/
 .env
+css/rhds.css
+assets/@rhds
+.cache

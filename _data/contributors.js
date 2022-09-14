@@ -61,5 +61,18 @@ async function getStatsForOrgMembers(query, variables = {}, summary = {
  */
 module.exports = async function israelContributors(_configData) {
   const cache = new AssetCache('github_graphql_contributions');
-  return cache.isCacheValid('1d') ? cache.getCachedValue() : getStatsForOrgMembers(initialQuery);
+
+  console.log('Preparing GitHub Contributor data...')
+  if (cache.isCacheValid('1d')) {
+    console.log('  ...cache hit!');
+    return cache.getCachedValue();
+  } else {
+    console.log('  ...cache miss, fetching...');
+    try {
+      const result = getStatsForOrgMembers(initialQuery);
+      cache.save(result, 'json');
+    } catch (error) {
+      console.error(error);
+    }
+  }
 }

@@ -62,8 +62,8 @@ module.exports = async function(configData) {
   const map = generator.getMap();
 
   const pathPrefix = configData.pathPrefix ?? process.env.ELEVENTY_PATH_PREFIX ?? "/red-hat-israel-site/"
-  map.imports['@rhds/elements'] = `/${pathPrefix}assets/@rhds/elements/rhds.min.js`.replace('//', '/');
-  map.imports['@rhds/elements/'] = `/${pathPrefix}assets/@rhds/elements/elements/`.replace('//', '/');
+  map.imports['@rhds/elements'] = `/${pathPrefix}/assets/@rhds/elements/rhds.min.js`.replaceAll('//', '/');
+  map.imports['@rhds/elements/'] = `/${pathPrefix}/assets/@rhds/elements/elements/`.replaceAll('//', '/');
 
   console.log('  ...Done!');
   return map;

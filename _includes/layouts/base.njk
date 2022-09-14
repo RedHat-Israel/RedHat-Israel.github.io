@@ -10,25 +10,29 @@
     <link rel="preconnect" href="https://www.redhat.com">
     <link rel="preconnect" href="https://static.redhat.com">
     <link rel="shortcut icon" href="https://www.redhat.com/misc/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://static.redhat.com/libs/redhat/redhat-font/2/webfonts/red-hat-font.css" media="all">
-    <link rel="stylesheet" href="{{ '/css/rhds.css' | url }}">
-    <link rel="stylesheet" href="{{ '/css/index.css' | url }}">
-    <link rel="stylesheet" href="{{ '/css/prism.css' | url }}">
-    <link rel="stylesheet" href="{{ '/css/prism-diff.css' | url }}">
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
     <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
 
+    <link rel="stylesheet" href="https://static.redhat.com/libs/redhat/redhat-font/2/webfonts/red-hat-font.css" media="all">
+    <link rel="stylesheet" href="{{ '/assets/css/rhds.css' | url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/index.css' | url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/prism.css' | url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/prism-diff.css' | url }}">
+    <link rel="stylesheet" href="{{ '/assets/@rhds/elements/elements/rh-footer/rh-footer-lightdom.css' | url }}">
+    <noscript><link rel="stylesheet" href="{{ '/assets/css/noscript.css' | url }}"></noscript>
+
     <script type="importmap">{{ importMap | dump | safe }}</script>
     <script async src="https://ga.jspm.io/npm:es-module-shims@1.5.9/dist/es-module-shims.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/@rhds/elements@1.0.0-beta.12/elements/rh-footer/rh-footer-lightdom.css">
-    <script type="module">import '@rhds/elements';</script>
-    <noscript><link rel="stylesheet" href="{{ '/css/noscript.css' | url }}"></noscript>
+    <script type="module">{% if imports %}{% for import in imports %}
+      import '{{ import }}';{% endfor %}{%else%}
+      import '@rhds/elements';{%endif%}
+    </script>
   </head>
   <body>
     <header id="main-header">
       <h1 class="home">
         <a href="{{ '/' | url }}">
-          <img src="{{ '/assets/red-hat-israel-site.svg' | url }}" alt="{{ metadata.title }}"/>
+          <img src="{{ 'https://static.redhat.com/libs/redhat/brand-assets/2/corp/logo--on-dark.svg' | url }}" alt="{{ metadata.title }}"/>
         </a>
       </h1>
     </header>
@@ -49,7 +53,7 @@
 
     <rh-footer>
       <a slot="logo" href="/en">
-        <img src="{{ '/assets/red-hat-israel-site.svg' | url }}" alt="Red Hat Israel logo" loading="lazy"/> 
+        <img src="{{ 'https://static.redhat.com/libs/redhat/brand-assets/2/corp/logo--on-dark.svg' | url }}" alt="Red Hat Israel logo" loading="lazy"/> 
       </a>{% for link in footer.socialLinks %}
       <rh-footer-social-link slot="social-links" icon="web-icon-{{ link.icon }}">
         <a href="{{ link.href }}">{{ link.content }}</a>

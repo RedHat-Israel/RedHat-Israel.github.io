@@ -2,7 +2,7 @@
 
 const PFE_DEPS = [
   'tslib',
-  '@patternfly/pfe-core@next',
+  '@patternfly/pfe-core',
   '@patternfly/pfe-core/decorators.js',
   '@patternfly/pfe-core/controllers/cascade-controller.js',
   '@patternfly/pfe-core/controllers/color-context.js',
@@ -25,10 +25,11 @@ const PFE_DEPS = [
   '@patternfly/pfe-core/functions/debounce.js',
   '@patternfly/pfe-core/functions/deprecatedCustomEvent.js',
   '@patternfly/pfe-core/functions/random.js',
-];
-
-const RHDS_DEPS = [
-  '@rhds/elements'
+  '@patternfly/pfe-icon@next',
+  '@patternfly/pfe-modal@next',
+  '@patternfly/pfe-accordion@next',
+  '@patternfly/pfe-tooltip@next',
+  '@patternfly/pfe-tooltip@next/BaseTooltip.js',
 ];
 
 const LIT_DEPS = [
@@ -43,23 +44,28 @@ const LIT_DEPS = [
   'lit/static-html.js',
 ];
 
-const ALL_DEPS = [
+const CDN_DEPS = [
   ...LIT_DEPS,
   ...PFE_DEPS,
-  ...RHDS_DEPS,
 ];
 
 module.exports = async function(configData) {
+  console.log('Generating import map...');
   const { Generator } = await import('@jspm/generator');
 
   const generator = new Generator({ env: ['production', 'browser', 'module'] });
 
-  for (const pack of ALL_DEPS) {
-    await generator.install(pack);
-  }
+  await generator.install([
+    ...CDN_DEPS,
+  ]);
 
   const map = generator.getMap();
 
+  const pathPrefix = configData.pathPrefix ?? process.env.ELEVENTY_PATH_PREFIX ?? "/red-hat-israel-site/"
+  map.imports['@rhds/elements'] = `/${pathPrefix}/assets/@rhds/elements/rhds.min.js`.replaceAll('//', '/');
+  map.imports['@rhds/elements/'] = `/${pathPrefix}/assets/@rhds/elements/elements/`.replaceAll('//', '/');
+
+  console.log('  ...Done!');
   return map;
 };
 

@@ -56,13 +56,13 @@ tags:
 
 **מוזמנים להמשיך לשוטט בגיט שלנו ולהכיר את האנשים שמאחורי המותג**  <br/>
 
-![Red hatters celebrating with confetti]({{ '/img/confetti.jpg' | url }})
+![Red hatters celebrating with confetti]({{ '/assets/img/confetti.jpg' | url }})
 
-![OpenShift Commones Gathring]({{ '/img/openshift-commons-gathering-2.jpg' | url }})
+![OpenShift Commones Gathring]({{ '/assets/img/openshift-commons-gathering-2.jpg' | url }})
 
-![Red hatters at Tal HAI college]({{ '/img/red-hat-ask-me-anything.jpeg' | url }})
+![Red hatters at Tal HAI college]({{ '/assets/img/red-hat-ask-me-anything.jpeg' | url }})
 
-![we are hiring in israel]({{ '/img/red-hat-israel-is-hiring.jpeg' | url }})
+![we are hiring in israel]({{ '/assets/img/red-hat-israel-is-hiring.jpeg' | url }})
 
 
 

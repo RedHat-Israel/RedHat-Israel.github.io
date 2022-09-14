@@ -27,7 +27,7 @@ jobs:
     name: Build site preview
     if: contains(fromJson('["opened", "reopened", "synchronize"]'), github.event.action)
     env:
-      ELEVENTY_PATH_PREFIX: '${{ github.event.repository.name }}/pr-previews/pr-${{ github.event.number }}'
+      ELEVENTY_PATH_PREFIX: '/${{ github.event.repository.name }}/pr-previews/pr-${{ github.event.number }}/'
     steps:
       - name: Checkout sources
         uses: actions/checkout@v3

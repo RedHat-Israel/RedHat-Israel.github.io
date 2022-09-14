@@ -1,4 +1,5 @@
 const fs = require("fs");
+const path = require("path");
 const yaml = require("js-yaml");
 
 const { DateTime } = require("luxon");
@@ -11,10 +12,24 @@ const { EleventyRenderPlugin } = require("@11ty/eleventy");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 const PostCSSPlugin = require("eleventy-plugin-postcss");
 
+  async function copyRecursive(from, to) {
+    const { copyFile, lstat, mkdir, readdir } = fs.promises;
+    await mkdir(to, {recursive: true});
+    for (const element of await readdir(from)) {
+      const _from = path.join(from, element);
+      const _to = path.join(to, element);
+      const stat = await lstat(_from);
+      if (stat.isFile()) {
+        await copyFile(_from, _to);
+      } else {
+        await copyRecursive(_from, _to);
+      }
+    }
+  }
+
 module.exports = function(eleventyConfig) {
-  // Copy the `img` and `css` folders to the output
-  eleventyConfig.addPassthroughCopy("img");
-  // eleventyConfig.addPassthroughCopy("css");
+  // Copy the `assets` folder to the output
+  eleventyConfig.addPassthroughCopy("assets");
 
   // Add plugins
   eleventyConfig.addPlugin(pluginRss);
@@ -81,6 +96,20 @@ module.exports = function(eleventyConfig) {
   });
   eleventyConfig.setLibrary("md", markdownLibrary);
 
+  eleventyConfig.on('eleventy.before', async () => {
+    const { copyFile } = fs.promises;
+    console.log('Copying base RHDS styles...');
+    const globalStylesIn = path.join(require.resolve('@rhds/tokens'), '..','..','css', 'global.css');
+    const globalStylesOut = path.join(__dirname, 'assets', 'css', 'rhds.css');
+    if (!fs.existsSync(globalStylesOut))
+      await copyFile( globalStylesIn, globalStylesOut);
+    console.log('Copying RHDS elements assets...');
+    const from = path.join(require.resolve('@rhds/elements'), '..');
+    const to = path.join(__dirname, 'assets', '@rhds', 'elements');
+    await copyRecursive(from, to);
+    console.log('  ...done')
+  })
+
   // Override Browsersync defaults (used only with --serve)
   eleventyConfig.setBrowserSyncConfig({
     callbacks: {
@@ -106,7 +135,6 @@ module.exports = function(eleventyConfig) {
       "md",
       "njk",
       "html",
-      "liquid"
     ],
 
     // Pre-process *.md files with: (default: `liquid`)

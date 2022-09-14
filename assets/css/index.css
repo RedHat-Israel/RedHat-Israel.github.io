@@ -68,6 +68,7 @@ rh-global-footer {
 
 #main-header {
   grid-area: head;
+  padding-inline: var(--rh-space-lg);
   background-color: var(--rh-color-surface-darkest);
   color: var(--rh-color-text-primary-on-dark);
 
@@ -76,6 +77,10 @@ rh-global-footer {
     &:visited {
       color: var(--rh-color-interactive-purple-lighter);
     }
+  }
+
+  & img {
+    max-height: var(--rh-length-xl);
   }
 }
 

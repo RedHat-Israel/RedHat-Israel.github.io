@@ -69,8 +69,9 @@ module.exports = async function israelContributors(_configData) {
   } else {
     console.log('  ...cache miss, fetching...');
     try {
-      const result = getStatsForOrgMembers(initialQuery);
+      const result = await getStatsForOrgMembers(initialQuery);
       cache.save(result, 'json');
+      return result;
     } catch (error) {
       console.error(error);
     }

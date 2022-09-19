@@ -22,7 +22,7 @@
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-29/posts/WaysToReplaceApache.commons.configurationInYourProject/</loc>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-29/posts/apache-commons-config/</loc>
     <lastmod>2022-09-15</lastmod>
   </url>
   
@@ -87,6 +87,16 @@
   </url>
   
   <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-29/tags/apache/</loc>
+    <lastmod>2022-09-19</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-29/tags/apache-commons/</loc>
+    <lastmod>2022-09-19</lastmod>
+  </url>
+  
+  <url>
     <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-29/tags/apache-commons-configuration/</loc>
     <lastmod>2022-09-19</lastmod>
   </url>
@@ -107,11 +117,6 @@
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-29/tags/posts-with-two-tags/</loc>
-    <lastmod>2022-09-19</lastmod>
-  </url>
-  
-  <url>
     <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-29/tags/red-hat/</loc>
     <lastmod>2022-09-19</lastmod>
   </url>
@@ -123,6 +128,11 @@
   
   <url>
     <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-29/tags/open-source/</loc>
+    <lastmod>2022-09-19</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-29/tags/posts-with-two-tags/</loc>
     <lastmod>2022-09-19</lastmod>
   </url>
 </urlset>

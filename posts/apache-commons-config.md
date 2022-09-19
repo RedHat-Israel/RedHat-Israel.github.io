@@ -1,9 +1,14 @@
 ---
 title: Ways to replace apache.commons.configuration in your project
-description: In this post I describe solutions to replace the usage of apache.commons.configuration and describe my implementation of it.
+description: |
+  In this post I describe solutions to replace the usage of apache.commons.configuration and
+  describe my implementation of it.
 date: 2022-09-15
+dir: ltr
 tags:
-  - .properties
+  - properties
+  - apache
+  - apache commons
   - apache.commons.configuration
 layout: layouts/post.njk
 ---
@@ -15,8 +20,8 @@ Java offers the *java.util.Properties* class (see https://docs.oracle.com/javase
 It maintains a list of keys and values, both are of type String, and provides methods for the following operations:
 Loading and saving the properties, getting a value by key, listing the keys and values, enumerating over the keys, and the methods inherited from the *Hashtable* class.
 
-##### **But what if our data is complex?**
-If we have nested properties *(i.e food.apple=red, food.icecream=vanilla, drink.milk=soy, drink.soft=coke)* how will we find all of the information about the main key (*food*, in this example)?
+## But what if our data is complex?
+If we have nested properties *(i.e `food.apple=red`, `food.icecream=vanilla`, `drink.milk=soy`, `drink.soft=coke`)* how will we find all of the information about the main key (*food*, in this example)?
 In order to retrieve the complete value we will need to iterate over the entire *Hashtable*, searching for all of the keys that contain `food.`.
 
 Here comes the biggest advantage of using *apache.commons.configuration*-
@@ -29,31 +34,34 @@ That way I could set and get each property by its main key easily, and get the s
 
 Here’s a snippet of my implementation for storing the data from the .properties file, where I used `com.fasterxml.jackson` for handling the JsonNode:
 
-    private void populateProperties(File file) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        List lines = Files.readAllLines(file.toPath());
-        Map<String, String> allProps = new HashMap<>();
-        for (String line: lines) {
-            if (line.contains("=")) {
-                allProps.put(line.split("=")[0], line.split("=")[1]);
-            }
+```java
+private void populateProperties(File file) throws IOException {
+    ObjectMapper mapper = new ObjectMapper();
+    List lines = Files.readAllLines(file.toPath());
+    Map<String, String> allProps = new HashMap<>();
+    for (String line: lines) {
+        if (line.contains("=")) {
+            allProps.put(line.split("=")[0], line.split("=")[1]);
         }
-        allProps.forEach((k, v) -> {
-            String[] mainKey = k.split("\\.");
-            if (this.props.get(mainKey[0]) != null) {
-                JsonNode oldNode = this.props.get(mainKey[0]);
-                ((ObjectNode) oldNode).put(mainKey[1], v);
-                this.props.put(mainKey[0], oldNode);
-            } else {
-                ObjectNode node = mapper.createObjectNode();
-                node.put(mainKey[1], v);
-                this.props.put(mainKey[0], node);
-            }
-        });
     }
+    allProps.forEach((k, v) -> {
+        String[] mainKey = k.split("\\.");
+        if (this.props.get(mainKey[0]) != null) {
+            JsonNode oldNode = this.props.get(mainKey[0]);
+            ((ObjectNode) oldNode).put(mainKey[1], v);
+            this.props.put(mainKey[0], oldNode);
+        } else {
+            ObjectNode node = mapper.createObjectNode();
+            node.put(mainKey[1], v);
+            this.props.put(mainKey[0], node);
+        }
+    });
+}
+```
+
 When choosing to use this implementation, we need to handle the case of an IO Exception. That is a small price compared to the convenience of maintaining the nested properties in a simple format.
 
-To conclude, if you need to replace *apache.commons.configuration*, you can either use Java’s *Properties* class, or decide on your own implementation — preferably use a data structure to handle your *.properties* file.
-<br>Each method has its own drawbacks.</br>
+To conclude, if you need to replace *apache.commons.configuration*, you can either use Java’s *Properties* class, or decide on your own implementation — preferably use a data structure to handle your *.properties* file.  
+Each method has its own drawbacks.  
 Using the *Properties* class will be most suitable for simple key-value pairs, while for nested data I’d recommend using a data structure where the key stores the main key, and the value will hold a *JsonNode* that will store the secondary keys and their values.
 

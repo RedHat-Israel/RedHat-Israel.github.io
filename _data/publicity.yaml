@@ -1,0 +1,411 @@
+---
+- category: מדברים טכנולוגיה
+  topic: וירטואליזציה בשירות הקוד הפתוח
+  links:
+    - site: ספר ההיי-טק – דה מרקר
+      url: https://www.themarker.com/labels/hitech/1.10510213
+
+- category: מדברים טכנולוגיה
+  topic: המחסור בכוח אדם – צוואר בקבוק במסעות הדיגיטל
+  links:
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/news/357927/
+
+- category: מדברים טכנולוגיה
+  topic: יש להיערך לא רק לכניסה לעולם ההיברידי – אלא גם ליציאה ממנו
+  links:
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/news/358454/
+
+- category: מדברים טכנולוגיה
+  topic: שיתופיות היא הדרך להזרקת חדשנות בקהילת הקוד הפתוח
+  links:
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/news/359852/
+
+- category: מדברים טכנולוגיה
+  topic: 'רד האט: יכולות אבטחה חדשות לאספקת התוכנה מהדטה סנטר לקצה'
+  links:
+    - site: אנשים ומחשבים
+      urls: https://www.pc.co.il/upcoming-conferences/362993/
+    - site: Funder
+      urls: https://www.funder.co.il/article/133860
+    - site: IT News
+      urls: https://itnews.co.il/headlines/cyber/?p=38160
+
+- category: מדברים טכנולוגיה
+  topic: 'מחקר: גובר הצורך במודל מבוזר של מאגרי נתונים'
+  links:
+    - site: Telecom
+      url: https://www.telecomnews.co.il/%D7%9E%D7%97%D7%A7%D7%A8-%D7%92%D7%95%D7%91%D7%A8-%D7%94%D7%A6%D7%95%D7%A8%D7%9A-%D7%91%D7%9E%D7%95%D7%93%D7%9C-%D7%9E%D7%91%D7%95%D7%96%D7%A8-%D7%A9%D7%9C-%D7%9E%D7%90%D7%92%D7%A8%D7%99-%D7%A0%D7%AA%D7%95%D7%A0%D7%99%D7%9D.html
+
+- category: רד האט בשוק המקומי
+  topic: חדשנות וטרנספורמציה דיגיטלית בבנקאות
+  links:
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/upcoming-conferences/358389/
+
+- category: רד האט בשוק המקומי
+  topic: "עולם הבנקאות משתנה וכיום הטכנולוגיה היא שמגדירה אותו"
+  links:
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/news/359851/
+
+- category: רד האט בשוק המקומי
+  topic: שירותי בריאות כללית מטמיעה ענן פרטי של רד-האט
+  links:
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/news/359972/
+
+- category: רד האט בשוק המקומי
+  topic: 'גאווה ישראלית: יחידת ממר"ם זכתה בפרס החדשנות הטכנולוגית לשנת 2022 באירוע ה-Summit הגלובלי של רד האט'
+  links:
+    - site: IT News
+      url: https://itnews.co.il/news/events-expos/?p=38337
+    - site: Talniri
+      url: http://www.talniri.co.il/marketnews/article.asp?id=108191
+    - site: Soft News
+      url: http://www.softnews.co.il/news/fgbhj-jgegf.html
+    - site: Funder
+      url: https://www.funder.co.il/article/134309–
+    - site: Biti
+      url: https://www.biti.co.il/mamram-red-hat/
+    - site: ICE
+      url: https://www.ice.co.il/digital-140/news/article/860081
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/upcoming-conferences/363732/
+
+- category: רד האט בשוק המקומי
+  topic: "מגזר הביטחון נמצא בחזית הטכנולוגיה עם פתרונות IT ו-IoT מתקדמים"
+  links:
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/upcoming-conferences/366773/
+
+- category: רד האט בשוק המקומי
+  topic: רד האט הפגישה בין היחידות הטכנולוגיות בצה"ל באירוע למגזר הביטחון
+  links:
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/upcoming-conferences/368027/
+
+- category: גיוון והכלה
+  topic: "בדרך לניפוץ תקרת הזכוכית: כך ניתן לקדם נשים בהיי-טק הישראלי"
+  links:
+    - site: ספר ההיי-טק – דה מרקר – מקיקי קנת משתפת
+      url: https://www.themarker.com/labels/hitech/1.10513210
+  
+- category: גיוון והכלה
+  topic: מצעד הגאווה של ההיי-טק – החלק האחרון
+  links:
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/news/365260/
+
+- category: האנשים מאחורי הטכנולוגיה
+  topic: 'לוחמה בשטח בנוי: יוצאי היחידות הקרביות שכן הגיעו להייטק - ראיון עם דורון פדיוק'
+  links:
+    - site: וואלה
+      url: https://finance.walla.co.il/item/3484835
+
+- category: האנשים מאחורי הטכנולוגיה
+  topic: אות הניהול הפתוח – למנהלת הישראלית של ענקית הקוד הפתוח
+  links:
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/kehila/357513/
+
+- category: האנשים מאחורי הטכנולוגיה
+  topic: מי הם מנהלי השיווק המצטיינים ב-IT?
+  links:
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/news/357747/
+
+- category: גיוס ומשאבי אנוש
+  topic: '"הקורונה עשתה פאסט פורוורד": המחסור בעובדי ההיי טק קורא גם לחסרי הניסיון - כולל ראיון עם ליאורה מילבאום'
+  links:
+    - site: מעריב
+      url: https://www.maariv.co.il/business/economic/israel/Article-894298
+
+- category: גיוס ומשאבי אנוש
+  topic: ''
+  links:
+    - site: MSN
+      url: https://www.msn.com/he-il/money/career/%D7%94%D7%A7%D7%95%D7%A8%D7%95%D7%A0%D7%94-%D7%A2%D7%A9%D7%AA%D7%94-%D7%A4%D7%90%D7%A1%D7%98-%D7%A4%D7%95%D7%A8%D7%95%D7%95%D7%A8%D7%93-%D7%94%D7%9E%D7%97%D7%A1%D7%95%D7%A8-%D7%91%D7%A2%D7%95%D7%91%D7%93%D7%99-%D7%94%D7%94%D7%99%D7%99-%D7%98%D7%A7-%D7%A7%D7%95%D7%A8%D7%90-%D7%92%D7%9D-%D7%9C%D7%97%D7%A1%D7%A8%D7%99-%D7%94%D7%A0%D7%99%D7%A1%D7%99%D7%95%D7%9F/ar-AAThl0y?fg_force_rendering_mode=LayoutTree&fireglass_rsn=true
+
+- category: מיטאפים, כנסים ויוזמות בקהילה
+  topic: היכון, הכן, Go! רד האט, Seagate ו-cnvrg.io יקיימו מיטאפ משותף ללימוד שפת התכנות Go
+  links:
+    - site: IT News
+      url: ttps://itnews.co.il/news/events-expos/?p=35870
+
+- category: מיטאפים, כנסים ויוזמות בקהילה
+  topic: רד האט, סיגייט ו-cnvrg.io יקיימו מיטאפ ללימוד שפת התכנות Go
+  links:
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/upcoming-conferences/356852/
+
+- category: מיטאפים, כנסים ויוזמות בקהילה
+  topic: 'הגיק ממליץ: רד האט מחברת את קהילת הקוד הפתוח בישראל'
+  links:
+    - site: גיקטייאם
+      url: https://www.geektime.co.il/geekmamlitz190222-1645088954/
+
+- category: מיטאפים, כנסים ויוזמות בקהילה
+  topic: רד האט מחברת את קהילת הקוד הפתוח בישראל
+  links:
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/upcoming-conferences/357754/
+
+- category: מיטאפים, כנסים ויוזמות בקהילה
+  topic: מפתחים בקוד פתוח? הכנס החינמי והחדש הזה הוא בשבילכם
+  links:
+    - site: גיקטיים
+      url: https://www.geektime.co.il/openshift-conference/
+
+- category: מיטאפים, כנסים ויוזמות בקהילה
+  topic: רד האט מחברת את קהילת הקוד הפתוח בישראל בכנס המגיע לראשונה לישראל
+  links:
+    - site: טלקום ניוז
+      url: https://bit.ly/3u1Dc6Z
+
+- category: מיטאפים, כנסים ויוזמות בקהילה
+  topic: 'רד האט מחברת את קהילת הקוד הפתוח בישראל: כנס Red Hat OpenShift Commons מגיע לראשונה לישראל'
+  links:
+    - site: IT News
+      url: https://itnews.co.il/news/events-expos/?p=36611
+
+- category: מיטאפים, כנסים ויוזמות בקהילה
+  topic: כנס Red Hat OpenShift Commons מגיע לראשונה לישראל
+  links:
+    - site: Tech-il
+      url: https://www.tech-il.co.il/2022/03/17/red-hat-openshift-commons/
+
+- category: מיטאפים, כנסים ויוזמות בקהילה
+  topic: ''
+  links:
+    - site: ''
+      url: http://www.softnews.co.il/news/derui-lghjmn.html
+
+- category: מיטאפים, כנסים ויוזמות בקהילה
+  topic: 'רד האט מחברת את קהילת הקוד הפתוח בישראל: כנס Red Hat OpenShift Commons מגיע לראשונה לישראל'
+  links:
+    - site: Funder
+      url: https://www.funder.co.il/article/131022
+
+- category: מיטאפים, כנסים ויוזמות בקהילה
+  topic: 'הגיק ממליץ: האירועים שלא כדאי לך לפספס: Red Hat OpenShift Commons'
+  links:
+    - site: גיקטיים
+      url: https://www.geektime.co.il/geekmamlitz19032022
+  
+- category: מיטאפים, כנסים ויוזמות בקהילה
+  topic: ראיונות מתוך כנס OpenShift Commoens
+  links:
+    - site: Youtube
+      url: https://www.youtube.com/watch?v=jK1IG5NjcZI
+
+- category: מיטאפים, כנסים ויוזמות בקהילה
+  topic: 'לראשונה בארץ: הכנס העולמי של רד האט לקהילת הקוד הפתוח'
+  links:
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/kehila/360506/
+
+- category: מיטאפים, כנסים ויוזמות בקהילה
+  topic: רד האט מביאה את בשורת הקוד הפתוח לסטודנטים בצפון
+  links:
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/kehila/362635/
+    - site: IT News
+      url: https://itnews.co.il/news/events-expos/?p=38106
+    - site: Funder
+      url: https://www.funder.co.il/article/133687
+    - site: Soft News
+      url: http://www.softnews.co.il/news/dfgt-thjuy.html
+    - site: חיפה קריות.נט
+      url: https://newshaifakrayot.net/?p=259418
+    - site: Biti
+      url: https://www.biti.co.il/red-hat-tel-hai/
+    - site: TECH IL
+      url: https://www.tech-il.co.il/2021/12/27/red-hat-tel-hai/
+    - site: מכללת תל חי
+      url: https://www.telhai.ac.il/%D7%9E%D7%90%D7%9E%D7%A8%D7%99%D7%9D/%D7%A9%D7%99%D7%AA%D7%95%D7%A3-%D7%A4%D7%A2%D7%95%D7%9C%D7%94-%D7%91%D7%99%D7%9F-%D7%A8%D7%93-%D7%94%D7%90%D7%98-%D7%95%D7%94%D7%9E%D7%9
+    - site: מידע 8
+      url: https://meida8.co.il/%d7%a9%d7%99%d7%aa%d7%95%d7%a3-%d7%94%d7%a4%d7%a2%d7%95%d7%9c%d7%94-%d7%91%d7%99%d7%9f-%d7%a8%d7%93-%d7%94%d7%90%d7%98-%d7%95%d7%94%d7%9e%d7%9b%d7%9c%d7%9c%d7%94-%d7%94%d7%90%d7%a7%d7%93%d7%9e%d7%99/
+
+- category: מיטאפים, כנסים ויוזמות בקהילה
+  topic: 'מדברים טכנולוגיה: רד האט משיקה סדרת מפגשי Tech Talks טכנולוגיים בנושא Red Hat OpenShift'
+  links:
+    - site: Funder
+      url: https://www.funder.co.il/article/135032
+    - site: IT News
+      url: https://itnews.co.il/news/events-expos/?p=38561
+    - site: Talniri
+      url: http://www.talniri.co.il/marketnews/article.asp?mp=156&cat=10&id=108261
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/upcoming-conferences/364339/–
+    - site: Soft News
+      url: http://www.softnews.co.il/news/cvge-gyr.html
+
+- category: מיטאפים, כנסים ויוזמות בקהילה
+  topic: רד האט קיימה מחנה קיץ לתלמידים מצטיינים בתוכנית "ניצנים"
+  links:
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/kehila/367268/
+    - site: Trade
+      url: https://www.trade.org.il/tech/%D7%A8%D7%93-%D7%94%D7%90%D7%98-%D7%A7%D7%99%D7%99%D7%9E%D7%94-%D7%9E%D7%97%D7%A0%D7%94-%D7%A7%D7%99%D7%A5-%D7%9C%D7%AA%D7%9C%D7%9E%D7%99%D7%93%D7%99%D7%9D-%D7%9E%D7%A6%D7%98%D7%99%D7%99%D7%A0%D7%99/
+    - site: חדשות הדרום 24
+      url: https://www.facebook.com/DaromN24/posts/1295769144160794
+    - site: מקומונט באר שבע
+      url: https://www.b7city.co.il/%d7%a8%d7%93-%d7%94%d7%90%d7%98-%d7%a7%d7%99%d7%99%d7%9e%d7%94-%d7%9e%d7%97%d7%a0%d7%94-%d7%a7%d7%99%d7%a5-%d7%98%d7%9b%d7%a0%d7%95%d7%9c%d7%95%d7%92%d7%99-%d7%a2%d7%91%d7%95%d7%a8-%d7%aa%d7%9c%d7%9e/
+    - site: Negev News
+      url: https://negevnews.co.il/2022/07/19/%d7%94%d7%93%d7%95%d7%a8-%d7%94%d7%91%d7%90-%d7%94%d7%a2%d7%aa%d7%99%d7%93-%d7%a9%d7%9c%d7%a0%d7%95-%d7%a8%d7%93-%d7%94%d7%90%d7%98-%d7%a7%d7%99%d7%99%d7%9e%d7%94-%d7%9e%d7%97%d7%a0%d7%94-%d7%a7/
+    - site: IT News
+      url: https://itnews.co.il/news/events-expos/?p=39617
+    - site: Soft News
+      url: http://www.softnews.co.il/news/dfrty-nyb.html
+    - site: Spot it
+      url: https://www.spotit.co.il/HTML5/ProLookup.taf?_ID=39146&did=11114&G=&SM=
+    - site: באר שבע סיטי
+      url: https://www.beershevacity.com/beershevacity-business/%D7%A8%D7%93-%D7%94%D7%90%D7%98-%D7%A7%D7%99%D7%99%D7%9E%D7%94-%D7%9E%D7%97%D7%A0%D7%94-%D7%A7%D7%99%D7%A5-%D7%98%D7%9B%D7%A0%D7%95%D7%9C%D7%95%D7%92%D7%99-%D7%A2%D7%91%D7%95%D7%A8-%D7%AA%D7%9C%D7%9E%D7%99%D7%93%D7%99-%D7%AA%D7%99%D7%9B%D7%95%D7%9F-%D7%9E%D7%A6%D7%98%D7%99%D7%99%D7%A0%D7%99%D7%9D-%D7%9E%D7%94%D7%93%D7%A8%D7%95%D7%9D-%D7%94%D7%9E%D7%A9%D7%AA%D7%AA%D7%A4%D7%99%D7%9D-%D7%91%D7%AA%D7%95%D7%9B%D7%A0%D7%99%D7%AA-%D7%A0%D7%99%D7%A6%D7%A0%D7%99%D7%9D-%D7%A9%D7%9C-%D7%A6%D7%94-%D7%9C
+
+- category: מיטאפים, כנסים ויוזמות בקהילה
+  topic: רד האט מביאה את מפגשי ה-Tech Talks הטכנולוגיים לקהילת ההיי-טק בצפון
+  links:
+    - site: Funder
+      url: https://www.funder.co.il/article/139089
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/upcoming-conferences/370626/
+    - site: IT News
+      url: https://itnews.co.il/news/?p=40539
+    - site: Soft News
+      url: http://www.softnews.co.il/news/frtyu-jkit.html
+
+- category: כללי
+  topic: רד האט מעבירה את משרדיה לאינפיניטי פארק
+  links:
+    - site: כלכליסט
+      url: https://www.calcalist.co.il/real-estate/article/s19rnf6xq?utm_source=m.calcalist.co.il
+
+- category: כללי
+  topic: ספקית הקוד הבינלאומית עברה ללוקיישן חדש. כמה שילמה?
+  links:
+    - site: ICE
+      url: https://www.ice.co.il/realestate/news/article/845641
+
+- category: כללי
+  topic: 'שוב: רד האט – בין 100 החברות שהכי טוב לעבוד בהן'
+  links:
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/upcoming-conferences/361450/
+    - site: Funder
+      url: https://www.funder.co.il/article/132781
+    - site: Talniri
+      url: https://www.talniri.co.il/marketnews/article.asp?mp=49&id=108022
+    - site: IT News
+      url: https://itnews.co.il/news/?p=37632
+    - site: סטטוס
+      url: https://status.co.il/%d7%a8%d7%93-%d7%94%d7%90%d7%98-%d7%a0%d7%9b%d7%9c%d7%9c%d7%94-%d7%91%d7%93%d7%99%d7%a8%d7%95%d7%92-100-%d7%94%d7%97%d7%91%d7%a8%d7%95%d7%aa-%d7%a9%d7%94%d7%9b%d7%99-%d7%98%d7%95%d7%91-%d7%9c%d7%a2/
+    - site: Soft News
+      url: http://www.softnews.co.il/news/fgtry-hgjhy.html
+
+- category: כללי
+  topic: רד האט ישראל חגגה את פתיחת הקיץ באירוע מפנק לעובדים
+  links:
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/kehila/365108/
+
+- category: כללי
+  topic: חוגגים עם רד האט ועילי בוטנר
+  links:
+    - site: It News
+      url: https://itnews.co.il/news/events-expos/?p=37758
+    - site: Soft News
+      url: http://www.softnews.co.il/news/dfrt-ghjuy.html
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/kehila/daily-zipi/361895/
+  
+- category: כללי
+  topic: מאט היקס מונה לנשיא ומנכ"ל רד האט
+  links:
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/kehila/366998/
+    - site: ICE
+      url: https://www.ice.co.il/positions/news/article/869315
+    - site: IT News
+      url: https://itnews.co.il/news/career/?p=39446
+    - site: Allmarketing
+      url: https://www.allmarketing.co.il/?CategoryID=354&ArticleID=28078
+    - site: Soft News
+      url: http://www.softnews.co.il/news/dfghy-hjuyt.html
+    - site: Mega Pro
+      url: https://www.megapro.org.il/%D7%9E%D7%92%D7%94-%D7%9E%D7%95%D7%98%D7%95%D7%A8/%D7%9E%D7%92%D7%94-%D7%9E%D7%95%D7%98%D7%95%D7%A8-%D7%A8%D7%90%D7%A9%D7%99/%D7%9E%D7%92%D7%94-%D7%9E%D7%99%D7%9B%D7%A9%D7%95%D7%A8/%D7%9E%D7%90%D7%98-%D7%94%D7%99%D7%A7%D7%A1-%D7%9E%D7%95%D7%A0%D7%94-%D7%9C%D7%A0%D7%A9%D7%99%D7%90-%D7%95%D7%9E%D7%A0%D7%9B34%D7%9C-%D7%A8%D7%93-%D7%94%D7%90%D7%98
+  
+- category: כללי
+  topic: ''
+  links:
+    - site: וואלה
+      url: https://finance.walla.co.il/item/3518995
+
+- category: כללי
+  topic: "הענן לא היה כאן בלא חדשנות וקוד פתוח"
+  links:
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/news/368884/
+
+- category: כללי
+  topic: עובדי חברת הייטק נרתמים לטובת ילדים מעוטי יכולת
+  links:
+    - site: ICE
+      url: https://www.ice.co.il/financial-gossip/news/article/878963
+  
+- category: שותפים טכנולגיים
+  topic: "נוטניקס ו-OpenShift – התשתית המתאימה ביותר ל-Cloud Native"
+  links:
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/upcoming-conferences/358707/
+
+- category: שותפים טכנולגיים
+  topic: 'בירה וטכנולוגיה: איך לממש תפיסת Multi-Cloud באמצעות OpenShift ו-MongoDB?'
+  links:
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/upcoming-conferences/358799/
+
+- category: שותפים טכנולגיים
+  topic: "בעידן המולטי קלאוד בחירת התשתית קריטית יותר מתמיד"
+  links:
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/upcoming-conferences/360639/
+
+- category: שותפים טכנולגיים
+  topic: "הצוות של אמת טכנולוגיות חי את הקצב המהיר של עולם פיתוח התוכנה המודרני"
+  links:
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/upcoming-conferences/360980/
+
+- category: שותפים טכנולגיים
+  topic: רד האט ו-Snyk פועלות כדי להתמודד עם אתגרי האבטחה של הקוד הפתוח
+  links:
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/upcoming-conferences/363292/
+
+- category: שותפים טכנולגיים
+  topic: נוטניקס פגשה את לקוחות האנטרפרייז במסעדת מלכה של אייל שני
+  links:
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/kehila/365549/
+
+- category: שותפים טכנולגיים
+  topic: קינדריל מכריזה על שיתופי פעולה עם לנובו ורד האט
+  links:
+    - site: Biti
+      url: https://www.biti.co.il/kyndryl-lenovo/
+
+- category: שותפים טכנולגיים
+  topic: "שיתוף הפעולה בין וים ו-רד האט – ערך חשוב עבור הלקוחות במגזר הביטחון"
+  links:
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/upcoming-conferences/367510/
+
+- category: שותפים טכנולגיים
+  topic: 'שיתוף הפעולה בין קאוצ''בייס ורד האט מעצים מפתחים בתחום הקונטיינרים'
+  links:
+    - site: אנשים ומחשבים
+      url: https://www.pc.co.il/upcoming-conferences/367653/
+

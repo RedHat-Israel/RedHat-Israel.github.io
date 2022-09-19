@@ -1,4 +1,6 @@
 
 User-agent: *
-Allow: /
+# TODO: disabling robots until launch
+# Allow: /
+Disallow: /
 Disallow: /pr-previews/

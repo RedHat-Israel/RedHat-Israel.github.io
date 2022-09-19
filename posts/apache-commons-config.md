@@ -19,7 +19,7 @@ If you’re using *apache.commons.configuration* to manage *.properties* files i
 *Apache.commons.configuration* depends on *apache.common.logging* which is included in *maven:3.5*, but was removed from *maven:3.6*.
 Thus, if you want to upgrade you will need to find a different way to parse your properties.
 
-Java offers the *java.util.Properties* class (see https://docs.oracle.com/javase/tutorial/essential/environment/properties.html), which is a subclass of *java.util.Hashtable*.
+Java offers the [`java.util.Properties` class(https://docs.oracle.com/javase/tutorial/essential/environment/properties.html), which is a subclass of `java.util.Hashtable`.
 It maintains a list of keys and values, both are of type String, and provides methods for the following operations:
 Loading and saving the properties, getting a value by key, listing the keys and values, enumerating over the keys, and the methods inherited from the *Hashtable* class.
 

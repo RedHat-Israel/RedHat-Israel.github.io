@@ -5,6 +5,9 @@ description: |
   describe my implementation of it.
 date: 2022-09-15
 dir: ltr
+author:
+  name: Dana Elfassy
+  jobTitle: Software Engineer
 tags:
   - properties
   - apache

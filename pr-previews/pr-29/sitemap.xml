@@ -117,6 +117,11 @@
   </url>
   
   <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-29/tags/posts-with-two-tags/</loc>
+    <lastmod>2022-09-19</lastmod>
+  </url>
+  
+  <url>
     <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-29/tags/red-hat/</loc>
     <lastmod>2022-09-19</lastmod>
   </url>
@@ -128,11 +133,6 @@
   
   <url>
     <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-29/tags/open-source/</loc>
-    <lastmod>2022-09-19</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-29/tags/posts-with-two-tags/</loc>
     <lastmod>2022-09-19</lastmod>
   </url>
 </urlset>

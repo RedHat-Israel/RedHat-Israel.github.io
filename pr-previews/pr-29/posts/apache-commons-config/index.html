@@ -78,7 +78,7 @@ describe my implementation of it.
 <p>If you’re using <em>apache.commons.configuration</em> to manage <em>.properties</em> files in your project, you’re probably facing the following problem:
 <em>Apache.commons.configuration</em> depends on <em>apache.common.logging</em> which is included in <em>maven:3.5</em>, but was removed from <em>maven:3.6</em>.
 Thus, if you want to upgrade you will need to find a different way to parse your properties.</p>
-<p>Java offers the <em>java.util.Properties</em> class (see <a href="https://docs.oracle.com/javase/tutorial/essential/environment/properties.html">https://docs.oracle.com/javase/tutorial/essential/environment/properties.html</a>), which is a subclass of <em>java.util.Hashtable</em>.
+<p>Java offers the [<code>java.util.Properties</code> class(<a href="https://docs.oracle.com/javase/tutorial/essential/environment/properties.html">https://docs.oracle.com/javase/tutorial/essential/environment/properties.html</a>), which is a subclass of <code>java.util.Hashtable</code>.
 It maintains a list of keys and values, both are of type String, and provides methods for the following operations:
 Loading and saving the properties, getting a value by key, listing the keys and values, enumerating over the keys, and the methods inherited from the <em>Hashtable</em> class.</p>
 <h2 id="but-what-if-our-data-is-complex" tabindex="-1">But what if our data is complex? <a class="direct-link" href="#but-what-if-our-data-is-complex" aria-hidden="true">#</a></h2>

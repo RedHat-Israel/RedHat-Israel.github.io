@@ -47,7 +47,9 @@
       </nav>
     </aside>
 
-    <main{% if templateClass %} class="{{ templateClass }}"{% endif %}>
+    <main
+      {% if templateClass %} class="{{ templateClass }}"{% endif %}
+      {% if dir %} dir="{{ dir }}"{% endif %}>
       {{ content | safe }}
     </main>
 

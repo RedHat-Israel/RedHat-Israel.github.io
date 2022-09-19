@@ -1,0 +1,2711 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "elements/rh-alert/rh-alert.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "An alert to display information on a website.\n\nBy default it is black text on a black background",
+          "name": "RhAlert",
+          "slots": [
+            {
+              "description": "Provide a description for the alert message",
+              "name": ""
+            },
+            {
+              "description": "Provide a header for the alert message.",
+              "name": "header"
+            },
+            {
+              "description": "Provide actions that the user can take for the alert",
+              "name": "actions"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "version",
+              "type": {
+                "text": "string"
+              },
+              "static": true,
+              "default": "1.0.0-beta.18",
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "state",
+              "type": {
+                "text": "'default' | 'error' | 'success' | 'warning' | 'danger' | 'info'"
+              },
+              "default": "'default'",
+              "attribute": "state",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "variant",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "toast",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "toast",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "state",
+              "type": {
+                "text": "'default' | 'error' | 'success' | 'warning' | 'danger' | 'info'"
+              },
+              "default": "'default'",
+              "fieldName": "state"
+            },
+            {
+              "name": "variant",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "variant"
+            },
+            {
+              "name": "toast",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "toast"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "An alert to display information on a website.",
+          "tagName": "rh-alert",
+          "customElement": true,
+          "demos": [
+            {
+              "url": "https://ux.redhat.com/components/alert/demo/",
+              "source": {
+                "href": "https://github.com/redhat-ux/red-hat-design-system/tree/main/elements/rh-alert/demo/rh-alert.html"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "RhAlert",
+          "declaration": {
+            "name": "RhAlert",
+            "module": "elements/rh-alert/rh-alert.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "rh-alert",
+          "declaration": {
+            "name": "RhAlert",
+            "module": "elements/rh-alert/rh-alert.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "elements/rh-blockquote/rh-blockquote.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A blockquote for displaying quote, author, and author title.",
+          "name": "RhBlockquote",
+          "slots": [
+            {
+              "description": "Provide a quote for the blockquote",
+              "name": ""
+            },
+            {
+              "description": "Provide an author for the blockquote",
+              "name": "author"
+            },
+            {
+              "description": "Provide an author title for the blockquote",
+              "name": "title"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "title",
+              "type": {
+                "text": "string"
+              },
+              "default": "'Blockquote'",
+              "attribute": "title"
+            },
+            {
+              "kind": "field",
+              "name": "colorPalette",
+              "type": {
+                "text": "'darkest'|'lightest'"
+              },
+              "default": "'lightest'",
+              "description": "Set the colorPalette of the blockquote. Possible values are:\n- `lightest` (default)\n- `darkest`",
+              "attribute": "color-palette",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "align",
+              "type": {
+                "text": "'center'|'inline-start'"
+              },
+              "default": "'inline-start'",
+              "description": "Set the alignment of the blockquote. Possible values are:\n- `left` (default)\n- `center`",
+              "attribute": "align",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "highlight",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Optional highlight attribute that, when present, shows a highlight on side of blockquote.",
+              "attribute": "highlight",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "'default'|'large'"
+              },
+              "default": "'default'",
+              "description": "Set the text size of the blockquote. Possible values are:\n- `default`\n- `large`",
+              "attribute": "size",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "title",
+              "type": {
+                "text": "string"
+              },
+              "default": "'Blockquote'",
+              "fieldName": "title"
+            },
+            {
+              "name": "color-palette",
+              "type": {
+                "text": "'darkest'|'lightest'"
+              },
+              "default": "'lightest'",
+              "description": "Set the colorPalette of the blockquote. Possible values are:\n- `lightest` (default)\n- `darkest`",
+              "fieldName": "colorPalette"
+            },
+            {
+              "name": "align",
+              "type": {
+                "text": "'center'|'inline-start'"
+              },
+              "default": "'inline-start'",
+              "description": "Set the alignment of the blockquote. Possible values are:\n- `left` (default)\n- `center`",
+              "fieldName": "align"
+            },
+            {
+              "name": "highlight",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Optional highlight attribute that, when present, shows a highlight on side of blockquote.",
+              "fieldName": "highlight"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "'default'|'large'"
+              },
+              "default": "'default'",
+              "description": "Set the text size of the blockquote. Possible values are:\n- `default`\n- `large`",
+              "fieldName": "size"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "A blockquote for displaying quote, author, and author title.",
+          "tagName": "rh-blockquote",
+          "customElement": true,
+          "demos": [
+            {
+              "url": "https://ux.redhat.com/components/blockquote/demo/",
+              "source": {
+                "href": "https://github.com/redhat-ux/red-hat-design-system/tree/main/elements/rh-blockquote/demo/rh-blockquote.html"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "RhBlockquote",
+          "declaration": {
+            "name": "RhBlockquote",
+            "module": "elements/rh-blockquote/rh-blockquote.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "rh-blockquote",
+          "declaration": {
+            "name": "RhBlockquote",
+            "module": "elements/rh-blockquote/rh-blockquote.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "elements/rh-context-provider/rh-context-provider.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "ContextProvider",
+          "members": [
+            {
+              "kind": "field",
+              "name": "colorPalette",
+              "type": {
+                "text": "ColorPalette | undefined"
+              },
+              "description": "Sets color palette, which affects the element's styles as well as descendants' color theme.\nOverrides parent color context.\nYour theme will influence these colors so check there first if you are seeing inconsistencies.\nSee [CSS Custom Properties](#css-custom-properties) for default values",
+              "attribute": "color-palette",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "on",
+              "type": {
+                "text": "ColorTheme | undefined"
+              },
+              "description": "Sets color theme based on parent context",
+              "attribute": "on",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "color-palette",
+              "type": {
+                "text": "ColorPalette | undefined"
+              },
+              "description": "Sets color palette, which affects the element's styles as well as descendants' color theme.\nOverrides parent color context.\nYour theme will influence these colors so check there first if you are seeing inconsistencies.\nSee [CSS Custom Properties](#css-custom-properties) for default values",
+              "fieldName": "colorPalette"
+            },
+            {
+              "name": "on",
+              "type": {
+                "text": "ColorTheme | undefined"
+              },
+              "description": "Sets color theme based on parent context",
+              "fieldName": "on"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "rh-context-provider",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ContextProvider",
+          "declaration": {
+            "name": "ContextProvider",
+            "module": "elements/rh-context-provider/rh-context-provider.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "rh-context-provider",
+          "declaration": {
+            "name": "ContextProvider",
+            "module": "elements/rh-context-provider/rh-context-provider.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "elements/rh-cta/rh-cta.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Call to action stands out from regular hypertext links, and is used for linking users to webpages.",
+          "name": "RhCta",
+          "cssParts": [
+            {
+              "description": "container element for slotted CTA",
+              "name": "container"
+            }
+          ],
+          "slots": [
+            {
+              "description": "We expect an anchor tag, `<a>` with an `href`, to be the first child inside `rh-cta` element. Less preferred but allowed for specific use-cases include: `<button>` (note however that the `button` tag is not supported for the default CTA styles).",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "version",
+              "type": {
+                "text": "string"
+              },
+              "static": true,
+              "default": "1.0.0-beta.18",
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "'primary'|'secondary'|'brick' | undefined"
+              },
+              "description": "Indicates the importance of this call-to-action in the context of the page.\nWill also influence how the call-to-action is styled.\n- **Primary**: Use for the primary or most important link. This variant is the highest in\n    hierarchy and can also be used to play a video in a Modal or large container.\n- **Secondary**: Use for secondary or general links. This variant is lower in hierarchy than\n    the Primary variant and can be used multiple times in the same container or layout.\n- **Brick**: Use to group links together. Only the Brick variant can stretch to fit a\n    container or grid, otherwise the text label padding in other variants stays the same.\n- Default (no variant): Use for tertiary or the least important links. This variant is the\n    lowest in hierarchy and can be used multiple times in the same container or layout.",
+              "attribute": "variant",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "colorPalette",
+              "type": {
+                "text": "ColorPalette | undefined"
+              },
+              "description": "Sets color palette, which affects the element's styles as well as descendants' color theme.\nOverrides parent color context.\nYour theme will influence these colors so check there first if you are seeing inconsistencies.\nSee [CSS Custom Properties](#css-custom-properties) for default values",
+              "attribute": "color-palette",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "on",
+              "type": {
+                "text": "ColorTheme | undefined"
+              },
+              "description": "Sets color theme based on parent context",
+              "attribute": "on",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string | undefined"
+              },
+              "attribute": "icon",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "cta",
+              "type": {
+                "text": "HTMLAnchorElement|HTMLButtonElement|null"
+              },
+              "privacy": "public",
+              "default": "null",
+              "description": "The slotted `<a>` or `<button>` element"
+            },
+            {
+              "kind": "field",
+              "name": "#initializing",
+              "privacy": "private",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "true while the initializer method is running - to prevent double-execution"
+            },
+            {
+              "kind": "field",
+              "name": "#dir",
+              "privacy": "private",
+              "default": "new DirController(this)",
+              "description": "Is the element in an RTL context?"
+            },
+            {
+              "kind": "field",
+              "name": "#logger",
+              "privacy": "private",
+              "default": "new Logger(this)"
+            },
+            {
+              "kind": "field",
+              "name": "#isDefault",
+              "privacy": "private",
+              "type": {
+                "text": "boolean"
+              },
+              "readonly": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "variant",
+              "type": {
+                "text": "'primary'|'secondary'|'brick' | undefined"
+              },
+              "description": "Indicates the importance of this call-to-action in the context of the page.\nWill also influence how the call-to-action is styled.\n  - **Primary**: Use for the primary or most important link. This variant is the highest in\n      hierarchy and can also be used to play a video in a Modal or large container.\n  - **Secondary**: Use for secondary or general links. This variant is lower in hierarchy than\n      the Primary variant and can be used multiple times in the same container or layout.\n  - **Brick**: Use to group links together. Only the Brick variant can stretch to fit a\n      container or grid, otherwise the text label padding in other variants stays the same.\n  - Default (no variant): Use for tertiary or the least important links. This variant is the\n      lowest in hierarchy and can be used multiple times in the same container or layout.",
+              "fieldName": "variant"
+            },
+            {
+              "name": "color-palette",
+              "type": {
+                "text": "ColorPalette | undefined"
+              },
+              "description": "Sets color palette, which affects the element's styles as well as descendants' color theme.\nOverrides parent color context.\nYour theme will influence these colors so check there first if you are seeing inconsistencies.\nSee [CSS Custom Properties](#css-custom-properties) for default values",
+              "fieldName": "colorPalette"
+            },
+            {
+              "name": "on",
+              "type": {
+                "text": "ColorTheme | undefined"
+              },
+              "description": "Sets color theme based on parent context",
+              "fieldName": "on"
+            },
+            {
+              "name": "icon",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "icon"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "Directs a user to other pages or displays extra content",
+          "tagName": "rh-cta",
+          "customElement": true,
+          "demos": [
+            {
+              "url": "https://ux.redhat.com/components/call-to-action/demo/",
+              "source": {
+                "href": "https://github.com/redhat-ux/red-hat-design-system/tree/main/elements/rh-cta/demo/rh-cta.html"
+              }
+            },
+            {
+              "url": "https://ux.redhat.com/components/call-to-action/demo/analytics/",
+              "source": {
+                "href": "https://github.com/redhat-ux/red-hat-design-system/tree/main/elements/rh-cta/demo/analytics.html"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "RhCta",
+          "declaration": {
+            "name": "RhCta",
+            "module": "elements/rh-cta/rh-cta.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "rh-cta",
+          "declaration": {
+            "name": "RhCta",
+            "module": "elements/rh-cta/rh-cta.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "elements/rh-demo/rh-demo.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "RhDemo",
+          "members": [
+            {
+              "kind": "method",
+              "name": "createRenderRoot",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "Element | ShadowRoot"
+                }
+              }
+            },
+            {
+              "kind": "method",
+              "name": "syncCodeEditor",
+              "privacy": "public"
+            },
+            {
+              "kind": "method",
+              "name": "syncPreview",
+              "privacy": "public"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "rh-demo",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "RhDemo",
+          "declaration": {
+            "name": "RhDemo",
+            "module": "elements/rh-demo/rh-demo.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "rh-demo",
+          "declaration": {
+            "name": "RhDemo",
+            "module": "elements/rh-demo/rh-demo.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "elements/rh-dialog/rh-dialog.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Dialog",
+          "name": "RhDialog",
+          "members": [
+            {
+              "kind": "field",
+              "name": "version",
+              "type": {
+                "text": "string"
+              },
+              "static": true,
+              "default": "1.0.0-beta.18",
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "closeOnOutsideClick",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "protected",
+              "static": true,
+              "default": "true"
+            },
+            {
+              "kind": "field",
+              "name": "#screenSize",
+              "privacy": "private",
+              "default": "new ScreenSizeController(this)"
+            },
+            {
+              "kind": "field",
+              "name": "type",
+              "type": {
+                "text": "'video' | undefined"
+              },
+              "attribute": "type",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "open",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "open",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "_openChanged",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "Promise<void>"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "oldValue",
+                  "optional": true,
+                  "type": {
+                    "text": "boolean"
+                  }
+                },
+                {
+                  "name": "newValue",
+                  "optional": true,
+                  "type": {
+                    "text": "boolean"
+                  }
+                }
+              ]
+            }
+          ],
+          "attributes": [
+            {
+              "name": "type",
+              "type": {
+                "text": "'video' | undefined"
+              },
+              "fieldName": "type"
+            },
+            {
+              "name": "open",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "open"
+            }
+          ],
+          "superclass": {
+            "name": "PfeModal",
+            "package": "@patternfly/pfe-modal"
+          },
+          "tagName": "rh-dialog",
+          "customElement": true,
+          "demos": [
+            {
+              "url": "https://ux.redhat.com/components/dialog/demo/",
+              "source": {
+                "href": "https://github.com/redhat-ux/red-hat-design-system/tree/main/elements/rh-dialog/demo/rh-dialog.html"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "RhDialog",
+          "declaration": {
+            "name": "RhDialog",
+            "module": "elements/rh-dialog/rh-dialog.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "rh-dialog",
+          "declaration": {
+            "name": "RhDialog",
+            "module": "elements/rh-dialog/rh-dialog.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "elements/rh-footer/rh-footer-block.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "RhFooterBlock",
+          "members": [],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "rh-footer-block",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "RhFooterBlock",
+          "declaration": {
+            "name": "RhFooterBlock",
+            "module": "elements/rh-footer/rh-footer-block.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "rh-footer-block",
+          "declaration": {
+            "name": "RhFooterBlock",
+            "module": "elements/rh-footer/rh-footer-block.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "elements/rh-footer/rh-footer-copyright.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "RhFooterCopyright",
+          "members": [],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "rh-footer-copyright",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "RhFooterCopyright",
+          "declaration": {
+            "name": "RhFooterCopyright",
+            "module": "elements/rh-footer/rh-footer-copyright.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "rh-footer-copyright",
+          "declaration": {
+            "name": "RhFooterCopyright",
+            "module": "elements/rh-footer/rh-footer-copyright.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "elements/rh-footer/rh-footer-links.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "RhFooterLinks",
+          "members": [
+            {
+              "kind": "field",
+              "name": "headerHidden",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "public",
+              "default": "false",
+              "description": "Visibily hide the header slot. Setting this to true will not affect\naria-labelledby.",
+              "attribute": "header-hidden",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "logger",
+              "privacy": "private",
+              "default": "new Logger(this)"
+            },
+            {
+              "kind": "field",
+              "name": "slots",
+              "privacy": "protected",
+              "default": "new SlotController(this, {\n    slots: ['header'],\n  })"
+            },
+            {
+              "kind": "method",
+              "name": "updateAccessibility",
+              "privacy": "public"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "header-hidden",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Visibily hide the header slot. Setting this to true will not affect\naria-labelledby.",
+              "fieldName": "headerHidden"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "rh-footer-links",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "RhFooterLinks",
+          "declaration": {
+            "name": "RhFooterLinks",
+            "module": "elements/rh-footer/rh-footer-links.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "rh-footer-links",
+          "declaration": {
+            "name": "RhFooterLinks",
+            "module": "elements/rh-footer/rh-footer-links.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "elements/rh-footer/rh-footer-responsive.css.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "responsiveStyles",
+          "default": "css`\n  @media screen and (min-width: ${mobileBreakpoint}) {\n    .global-base {\n      grid-template-columns: 4fr 4fr 4fr;\n      grid-template-areas:\n        'logo      logo      logo'\n        'primary   primary   primary'\n        'spacer    spacer    spacer'\n        'secondary secondary tertiary';\n    }\n  }\n\n  @media screen and (min-width: ${mobileXlBreakpoint}) {\n    .global-base {\n      grid-template-columns: auto 10fr 2fr;\n      grid-template-rows: 32px max-content;\n      grid-template-areas:\n        'logo primary   tertiary'\n        'logo secondary tertiary';\n      gap: 24px 32px;\n    }\n\n    .global-primary {\n      display: flex;\n    }\n\n  }\n\n  .spacer {\n    grid-area: spacer;\n    border-bottom: 1px solid var(--_border-color);\n  }\n\n  @media screen and (min-width: ${mobileXlBreakpoint}) {\n    .spacer {\n      display: none;\n    }\n  }\n\n  @media screen and (min-width: ${mobileXlBreakpoint}) {\n    .global-tertiary {\n      display: grid;\n      justify-content: flex-end;\n      align-items: center;\n    }\n  }\n\n  @media screen and (min-width: 500px) {\n    .global-links-primary {\n      display: grid;\n      grid-template-columns: 1fr 1fr 1fr;\n    }\n  }\n\n  @media screen and (min-width: ${mobileXlBreakpoint}) {\n    .global-links-primary {\n      display: flex;\n      flex-flow: row wrap;\n      align-items: center;\n    }\n  }\n\n  @media screen and (min-width: 500px) {\n    .global-links-secondary {\n      display: grid;\n      grid-template-columns: 1fr 1fr 1fr;\n    }\n  }\n\n  @media screen and (min-width: ${mobileBreakpoint}) {\n    .global-links-secondary {\n      grid-template-columns: 1fr 1fr;\n    }\n  }\n\n  @media screen and (min-width: ${mobileXlBreakpoint}) {\n    .global-links-secondary {\n      display: flex;\n      flex-direction: row;\n      flex-wrap: wrap;\n      gap: 8px 24px;\n    }\n  }\n\n  @media screen and (max-width: ${tabletLandscapeBreakpoint}) {\n    .global-logo {\n      grid-area: logo;\n    }\n\n    .global-primary {\n      grid-area: primary;\n    }\n  }\n\n  @media screen and (max-width: ${tabletLandscapeBreakpoint}) {\n    /* Equalize padding on mobile */\n    .section {\n      --_section-side-gap: var(--rh-footer-section-side-gap, var(--rh-space-2xl, 32px));\n    }\n\n    /* hide the header border on mobile */\n    .header:after {\n      display: none;\n    }\n\n    /* force the mobile links menu to go flush against the header */\n    .main {\n      padding-top: 0;\n    }\n\n    .global-tertiary {\n      margin-block-start: 16px;\n    }\n  }\n\n  @media screen and (min-width: ${tabletLandscapeBreakpoint}) and (max-width: ${desktopLargeBreakpoint}) {\n    /* Equalize padding on mobile */\n    .section {\n      --_section-side-gap: var(--rh-footer-section-side-gap, var(--rh-space-2xl, 32px));\n    }\n\n    .global-tertiary {\n      margin-block-start: 16px;\n    }\n\n    .header,\n    .main {\n      /* switch header to use grid instead */\n      display: grid;\n      grid-template-columns: 8fr 4fr;\n    }\n  }\n\n  @media screen and (min-width: ${desktopLargeBreakpoint}) {\n    .section {\n      --_section-side-gap: var(--rh-footer-section-side-gap, var(--rh-space-2xl, 32px));\n    }\n\n    .header,\n    .main {\n      /* switch header to use grid instead */\n      display: grid;\n      grid-template-columns: 8fr 4fr;\n    }\n  }\n\n  @media screen and (min-width: ${mobileBreakpoint}) {\n    .isMobile .links ::slotted(ul) {\n      grid-template-columns: 1fr 1fr;\n    }\n  }\n`"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "responsiveStyles",
+          "declaration": {
+            "name": "responsiveStyles",
+            "module": "elements/rh-footer/rh-footer-responsive.css.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "elements/rh-footer/rh-footer-social-link.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "RhFooterSocialLink",
+          "members": [
+            {
+              "kind": "field",
+              "name": "logger",
+              "privacy": "private",
+              "default": "new Logger(this)"
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string | null"
+              },
+              "default": "null",
+              "attribute": "icon"
+            },
+            {
+              "kind": "method",
+              "name": "updateLightdom",
+              "privacy": "private"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "icon",
+              "type": {
+                "text": "string | null"
+              },
+              "default": "null",
+              "fieldName": "icon"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "rh-footer-social-link",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "RhFooterSocialLink",
+          "declaration": {
+            "name": "RhFooterSocialLink",
+            "module": "elements/rh-footer/rh-footer-social-link.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "rh-footer-social-link",
+          "declaration": {
+            "name": "RhFooterSocialLink",
+            "module": "elements/rh-footer/rh-footer-social-link.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "elements/rh-footer/rh-footer.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "rh-footer",
+          "declaration": {
+            "name": "RhFooter",
+            "module": "/elements/rh-footer/RhFooter.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "elements/rh-footer/rh-global-footer.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "RhGlobalFooter",
+          "cssParts": [
+            {
+              "name": "base"
+            },
+            {
+              "name": "base"
+            },
+            {
+              "name": "logo"
+            },
+            {
+              "name": "logo-image"
+            },
+            {
+              "name": "primary"
+            },
+            {
+              "name": "primary-start"
+            },
+            {
+              "name": "primary-end"
+            },
+            {
+              "name": "secondary"
+            },
+            {
+              "name": "secondary-start"
+            },
+            {
+              "name": "secondary-end"
+            },
+            {
+              "name": "links-primary"
+            },
+            {
+              "name": "links-secondary"
+            },
+            {
+              "name": "tertiary"
+            }
+          ],
+          "slots": [
+            {
+              "name": "logo"
+            },
+            {
+              "name": "logo-image"
+            },
+            {
+              "name": "primary"
+            },
+            {
+              "name": "primary-start"
+            },
+            {
+              "name": "primary-end"
+            },
+            {
+              "name": "secondary"
+            },
+            {
+              "name": "secondary-start"
+            },
+            {
+              "name": "secondary-end"
+            },
+            {
+              "name": "links-primary"
+            },
+            {
+              "name": "links-secondary"
+            },
+            {
+              "name": "tertiary"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "colorPalette",
+              "type": {
+                "text": "ColorPalette"
+              },
+              "default": "'darker'",
+              "attribute": "color-palette",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "color-palette",
+              "type": {
+                "text": "ColorPalette"
+              },
+              "default": "'darker'",
+              "fieldName": "colorPalette"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "rh-global-footer",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "RhGlobalFooter",
+          "declaration": {
+            "name": "RhGlobalFooter",
+            "module": "elements/rh-footer/rh-global-footer.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "rh-global-footer",
+          "declaration": {
+            "name": "RhGlobalFooter",
+            "module": "elements/rh-footer/rh-global-footer.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "elements/rh-secondary-nav/rh-secondary-nav-dropdown.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "SecondaryNavDropdownExpandEvent",
+          "superclass": {
+            "name": "ComposedEvent",
+            "package": "@patternfly/pfe-core"
+          }
+        },
+        {
+          "kind": "class",
+          "description": "",
+          "name": "RhSecondaryNavDropdown",
+          "slots": [
+            {
+              "description": "Link for dropdown, expects `<a>`",
+              "name": "link"
+            },
+            {
+              "description": "Menu for dropdown, expects `<rh-secondary-nav-menu>`",
+              "name": "menu"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "#slots",
+              "privacy": "private",
+              "default": "new SlotController(this, { slots: ['link', 'menu'] })"
+            },
+            {
+              "kind": "field",
+              "name": "#logger",
+              "privacy": "private",
+              "default": "new Logger(this)"
+            },
+            {
+              "kind": "field",
+              "name": "_container",
+              "type": {
+                "text": "HTMLElement | undefined"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "expanded",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "colorPalette",
+              "type": {
+                "text": "string"
+              },
+              "default": "'lighter'",
+              "attribute": "color-palette",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "_expandedChanged",
+              "privacy": "protected",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "oldVal",
+                  "optional": true,
+                  "type": {
+                    "text": "string"
+                  },
+                  "description": "Boolean value in string form"
+                },
+                {
+                  "name": "newVal",
+                  "optional": true,
+                  "type": {
+                    "text": "string"
+                  },
+                  "description": "Boolean value in string form"
+                }
+              ],
+              "description": "When expanded property changes, check the new value, if true\nrun the `#open()` method, if false run the `#close()` method."
+            },
+            {
+              "kind": "method",
+              "name": "_clickHandler",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ],
+              "description": "When a dropdown is clicked set expanded to the opposite of the expanded property\nand then dispatch that value in a SecondaryNavDropdownExpandEvent"
+            },
+            {
+              "kind": "method",
+              "name": "#open",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "description": "Sets or removes attributes needed to open a dropdown menu",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "#close",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "description": "Sets or removes attributes needed to close a dropdown menu",
+              "privacy": "private"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "SecondaryNavDropdownExpandEvent"
+              },
+              "description": "Fires when a dropdown is clicked",
+              "name": "change"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "color-palette",
+              "type": {
+                "text": "string"
+              },
+              "default": "'lighter'",
+              "fieldName": "colorPalette"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "A wrapper component to upgrade a top level nav link to include dropdown functionality",
+          "tagName": "rh-secondary-nav-dropdown",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SecondaryNavDropdownExpandEvent",
+          "declaration": {
+            "name": "SecondaryNavDropdownExpandEvent",
+            "module": "elements/rh-secondary-nav/rh-secondary-nav-dropdown.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "RhSecondaryNavDropdown",
+          "declaration": {
+            "name": "RhSecondaryNavDropdown",
+            "module": "elements/rh-secondary-nav/rh-secondary-nav-dropdown.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "rh-secondary-nav-dropdown",
+          "declaration": {
+            "name": "RhSecondaryNavDropdown",
+            "module": "elements/rh-secondary-nav/rh-secondary-nav-dropdown.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "elements/rh-secondary-nav/rh-secondary-nav-menu-section.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "RhSecondaryNavMenuSection",
+          "cssParts": [
+            {
+              "description": "container, <section> element",
+              "name": "base"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Adds a header tag to section, expects `<h1>, <h2>, <h3>, <h4>, <h5>, <h6>`",
+              "name": "header"
+            },
+            {
+              "description": "Adds a ul tag to section, expects `<ul>, <ol>`",
+              "name": "links"
+            },
+            {
+              "description": "Adds a section level CTA, expects `<rh-cta>`",
+              "name": "cta"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "#logger",
+              "privacy": "private",
+              "default": "new Logger(this)"
+            },
+            {
+              "kind": "method",
+              "name": "#updateAccessibility",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "description": "Finds all list elements `<ul>, <ol>` and if the list does not have an\n`aria-labelledby` attribute finds the previousElementSibling header\n`<h1-6>` tags if available assigns an id or uses preexisting id\nto that header, then uses that id to the list on the `aria-labelledby`.",
+              "privacy": "private"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "'A menu section which auto upgrades header and sibling link list accessibility attributes'",
+          "tagName": "rh-secondary-nav-menu-section",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "RhSecondaryNavMenuSection",
+          "declaration": {
+            "name": "RhSecondaryNavMenuSection",
+            "module": "elements/rh-secondary-nav/rh-secondary-nav-menu-section.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "rh-secondary-nav-menu-section",
+          "declaration": {
+            "name": "RhSecondaryNavMenuSection",
+            "module": "elements/rh-secondary-nav/rh-secondary-nav-menu-section.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "elements/rh-secondary-nav/rh-secondary-nav-menu.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "RhSecondaryNavMenu",
+          "cssParts": [
+            {
+              "description": "container - <div> element, wrapper for menus",
+              "name": "container"
+            },
+            {
+              "description": "container - <div> element, wrapper for full-width menus",
+              "name": "full-width"
+            },
+            {
+              "description": "container - <div> element, wrapper for fixed-width menus",
+              "name": "fixed-width"
+            },
+            {
+              "description": "container - <div> element, wrapper for menu sections",
+              "name": "sections"
+            },
+            {
+              "description": "container - <div> element, wrapper for cta",
+              "name": "cta"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Section, expects `<ul>, <ol>, <rh-secondary-nav-section>` elements, applies auto grid styles on full-width",
+              "name": "section"
+            },
+            {
+              "description": "Menu level CTA, expects a `<rh-cta>`",
+              "name": "cta"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "layout",
+              "type": {
+                "text": "'fixed-width' | 'full-width'"
+              },
+              "default": "'full-width'",
+              "attribute": "layout",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "_container",
+              "type": {
+                "text": "HTMLElement | undefined"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "#screenSize",
+              "privacy": "private",
+              "default": "new ScreenSizeController(this)"
+            },
+            {
+              "kind": "field",
+              "name": "_compact",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false",
+              "description": "`compact` property is true when viewport `(min-width: ${tabletLandscapeBreakpoint})`.\nProperty is observed for changes, and its value is updated using matchMediaController\nwhen viewport changes at breakpoint or first load of the component."
+            },
+            {
+              "kind": "field",
+              "name": "screenSize",
+              "privacy": "protected",
+              "default": "new ScreenSizeController(this, 'tabletLandscape', {\n     onChange: matches => {\n       this._compact = !matches;\n     }\n   })",
+              "description": "ScreenSizeController effects callback to set _compact"
+            },
+            {
+              "kind": "field",
+              "name": "visible",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "`visible` property is false initially then when a dropdown is clicked is toggled"
+            },
+            {
+              "kind": "method",
+              "name": "isDropdown",
+              "static": true,
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "element",
+                  "type": {
+                    "text": "Element|null"
+                  },
+                  "description": ":"
+                }
+              ],
+              "description": "Checks if passed in element is a RhSecondaryNavDropdown"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "layout",
+              "type": {
+                "text": "'fixed-width' | 'full-width'"
+              },
+              "default": "'full-width'",
+              "fieldName": "layout"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "'A pop up menu for secondary nav, available in full-width and fixed-with sizes'",
+          "tagName": "rh-secondary-nav-menu",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "RhSecondaryNavMenu",
+          "declaration": {
+            "name": "RhSecondaryNavMenu",
+            "module": "elements/rh-secondary-nav/rh-secondary-nav-menu.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "rh-secondary-nav-menu",
+          "declaration": {
+            "name": "RhSecondaryNavMenu",
+            "module": "elements/rh-secondary-nav/rh-secondary-nav-menu.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "elements/rh-secondary-nav/rh-secondary-nav-overlay.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "SecondaryNavOverlayChangeEvent",
+          "superclass": {
+            "name": "ComposedEvent",
+            "package": "@patternfly/pfe-core"
+          }
+        },
+        {
+          "kind": "class",
+          "description": "",
+          "name": "RhSecondaryNavOverlay",
+          "members": [
+            {
+              "kind": "field",
+              "name": "open",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "_openChanged",
+              "privacy": "protected",
+              "parameters": [
+                {
+                  "name": "_oldValue",
+                  "optional": true,
+                  "type": {
+                    "text": "boolean"
+                  }
+                },
+                {
+                  "name": "newValue",
+                  "optional": true,
+                  "type": {
+                    "text": "boolean"
+                  }
+                }
+              ]
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "An overlay element to cover content with an opacity when navigation is expanded.",
+          "tagName": "rh-secondary-nav-overlay",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "SecondaryNavOverlayChangeEvent",
+          "declaration": {
+            "name": "SecondaryNavOverlayChangeEvent",
+            "module": "elements/rh-secondary-nav/rh-secondary-nav-overlay.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "RhSecondaryNavOverlay",
+          "declaration": {
+            "name": "RhSecondaryNavOverlay",
+            "module": "elements/rh-secondary-nav/rh-secondary-nav-overlay.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "rh-secondary-nav-overlay",
+          "declaration": {
+            "name": "RhSecondaryNavOverlay",
+            "module": "elements/rh-secondary-nav/rh-secondary-nav-overlay.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "elements/rh-secondary-nav/rh-secondary-nav.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Red Hat Secondary Nav",
+          "name": "RhSecondaryNav",
+          "cssParts": [
+            {
+              "description": "container, <nav> element",
+              "name": "nav"
+            },
+            {
+              "description": "container, <div> element",
+              "name": "container"
+            },
+            {
+              "description": "container, <div> element",
+              "name": "cta"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Logo added to the main nav bar, expects a `<a> | <a><svg/></a> | <a><img/></a>`",
+              "name": "logo"
+            },
+            {
+              "description": "Navigation list added to the main nav bar, expects a `<ul>`",
+              "name": "nav"
+            },
+            {
+              "description": "Nav bar level CTA, expects a `<rh-cta>",
+              "name": "cta"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "version",
+              "type": {
+                "text": "string"
+              },
+              "static": true,
+              "default": "1.0.0-beta.18",
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "#logger",
+              "privacy": "private",
+              "default": "new Logger(this)"
+            },
+            {
+              "kind": "field",
+              "name": "#logoCopy",
+              "privacy": "private",
+              "type": {
+                "text": "HTMLElement | null"
+              },
+              "default": "null"
+            },
+            {
+              "kind": "field",
+              "name": "#dir",
+              "privacy": "private",
+              "default": "new DirController(this)",
+              "description": "Is the element in an RTL context?"
+            },
+            {
+              "kind": "field",
+              "name": "_overlay",
+              "type": {
+                "text": "RhSecondaryNavOverlay"
+              },
+              "description": "executes this.shadowRoot.querySelector('rh-secondary-nav-overlay')"
+            },
+            {
+              "kind": "field",
+              "name": "_container",
+              "type": {
+                "text": "HTMLElement | undefined"
+              },
+              "description": "executes this.shadowRoot.querySelector('#container')"
+            },
+            {
+              "kind": "field",
+              "name": "_nav",
+              "type": {
+                "text": "HTMLElement | undefined"
+              },
+              "description": "executes this.shadowRoot.querySelector('nav');"
+            },
+            {
+              "kind": "field",
+              "name": "_mobileMenuButton",
+              "type": {
+                "text": "HTMLButtonElement | undefined"
+              },
+              "description": "executes this.shadowRoot.querySelector('button')"
+            },
+            {
+              "kind": "field",
+              "name": "_compact",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false",
+              "description": "`_compact` property is true when viewport `(min-width: ${tabletLandscapeBreakpoint})`.\nProperty is observed for changes, and its value is updated using matchMediaController\nwhen viewport changes at breakpoint or first load of the component."
+            },
+            {
+              "kind": "field",
+              "name": "screenSize",
+              "privacy": "protected",
+              "default": "new ScreenSizeController(this, 'tabletLandscape', {\n    onChange: matches => {\n      this._compact = !matches;\n    }\n  })",
+              "description": "ScreenSizeController effects callback to set _compact"
+            },
+            {
+              "kind": "field",
+              "name": "_mobileMenuExpanded",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false",
+              "description": "`_mobileMenuExpanded` property is toggled when the mobile menu button is clicked,\na focusout event occurs, or on an overlay click event.  It also switches state\nwhen the viewport changes breakpoints depending on if a dropdown is open or not."
+            },
+            {
+              "kind": "field",
+              "name": "mainNav",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Define custom attribute 'main' and watch for DOM changes of the attribute",
+              "attribute": "main",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "colorPalette",
+              "type": {
+                "text": "NavPalette"
+              },
+              "default": "'lighter'",
+              "attribute": "color-palette",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "isDropdown",
+              "static": true,
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "element",
+                  "type": {
+                    "text": "Element | null"
+                  },
+                  "description": ":"
+                }
+              ],
+              "description": "Checks if passed in element is a RhSecondaryNavDropdown"
+            },
+            {
+              "kind": "method",
+              "name": "open",
+              "privacy": "public",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "index",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ],
+              "description": "Public API, opens a specific dropdown based on index.\nCloses all open dropdowns before opening specified.\nToggles overlay to open"
+            },
+            {
+              "kind": "method",
+              "name": "close",
+              "privacy": "public",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "description": "Public API, closes all open dropdowns"
+            },
+            {
+              "kind": "method",
+              "name": "_dropdownChangeHandler",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "Event"
+                  },
+                  "description": "{SecondaryNavDropdownExpandEvent}"
+                }
+              ],
+              "description": "When dropdown event is triggered gets dropdown index that triggered\nevent then closes all dropdowns.\nIf the event is to open a dropdown, run #expand(index)\nIf isMobile is set dispatch an SecondaryNavOverlayChangeEvent event\nto open the overlay"
+            },
+            {
+              "kind": "method",
+              "name": "_focusOutHandler",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "FocusEvent"
+                  }
+                }
+              ],
+              "description": "Handles when focus changes outside of the navigation\nIf _compact is set, close the mobileMenu\nCloses all dropdowns and toggles overlay to closed"
+            },
+            {
+              "kind": "method",
+              "name": "_overlayClickHandler",
+              "privacy": "private",
+              "description": "Handles when the overlay receives a click event\nCloses all dropdowns and toggles overlay to closed\nIf _compact then closes mobile menu to closed",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "PointerEvent"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "__compactChanged",
+              "privacy": "private",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "oldVal",
+                  "optional": true,
+                  "type": {
+                    "text": "boolean | undefined"
+                  }
+                },
+                {
+                  "name": "newVal",
+                  "optional": true,
+                  "type": {
+                    "text": "boolean | undefined"
+                  }
+                }
+              ],
+              "description": "When _compact value is changed\nGet all open navMenus\nIf _compact is true, open mobile menu\nIf _compact is false, close mobile menu and close overlay"
+            },
+            {
+              "kind": "method",
+              "name": "_keyboardControls",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "KeyboardEvent"
+                  }
+                }
+              ],
+              "description": "Closes dropdown menu on keydown, then places\nfocus on last button clicked"
+            },
+            {
+              "kind": "method",
+              "name": "#getOpenDropdowns",
+              "return": {
+                "type": {
+                  "text": "RhSecondaryNavDropdown[]"
+                }
+              },
+              "description": "Finds all open dropdowns",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "#getDropdownIndex",
+              "return": {
+                "type": {
+                  "text": "void | number"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "element",
+                  "type": {
+                    "text": "Element"
+                  }
+                }
+              ],
+              "description": "Gets all dropdowns and finds the element given and returns its index",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "#dropdownByIndex",
+              "return": {
+                "type": {
+                  "text": "void | RhSecondaryNavDropdown"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "index",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ],
+              "description": "Gets all dropdowns and returns the dropdown given an index",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "#expand",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "index",
+                  "type": {
+                    "text": "number"
+                  }
+                }
+              ],
+              "description": "Opens a dropdown given an index",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "#allDropdowns",
+              "return": {
+                "type": {
+                  "text": "RhSecondaryNavDropdown[]"
+                }
+              },
+              "description": "Gets all dropdowns",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "#closeDropdown",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "dropdown",
+                  "type": {
+                    "text": "RhSecondaryNavDropdown"
+                  }
+                }
+              ],
+              "description": "Sets property expanded=false on dropdown given",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "#openDropdown",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "dropdown",
+                  "type": {
+                    "text": "RhSecondaryNavDropdown"
+                  }
+                }
+              ],
+              "description": "Sets property expanded=true on dropdown given",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_toggleNavOverlay",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "SecondaryNavOverlayChangeEvent"
+                  }
+                }
+              ],
+              "description": "Toggles the overlay triggered by eventListener"
+            },
+            {
+              "kind": "method",
+              "name": "#updateAccessibility",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "description": "Upgrades the aria attributes on upgrade",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "#toggleMobileMenu",
+              "description": "Toggles the mobile menu from `@click` of the _mobileMenuButton",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "#setNavOrder",
+              "description": "Set the aria label on the custom tag to designate the nav as main or secondary based on attributes set by the content author",
+              "return": {
+                "type": {
+                  "text": ""
+                }
+              },
+              "privacy": "private"
+            }
+          ],
+          "events": [
+            {
+              "type": {
+                "text": "SecondaryNavOverlayChangeEvent"
+              },
+              "description": "Fires when an dropdown is opened or closed in desktop view or when the mobile menu button is toggled in mobile view.",
+              "name": "overlay-change"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "main",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Define custom attribute 'main' and watch for DOM changes of the attribute",
+              "fieldName": "mainNav"
+            },
+            {
+              "name": "color-palette",
+              "type": {
+                "text": "NavPalette"
+              },
+              "default": "'lighter'",
+              "fieldName": "colorPalette"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "summary": "A non primary navigation bar.",
+          "tagName": "rh-secondary-nav",
+          "customElement": true,
+          "demos": [
+            {
+              "url": "https://ux.redhat.com/components/secondary-nav/demo/",
+              "source": {
+                "href": "https://github.com/redhat-ux/red-hat-design-system/tree/main/elements/rh-secondary-nav/demo/rh-secondary-nav.html"
+              }
+            },
+            {
+              "url": "https://ux.redhat.com/components/secondary-nav/demo/analytics/",
+              "source": {
+                "href": "https://github.com/redhat-ux/red-hat-design-system/tree/main/elements/rh-secondary-nav/demo/analytics.html"
+              }
+            },
+            {
+              "url": "https://ux.redhat.com/components/secondary-nav/demo/dark-variant/",
+              "source": {
+                "href": "https://github.com/redhat-ux/red-hat-design-system/tree/main/elements/rh-secondary-nav/demo/dark-variant.html"
+              }
+            },
+            {
+              "url": "https://ux.redhat.com/components/secondary-nav/demo/proxy/",
+              "source": {
+                "href": "https://github.com/redhat-ux/red-hat-design-system/tree/main/elements/rh-secondary-nav/demo/proxy.html"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "RhSecondaryNav",
+          "declaration": {
+            "name": "RhSecondaryNav",
+            "module": "elements/rh-secondary-nav/rh-secondary-nav.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "rh-secondary-nav",
+          "declaration": {
+            "name": "RhSecondaryNav",
+            "module": "elements/rh-secondary-nav/rh-secondary-nav.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "elements/rh-stat/rh-stat.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "A statistic showcases a data point or quick fact in a way that visually stands out.\nIt consists of a number/percentage and body text in its simplest form.\nIt can also include an icon, title, and a call to action.",
+          "name": "RhStat",
+          "slots": [
+            {
+              "description": "Optional icon",
+              "name": "icon"
+            },
+            {
+              "description": "Statistic title",
+              "name": "title"
+            },
+            {
+              "description": "Statistic data",
+              "name": "statistic"
+            },
+            {
+              "description": "Call to action",
+              "name": "cta"
+            },
+            {
+              "description": "Description of the stat",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "version",
+              "type": {
+                "text": "string"
+              },
+              "static": true,
+              "default": "1.0.0-beta.18",
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "on",
+              "type": {
+                "text": "ColorTheme"
+              },
+              "default": "'light'",
+              "attribute": "on",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "string | undefined"
+              },
+              "attribute": "icon",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "top",
+              "type": {
+                "text": "'default'|'statistic'"
+              },
+              "default": "'default'",
+              "attribute": "top",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "'default'|'large'"
+              },
+              "default": "'default'",
+              "attribute": "size",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "isMobile",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "is-mobile",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "#screenSize",
+              "privacy": "private",
+              "default": "new ScreenSizeController(this)"
+            },
+            {
+              "kind": "field",
+              "name": "#slots",
+              "privacy": "private",
+              "default": "new SlotController(this, null, 'icon', 'title', 'statistic', 'cta')"
+            },
+            {
+              "kind": "field",
+              "name": "#mo",
+              "privacy": "private",
+              "default": "new MutationObserver(() => this.#onMutation())"
+            },
+            {
+              "kind": "field",
+              "name": "#logger",
+              "privacy": "private",
+              "default": "new Logger(this)"
+            },
+            {
+              "kind": "method",
+              "name": "#updateIcons",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "#onMutation",
+              "privacy": "private"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "on",
+              "type": {
+                "text": "ColorTheme"
+              },
+              "default": "'light'",
+              "fieldName": "on"
+            },
+            {
+              "name": "icon",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "icon"
+            },
+            {
+              "name": "top",
+              "type": {
+                "text": "'default'|'statistic'"
+              },
+              "default": "'default'",
+              "fieldName": "top"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "'default'|'large'"
+              },
+              "default": "'default'",
+              "fieldName": "size"
+            },
+            {
+              "name": "is-mobile",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "isMobile"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "rh-stat",
+          "customElement": true,
+          "demos": [
+            {
+              "url": "https://ux.redhat.com/components/statistic/demo/",
+              "source": {
+                "href": "https://github.com/redhat-ux/red-hat-design-system/tree/main/elements/rh-stat/demo/rh-stat.html"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "RhStat",
+          "declaration": {
+            "name": "RhStat",
+            "module": "elements/rh-stat/rh-stat.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "rh-stat",
+          "declaration": {
+            "name": "RhStat",
+            "module": "elements/rh-stat/rh-stat.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "elements/rh-tooltip/rh-tooltip.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Tooltip",
+          "name": "RhTooltip",
+          "slots": [
+            {
+              "description": "Place element content here",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "version",
+              "type": {
+                "text": "string"
+              },
+              "static": true,
+              "default": "1.0.0-beta.18",
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "on",
+              "type": {
+                "text": "ColorTheme"
+              },
+              "default": "'light'",
+              "attribute": "on",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "on",
+              "type": {
+                "text": "ColorTheme"
+              },
+              "default": "'light'",
+              "fieldName": "on"
+            }
+          ],
+          "superclass": {
+            "name": "BaseTooltip",
+            "package": "@patternfly/pfe-tooltip/BaseTooltip.js"
+          },
+          "tagName": "rh-tooltip",
+          "customElement": true,
+          "demos": [
+            {
+              "url": "https://ux.redhat.com/components/tooltip/demo/",
+              "source": {
+                "href": "https://github.com/redhat-ux/red-hat-design-system/tree/main/elements/rh-tooltip/demo/rh-tooltip.html"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "RhTooltip",
+          "declaration": {
+            "name": "RhTooltip",
+            "module": "elements/rh-tooltip/rh-tooltip.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "rh-tooltip",
+          "declaration": {
+            "name": "RhTooltip",
+            "module": "elements/rh-tooltip/rh-tooltip.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "elements/rh-footer/RhFooter.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "RhFooter",
+          "cssProperties": [
+            {
+              "description": "",
+              "name": "--rh-footer-icon-color",
+              "default": "#8a8d90"
+            },
+            {
+              "description": "",
+              "name": "--rh-footer-icon-color-hover",
+              "default": "#b8bbbe"
+            },
+            {
+              "description": "",
+              "name": "--rh-footer-border-color",
+              "default": "#6a6e73"
+            },
+            {
+              "description": "",
+              "name": "--rh-footer-accent-color",
+              "default": "#e00"
+            },
+            {
+              "description": "",
+              "name": "--rh-footer-section-side-gap",
+              "default": "32px"
+            },
+            {
+              "description": "",
+              "name": "--rh-footer-links-gap",
+              "default": "8px"
+            },
+            {
+              "description": "",
+              "name": "--rh-footer-link-header-font-size",
+              "default": "0.875em"
+            }
+          ],
+          "cssParts": [
+            {
+              "description": "main footer element, containing all footer content",
+              "name": "base"
+            },
+            {
+              "description": "footer header, typically containing main logo and social links",
+              "name": "header"
+            },
+            {
+              "description": "primary footer header content, e.g. main logo",
+              "name": "header-primary"
+            },
+            {
+              "description": "secondary footer header content, e.g. social links",
+              "name": "header-secondary"
+            },
+            {
+              "description": "main page or product logo container",
+              "name": "logo"
+            },
+            {
+              "description": "social links container `<rh-footer-links>`",
+              "name": "social-links"
+            },
+            {
+              "description": "main content container.",
+              "name": "main"
+            },
+            {
+              "description": "container for main footer links",
+              "name": "main-primary"
+            },
+            {
+              "description": "container for main footer links",
+              "name": "links"
+            },
+            {
+              "description": "mobile links accordion header element",
+              "name": "links-accordion-header"
+            },
+            {
+              "description": "mobile links panel container element",
+              "name": "links-accordion-panel"
+            },
+            {
+              "description": "container fro prose or promotional content",
+              "name": "main-secondary"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Overrides everything. Do not use.",
+              "name": "base"
+            },
+            {
+              "description": "Overrides `header-*`, `logo`, `social-links`",
+              "name": "header"
+            },
+            {
+              "description": "primary footer header content, e.g. main logo. Overrides `logo`",
+              "name": "header-primary"
+            },
+            {
+              "description": "secondary footer header content, e.g. social links. Overrides `social-links`",
+              "name": "header-secondary"
+            },
+            {
+              "description": "main page or product logo. Defaults to Red Hat corporate logo",
+              "name": "logo"
+            },
+            {
+              "description": "social media links (icons). Contains a default set of links",
+              "name": "social-links"
+            },
+            {
+              "description": "main footer content. Overrides `main-*`",
+              "name": "main"
+            },
+            {
+              "description": "main footer region. typically a columnar grid",
+              "name": "main-primary"
+            },
+            {
+              "description": "main footer links",
+              "name": "links"
+            },
+            {
+              "description": "typically contains prose or promotional content",
+              "name": "main-secondary"
+            },
+            {
+              "description": "must contain `<rh-global-footer>`",
+              "name": "global"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "version",
+              "type": {
+                "text": "string"
+              },
+              "static": true,
+              "default": "1.0.0-beta.18",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "getImportURL",
+              "static": true,
+              "return": {
+                "type": {
+                  "text": "string | URL"
+                }
+              },
+              "parameters": [
+                {
+                  "name": "relativeLocation",
+                  "type": {
+                    "text": "string | URL"
+                  }
+                }
+              ],
+              "description": "Isomorphic import.meta.url function\nRequires a node.js dom shim that sets window.location"
+            },
+            {
+              "kind": "field",
+              "name": "#matchMedia",
+              "privacy": "private",
+              "default": "new MatchMediaController(this, `(max-width: ${tabletLandscapeBreakpoint})`)"
+            },
+            {
+              "kind": "field",
+              "name": "#logger",
+              "privacy": "private",
+              "default": "new Logger(this)"
+            },
+            {
+              "kind": "field",
+              "name": "colorPalette",
+              "type": {
+                "text": "ColorPalette"
+              },
+              "default": "'darker'",
+              "attribute": "color-palette",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "#renderLinksTemplate",
+              "parameters": [
+                {
+                  "name": "isMobile",
+                  "default": "false"
+                }
+              ],
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "updateAccessibility",
+              "privacy": "public",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "description": "Get any `<ul>`s that are in the designated link slots\nand syncronously update each list and header if we need to."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "color-palette",
+              "type": {
+                "text": "ColorPalette"
+              },
+              "default": "'darker'",
+              "fieldName": "colorPalette"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "rh-footer",
+          "customElement": true,
+          "demos": [
+            {
+              "url": "https://ux.redhat.com/components/footer/demo/",
+              "source": {
+                "href": "https://github.com/redhat-ux/red-hat-design-system/tree/main/elements/rh-footer/demo/rh-footer.html"
+              }
+            },
+            {
+              "url": "https://ux.redhat.com/components/footer/demo/global-footer/",
+              "source": {
+                "href": "https://github.com/redhat-ux/red-hat-design-system/tree/main/elements/rh-footer/demo/global-footer.html"
+              }
+            },
+            {
+              "url": "https://ux.redhat.com/components/footer/demo/proxy/",
+              "source": {
+                "href": "https://github.com/redhat-ux/red-hat-design-system/tree/main/elements/rh-footer/demo/proxy.html"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "RhFooter",
+          "declaration": {
+            "name": "RhFooter",
+            "module": "elements/rh-footer/RhFooter.js"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>Red Hat Israel</title>
+	<subtitle>About the Red Hat Israel site</subtitle>
+	
+	<link href="https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-29/feed/feed.xml" rel="self"/>
+	<link href="https://israel.redhat.com/"/>
+	<updated>2022-09-15T00:00:00Z</updated>
+	<id>https://israel.redhat.com/</id>
+	<author>
+		<name>Red Hat Israel Associates</name>
+		<email>israel@redhat.com</email>
+	</author>
+	
+	<entry>
+		<title>Ways to replace apache.commons.configuration in your project</title>
+		<link href="https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-29/posts/WaysToReplaceApache.commons.configurationInYourProject/"/>
+		<updated>2022-09-15T00:00:00Z</updated>
+		<id>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-29/posts/WaysToReplaceApache.commons.configurationInYourProject/</id>
+		<content type="html">&lt;p&gt;If you’re using &lt;em&gt;apache.commons.configuration&lt;/em&gt; to manage &lt;em&gt;.properties&lt;/em&gt; files in your project, you’re probably facing the following problem:
+&lt;em&gt;Apache.commons.configuration&lt;/em&gt; depends on &lt;em&gt;apache.common.logging&lt;/em&gt; which is included in &lt;em&gt;maven:3.5&lt;/em&gt;, but was removed from &lt;em&gt;maven:3.6&lt;/em&gt;.
+Thus, if you want to upgrade you will need to find a different way to parse your properties.&lt;/p&gt;
+&lt;p&gt;Java offers the &lt;em&gt;java.util.Properties&lt;/em&gt; class (see &lt;a href=&quot;https://docs.oracle.com/javase/tutorial/essential/environment/properties.html&quot;&gt;https://docs.oracle.com/javase/tutorial/essential/environment/properties.html&lt;/a&gt;), which is a subclass of &lt;em&gt;java.util.Hashtable&lt;/em&gt;.
+It maintains a list of keys and values, both are of type String, and provides methods for the following operations:
+Loading and saving the properties, getting a value by key, listing the keys and values, enumerating over the keys, and the methods inherited from the &lt;em&gt;Hashtable&lt;/em&gt; class.&lt;/p&gt;
+&lt;h5&gt;&lt;strong&gt;But what if our data is complex?&lt;/strong&gt;&lt;/h5&gt;
+&lt;p&gt;If we have nested properties &lt;em&gt;(i.e food.apple=red, food.icecream=vanilla, drink.milk=soy, drink.soft=coke)&lt;/em&gt; how will we find all of the information about the main key (&lt;em&gt;food&lt;/em&gt;, in this example)?
+In order to retrieve the complete value we will need to iterate over the entire &lt;em&gt;Hashtable&lt;/em&gt;, searching for all of the keys that contain &lt;code&gt;food.&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Here comes the biggest advantage of using &lt;em&gt;apache.commons.configuration&lt;/em&gt;-
+It offers a generic configuration interface to read data from a variety of sources, and access to single and multi-valued configuration parameters.&lt;/p&gt;
+&lt;p&gt;When I started working on removing the dependency on &lt;em&gt;apache.commons.configuration&lt;/em&gt;, I figured that since the properties we use are nested, I should see which methods of &lt;em&gt;apache.commons.configuration&lt;/em&gt; we are actually using, and then I tried to mimic the original implementation. It was very tricky as I faced a whole chain of inheritance and interfaces to implement.
+After already putting some work into it, I decided to drop it all and go with a different approach. The main thing I had to handle was being able to set the nested properties properly.
+I decided to save the properties into a &lt;em&gt;HashMap&lt;/em&gt; that stores &lt;em&gt;String&lt;/em&gt; for the key, and &lt;em&gt;JsonNode&lt;/em&gt; for the value.
+That way I could set and get each property by its main key easily, and get the specific data of a specific secondary key if needed. For other operations I used the &lt;em&gt;HashMap’s&lt;/em&gt; builtin methods.&lt;/p&gt;
+&lt;p&gt;Here’s a snippet of my implementation for storing the data from the .properties file, where I used &lt;code&gt;com.fasterxml.jackson&lt;/code&gt; for handling the JsonNode:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;private void populateProperties(File file) throws IOException {
+    ObjectMapper mapper = new ObjectMapper();
+    List lines = Files.readAllLines(file.toPath());
+    Map&amp;lt;String, String&amp;gt; allProps = new HashMap&amp;lt;&amp;gt;();
+    for (String line: lines) {
+        if (line.contains(&amp;quot;=&amp;quot;)) {
+            allProps.put(line.split(&amp;quot;=&amp;quot;)[0], line.split(&amp;quot;=&amp;quot;)[1]);
+        }
+    }
+    allProps.forEach((k, v) -&amp;gt; {
+        String[] mainKey = k.split(&amp;quot;\\.&amp;quot;);
+        if (this.props.get(mainKey[0]) != null) {
+            JsonNode oldNode = this.props.get(mainKey[0]);
+            ((ObjectNode) oldNode).put(mainKey[1], v);
+            this.props.put(mainKey[0], oldNode);
+        } else {
+            ObjectNode node = mapper.createObjectNode();
+            node.put(mainKey[1], v);
+            this.props.put(mainKey[0], node);
+        }
+    });
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;When choosing to use this implementation, we need to handle the case of an IO Exception. That is a small price compared to the convenience of maintaining the nested properties in a simple format.&lt;/p&gt;
+&lt;p&gt;To conclude, if you need to replace &lt;em&gt;apache.commons.configuration&lt;/em&gt;, you can either use Java’s &lt;em&gt;Properties&lt;/em&gt; class, or decide on your own implementation — preferably use a data structure to handle your &lt;em&gt;.properties&lt;/em&gt; file.
+&lt;br /&gt;Each method has its own drawbacks.&lt;br /&gt;
+Using the &lt;em&gt;Properties&lt;/em&gt; class will be most suitable for simple key-value pairs, while for nested data I’d recommend using a data structure where the key stores the main key, and the value will hold a &lt;em&gt;JsonNode&lt;/em&gt; that will store the secondary keys and their values.&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>This is my fourth post.</title>
+		<link href="https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-29/posts/fourthpost/"/>
+		<updated>2018-09-30T00:00:00Z</updated>
+		<id>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-29/posts/fourthpost/</id>
+		<content type="html">&lt;p&gt;Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.&lt;/p&gt;
+&lt;p&gt;Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.&lt;/p&gt;
+&lt;h2 id=&quot;section-header&quot; tabindex=&quot;-1&quot;&gt;Section Header &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-29/posts/fourthpost/#section-header&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>This is my third post.</title>
+		<link href="https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-29/posts/thirdpost/"/>
+		<updated>2018-08-24T00:00:00Z</updated>
+		<id>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-29/posts/thirdpost/</id>
+		<content type="html">&lt;p&gt;Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.&lt;/p&gt;
+&lt;pre class=&quot;language-diff-js&quot;&gt;&lt;code class=&quot;language-diff-js&quot;&gt;// this is a command&lt;br /&gt;function myCommand() {&lt;br /&gt;&lt;span class=&quot;token inserted-sign inserted language-js&quot;&gt;&lt;span class=&quot;token prefix inserted&quot;&gt;+&lt;/span&gt;	&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; counter &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token deleted-sign deleted language-js&quot;&gt;&lt;span class=&quot;token prefix deleted&quot;&gt;-&lt;/span&gt;	counter&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;/span&gt;&lt;br /&gt;}&lt;br /&gt;&lt;br /&gt;// Test with a line break above this line.&lt;br /&gt;console.log(&#39;Test&#39;);&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.&lt;/p&gt;
+&lt;h2 id=&quot;section-header&quot; tabindex=&quot;-1&quot;&gt;Section Header &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-29/posts/thirdpost/#section-header&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>This is my second post.</title>
+		<link href="https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-29/posts/secondpost/"/>
+		<updated>2018-07-04T00:00:00Z</updated>
+		<id>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-29/posts/secondpost/</id>
+		<content type="html">&lt;p&gt;Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.&lt;/p&gt;
+&lt;h2 id=&quot;section-header&quot; tabindex=&quot;-1&quot;&gt;Section Header &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-29/posts/secondpost/#section-header&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-29/posts/firstpost/&quot;&gt;First post&lt;/a&gt;
+&lt;a href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-29/posts/thirdpost/&quot;&gt;Third post&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.&lt;/p&gt;
+&lt;p&gt;Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>This is my first post.</title>
+		<link href="https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-29/posts/firstpost/"/>
+		<updated>2018-05-01T00:00:00Z</updated>
+		<id>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-29/posts/firstpost/</id>
+		<content type="html">&lt;p&gt;Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.&lt;/p&gt;
+&lt;p&gt;Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.&lt;/p&gt;
+&lt;h2 id=&quot;section-header&quot; tabindex=&quot;-1&quot;&gt;Section Header &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-29/posts/firstpost/#section-header&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.&lt;/p&gt;
+&lt;pre class=&quot;language-diff-js&quot;&gt;&lt;code class=&quot;language-diff-js&quot;&gt;// this is a command&lt;br /&gt;function myCommand() {&lt;br /&gt;&lt;span class=&quot;token inserted-sign inserted language-js&quot;&gt;&lt;span class=&quot;token prefix inserted&quot;&gt;+&lt;/span&gt;	&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; counter &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token prefix inserted&quot;&gt;+&lt;/span&gt;	counter&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;/span&gt;}&lt;br /&gt;&lt;br /&gt;// Test with a line break above this line.&lt;br /&gt;console.log(&#39;Test&#39;);&lt;/code&gt;&lt;/pre&gt;
+</content>
+	</entry>
+</feed>

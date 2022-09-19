@@ -1,0 +1,19 @@
+---
+title: Publicity
+layout: layouts/base.njk
+pagination:
+  data: publicity
+  size: 1000
+  alias: items
+---
+
+{% for story in pagination.items %}
+{% set mult = story.links.length > 1 %}
+  <h2>{{ story.topic }}</h2>
+  <p>קראו עוד באתר{{ 'י' if mult }}</p>{% if mult %}
+  <ul>{% endif %}{% for link in story.links %}{% if mult %}
+    <li>{% endif %}
+      <a href="{{ link.url }}" rel="noreferrer nofollow" target="_blank">{{ link.site }}</a>{% if mult %}
+    </li>{% endif %}{% endfor %}{% if mult %}
+  </ul>{% endif %}
+{% endfor %}

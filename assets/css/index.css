@@ -1,3 +1,11 @@
+:root {
+  --main-nav-active-item-shadow: inset 3px 0 0 0 var(--rh-color-brand-red-on-light);
+}
+
+[dir=rtl] {
+  --main-nav-active-item-shadow: inset -3px 0 0 0 var(--rh-color-brand-red-on-light);
+}
+
 html,
 body {
   margin: 0;
@@ -91,6 +99,13 @@ rh-global-footer {
       margin: 0;
       padding: 0;
       list-style-type: none;
+      & ul {
+        display: none;
+        padding-inline-start: var(--rh-space-xl);
+        & li {
+          font-size: var(--rh-font-size-body-text-xs);
+        }
+      }
       & li {
         line-height: 36px;
         & a {
@@ -101,9 +116,31 @@ rh-global-footer {
           padding: .5em 32px;
           color: var(--rh-color-text-primary-on-light);
         }
-        &.active a {
-          background: var(--rh-color-surface-lighter);
-          box-shadow: inset var(--rh-box-shadow-sm);
+        &.expandable > a::after {
+          content: "";
+          color: var(--rh-color-text-primary-on-light);
+          width: 9px;
+          height: 9px;
+          rotate: 45deg;
+          border-right: 3px solid var(--rh-color-text-primary-on-light);
+          border-top: 3px solid var(--rh-color-text-primary-on-light);
+          display: flex;
+          float: right;
+          top: 13px;
+          position: relative;
+        }
+        &.has-active.expandable > a::after {
+          rotate: 135deg;
+        }
+        &.active.expandable ul,
+        &.has-active ul {
+          display: block;
+        }
+        &.active {
+          & a {
+            background: var(--rh-color-surface-lighter);
+            box-shadow: var(--main-nav-active-item-shadow);
+          }
         }
       }
     }

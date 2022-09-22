@@ -38,11 +38,17 @@
     </header>
 
     <aside id="main-sidebar">
-      <nav>
-        <ul>{%- for entry in collections.all | eleventyNavigation %}
-          <li{% if entry.url == page.url %} class="active"{% endif %}>
-            <a href="{{ entry.url | url }}">{{ entry.title }}</a>
-          </li>{%- endfor %}
+      <nav>{% set navPages = collections.all | eleventyNavigation %}
+        <ul>{% macro renderNavListItem(entry) -%}
+        <li class="{% if entry.url == page.url %} active {% endif %}{%
+                      if (entry.children | hasUrl(page.url)) %} has-active {% endif %}{%
+                      if (entry.children.length) -%} expandable {% endif %}">
+          <a href="{{ entry.url | url }}">{{ entry.title }}</a>{%- if entry.children.length -%}
+          <ul>
+            {%- for child in entry.children %}{{ renderNavListItem(child) }}{% endfor -%}
+          </ul>{%- endif -%}
+        </li>{%- endmacro %}
+        {%- for entry in navPages %}{{ renderNavListItem(entry) }}{%- endfor -%}
         </ul>
       </nav>
     </aside>

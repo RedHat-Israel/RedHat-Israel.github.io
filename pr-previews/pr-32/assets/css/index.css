@@ -1,3 +1,11 @@
+:root {
+  --main-nav-active-item-shadow: inset 3px 0 0 0 var(--rh-color-brand-red-on-light);
+}
+
+[dir=rtl] {
+  --main-nav-active-item-shadow: inset -3px 0 0 0 var(--rh-color-brand-red-on-light);
+}
+
 html,
 body {
   margin: 0;
@@ -151,6 +159,7 @@ rh-global-footer.no-secondary-links::part(secondary) { display: none; }
 #main-sidebar nav ul li.active a {
             background: var(--rh-color-surface-lighter);
             box-shadow: inset 3px 0 0 0 var(--rh-color-brand-red-on-light);
+            box-shadow: var(--main-nav-active-item-shadow);
           }
 
 main {

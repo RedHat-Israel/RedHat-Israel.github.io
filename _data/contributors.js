@@ -16,7 +16,7 @@ const followupQuery = [readRelative('./followup.query.graphql'), fragment].join(
 /** Fetch data for redhat israels github org */
 const org = 'RedHat-Israel';
 /** Max members per query for avoiding gh internal timeouts, multiple queries will be performed */
-const maxMembers = 15;
+const maxMembers = 10;
 /** @see https://docs.github.com/en/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql */
 const headers = { authorization: `bearer ${process.env.SITE_GITHUB_TOKEN}` };
 const graphql = octokitGql.graphql.defaults({ headers });

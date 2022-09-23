@@ -68,12 +68,8 @@ module.exports = async function israelContributors(_configData) {
     return cache.getCachedValue();
   } else {
     console.log('  ...cache miss, fetching...');
-    try {
-      const result = await getStatsForOrgMembers(initialQuery);
-      cache.save(result, 'json');
-      return result;
-    } catch (error) {
-      console.error(error);
-    }
+    const result = await getStatsForOrgMembers(initialQuery);
+    cache.save(result, 'json');
+    return result;
   }
 }

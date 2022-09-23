@@ -1,6 +1,0 @@
-
-rh-footer:not(:defined) * {
-  display: inline;
-  display: initial;
-}
-

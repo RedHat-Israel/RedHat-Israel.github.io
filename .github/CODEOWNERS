@@ -1,0 +1,7 @@
+_data/ @TomerFi @bennypowers
+_includes/ @bennypowers
+assets/ @bennypowers
+feed/ @bennypowers
+/*.* @bennypowers @TomerFi
+.github/ @TomerFi
+*.njk @bennypowers @TomerFi

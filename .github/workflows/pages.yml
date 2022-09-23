@@ -52,6 +52,7 @@ jobs:
           git pull origin gh-pages
 
       - name: Copy new files
+        continue-on-error: true
         run: cp -rf _site/* .
 
       - name: Count changed

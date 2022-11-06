@@ -3,9 +3,9 @@ title: Publicity
 layout: layouts/base.njk
 pagination:
   data: publicity
-  size: 1000
+  size: 10
   alias: items
-permalink: /publicity/
+permalink: "/publicity/{{ pagination.pageNumber }}/index.html"
 eleventyNavigation:
   key: כותבים עלינו
   order: 2
@@ -23,3 +23,11 @@ eleventyNavigation:
     </li>{% endif %}{% endfor %}{% if mult %}
   </ul>{% endif %}
 {% endfor %}
+
+<rh-pagination>
+  <ol>{% for href in pagination.hrefs %}
+    <li>
+      <a href="{{ href | url }}">{{ loop.index }}</a>
+    </li>{% endfor %}
+  </ol>
+</rh-pagination>

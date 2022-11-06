@@ -85,6 +85,22 @@ module.exports = function(eleventyConfig) {
     return filterTagList([...tagSet]);
   });
 
+  eleventyConfig.on('eleventy.before', async (e) => {
+    console.log('bundling <github-repository>');
+    const { build } = await import('esbuild');
+    await build({
+      bundle: true,
+      outfile: '_site/assets/gh.min.js',
+      minify: true,
+      format: 'esm',
+      stdin: {
+        contents: 'import "github-repository";',
+        sourcefile: 'github-repository.js',
+        resolveDir: path.join(__dirname, 'node_modules'),
+      }
+    });
+    console.log('  ...done');
+  });
   // Customize Markdown library and settings:
   let markdownLibrary = markdownIt({
     html: true,

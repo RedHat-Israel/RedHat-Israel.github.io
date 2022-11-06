@@ -64,8 +64,10 @@
       <a slot="logo" href="/en">
         <img src="{{ 'https://static.redhat.com/libs/redhat/brand-assets/2/corp/logo--on-dark.svg' | url }}" alt="Red Hat Israel logo" loading="lazy"/> 
       </a>{% for link in footer.socialLinks %}
-      <rh-footer-social-link slot="social-links" icon="web-icon-{{ link.icon }}">
-        <a href="{{ link.href }}">{{ link.content }}</a>
+      <rh-footer-social-link slot="social-links">
+        <a href="{{ link.href }}">
+          <pfe-icon icon="{{ link.icon }}" set="{{ link.iconSet or 'fab' }}">{{ link.content }}</pfe-icon>
+        </a>
       </rh-footer-social-link>{% endfor %}{% for column in footer.links %}
       <h3 slot="links">{{ column.heading }}</h3>
       <ul slot="links">{% for link in column.links %}

@@ -197,3 +197,12 @@ code {
 img {
   max-width: 100%;
 }
+
+#repos {
+  display: flex;
+  flex-flow: row wrap;
+  gap: var(--rh-space-md);
+  & h2 {
+    width: 100%;
+  }
+}

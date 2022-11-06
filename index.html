@@ -7,9 +7,9 @@ eleventyNavigation:
 {% set maxPosts = collections.posts.length | min(3) %}
 <img src="{{ '/assets/img/confetti.jpg' | url }}" alt="עובדי רד הט חוגגים עם קונפטי">
 
-<p>בשנה האחרונה. עובדי רד האט בארץ תרמו לפרוייקטים שונים בגיטהאב...</p>
+<section id="stats">
 
-<div id="stats">
+  <p>בשנה האחרונה. עובדי רד האט בארץ תרמו לפרוייקטים שונים בגיטהאב...</p>
 
   <rh-stat top="statistic">
     <span slot="title">Commits</span>
@@ -47,7 +47,18 @@ eleventyNavigation:
     <p slot="description"></p>
   </rh-stat>
 
-</div>
+</section>
+
+{% if (repos | length) > 0 %}
+<section id="repos">
+  <h2>מהפרוייקטים שאנחנו תורמי ם אליהם</h2>
+  {% for repo in repos | randomSort | slice(5) %}
+  <github-repository owner-repo="{{ repo }}"></github-repository>
+  {% endfor %}
+</section>
+<script type="module"
+        src="https://unpkg.com/browse/github-repository@0.4.0/dist/github-repository.js?module"></script>
+{% endif %}
 
 <h2>{% if maxPosts == 1 %}
   הפוסט האחרון {% else %}

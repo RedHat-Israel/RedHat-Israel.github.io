@@ -32,7 +32,7 @@
                 "text": "string"
               },
               "static": true,
-              "default": "1.0.0-beta.18",
+              "default": "1.0.0-beta.23",
               "readonly": true
             },
             {
@@ -396,7 +396,7 @@
                 "text": "string"
               },
               "static": true,
-              "default": "1.0.0-beta.18",
+              "default": "1.0.0-beta.23",
               "readonly": true
             },
             {
@@ -629,7 +629,7 @@
                 "text": "string"
               },
               "static": true,
-              "default": "1.0.0-beta.18",
+              "default": "1.0.0-beta.23",
               "readonly": true
             },
             {
@@ -902,7 +902,7 @@
         {
           "kind": "variable",
           "name": "responsiveStyles",
-          "default": "css`\n  @media screen and (min-width: ${mobileBreakpoint}) {\n    .global-base {\n      grid-template-columns: 4fr 4fr 4fr;\n      grid-template-areas:\n        'logo      logo      logo'\n        'primary   primary   primary'\n        'spacer    spacer    spacer'\n        'secondary secondary tertiary';\n    }\n  }\n\n  @media screen and (min-width: ${mobileXlBreakpoint}) {\n    .global-base {\n      grid-template-columns: auto 10fr 2fr;\n      grid-template-rows: 32px max-content;\n      grid-template-areas:\n        'logo primary   tertiary'\n        'logo secondary tertiary';\n      gap: 24px 32px;\n    }\n\n    .global-primary {\n      display: flex;\n    }\n\n  }\n\n  .spacer {\n    grid-area: spacer;\n    border-bottom: 1px solid var(--_border-color);\n  }\n\n  @media screen and (min-width: ${mobileXlBreakpoint}) {\n    .spacer {\n      display: none;\n    }\n  }\n\n  @media screen and (min-width: ${mobileXlBreakpoint}) {\n    .global-tertiary {\n      display: grid;\n      justify-content: flex-end;\n      align-items: center;\n    }\n  }\n\n  @media screen and (min-width: 500px) {\n    .global-links-primary {\n      display: grid;\n      grid-template-columns: 1fr 1fr 1fr;\n    }\n  }\n\n  @media screen and (min-width: ${mobileXlBreakpoint}) {\n    .global-links-primary {\n      display: flex;\n      flex-flow: row wrap;\n      align-items: center;\n    }\n  }\n\n  @media screen and (min-width: 500px) {\n    .global-links-secondary {\n      display: grid;\n      grid-template-columns: 1fr 1fr 1fr;\n    }\n  }\n\n  @media screen and (min-width: ${mobileBreakpoint}) {\n    .global-links-secondary {\n      grid-template-columns: 1fr 1fr;\n    }\n  }\n\n  @media screen and (min-width: ${mobileXlBreakpoint}) {\n    .global-links-secondary {\n      display: flex;\n      flex-direction: row;\n      flex-wrap: wrap;\n      gap: 8px 24px;\n    }\n  }\n\n  @media screen and (max-width: ${tabletLandscapeBreakpoint}) {\n    .global-logo {\n      grid-area: logo;\n    }\n\n    .global-primary {\n      grid-area: primary;\n    }\n  }\n\n  @media screen and (max-width: ${tabletLandscapeBreakpoint}) {\n    /* Equalize padding on mobile */\n    .section {\n      --_section-side-gap: var(--rh-footer-section-side-gap, var(--rh-space-2xl, 32px));\n    }\n\n    /* hide the header border on mobile */\n    .header:after {\n      display: none;\n    }\n\n    /* force the mobile links menu to go flush against the header */\n    .main {\n      padding-top: 0;\n    }\n\n    .global-tertiary {\n      margin-block-start: 16px;\n    }\n  }\n\n  @media screen and (min-width: ${tabletLandscapeBreakpoint}) and (max-width: ${desktopLargeBreakpoint}) {\n    /* Equalize padding on mobile */\n    .section {\n      --_section-side-gap: var(--rh-footer-section-side-gap, var(--rh-space-2xl, 32px));\n    }\n\n    .global-tertiary {\n      margin-block-start: 16px;\n    }\n\n    .header,\n    .main {\n      /* switch header to use grid instead */\n      display: grid;\n      grid-template-columns: 8fr 4fr;\n    }\n  }\n\n  @media screen and (min-width: ${desktopLargeBreakpoint}) {\n    .section {\n      --_section-side-gap: var(--rh-footer-section-side-gap, var(--rh-space-2xl, 32px));\n    }\n\n    .header,\n    .main {\n      /* switch header to use grid instead */\n      display: grid;\n      grid-template-columns: 8fr 4fr;\n    }\n  }\n\n  @media screen and (min-width: ${mobileBreakpoint}) {\n    .isMobile .links ::slotted(ul) {\n      grid-template-columns: 1fr 1fr;\n    }\n  }\n`"
+          "default": "css`\n  @media screen and (min-width: ${tabletPortraitBreakpoint}) {\n    .global-base {\n      grid-template-columns: 4fr 4fr 4fr;\n      grid-template-areas:\n        'logo      logo      logo'\n        'primary   primary   primary'\n        'spacer    spacer    spacer'\n        'secondary secondary secondary';\n    }\n    .global-base:is(.hasTertiary) {\n      grid-template-columns: 4fr 4fr 4fr;\n      grid-template-areas:\n        'logo      logo      logo'\n        'primary   primary   primary'\n        'spacer    spacer    spacer'\n        'secondary secondary tertiary';\n    }\n  }\n\n  @media screen and (min-width: ${tabletLandscapeBreakpoint}) {\n    /* :not(.nothing) is a hack to match CSS specificity with :is(.hasTertiary) */\n    .global-base:not(.nothing) {\n      grid-template-columns: auto 10fr 2fr;\n      grid-template-rows: max-content max-content;\n      grid-template-areas:\n        'logo primary  tertiary'\n        'logo secondary tertiary';\n      gap: 24px 32px;\n    }\n\n    .global-primary {\n      display: flex;\n    }\n\n    .main {\n      padding-bottom: 64px;\n    }\n  }\n\n  .spacer {\n    grid-area: spacer;\n    border-bottom: 1px solid var(--_border-color);\n  }\n\n  @media screen and (min-width: ${tabletLandscapeBreakpoint}) {\n    .spacer {\n      display: none;\n    }\n  }\n\n  @media screen and (min-width: ${tabletLandscapeBreakpoint}) {\n    .global-tertiary {\n      display: grid;\n      justify-content: flex-end;\n      align-items: center;\n    }\n  }\n\n  @media screen and (min-width: ${mobilePortraitBreakpoint}) {\n    .global-links-primary {\n      display: grid;\n      grid-template-columns: 1fr 1fr;\n    }\n    .global-links-secondary {\n      display: grid;\n      grid-template-columns: 1fr 1fr;\n    }\n  }\n\n  @media screen and (min-width: ${tabletPortraitBreakpoint}) {\n    .global-links-primary {\n      display: grid;\n      grid-template-columns: 1fr 1fr 1fr;\n    }\n\n    .global-links-secondary {\n      display: grid;\n      grid-template-columns: 1fr 1fr 1fr;\n    }\n\n    .hasTertiary .global-links-secondary {\n      display: grid;\n      grid-template-columns: 1fr 1fr;\n    }\n  }\n\n  @media screen and (min-width: ${tabletLandscapeBreakpoint}) {\n    .global-links-primary {\n      display: flex;\n      flex-flow: row wrap;\n      align-items: center;\n    }\n  }\n\n  @media screen and (min-width: ${tabletLandscapeBreakpoint}) {\n    :not(.hasTertiary) .global-links-secondary {\n      display: flex;\n      flex-direction: row;\n      flex-wrap: wrap;\n      gap: 8px 24px;\n    }\n  }\n\n  @media screen and (max-width: ${tabletLandscapeBreakpoint}) {\n    .global-logo {\n      grid-area: logo;\n    }\n\n    .global-primary {\n      grid-area: primary;\n    }\n  }\n\n  @media screen and (max-width: ${tabletLandscapeBreakpoint}) {\n    /* Equalize padding on mobile */\n    .section {\n      --_section-side-gap: var(--rh-footer-section-side-gap, var(--rh-space-2xl, 32px));\n    }\n\n    /* hide the header border on mobile */\n    .header:after {\n      display: none;\n    }\n\n    /* force the mobile links menu to go flush against the header */\n    .main {\n      padding-top: 0;\n    }\n  }\n\n  @media screen and (min-width: ${tabletLandscapeBreakpoint}) and (max-width: ${desktopLargeBreakpoint}) {\n    /* Equalize padding on mobile */\n    .section {\n      --_section-side-gap: var(--rh-footer-section-side-gap, var(--rh-space-2xl, 32px));\n    }\n\n    .header,\n    .main {\n      /* switch header to use grid instead */\n      display: grid;\n      grid-template-columns: 8fr 4fr;\n    }\n  }\n\n  @media screen and (min-width: ${desktopLargeBreakpoint}) {\n    .section {\n      --_section-side-gap: var(--rh-footer-section-side-gap, var(--rh-space-2xl, 32px));\n    }\n\n    .header,\n    .main {\n      /* switch header to use grid instead */\n      display: grid;\n      grid-template-columns: 8fr 4fr;\n    }\n  }\n\n  @media screen and (min-width: ${tabletPortraitBreakpoint}) {\n    .isMobile .links ::slotted(ul) {\n      grid-template-columns: 1fr 1fr;\n    }\n  }\n`"
         }
       ],
       "exports": [
@@ -1092,6 +1092,12 @@
               "default": "'darker'",
               "attribute": "color-palette",
               "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "#slots",
+              "privacy": "private",
+              "default": "new SlotController(this, {\n    slots: ['primary-start', 'primary-end', 'secondary-start', 'secondary-end', 'links-primary', 'links-secondary', 'tertiary']\n  })"
             }
           ],
           "attributes": [
@@ -1481,26 +1487,6 @@
               },
               "default": "false",
               "description": "`visible` property is false initially then when a dropdown is clicked is toggled"
-            },
-            {
-              "kind": "method",
-              "name": "isDropdown",
-              "static": true,
-              "return": {
-                "type": {
-                  "text": "boolean"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "element",
-                  "type": {
-                    "text": "Element|null"
-                  },
-                  "description": ":"
-                }
-              ],
-              "description": "Checks if passed in element is a RhSecondaryNavDropdown"
             }
           ],
           "attributes": [
@@ -1669,7 +1655,7 @@
                 "text": "string"
               },
               "static": true,
-              "default": "1.0.0-beta.18",
+              "default": "1.0.0-beta.23",
               "readonly": true
             },
             {
@@ -1773,6 +1759,15 @@
               "default": "'lighter'",
               "attribute": "color-palette",
               "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "_ctaColorPalette",
+              "type": {
+                "text": "NavPalette | 'lightest'"
+              },
+              "privacy": "private",
+              "description": "If the host color-palette=\"lighter\", the cta color context should be on=\"light\"\nby default.  However when the host color-palette=\"darker\", the cta context should be\non=\"dark\" when in desktop mode, but on=\"light\" when in mobile compact mode because the cta shifts\nto a white background in the mobile compact nav. This state property is set on firstUpdated()\nand __compactChanged() and is used on a wrapping `<rh-context-provider>` around the cta allowing\nit to dynamically change with viewport changes."
             },
             {
               "kind": "method",
@@ -2193,7 +2188,7 @@
                 "text": "string"
               },
               "static": true,
-              "default": "1.0.0-beta.18",
+              "default": "1.0.0-beta.23",
               "readonly": true
             },
             {
@@ -2383,7 +2378,7 @@
                 "text": "string"
               },
               "static": true,
-              "default": "1.0.0-beta.18",
+              "default": "1.0.0-beta.23",
               "readonly": true
             },
             {
@@ -2485,6 +2480,11 @@
               "description": "",
               "name": "--rh-footer-link-header-font-size",
               "default": "0.875em"
+            },
+            {
+              "description": "",
+              "name": "--rh-footer-nojs-min-height",
+              "default": "750px"
             }
           ],
           "cssParts": [
@@ -2591,7 +2591,7 @@
                 "text": "string"
               },
               "static": true,
-              "default": "1.0.0-beta.18",
+              "default": "1.0.0-beta.23",
               "readonly": true
             },
             {
@@ -2617,7 +2617,7 @@
               "kind": "field",
               "name": "#matchMedia",
               "privacy": "private",
-              "default": "new MatchMediaController(this, `(max-width: ${tabletLandscapeBreakpoint})`)"
+              "default": "new MatchMediaController(this, `(min-width: ${tabletLandscapeBreakpoint})`)"
             },
             {
               "kind": "field",

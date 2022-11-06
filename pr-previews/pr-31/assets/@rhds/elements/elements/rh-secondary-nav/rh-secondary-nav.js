@@ -6,8 +6,7 @@ import { customElement, property, query, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { bound, observed } from '@patternfly/pfe-core/decorators.js';
 import { Logger } from '@patternfly/pfe-core/controllers/logger.js';
-import './rh-secondary-nav-dropdown.js';
-import './rh-secondary-nav-menu.js';
+import '../rh-context-provider/rh-context-provider.js';
 import './rh-secondary-nav-menu-section.js';
 import { SecondaryNavOverlayChangeEvent } from './rh-secondary-nav-overlay.js';
 import { RhSecondaryNavDropdown, SecondaryNavDropdownExpandEvent } from './rh-secondary-nav-dropdown.js';
@@ -64,6 +63,15 @@ let RhSecondaryNav = RhSecondaryNav_1 = class RhSecondaryNav extends LitElement 
          */
         this.mainNav = false;
         this.colorPalette = 'lighter';
+        /**
+         * If the host color-palette="lighter", the cta color context should be on="light"
+         * by default.  However when the host color-palette="darker", the cta context should be
+         * on="dark" when in desktop mode, but on="light" when in mobile compact mode because the cta shifts
+         * to a white background in the mobile compact nav. This state property is set on firstUpdated()
+         * and __compactChanged() and is used on a wrapping `<rh-context-provider>` around the cta allowing
+         * it to dynamically change with viewport changes.
+         */
+        this._ctaColorPalette = this.colorPalette;
     }
     /**
      * Checks if passed in element is a RhSecondaryNavDropdown
@@ -84,6 +92,10 @@ let RhSecondaryNav = RhSecondaryNav_1 = class RhSecondaryNav extends LitElement 
     firstUpdated() {
         // after update the overlay should be available to attach an event listener to
         this._overlay.addEventListener('click', this._overlayClickHandler);
+        // if compact menu and dark variant then set cta color to lightest
+        if (this.colorPalette === 'darker' && this._compact) {
+            this._ctaColorPalette = 'lightest';
+        }
     }
     render() {
         const navClasses = { compact: this._compact, rtl: __classPrivateFieldGet(this, _RhSecondaryNav_dir, "f").dir === 'rtl' };
@@ -96,7 +108,9 @@ let RhSecondaryNav = RhSecondaryNav_1 = class RhSecondaryNav extends LitElement 
           <button aria-controls="container" aria-expanded="${this._mobileMenuExpanded}" @click="${__classPrivateFieldGet(this, _RhSecondaryNav_instances, "m", _RhSecondaryNav_toggleMobileMenu)}">Menu</button>
           <slot name="nav"></slot>
           <div id="cta" part="cta">
-            <slot name="cta"><slot>
+            <rh-context-provider color-palette="${this._ctaColorPalette}">
+              <slot name="cta"><slot>
+            </rh-context-provider>
           </div>
         </div>
       </nav>
@@ -162,7 +176,11 @@ let RhSecondaryNav = RhSecondaryNav_1 = class RhSecondaryNav extends LitElement 
      */
     _focusOutHandler(event) {
         const target = event.relatedTarget;
-        if (target === null || (target && !target.closest('rh-secondary-nav'))) {
+        if (target?.closest('rh-secondary-nav') === this || target === null) {
+            // if the focus is still inside the rh-secondary-nav exit
+            return;
+        }
+        else {
             if (this._compact) {
                 this._mobileMenuExpanded = false;
             }
@@ -202,6 +220,9 @@ let RhSecondaryNav = RhSecondaryNav_1 = class RhSecondaryNav extends LitElement 
             if (dropdownsOpen > 0) {
                 this._mobileMenuExpanded = true;
             }
+            if (this.colorPalette === 'darker') {
+                this._ctaColorPalette = 'lightest';
+            }
         }
         else {
             this._mobileMenuExpanded = false;
@@ -210,6 +231,9 @@ let RhSecondaryNav = RhSecondaryNav_1 = class RhSecondaryNav extends LitElement 
                 if (this._overlay) {
                     this._overlay.open = false;
                 }
+            }
+            if (this.colorPalette === 'darker') {
+                this._ctaColorPalette = this.colorPalette;
             }
         }
     }
@@ -337,6 +361,9 @@ __decorate([
     colorContextProvider(),
     property({ reflect: true, attribute: 'color-palette' })
 ], RhSecondaryNav.prototype, "colorPalette", void 0);
+__decorate([
+    state()
+], RhSecondaryNav.prototype, "_ctaColorPalette", void 0);
 __decorate([
     bound
 ], RhSecondaryNav.prototype, "_dropdownChangeHandler", null);

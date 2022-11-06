@@ -13,6 +13,19 @@ const pluginNavigation = require("@11ty/eleventy-navigation");
 const PostCSSPlugin = require("eleventy-plugin-postcss");
 const RHDSPlugin = require("./_plugins/rhds.cjs");
 
+/**
+ * @see https://stackoverflow.com/a/12646864/2515275
+ * @license CC-BY-NC-SA 2.0 Laurens Holst
+ */
+function shuffleCopyArray(array) {
+  const copy = Array.from(array);
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
 module.exports = function(eleventyConfig) {
   // Copy the `assets` folder to the output
   eleventyConfig.addPassthroughCopy("assets");
@@ -26,6 +39,9 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(RHDSPlugin);
 
   eleventyConfig.addDataExtension("yaml", contents => yaml.load(contents));
+
+  eleventyConfig.addFilter("randomSort", /** @param {unknown[]} list */list =>
+    shuffleCopyArray(list));
 
   eleventyConfig.addFilter("readableDate", dateObj =>
     DateTime.fromJSDate(dateObj, {zone: 'Asia/Jerusalem', locale: 'he'})

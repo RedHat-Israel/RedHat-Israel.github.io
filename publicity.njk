@@ -5,7 +5,7 @@ pagination:
   data: publicity
   size: 10
   alias: items
-permalink: "/publicity/{{ pagination.pageNumber }}/index.html"
+permalink: "/publicity/{{ pagination.pageNumber + 1 }}/index.html"
 eleventyNavigation:
   key: כותבים עלינו
   order: 2
@@ -25,9 +25,11 @@ eleventyNavigation:
 {% endfor %}
 
 <rh-pagination>
+  <span slot="go-to-page">עבור לדף</span>
   <ol>{% for href in pagination.hrefs %}
     <li>
-      <a href="{{ href | url }}">{{ loop.index }}</a>
+      <a href="{{ href | url }}"{% if loop.index == pagination.pageNumber %}
+         data-page="current"{% endif %}>{{ loop.index }}</a>
     </li>{% endfor %}
   </ol>
 </rh-pagination>

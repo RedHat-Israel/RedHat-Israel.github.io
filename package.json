@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@jspm/generator": "^1.0.0-beta.33",
-    "@rhds/elements": "^1.0.0-beta.18",
+    "@rhds/elements": "^1.0.0-beta.24",
     "@rhds/tokens": "^1.0.0-beta.4",
     "dotenv": "^16.0.2",
     "eleventy-plugin-postcss": "^1.0.4",

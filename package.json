@@ -38,6 +38,8 @@
     "@rhds/tokens": "^1.0.0-beta.4",
     "dotenv": "^16.0.2",
     "eleventy-plugin-postcss": "^1.0.4",
+    "esbuild": "^0.15.13",
+    "github-repository": "^0.4.0",
     "postcss-preset-env": "^7.8.0"
   }
 }

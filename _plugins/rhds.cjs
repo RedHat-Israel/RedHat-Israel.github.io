@@ -72,6 +72,7 @@ module.exports = function(eleventyConfig) {
       'lit/directive-helpers.js',
       'lit/directive.js',
       'lit/directives/class-map.js',
+      'lit/directives/if-defined.js',
       'lit/experimental-hydrate-support.js',
       'lit/experimental-hydrate.js',
       'lit/static-html.js',

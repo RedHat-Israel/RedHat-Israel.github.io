@@ -32,7 +32,7 @@
                 "text": "string"
               },
               "static": true,
-              "default": "1.0.0-beta.23",
+              "default": "1.0.0-beta.24",
               "readonly": true
             },
             {
@@ -396,7 +396,7 @@
                 "text": "string"
               },
               "static": true,
-              "default": "1.0.0-beta.23",
+              "default": "1.0.0-beta.24",
               "readonly": true
             },
             {
@@ -629,7 +629,7 @@
                 "text": "string"
               },
               "static": true,
-              "default": "1.0.0-beta.23",
+              "default": "1.0.0-beta.24",
               "readonly": true
             },
             {
@@ -1133,6 +1133,392 @@
           "declaration": {
             "name": "RhGlobalFooter",
             "module": "elements/rh-footer/rh-global-footer.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "elements/rh-pagination/rh-pagination.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Pagination",
+          "name": "RhPagination",
+          "slots": [
+            {
+              "description": "Place element content here",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "version",
+              "type": {
+                "text": "string"
+              },
+              "static": true,
+              "default": "1.0.0-beta.24",
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "overflow",
+              "type": {
+                "text": "'start' | 'end' | 'both' | null"
+              },
+              "default": "null",
+              "description": "Override `overflow` values set from HTML or JS.\n`overflow` should ideally be private, but because\nwe can't do `::slotted(nav ol li)`, we need to reflect\nit to a host attribute, so that lightdom CSS can target\nthe list items.",
+              "attribute": "overflow",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "'Page navigation'",
+              "description": "Accessible label for the 'nav' element",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "labelFirst",
+              "type": {
+                "text": "string"
+              },
+              "default": "'first page'",
+              "description": "Accessible label for the 'first page' button",
+              "attribute": "label-first"
+            },
+            {
+              "kind": "field",
+              "name": "labelPrevious",
+              "type": {
+                "text": "string"
+              },
+              "default": "'previous page'",
+              "description": "Accessible label for the 'previous page' button",
+              "attribute": "label-previous"
+            },
+            {
+              "kind": "field",
+              "name": "labelNext",
+              "type": {
+                "text": "string"
+              },
+              "default": "'next page'",
+              "description": "Accessible label for the 'next page' button",
+              "attribute": "label-next"
+            },
+            {
+              "kind": "field",
+              "name": "labelLast",
+              "type": {
+                "text": "string"
+              },
+              "default": "'last page'",
+              "description": "Accessible label for the 'last page' button",
+              "attribute": "label-last"
+            },
+            {
+              "kind": "field",
+              "name": "input",
+              "type": {
+                "text": "HTMLInputElement | undefined"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "#mo",
+              "privacy": "private",
+              "default": "new MutationObserver(() => this.#update())"
+            },
+            {
+              "kind": "field",
+              "name": "#screen",
+              "privacy": "private",
+              "default": "new ScreenSizeController(this)"
+            },
+            {
+              "kind": "field",
+              "name": "#logger",
+              "privacy": "private",
+              "default": "new Logger(this)"
+            },
+            {
+              "kind": "field",
+              "name": "#ol",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "#links",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "#firstLink",
+              "privacy": "private",
+              "type": {
+                "text": "HTMLAnchorElement | null"
+              },
+              "default": "null"
+            },
+            {
+              "kind": "field",
+              "name": "#lastLink",
+              "privacy": "private",
+              "type": {
+                "text": "HTMLAnchorElement | null"
+              },
+              "default": "null"
+            },
+            {
+              "kind": "field",
+              "name": "#nextLink",
+              "privacy": "private",
+              "type": {
+                "text": "HTMLAnchorElement | null"
+              },
+              "default": "null"
+            },
+            {
+              "kind": "field",
+              "name": "#prevLink",
+              "privacy": "private",
+              "type": {
+                "text": "HTMLAnchorElement | null"
+              },
+              "default": "null"
+            },
+            {
+              "kind": "field",
+              "name": "#currentLink",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "#currentIndex",
+              "privacy": "private",
+              "type": {
+                "text": "number"
+              },
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "#currentPage",
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "#update",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "#getOverflow",
+              "return": {
+                "type": {
+                  "text": "'start' | 'end' | 'both' | null"
+                }
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "#getCurrentLink",
+              "return": {
+                "type": {
+                  "text": "HTMLAnchorElement | null"
+                }
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "#updateLightDOMRefs",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "#checkValidity",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "#go",
+              "parameters": [
+                {
+                  "name": "id",
+                  "type": {
+                    "text": "'first'|'prev'|'next'|'last'|number"
+                  }
+                }
+              ],
+              "description": "1. Normalize the element state\n2. validate and act on the input\n3. update the element in case a full browser navigation was prevented (e.g. SPA routing)",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "#onKeyup",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "Event"
+                  }
+                }
+              ],
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "#onChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "first",
+              "description": "Navigate to the first page"
+            },
+            {
+              "kind": "method",
+              "name": "prev",
+              "description": "Navigate to the previous page"
+            },
+            {
+              "kind": "method",
+              "name": "next",
+              "description": "Navigate to the next page"
+            },
+            {
+              "kind": "method",
+              "name": "last",
+              "description": "Navigate to the last page"
+            },
+            {
+              "kind": "method",
+              "name": "go",
+              "parameters": [
+                {
+                  "name": "page",
+                  "type": {
+                    "text": "'first'|'prev'|'next'|'last'|number"
+                  }
+                }
+              ],
+              "description": "Navigate to a specific page"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "overflow",
+              "type": {
+                "text": "'start' | 'end' | 'both' | null"
+              },
+              "default": "null",
+              "description": "Override `overflow` values set from HTML or JS.\n`overflow` should ideally be private, but because\nwe can't do `::slotted(nav ol li)`, we need to reflect\nit to a host attribute, so that lightdom CSS can target\nthe list items.",
+              "fieldName": "overflow"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "'Page navigation'",
+              "description": "Accessible label for the 'nav' element",
+              "fieldName": "label"
+            },
+            {
+              "name": "label-first",
+              "type": {
+                "text": "string"
+              },
+              "default": "'first page'",
+              "description": "Accessible label for the 'first page' button",
+              "fieldName": "labelFirst"
+            },
+            {
+              "name": "label-previous",
+              "type": {
+                "text": "string"
+              },
+              "default": "'previous page'",
+              "description": "Accessible label for the 'previous page' button",
+              "fieldName": "labelPrevious"
+            },
+            {
+              "name": "label-next",
+              "type": {
+                "text": "string"
+              },
+              "default": "'next page'",
+              "description": "Accessible label for the 'next page' button",
+              "fieldName": "labelNext"
+            },
+            {
+              "name": "label-last",
+              "type": {
+                "text": "string"
+              },
+              "default": "'last page'",
+              "description": "Accessible label for the 'last page' button",
+              "fieldName": "labelLast"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "rh-pagination",
+          "customElement": true,
+          "demos": [
+            {
+              "url": "https://ux.redhat.com/components/pagination/demo/",
+              "source": {
+                "href": "https://github.com/redhat-ux/red-hat-design-system/tree/main/elements/rh-pagination/demo/rh-pagination.html"
+              }
+            },
+            {
+              "url": "https://ux.redhat.com/components/pagination/demo/many-pages/",
+              "source": {
+                "href": "https://github.com/redhat-ux/red-hat-design-system/tree/main/elements/rh-pagination/demo/many-pages.html"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "RhPagination",
+          "declaration": {
+            "name": "RhPagination",
+            "module": "elements/rh-pagination/rh-pagination.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "rh-pagination",
+          "declaration": {
+            "name": "RhPagination",
+            "module": "elements/rh-pagination/rh-pagination.js"
           }
         }
       ]
@@ -1645,6 +2031,10 @@
             {
               "description": "Nav bar level CTA, expects a `<rh-cta>",
               "name": "cta"
+            },
+            {
+              "description": "Text label for the mobile menu button, for l10n. Defaults to \"Menu\"",
+              "name": "mobile-menu"
             }
           ],
           "members": [
@@ -1655,7 +2045,7 @@
                 "text": "string"
               },
               "static": true,
-              "default": "1.0.0-beta.23",
+              "default": "1.0.0-beta.24",
               "readonly": true
             },
             {
@@ -2127,6 +2517,12 @@
               "source": {
                 "href": "https://github.com/redhat-ux/red-hat-design-system/tree/main/elements/rh-secondary-nav/demo/proxy.html"
               }
+            },
+            {
+              "url": "https://ux.redhat.com/components/secondary-nav/demo/translation/",
+              "source": {
+                "href": "https://github.com/redhat-ux/red-hat-design-system/tree/main/elements/rh-secondary-nav/demo/translation.html"
+              }
             }
           ]
         }
@@ -2188,7 +2584,7 @@
                 "text": "string"
               },
               "static": true,
-              "default": "1.0.0-beta.23",
+              "default": "1.0.0-beta.24",
               "readonly": true
             },
             {
@@ -2378,7 +2774,7 @@
                 "text": "string"
               },
               "static": true,
-              "default": "1.0.0-beta.23",
+              "default": "1.0.0-beta.24",
               "readonly": true
             },
             {
@@ -2591,7 +2987,7 @@
                 "text": "string"
               },
               "static": true,
-              "default": "1.0.0-beta.23",
+              "default": "1.0.0-beta.24",
               "readonly": true
             },
             {

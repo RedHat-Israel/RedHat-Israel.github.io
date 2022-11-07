@@ -217,3 +217,17 @@ code {
 img {
   max-width: 100%;
 }
+
+#stats h2 {
+  grid-column: -1/1;
+}
+
+#repos {
+  display: flex;
+  flex-flow: row wrap;
+  gap: var(--rh-space-md);
+}
+
+#repos h2 {
+    width: 100%;
+  }

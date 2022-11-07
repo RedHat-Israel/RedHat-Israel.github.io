@@ -17,15 +17,15 @@ export const styles = css`:host {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.75em;
+  gap: var(--rh-font-size-body-text-md, 1rem);
 }
 
 ::slotted([slot="cta"]) {
-  padding: 1.5em 0 0;
+  padding: var(--rh-space-xl, 24px) 0 0;
 }
 
 ::slotted([slot="cta"]:last-of-type) {
-  padding: 1.5em 0;
+  padding: var(--rh-space-xl, 24px) 0;
 }
 
 @media screen and (min-width: 992px) {

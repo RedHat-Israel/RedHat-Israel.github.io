@@ -32,7 +32,7 @@
                 "text": "string"
               },
               "static": true,
-              "default": "1.0.0-beta.18",
+              "default": "1.0.0-beta.24",
               "readonly": true
             },
             {
@@ -396,7 +396,7 @@
                 "text": "string"
               },
               "static": true,
-              "default": "1.0.0-beta.18",
+              "default": "1.0.0-beta.24",
               "readonly": true
             },
             {
@@ -629,7 +629,7 @@
                 "text": "string"
               },
               "static": true,
-              "default": "1.0.0-beta.18",
+              "default": "1.0.0-beta.24",
               "readonly": true
             },
             {
@@ -902,7 +902,7 @@
         {
           "kind": "variable",
           "name": "responsiveStyles",
-          "default": "css`\n  @media screen and (min-width: ${mobileBreakpoint}) {\n    .global-base {\n      grid-template-columns: 4fr 4fr 4fr;\n      grid-template-areas:\n        'logo      logo      logo'\n        'primary   primary   primary'\n        'spacer    spacer    spacer'\n        'secondary secondary tertiary';\n    }\n  }\n\n  @media screen and (min-width: ${mobileXlBreakpoint}) {\n    .global-base {\n      grid-template-columns: auto 10fr 2fr;\n      grid-template-rows: 32px max-content;\n      grid-template-areas:\n        'logo primary   tertiary'\n        'logo secondary tertiary';\n      gap: 24px 32px;\n    }\n\n    .global-primary {\n      display: flex;\n    }\n\n  }\n\n  .spacer {\n    grid-area: spacer;\n    border-bottom: 1px solid var(--_border-color);\n  }\n\n  @media screen and (min-width: ${mobileXlBreakpoint}) {\n    .spacer {\n      display: none;\n    }\n  }\n\n  @media screen and (min-width: ${mobileXlBreakpoint}) {\n    .global-tertiary {\n      display: grid;\n      justify-content: flex-end;\n      align-items: center;\n    }\n  }\n\n  @media screen and (min-width: 500px) {\n    .global-links-primary {\n      display: grid;\n      grid-template-columns: 1fr 1fr 1fr;\n    }\n  }\n\n  @media screen and (min-width: ${mobileXlBreakpoint}) {\n    .global-links-primary {\n      display: flex;\n      flex-flow: row wrap;\n      align-items: center;\n    }\n  }\n\n  @media screen and (min-width: 500px) {\n    .global-links-secondary {\n      display: grid;\n      grid-template-columns: 1fr 1fr 1fr;\n    }\n  }\n\n  @media screen and (min-width: ${mobileBreakpoint}) {\n    .global-links-secondary {\n      grid-template-columns: 1fr 1fr;\n    }\n  }\n\n  @media screen and (min-width: ${mobileXlBreakpoint}) {\n    .global-links-secondary {\n      display: flex;\n      flex-direction: row;\n      flex-wrap: wrap;\n      gap: 8px 24px;\n    }\n  }\n\n  @media screen and (max-width: ${tabletLandscapeBreakpoint}) {\n    .global-logo {\n      grid-area: logo;\n    }\n\n    .global-primary {\n      grid-area: primary;\n    }\n  }\n\n  @media screen and (max-width: ${tabletLandscapeBreakpoint}) {\n    /* Equalize padding on mobile */\n    .section {\n      --_section-side-gap: var(--rh-footer-section-side-gap, var(--rh-space-2xl, 32px));\n    }\n\n    /* hide the header border on mobile */\n    .header:after {\n      display: none;\n    }\n\n    /* force the mobile links menu to go flush against the header */\n    .main {\n      padding-top: 0;\n    }\n\n    .global-tertiary {\n      margin-block-start: 16px;\n    }\n  }\n\n  @media screen and (min-width: ${tabletLandscapeBreakpoint}) and (max-width: ${desktopLargeBreakpoint}) {\n    /* Equalize padding on mobile */\n    .section {\n      --_section-side-gap: var(--rh-footer-section-side-gap, var(--rh-space-2xl, 32px));\n    }\n\n    .global-tertiary {\n      margin-block-start: 16px;\n    }\n\n    .header,\n    .main {\n      /* switch header to use grid instead */\n      display: grid;\n      grid-template-columns: 8fr 4fr;\n    }\n  }\n\n  @media screen and (min-width: ${desktopLargeBreakpoint}) {\n    .section {\n      --_section-side-gap: var(--rh-footer-section-side-gap, var(--rh-space-2xl, 32px));\n    }\n\n    .header,\n    .main {\n      /* switch header to use grid instead */\n      display: grid;\n      grid-template-columns: 8fr 4fr;\n    }\n  }\n\n  @media screen and (min-width: ${mobileBreakpoint}) {\n    .isMobile .links ::slotted(ul) {\n      grid-template-columns: 1fr 1fr;\n    }\n  }\n`"
+          "default": "css`\n  @media screen and (min-width: ${tabletPortraitBreakpoint}) {\n    .global-base {\n      grid-template-columns: 4fr 4fr 4fr;\n      grid-template-areas:\n        'logo      logo      logo'\n        'primary   primary   primary'\n        'spacer    spacer    spacer'\n        'secondary secondary secondary';\n    }\n    .global-base:is(.hasTertiary) {\n      grid-template-columns: 4fr 4fr 4fr;\n      grid-template-areas:\n        'logo      logo      logo'\n        'primary   primary   primary'\n        'spacer    spacer    spacer'\n        'secondary secondary tertiary';\n    }\n  }\n\n  @media screen and (min-width: ${tabletLandscapeBreakpoint}) {\n    /* :not(.nothing) is a hack to match CSS specificity with :is(.hasTertiary) */\n    .global-base:not(.nothing) {\n      grid-template-columns: auto 10fr 2fr;\n      grid-template-rows: max-content max-content;\n      grid-template-areas:\n        'logo primary  tertiary'\n        'logo secondary tertiary';\n      gap: 24px 32px;\n    }\n\n    .global-primary {\n      display: flex;\n    }\n\n    .main {\n      padding-bottom: 64px;\n    }\n  }\n\n  .spacer {\n    grid-area: spacer;\n    border-bottom: 1px solid var(--_border-color);\n  }\n\n  @media screen and (min-width: ${tabletLandscapeBreakpoint}) {\n    .spacer {\n      display: none;\n    }\n  }\n\n  @media screen and (min-width: ${tabletLandscapeBreakpoint}) {\n    .global-tertiary {\n      display: grid;\n      justify-content: flex-end;\n      align-items: center;\n    }\n  }\n\n  @media screen and (min-width: ${mobilePortraitBreakpoint}) {\n    .global-links-primary {\n      display: grid;\n      grid-template-columns: 1fr 1fr;\n    }\n    .global-links-secondary {\n      display: grid;\n      grid-template-columns: 1fr 1fr;\n    }\n  }\n\n  @media screen and (min-width: ${tabletPortraitBreakpoint}) {\n    .global-links-primary {\n      display: grid;\n      grid-template-columns: 1fr 1fr 1fr;\n    }\n\n    .global-links-secondary {\n      display: grid;\n      grid-template-columns: 1fr 1fr 1fr;\n    }\n\n    .hasTertiary .global-links-secondary {\n      display: grid;\n      grid-template-columns: 1fr 1fr;\n    }\n  }\n\n  @media screen and (min-width: ${tabletLandscapeBreakpoint}) {\n    .global-links-primary {\n      display: flex;\n      flex-flow: row wrap;\n      align-items: center;\n    }\n  }\n\n  @media screen and (min-width: ${tabletLandscapeBreakpoint}) {\n    :not(.hasTertiary) .global-links-secondary {\n      display: flex;\n      flex-direction: row;\n      flex-wrap: wrap;\n      gap: 8px 24px;\n    }\n  }\n\n  @media screen and (max-width: ${tabletLandscapeBreakpoint}) {\n    .global-logo {\n      grid-area: logo;\n    }\n\n    .global-primary {\n      grid-area: primary;\n    }\n  }\n\n  @media screen and (max-width: ${tabletLandscapeBreakpoint}) {\n    /* Equalize padding on mobile */\n    .section {\n      --_section-side-gap: var(--rh-footer-section-side-gap, var(--rh-space-2xl, 32px));\n    }\n\n    /* hide the header border on mobile */\n    .header:after {\n      display: none;\n    }\n\n    /* force the mobile links menu to go flush against the header */\n    .main {\n      padding-top: 0;\n    }\n  }\n\n  @media screen and (min-width: ${tabletLandscapeBreakpoint}) and (max-width: ${desktopLargeBreakpoint}) {\n    /* Equalize padding on mobile */\n    .section {\n      --_section-side-gap: var(--rh-footer-section-side-gap, var(--rh-space-2xl, 32px));\n    }\n\n    .header,\n    .main {\n      /* switch header to use grid instead */\n      display: grid;\n      grid-template-columns: 8fr 4fr;\n    }\n  }\n\n  @media screen and (min-width: ${desktopLargeBreakpoint}) {\n    .section {\n      --_section-side-gap: var(--rh-footer-section-side-gap, var(--rh-space-2xl, 32px));\n    }\n\n    .header,\n    .main {\n      /* switch header to use grid instead */\n      display: grid;\n      grid-template-columns: 8fr 4fr;\n    }\n  }\n\n  @media screen and (min-width: ${tabletPortraitBreakpoint}) {\n    .isMobile .links ::slotted(ul) {\n      grid-template-columns: 1fr 1fr;\n    }\n  }\n`"
         }
       ],
       "exports": [
@@ -1092,6 +1092,12 @@
               "default": "'darker'",
               "attribute": "color-palette",
               "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "#slots",
+              "privacy": "private",
+              "default": "new SlotController(this, {\n    slots: ['primary-start', 'primary-end', 'secondary-start', 'secondary-end', 'links-primary', 'links-secondary', 'tertiary']\n  })"
             }
           ],
           "attributes": [
@@ -1127,6 +1133,392 @@
           "declaration": {
             "name": "RhGlobalFooter",
             "module": "elements/rh-footer/rh-global-footer.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "elements/rh-pagination/rh-pagination.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "Pagination",
+          "name": "RhPagination",
+          "slots": [
+            {
+              "description": "Place element content here",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "version",
+              "type": {
+                "text": "string"
+              },
+              "static": true,
+              "default": "1.0.0-beta.24",
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "overflow",
+              "type": {
+                "text": "'start' | 'end' | 'both' | null"
+              },
+              "default": "null",
+              "description": "Override `overflow` values set from HTML or JS.\n`overflow` should ideally be private, but because\nwe can't do `::slotted(nav ol li)`, we need to reflect\nit to a host attribute, so that lightdom CSS can target\nthe list items.",
+              "attribute": "overflow",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "'Page navigation'",
+              "description": "Accessible label for the 'nav' element",
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "labelFirst",
+              "type": {
+                "text": "string"
+              },
+              "default": "'first page'",
+              "description": "Accessible label for the 'first page' button",
+              "attribute": "label-first"
+            },
+            {
+              "kind": "field",
+              "name": "labelPrevious",
+              "type": {
+                "text": "string"
+              },
+              "default": "'previous page'",
+              "description": "Accessible label for the 'previous page' button",
+              "attribute": "label-previous"
+            },
+            {
+              "kind": "field",
+              "name": "labelNext",
+              "type": {
+                "text": "string"
+              },
+              "default": "'next page'",
+              "description": "Accessible label for the 'next page' button",
+              "attribute": "label-next"
+            },
+            {
+              "kind": "field",
+              "name": "labelLast",
+              "type": {
+                "text": "string"
+              },
+              "default": "'last page'",
+              "description": "Accessible label for the 'last page' button",
+              "attribute": "label-last"
+            },
+            {
+              "kind": "field",
+              "name": "input",
+              "type": {
+                "text": "HTMLInputElement | undefined"
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "#mo",
+              "privacy": "private",
+              "default": "new MutationObserver(() => this.#update())"
+            },
+            {
+              "kind": "field",
+              "name": "#screen",
+              "privacy": "private",
+              "default": "new ScreenSizeController(this)"
+            },
+            {
+              "kind": "field",
+              "name": "#logger",
+              "privacy": "private",
+              "default": "new Logger(this)"
+            },
+            {
+              "kind": "field",
+              "name": "#ol",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "#links",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "#firstLink",
+              "privacy": "private",
+              "type": {
+                "text": "HTMLAnchorElement | null"
+              },
+              "default": "null"
+            },
+            {
+              "kind": "field",
+              "name": "#lastLink",
+              "privacy": "private",
+              "type": {
+                "text": "HTMLAnchorElement | null"
+              },
+              "default": "null"
+            },
+            {
+              "kind": "field",
+              "name": "#nextLink",
+              "privacy": "private",
+              "type": {
+                "text": "HTMLAnchorElement | null"
+              },
+              "default": "null"
+            },
+            {
+              "kind": "field",
+              "name": "#prevLink",
+              "privacy": "private",
+              "type": {
+                "text": "HTMLAnchorElement | null"
+              },
+              "default": "null"
+            },
+            {
+              "kind": "field",
+              "name": "#currentLink",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "#currentIndex",
+              "privacy": "private",
+              "type": {
+                "text": "number"
+              },
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "#currentPage",
+              "privacy": "private",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "#update",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "#getOverflow",
+              "return": {
+                "type": {
+                  "text": "'start' | 'end' | 'both' | null"
+                }
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "#getCurrentLink",
+              "return": {
+                "type": {
+                  "text": "HTMLAnchorElement | null"
+                }
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "#updateLightDOMRefs",
+              "return": {
+                "type": {
+                  "text": "void"
+                }
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "#checkValidity",
+              "return": {
+                "type": {
+                  "text": "boolean"
+                }
+              },
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "#go",
+              "parameters": [
+                {
+                  "name": "id",
+                  "type": {
+                    "text": "'first'|'prev'|'next'|'last'|number"
+                  }
+                }
+              ],
+              "description": "1. Normalize the element state\n2. validate and act on the input\n3. update the element in case a full browser navigation was prevented (e.g. SPA routing)",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "#onKeyup",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "Event"
+                  }
+                }
+              ],
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "#onChange",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "first",
+              "description": "Navigate to the first page"
+            },
+            {
+              "kind": "method",
+              "name": "prev",
+              "description": "Navigate to the previous page"
+            },
+            {
+              "kind": "method",
+              "name": "next",
+              "description": "Navigate to the next page"
+            },
+            {
+              "kind": "method",
+              "name": "last",
+              "description": "Navigate to the last page"
+            },
+            {
+              "kind": "method",
+              "name": "go",
+              "parameters": [
+                {
+                  "name": "page",
+                  "type": {
+                    "text": "'first'|'prev'|'next'|'last'|number"
+                  }
+                }
+              ],
+              "description": "Navigate to a specific page"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "overflow",
+              "type": {
+                "text": "'start' | 'end' | 'both' | null"
+              },
+              "default": "null",
+              "description": "Override `overflow` values set from HTML or JS.\n`overflow` should ideally be private, but because\nwe can't do `::slotted(nav ol li)`, we need to reflect\nit to a host attribute, so that lightdom CSS can target\nthe list items.",
+              "fieldName": "overflow"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "default": "'Page navigation'",
+              "description": "Accessible label for the 'nav' element",
+              "fieldName": "label"
+            },
+            {
+              "name": "label-first",
+              "type": {
+                "text": "string"
+              },
+              "default": "'first page'",
+              "description": "Accessible label for the 'first page' button",
+              "fieldName": "labelFirst"
+            },
+            {
+              "name": "label-previous",
+              "type": {
+                "text": "string"
+              },
+              "default": "'previous page'",
+              "description": "Accessible label for the 'previous page' button",
+              "fieldName": "labelPrevious"
+            },
+            {
+              "name": "label-next",
+              "type": {
+                "text": "string"
+              },
+              "default": "'next page'",
+              "description": "Accessible label for the 'next page' button",
+              "fieldName": "labelNext"
+            },
+            {
+              "name": "label-last",
+              "type": {
+                "text": "string"
+              },
+              "default": "'last page'",
+              "description": "Accessible label for the 'last page' button",
+              "fieldName": "labelLast"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "rh-pagination",
+          "customElement": true,
+          "demos": [
+            {
+              "url": "https://ux.redhat.com/components/pagination/demo/",
+              "source": {
+                "href": "https://github.com/redhat-ux/red-hat-design-system/tree/main/elements/rh-pagination/demo/rh-pagination.html"
+              }
+            },
+            {
+              "url": "https://ux.redhat.com/components/pagination/demo/many-pages/",
+              "source": {
+                "href": "https://github.com/redhat-ux/red-hat-design-system/tree/main/elements/rh-pagination/demo/many-pages.html"
+              }
+            }
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "RhPagination",
+          "declaration": {
+            "name": "RhPagination",
+            "module": "elements/rh-pagination/rh-pagination.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "rh-pagination",
+          "declaration": {
+            "name": "RhPagination",
+            "module": "elements/rh-pagination/rh-pagination.js"
           }
         }
       ]
@@ -1481,26 +1873,6 @@
               },
               "default": "false",
               "description": "`visible` property is false initially then when a dropdown is clicked is toggled"
-            },
-            {
-              "kind": "method",
-              "name": "isDropdown",
-              "static": true,
-              "return": {
-                "type": {
-                  "text": "boolean"
-                }
-              },
-              "parameters": [
-                {
-                  "name": "element",
-                  "type": {
-                    "text": "Element|null"
-                  },
-                  "description": ":"
-                }
-              ],
-              "description": "Checks if passed in element is a RhSecondaryNavDropdown"
             }
           ],
           "attributes": [
@@ -1659,6 +2031,10 @@
             {
               "description": "Nav bar level CTA, expects a `<rh-cta>",
               "name": "cta"
+            },
+            {
+              "description": "Text label for the mobile menu button, for l10n. Defaults to \"Menu\"",
+              "name": "mobile-menu"
             }
           ],
           "members": [
@@ -1669,7 +2045,7 @@
                 "text": "string"
               },
               "static": true,
-              "default": "1.0.0-beta.18",
+              "default": "1.0.0-beta.24",
               "readonly": true
             },
             {
@@ -1773,6 +2149,15 @@
               "default": "'lighter'",
               "attribute": "color-palette",
               "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "_ctaColorPalette",
+              "type": {
+                "text": "NavPalette | 'lightest'"
+              },
+              "privacy": "private",
+              "description": "If the host color-palette=\"lighter\", the cta color context should be on=\"light\"\nby default.  However when the host color-palette=\"darker\", the cta context should be\non=\"dark\" when in desktop mode, but on=\"light\" when in mobile compact mode because the cta shifts\nto a white background in the mobile compact nav. This state property is set on firstUpdated()\nand __compactChanged() and is used on a wrapping `<rh-context-provider>` around the cta allowing\nit to dynamically change with viewport changes."
             },
             {
               "kind": "method",
@@ -2132,6 +2517,12 @@
               "source": {
                 "href": "https://github.com/redhat-ux/red-hat-design-system/tree/main/elements/rh-secondary-nav/demo/proxy.html"
               }
+            },
+            {
+              "url": "https://ux.redhat.com/components/secondary-nav/demo/translation/",
+              "source": {
+                "href": "https://github.com/redhat-ux/red-hat-design-system/tree/main/elements/rh-secondary-nav/demo/translation.html"
+              }
             }
           ]
         }
@@ -2193,7 +2584,7 @@
                 "text": "string"
               },
               "static": true,
-              "default": "1.0.0-beta.18",
+              "default": "1.0.0-beta.24",
               "readonly": true
             },
             {
@@ -2383,7 +2774,7 @@
                 "text": "string"
               },
               "static": true,
-              "default": "1.0.0-beta.18",
+              "default": "1.0.0-beta.24",
               "readonly": true
             },
             {
@@ -2485,6 +2876,11 @@
               "description": "",
               "name": "--rh-footer-link-header-font-size",
               "default": "0.875em"
+            },
+            {
+              "description": "",
+              "name": "--rh-footer-nojs-min-height",
+              "default": "750px"
             }
           ],
           "cssParts": [
@@ -2591,7 +2987,7 @@
                 "text": "string"
               },
               "static": true,
-              "default": "1.0.0-beta.18",
+              "default": "1.0.0-beta.24",
               "readonly": true
             },
             {
@@ -2617,7 +3013,7 @@
               "kind": "field",
               "name": "#matchMedia",
               "privacy": "private",
-              "default": "new MatchMediaController(this, `(max-width: ${tabletLandscapeBreakpoint})`)"
+              "default": "new MatchMediaController(this, `(min-width: ${tabletLandscapeBreakpoint})`)"
             },
             {
               "kind": "field",

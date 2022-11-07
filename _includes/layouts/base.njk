@@ -20,6 +20,9 @@
     <link rel="stylesheet" href="{{ '/assets/css/prism-diff.css' | url }}">
     <link rel="stylesheet" href="{{ '/assets/@rhds/elements/elements/rh-footer/rh-footer-lightdom.css' | url }}">
     <link rel="stylesheet" href="{{ '/assets/@rhds/elements/elements/rh-pagination/rh-pagination-lightdom.css' | url }}">
+    {% if canonical %}
+    <link rel="canonical" href="{{ canonical }}" />
+    {% endif %}
     <noscript><link rel="stylesheet" href="{{ '/assets/css/noscript.css' | url }}"></noscript>
 
     <script type="importmap">{{ importMap | dump | safe }}</script>

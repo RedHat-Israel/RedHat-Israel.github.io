@@ -3,3 +3,9 @@
 - redhat-ux/red-hat-design-system
 - redhat-ux/red-hat-design-tokens
 - redhat-israel/red-hat-israel-site
+- RHEcosystemAppEng/fsi-common-helm
+- RHEcosystemAppEng/schema-pusher
+- open-cluster-management-io/clusteradm
+- open-cluster-management-io/multicloud-operators-subscription
+- open-cluster-management-io/ocm-vscode-extension
+- wildfly/wildfly-operator

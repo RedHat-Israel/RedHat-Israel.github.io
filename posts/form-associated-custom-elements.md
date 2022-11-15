@@ -6,6 +6,12 @@ description: >
   authors to build accessible custom interactive form controls like buttons, 
   inputs, checkboxes, that function just like browser-native inputs. Review the 
   spec and build a simple checkbox component in this short tutorial.
+date: 2022-11-14
+dir: ltr
+lang: en
+author:
+  name: Benny Powers
+  jobTitle: Principal Web Developer
 tags:
   - web components
   - face
@@ -13,7 +19,6 @@ tags:
   - javascript
   - lit
 ---
-
 
 Form-Associated Custom Elements are a new web standard by which to build custom 
 interactive form controls like buttons, inputs, checkboxes, etc. They present a 

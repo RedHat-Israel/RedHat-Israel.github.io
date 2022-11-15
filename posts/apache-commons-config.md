@@ -1,6 +1,6 @@
 ---
 title: Ways to replace apache.commons.configuration in your project
-description: |
+description: >
   In this post I describe solutions to replace the usage of apache.commons.configuration and
   describe my implementation of it.
 date: 2022-09-15
@@ -14,7 +14,6 @@ tags:
   - apache
   - apache commons
   - apache.commons.configuration
-layout: layouts/post.njk
 ---
 If you’re using `apache.commons.configuration` to manage `.properties` files in your project, you’re
 probably facing the following problem:

@@ -29,7 +29,13 @@ async function getStatsForOrgMembers(query, variables = {}, summary = {
   totalRepositoryContributions: 0,
   totalGists: 0
 }) {
-  const result = await graphql({ query, org, maxMembers, ...variables });
+  const result = await graphql({ query, org, maxMembers, ...variables }).catch(e => {
+    if (process.argv.includes('--serve')) {
+      console.warn(e.message);
+    } else {
+      throw e;
+    }
+  });
 
   result?.organization?.membersWithRole?.edges
     ?.forEach(edge => {

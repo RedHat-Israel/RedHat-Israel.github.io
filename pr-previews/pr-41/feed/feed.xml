@@ -5,7 +5,7 @@
 	
 	<link href="https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-41/feed/feed.xml" rel="self"/>
 	<link href="https://israel.redhat.com/"/>
-	<updated>2022-11-15T12:35:20Z</updated>
+	<updated>2022-11-14T00:00:00Z</updated>
 	<id>https://israel.redhat.com/</id>
 	<author>
 		<name>Red Hat Israel Associates</name>
@@ -15,7 +15,7 @@
 	<entry>
 		<title>Form-Associated Custom Elements</title>
 		<link href="https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-41/posts/form-associated-custom-elements/"/>
-		<updated>2022-11-15T12:35:20Z</updated>
+		<updated>2022-11-14T00:00:00Z</updated>
 		<id>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-41/posts/form-associated-custom-elements/</id>
 		<content type="html">&lt;p&gt;Form-Associated Custom Elements are a new web standard by which to build custom
 interactive form controls like buttons, inputs, checkboxes, etc. They present a

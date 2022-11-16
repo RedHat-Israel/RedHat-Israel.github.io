@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form-Associated Custom Elements</title>
+    <meta name="description" content="Form-Associated Custom Elements are a new web standard which let web component  authors to build accessible custom interactive form controls like buttons,  inputs, checkboxes, that function just like browser-native inputs. Review the  spec and build a simple checkbox component in this short tutorial.
+">
+    <meta name="generator" content="Eleventy v1.0.2">
+
+    <link rel="preconnect" href="https://www.redhat.com">
+    <link rel="preconnect" href="https://static.redhat.com">
+    <link rel="shortcut icon" href="https://www.redhat.com/misc/favicon.ico" type="image/x-icon">
+    <link rel="alternate" href="/red-hat-israel-site/pr-previews/pr-42/feed/feed.xml" type="application/atom+xml" title="Red Hat Israel">
+    <link rel="alternate" href="/red-hat-israel-site/pr-previews/pr-42/feed/feed.json" type="application/json" title="Red Hat Israel">
+
+    <link rel="stylesheet" href="https://static.redhat.com/libs/redhat/redhat-font/2/webfonts/red-hat-font.css" media="all">
+    <link rel="stylesheet" href="/red-hat-israel-site/pr-previews/pr-42/assets/css/rhds.css">
+    <link rel="stylesheet" href="/red-hat-israel-site/pr-previews/pr-42/assets/css/index.css">
+    <link rel="stylesheet" href="/red-hat-israel-site/pr-previews/pr-42/assets/css/prism.css">
+    <link rel="stylesheet" href="/red-hat-israel-site/pr-previews/pr-42/assets/css/prism-diff.css">
+    <link rel="stylesheet" href="/red-hat-israel-site/pr-previews/pr-42/assets/@rhds/elements/elements/rh-footer/rh-footer-lightdom.css">
+    <link rel="stylesheet" href="/red-hat-israel-site/pr-previews/pr-42/assets/@rhds/elements/elements/rh-pagination/rh-pagination-lightdom.css">
+    
+    <link rel="canonical" href="https://bennypowers.dev/posts/form-associated-custom-elements" />
+    
+    <noscript><link rel="stylesheet" href="/red-hat-israel-site/pr-previews/pr-42/assets/css/noscript.css"></noscript>
+
+    <script type="importmap">{"imports":{"@patternfly/pfe-accordion":"https://ga.jspm.io/npm:@patternfly/pfe-accordion@2.0.0-next.8/pfe-accordion.js","@patternfly/pfe-core":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.10/core.js","@patternfly/pfe-core/controllers/cascade-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.10/controllers/cascade-controller.js","@patternfly/pfe-core/controllers/color-context.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.10/controllers/color-context.js","@patternfly/pfe-core/controllers/css-variable-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.10/controllers/css-variable-controller.js","@patternfly/pfe-core/controllers/light-dom-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.10/controllers/light-dom-controller.js","@patternfly/pfe-core/controllers/logger.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.10/controllers/logger.js","@patternfly/pfe-core/controllers/perf-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.10/controllers/perf-controller.js","@patternfly/pfe-core/controllers/property-observer-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.10/controllers/property-observer-controller.js","@patternfly/pfe-core/controllers/slot-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.10/controllers/slot-controller.js","@patternfly/pfe-core/controllers/style-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.10/controllers/style-controller.js","@patternfly/pfe-core/decorators.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.10/decorators.js","@patternfly/pfe-core/decorators/bound.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.10/decorators/bound.js","@patternfly/pfe-core/decorators/cascades.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.10/decorators/cascades.js","@patternfly/pfe-core/decorators/color-context.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.10/decorators/color-context.js","@patternfly/pfe-core/decorators/deprecation.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.10/decorators/deprecation.js","@patternfly/pfe-core/decorators/initializer.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.10/decorators/initializer.js","@patternfly/pfe-core/decorators/observed.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.10/decorators/observed.js","@patternfly/pfe-core/decorators/pfelement.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.10/decorators/pfelement.js","@patternfly/pfe-core/decorators/time.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.10/decorators/time.js","@patternfly/pfe-core/decorators/trace.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.10/decorators/trace.js","@patternfly/pfe-core/functions/debounce.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.10/functions/debounce.js","@patternfly/pfe-core/functions/deprecatedCustomEvent.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.10/functions/deprecatedCustomEvent.js","@patternfly/pfe-core/functions/random.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.10/functions/random.js","@patternfly/pfe-icon":"https://ga.jspm.io/npm:@patternfly/pfe-icon@2.0.0-next.5/pfe-icon.js","@patternfly/pfe-modal":"https://ga.jspm.io/npm:@patternfly/pfe-modal@2.0.0-next.6/pfe-modal.js","@patternfly/pfe-tooltip":"https://ga.jspm.io/npm:@patternfly/pfe-tooltip@1.1.0-next.0/pfe-tooltip.js","@patternfly/pfe-tooltip/BaseTooltip.js":"https://ga.jspm.io/npm:@patternfly/pfe-tooltip@1.1.0-next.0/BaseTooltip.js","lit":"https://ga.jspm.io/npm:lit@2.3.0/index.js","lit/async-directive.js":"https://ga.jspm.io/npm:lit@2.3.0/async-directive.js","lit/decorators.js":"https://ga.jspm.io/npm:lit@2.3.0/decorators.js","lit/directive-helpers.js":"https://ga.jspm.io/npm:lit@2.3.0/directive-helpers.js","lit/directive.js":"https://ga.jspm.io/npm:lit@2.3.0/directive.js","lit/directives/class-map.js":"https://ga.jspm.io/npm:lit@2.3.0/directives/class-map.js","lit/directives/if-defined.js":"https://ga.jspm.io/npm:lit@2.3.0/directives/if-defined.js","lit/experimental-hydrate-support.js":"https://ga.jspm.io/npm:lit@2.3.0/experimental-hydrate-support.js","lit/experimental-hydrate.js":"https://ga.jspm.io/npm:lit@2.3.0/experimental-hydrate.js","lit/static-html.js":"https://ga.jspm.io/npm:lit@2.3.0/static-html.js","tslib":"https://ga.jspm.io/npm:tslib@2.4.1/tslib.es6.js","@rhds/elements":"/red-hat-israel-site/pr-previews/pr-42/assets/@rhds/elements/rhds.min.js","@rhds/elements/":"/red-hat-israel-site/pr-previews/pr-42/assets/@rhds/elements/elements/"},"scopes":{"https://ga.jspm.io/":{"@lit/reactive-element":"https://ga.jspm.io/npm:@lit/reactive-element@1.4.2/reactive-element.js","@lit/reactive-element/decorators/":"https://ga.jspm.io/npm:@lit/reactive-element@1.4.2/decorators/","@patternfly/pfe-core/controllers/floating-dom-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.10/controllers/floating-dom-controller.js","@popperjs/core":"https://ga.jspm.io/npm:@popperjs/core@2.11.6/lib/index.js","lit-element/":"https://ga.jspm.io/npm:lit-element@3.2.2/","lit-html":"https://ga.jspm.io/npm:lit-html@2.4.0/lit-html.js","lit-html/":"https://ga.jspm.io/npm:lit-html@2.4.0/"}}}</script>
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.5.9/dist/es-module-shims.js"></script>
+    <script type="module" src="/red-hat-israel-site/pr-previews/pr-42/assets/@rhds/elements/rhds.min.js"></script>
+  </head>
+  <body>
+    <header id="main-header">
+      <h1 class="home">
+        <a href="/red-hat-israel-site/pr-previews/pr-42/">
+          <img src="https://static.redhat.com/libs/redhat/brand-assets/2/corp/logo--on-dark.svg" alt="Red Hat Israel"/>
+        </a>
+      </h1>
+    </header>
+
+    <aside id="main-sidebar">
+      <nav>
+        <ul><li class="">
+          <a href="/red-hat-israel-site/pr-previews/pr-42/">בית</a></li><li class="">
+          <a href="/red-hat-israel-site/pr-previews/pr-42/about/">אודותינו</a></li><li class="">
+          <a href="/red-hat-israel-site/pr-previews/pr-42/posts/">פוסטים</a></li><li class="">
+          <a href="/red-hat-israel-site/pr-previews/pr-42/publicity/1/">כותבים עלינו</a></li><li class="">
+          <a href="/red-hat-israel-site/pr-previews/pr-42/community/">מעורבות בקהילה</a></li></ul>
+      </nav>
+    </aside>
+
+    <main
+      class="tmpl-post"
+      lang="en"
+      dir="ltr">
+      <h1>Form-Associated Custom Elements</h1>
+
+
+<div itemscope itemtype="https://schema.org/Person">
+  <span itemprop="name">Benny Powers</span>
+  
+  - <span itemprop="jobTitle">Principal Web Developer</span>
+  
+</div>
+
+
+<time datetime="2022-11-14">14 נוב׳ 2022</time>
+<a href="/red-hat-israel-site/pr-previews/pr-42/tags/web-components/" class="post-tag">web components</a>
+<a href="/red-hat-israel-site/pr-previews/pr-42/tags/face/" class="post-tag">face</a>
+<a href="/red-hat-israel-site/pr-previews/pr-42/tags/custom-elements/" class="post-tag">custom elements</a>
+<a href="/red-hat-israel-site/pr-previews/pr-42/tags/javascript/" class="post-tag">javascript</a>
+<a href="/red-hat-israel-site/pr-previews/pr-42/tags/lit/" class="post-tag">lit</a>
+
+<p>Form-Associated Custom Elements are a new web standard by which to build custom
+interactive form controls like buttons, inputs, checkboxes, etc. They present a
+path forward for design-systems and other custom element authors to more deeply
+integrate with the web platform. In this post, we'll build a simple FACE to get
+a feel for the APIs.</p>
+<h2 id="how-does-this-help" tabindex="-1">How Does this Help? <a class="direct-link" href="#how-does-this-help" aria-hidden="true">#</a></h2>
+<p>FACE adds crucial <strong>accessibility</strong> and <strong>interactivity</strong> features to web
+components, closing gaps between web components, framework components, and
+native browser controls. Before FACE, web component authors had to apply one of
+a number of <a href="#workarounds">workarounds</a> each with their own trade-offs.</p>
+<p>Teams <em>developing</em> FACEs can now implement accessible custom controls with
+simpler HTML APIs while retaining the benefits of Shadow DOM.</p>
+<p>But before we get to the code, some history:</p>
+<details open><summary>Skip the history bit</summary>
+<h2 id="how-we-got-here" tabindex="-1">How we Got Here <a class="direct-link" href="#how-we-got-here" aria-hidden="true">#</a></h2>
+<p>The web components v1 standard originally defined two kinds of custom elements.
+The most popular kind is called and <em><a href="https://html.spec.whatwg.org/multipage/custom-elements.html#autonomous-custom-element">autonomous custom element</a></em>, and
+it's what most people think about when they think of web components. The other
+kind is called a <em><a href="https://html.spec.whatwg.org/multipage/custom-elements.html#customized-built-in-element">customized built-in element</a></em>, and they look like
+this:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">XButton</span> <span class="token keyword">extends</span> <span class="token class-name">HTMLButtonElement</span> <span class="token punctuation">{</span><br>  <span class="token keyword">static</span> is <span class="token operator">=</span> <span class="token string">'x-button'</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br>customElements<span class="token punctuation">.</span><span class="token function">define</span><span class="token punctuation">(</span>XButton<span class="token punctuation">.</span>is<span class="token punctuation">,</span> XButton<span class="token punctuation">,</span> <span class="token punctuation">{</span><br>  <span class="token keyword">extends</span> <span class="token string">'button'</span><span class="token punctuation">,</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>You use CBIEs like this:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">is</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>x-button<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>I'm an XButton<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span></code></pre>
+<p>Notice the big differences here: <code>XButton</code> the customized built-in extends
+<code>HTMLButtonElement</code>, not <code>HTMLElement</code>, and when you register it, you have to
+pass both the custom element name <code>x-button</code> as well as the <code>localName</code> of the
+<code>button</code> element it extends. When using it in HTML, the <code>localName</code> of the
+element is <code>button</code> and the <code>is</code> attribute determines which subclass of
+<code>HTMLButtonElement</code> to upgrade with.</p>
+<p>The chief advantage of customized built-ins was that they came with all the
+original features of their base elements, well, built-in. So a custom-element
+author wouldn't need to implement a bunch of stuff to make their custom
+textfield go, rather they could just extend the existing <code>HTMLInputElement</code>
+class and get all the necessary and expected functionality (especially crucial
+accessibility features) for free. Typical OOP stuff. So if customized built-ins
+are so great, how come this post isn't about them and how come we rarely see
+them?</p>
+<p>Unfortunately, although customized built-ins remain a part of the spec, <strong>you
+should not build them</strong>. The reason for this is discouraging: despite the spec's
+ratification, Apple's WebKit team <a href="https://b.webkit.org/show_bug.cgi?id=182671">stated</a> that they would decline to
+implement customized built-ins.</p>
+<p>Since WebKit enjoys an <a href="https://open-web-advocacy.org/">artificial monopoly</a> on iOS devices,
+the WebKit team's decision has an outsized effect on the industry. Think &quot;US
+Electoral College&quot;, but for web browsers. Their decision not to implement makes
+customized built-ins a non-starter. Some prominent web developers (most notably
+Andrea Giammarchi) have advocated permanently adopting a polyfill, but the
+broader web components community has generally acquiesced to WebKit's decision.</p>
+<p>Which is how FACE came to be, it's the alternative to CBIEs that the WebKit team
+championed.</p>
+</details>
+<h2 id="workarounds" tabindex="-1">Workarounds <a class="direct-link" href="#workarounds" aria-hidden="true">#</a></h2>
+<p>Before FACE, page authors using custom elements had two options to submit forms
+with data from their web components:</p>
+<ol>
+<li>The &quot;decorator pattern&quot; - slotting native controls into autonomous custom elements</li>
+<li>Using JavaScript to manually submit form data</li>
+</ol>
+<p>Each of these had their pros and cons.</p>
+<h3 id="the-decorator-pattern" tabindex="-1">The Decorator Pattern <a class="direct-link" href="#the-decorator-pattern" aria-hidden="true">#</a></h3>
+<p>The most versatile workaround for autonomous custom controls involves slotting
+native controls into the custom element.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>x-checkbox</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>x-checkbox</span><span class="token punctuation">></span></span></code></pre>
+<p>The advantages to this approach include <code>&lt;noscript&gt;</code> support and hassle-free
+form participation. The disadvantages include HTML noise and awkward styling due
+to the current limitations of <code>::slotted()</code>. This is compounded by the
+requirement to <code>&lt;label&gt;</code> elements, leading to stricter HTML requirements,
+copying nodes into the shadow root, producing hidden light DOM nodes, or other
+workarounds-for-the-workaround.</p>
+<h3 id="manually-submitting-forms" tabindex="-1">Manually Submitting Forms <a class="direct-link" href="#manually-submitting-forms" aria-hidden="true">#</a></h3>
+<p>Developers working on SPAs might opt instead to put their native inputs in the
+shadow DOM and use JavaScript to submit the form data to a JSON API. Here's a
+simple example of how that might work:</p>
+<pre class="language-js"><code class="language-js">form<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'submit'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  event<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">const</span> body <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token function">somehowCollectFormValuesFromCustomControls</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">const</span> <span class="token punctuation">{</span> action<span class="token punctuation">,</span> method <span class="token operator">=</span> <span class="token string">'POST'</span> <span class="token punctuation">}</span> <span class="token operator">=</span> form<span class="token punctuation">;</span><br>  <span class="token function">fetch</span><span class="token punctuation">(</span>action<span class="token punctuation">,</span> <span class="token punctuation">{</span> method<span class="token punctuation">,</span> body <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
+<p>Given the right abstractions this approach could be quite productive for
+developers, but ties the controls to JavaScript.</p>
+<h2 id="creating-a-face" tabindex="-1">Creating a FACE <a class="direct-link" href="#creating-a-face" aria-hidden="true">#</a></h2>
+<p>Form-Associated Custom Elements solves one of the problems that <code>is</code> and
+customized built-in elements <a href="#how-we-got-here">would have solved</a>, namely,
+allowing your web component to participate in native web forms.</p>
+<p>We create a FACE by setting the static <code>formAssociated</code> boolean flag and
+registering the custom element.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">XCheckbox</span> <span class="token keyword">extends</span> <span class="token class-name">HTMLElement</span> <span class="token punctuation">{</span><br>  <span class="token keyword">static</span> formAssociated <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br>customElements<span class="token punctuation">.</span><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">'x-checkbox'</span><span class="token punctuation">,</span> XCheckbox<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h3 id="a-free-lunch" tabindex="-1">A Free Lunch <a class="direct-link" href="#a-free-lunch" aria-hidden="true">#</a></h3>
+<p>So what does this give us? Well, right off the bat, that one static class
+boolean adds a number of form-related behaviours to our otherwise plain element.
+The <code>name</code>, <code>form</code>, and <code>disabled</code> attributes now work the same as native
+<code>&lt;input&gt;</code> elements, and the presence of the <code>readonly</code> attribute will prevent
+the browser from trying to validate your field, although you're still
+responsible to make the control <em>actually</em> non-editable. Naming your FACE and
+specifying a form (by child composition or via <code>form</code> attribute) adds it to the
+form's <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement"><code>HTMLFormControlsCollection</code></a>, as well, if the element or
+it's containing <code>&lt;formset&gt;</code> has the <code>disabled</code> attribute, it will gain the CSS
+state <code>:disabled</code>.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>fieldset</span> <span class="token attr-name">disabled</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xcheck<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Check?<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span><br>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>x-checkbox</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>xcheck<span class="token punctuation">"</span></span><br>                <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkit<span class="token punctuation">"</span></span><br>                <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>checkit<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>x-checkbox</span><span class="token punctuation">></span></span><br>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>fieldset</span><span class="token punctuation">></span></span><br><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span></code></pre>
+<p>In the above snippet, our custom checkbox is disabled on account of its
+containing fieldset, and the form submits with its value on <code>checkit</code>. Removing
+<code>disabled</code> from the fieldset also unsets it from the element, without the
+element author needing to apply any extra code.</p>
+<p>We also get some new lifecycle callbacks:</p>
+<ul>
+<li><code>formAssociatedCallback(form: HTMLFormElement)</code> runs when our element is
+associated with a <code>&lt;form&gt;</code>, either by being it's child or by setting the
+element's <code>form</code> attribute to the id of the form.</li>
+<li><code>formDisabledCallback(state: boolean)</code> runs when the element's <code>disabled</code>
+state changes, either because it or it's containing fieldset's <code>disabled</code>
+attribute changed.</li>
+<li><code>formResetCallback()</code> runs when the element's associated form has it's
+<code>reset()</code> method called. You can use this e.g. to reset to a default value.</li>
+<li><code>formStateRestoreCallback(reason: 'autocomplete'|'restore')</code> runs when the
+browser autofills the form. It takes a single argument of type
+<code>'autocomplete'|'restore'</code>, depending on whether the browser called it because
+of an autocomplete or a navigation.</li>
+</ul>
+<p>All of that comes for free, even before implementing any actual custom control
+behaviour. So let's add in the actual checkbox stuff now, just like we would
+have done before the new standards.</p>
+<h3 id="customizing-the-ui" tabindex="-1">Customizing the UI <a class="direct-link" href="#customizing-the-ui" aria-hidden="true">#</a></h3>
+<p>Let's start by writing an accessor pair to link our element's <code>checked</code> property
+to the corresponding HTML attribute:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">get</span> <span class="token function">checked</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">hasAttribute</span><span class="token punctuation">(</span><span class="token string">'checked'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><br><span class="token keyword">set</span> <span class="token function">checked</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">toggleAttribute</span><span class="token punctuation">(</span><span class="token string">'checked'</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span></code></pre>
+<p>Built-in checkboxes set their value DOM property to either the <code>value</code>
+attribute's value or the string <code>on</code>, so let's do that too:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">get</span> <span class="token function">value</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">'value'</span><span class="token punctuation">)</span> <span class="token operator">??</span> <span class="token string">'on'</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><br><span class="token keyword">set</span> <span class="token function">value</span><span class="token punctuation">(</span><span class="token parameter">v</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'value'</span><span class="token punctuation">,</span> v<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span></code></pre>
+<p>We'll add <code>checked</code> and <code>value</code> to our <code>observedAttributes</code> list, then call our
+<code>connectedCallback</code> (providing a highly <em>aesthetic</em> UX), in <code>attributeChangedCallback</code>.</p>
+<pre class="language-js"><code class="language-js"><span class="token function">connectedCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">this</span><span class="token punctuation">.</span>#container<span class="token punctuation">.</span>textContent <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>checked <span class="token operator">?</span> <span class="token string">'✅'</span> <span class="token operator">:</span> <span class="token string">'❌'</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token function">attributeChangedCallback</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> _<span class="token punctuation">,</span> value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">switch</span> <span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">case</span> <span class="token string">'checked'</span><span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>checked <span class="token operator">=</span> value <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span><br>    <span class="token keyword">case</span> <span class="token string">'value'</span><span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>value <span class="token operator">=</span> value<span class="token punctuation">;</span> <span class="token keyword">break</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br>  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">connectedCallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>And last we'll add some keyboard and pointer interaction</p>
+<pre class="language-js"><code class="language-js"><span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>#onClick<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'keydown'</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>#onKeydown<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">attachShadow</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">mode</span><span class="token operator">:</span> <span class="token string">'open'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><br>    <span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>XCheckbox<span class="token punctuation">.</span>template<span class="token punctuation">.</span><span class="token function">cloneNode</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><br><span class="token function">#onClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">#toggle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token function">#onKeydown</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">switch</span> <span class="token punctuation">(</span>event<span class="token punctuation">.</span>key<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">case</span> <span class="token string">' '</span><span class="token operator">:</span><br>      event<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">#toggle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span><br><br><span class="token function">#toggle</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>  <span class="token keyword">this</span><span class="token punctuation">.</span>checked <span class="token operator">=</span> <span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>checked<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>Now that our checkbox looks and feels like a checkbox, the last thing to do is
+to hook into the browser's HTML form lifecycle with another new standard,
+<a href="https://html.spec.whatwg.org/multipage/custom-elements.html#the-elementinternals-interface"><code>ElementInternals</code></a>.</p>
+<h3 id="form-interactions" tabindex="-1">Form Interactions <a class="direct-link" href="#form-interactions" aria-hidden="true">#</a></h3>
+<p>Along with FACE, <code>ElementInternals</code> gives custom element authors new
+capabilities. Specifically, element internals are a standard place to implement
+things like form control validation and accessibility. <code>ElementInternals</code> is
+designed as a catch-all bag of properties and methods for working with custom
+elements. We can expect expansions to its capabilities in the future, but for
+now it contains three parts:</p>
+<ol>
+<li>A reference to the element's shadow root, if it exists</li>
+<li>Form-related properties</li>
+<li>Accessibility-related properties</li>
+</ol>
+<p><code>HTMLElement</code> get a new standard method called <code>attachInternals()</code> which returns
+an <code>ElementInternals</code> object. This method may only be called on autonomous
+custom elements and will throw if called on built-ins, customized or otherwise.
+You hook your control's custom implementation into it's associated form with
+<code>ElementInternals</code>' form properties.</p>
+<p>Let's create our <code>ElementInternals</code> object by calling
+<code>attachInternals</code>, and store it on a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields">private class field</a>.</p>
+<pre class="language-js"><code class="language-js">#internals <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">attachInternals</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Then, in our <code>connectedCallback</code>, we'll apply the checkbox' value to it's
+<code>FormData</code> entry:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">this</span><span class="token punctuation">.</span>#internals<span class="token punctuation">.</span><span class="token function">setFormValue</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>checked <span class="token operator">?</span> <span class="token keyword">this</span><span class="token punctuation">.</span>value <span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>That <code>setFormValue</code> call is part of the <code>ElementInternals</code> secret sauce. Calling
+it with a non-nullish value adds our control's value to the form's <code>FormData</code>
+object, whereas calling it with <code>null</code> removes the value.</p>
+<p>We can also implement form validation in our custom controls with the following
+internals properties and methods:</p>
+<ul>
+<li><code>willValidate(): boolean</code> checks whether the element will be validated when
+the form submits</li>
+<li><code>setValidity()</code> sets the element's form validity state</li>
+<li><code>checkValidity()</code> and <code>reportValidity()</code> work just like their native
+counterparts.</li>
+</ul>
+<p>Custom validations are a big topic so let's save their more in-depth explanation
+for another day.</p>
+<h3 id="accessibility" tabindex="-1">Accessibility <a class="direct-link" href="#accessibility" aria-hidden="true">#</a></h3>
+<p>The other major feature of <code>ElementInternals</code> are it's a11y-related properties
+<code>role</code> and <code>aria*</code>. Part of the <a href="https://wicg.github.io/aom/explainer.html">AOM</a>, we can now set <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/">ARIA</a>
+properties imperatively without needing to set <code>aria-</code> attributes. These are
+critical capabilities which previously only had partial workarounds.</p>
+<p>Let's start by setting the <code>role</code> so that screen readers announce our element as a checkbutton. Note that as of this writing Firefox (107) has not yet implemented role reflection, so we'll do some feature detection</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token string">'role'</span> <span class="token keyword">in</span> <span class="token class-name">ElementInternals</span><span class="token punctuation">.</span>prototype<span class="token punctuation">)</span><br>  <span class="token keyword">this</span><span class="token punctuation">.</span>#internals<span class="token punctuation">.</span>role <span class="token operator">=</span> <span class="token string">'checkbox'</span><span class="token punctuation">;</span><br><span class="token keyword">else</span><br>  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'role'</span><span class="token punctuation">,</span> <span class="token string">'checkbox'</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>We'll update our <code>connectedCallback</code> to render to the a11y tree as well as the
+DOM. Like role reflection, we'll apply a workaround for Firefox:</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token string">'ariaChecked'</span> <span class="token keyword">in</span> <span class="token class-name">ElementInternals</span><span class="token punctuation">.</span>prototype<span class="token punctuation">)</span><br>  <span class="token keyword">this</span><span class="token punctuation">.</span>#internals<span class="token punctuation">.</span>ariaChecked <span class="token operator">=</span> <span class="token function">String</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>checked<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token keyword">else</span><br>  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'aria-checked'</span><span class="token punctuation">,</span> <span class="token function">String</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>checked<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>Putting it all together, our custom checkbox:</p>
+<ul>
+<li>implements it's own bespoke UI</li>
+<li>participates in HTML forms like a native input</li>
+<li>is accessible to users of assistive technologies</li>
+</ul>
+<p><a href="https://bennypowers.dev/posts/form-associated-custom-elements/#simple-checkbox-example">Check out the demo on the original post</a></p>
+<h2 id="browser-support-and-polyfills" tabindex="-1">Browser Support and Polyfills <a class="direct-link" href="#browser-support-and-polyfills" aria-hidden="true">#</a></h2>
+<p>As of initial publication, Chromium (Google Chrome, Microsoft Edge, Brave, Arc)
+supports the full range of APIs described here. Firefox supports
+<code>attachInternals</code> and <code>formAssociated</code> but does not support ARIA and role
+reflection. WebKit does not support any of the new APIs, but the commits to add
+support have been merged, so the next Safari Technology Preview is likely to add
+support.</p>
+<table>
+<thead>
+<tr>
+<th>Engine</th>
+<th>FACE</th>
+<th><code>ElementInternals</code></th>
+<th>AOM Reflection</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chromium</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Firefox</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>WebKit</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<p>The inimitable Caleb D. Williams has kindly published an <a href="https://github.com/calebdwilliams/element-internals-polyfill">ElementInternals
+polyfill</a> which weighs in at <a href="https://unpkg.com/element-internals-polyfill">~6kb over-the-wire</a>. Since
+the spec involves hooking into browser stuff which is otherwise unavailable to
+developers, the polyfill is not 100% spec compliant. For example, ARIA
+reflection is implemented by adding <code>aria-</code> attributes to the host element,
+where the spec states that they should not be added. The polyfill also adds a
+workaround for the <a href="https://wicg.github.io/custom-state-pseudo-class/#dom-elementinternals-states">custom state</a> part of the spec, which was not
+covered here.</p>
+<p>Thoughts? Corrections? Comments? Let me know on <a href="https://social.bennypowers.dev/@i">mastodon</a>.</p>
+
+<hr>
+<ul><li>Previous: <a href="/red-hat-israel-site/pr-previews/pr-42/posts/apache-commons-config/">Ways to replace apache.commons.configuration in your project</a></li>
+</ul>
+
+    </main>
+
+    <rh-footer>
+      <a slot="logo" href="/en">
+        <img src="https://static.redhat.com/libs/redhat/brand-assets/2/corp/logo--on-dark.svg" alt="Red Hat Israel logo" loading="lazy"/> 
+      </a>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://www.linkedin.com/company/red-hat">
+          <pfe-icon icon="linkedin" set="fab">LinkedIn</pfe-icon>
+        </a>
+      </rh-footer-social-link>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://www.youtube.com/user/RedHatVideos">
+          <pfe-icon icon="youtube" set="fab">Youtube</pfe-icon>
+        </a>
+      </rh-footer-social-link>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://www.facebook.com/redhatinc">
+          <pfe-icon icon="facebook" set="fab">Facebook</pfe-icon>
+        </a>
+      </rh-footer-social-link>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://twitter.com/RedHat">
+          <pfe-icon icon="twitter" set="fab">Twitter</pfe-icon>
+        </a>
+      </rh-footer-social-link>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://github.com/redhat-israel">
+          <pfe-icon icon="github" set="fab">GitHub</pfe-icon>
+        </a>
+      </rh-footer-social-link>
+      <h3 slot="links">המוצרים שלנו</h3>
+      <ul slot="links">
+        <li><a href="https://www.redhat.com/en/technologies/management/ansible">Red Hat Ansible Automation Platform</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">Red Hat Enterprise Linux</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/cloud-computing/openshift">Red Hat OpenShift</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/cloud-computing/openshift-data-foundation">Red Hat OpenShift Data Foundation</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/linux-platforms/openstack-platform">Red Hat OpenStack Platform</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/all-products">See all products</a></li>
+      </ul>
+      <h3 slot="links">צרו קשר</h3>
+      <ul slot="links">
+        <li><a href="https://www.redhat.com/en/contact">כתבו לנו</a></li>
+        <li><a href="https://www.redhat.com/en/about/feedback">שלחו לנו פידבק</a></li>
+        <li><a href="https://www.redhat.com/en/about/social">עקבו אחרינו ברשתות החברתיות</a></li>
+      </ul>
+      <rh-footer-block slot="main-secondary">
+        <h3 slot="header">רד האט</h3>
+        <p>רד האט היא החברה המובילה בעולם לפתרונות תוכנה מבוססי קוד פתוח לארגוני Enterprise.
+רד האט מבוססת על כוחה של קהילת הקוד הפתוח בפיתוח ואספקת טכנולוגיות Linux, Cloud, Container, ו-Kubernetes.
+אנחנו מסייעים ללקוחות לשלב בין יישומי IT חדשים וקיימים, לפתח יישומים רב-ענניים
+(multi-cloud), לבצע סטנדרטיזציה של מערכת ההפעלה, יחד עם אוטומציה, אבטחה וניהול של סביבות מורכבות.</p>
+
+      </rh-footer-block>
+      <rh-global-footer slot="global" class=" no-secondary-links">
+        <h3 slot="links-primary" hidden>Red Hat legal and privacy links</h3>
+        <ul slot="links-primary">
+          <li><a href="https://www.redhat.com/en/about/privacy-policy">הצהרת פרטיות</a></li>
+          <li><a href="https://www.redhat.com/en/about/terms-use">תנאי שימוש</a></li>
+          <li><a href="https://www.redhat.com/en/about/digital-accessibility">נגישות דיגיטלית</a></li>
+        </ul>
+      </rh-global-footer>
+    </rh-footer>
+
+    <!-- Current page: /red-hat-israel-site/pr-previews/pr-42/posts/form-associated-custom-elements/ -->
+  </body>
+</html>

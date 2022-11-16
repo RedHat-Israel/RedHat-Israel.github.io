@@ -7,6 +7,11 @@
   </url>
   
   <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-42/posts/form-associated-custom-elements/</loc>
+    <lastmod>2022-11-14</lastmod>
+  </url>
+  
+  <url>
     <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-42/about/</loc>
     <lastmod>2022-11-16</lastmod>
   </url>
@@ -67,6 +72,21 @@
   </url>
   
   <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-42/tags/red-hat/</loc>
+    <lastmod>2022-11-16</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-42/tags/red-hat-israel/</loc>
+    <lastmod>2022-11-16</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-42/tags/open-source/</loc>
+    <lastmod>2022-11-16</lastmod>
+  </url>
+  
+  <url>
     <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-42/tags/properties/</loc>
     <lastmod>2022-11-16</lastmod>
   </url>
@@ -87,17 +107,27 @@
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-42/tags/red-hat/</loc>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-42/tags/web-components/</loc>
     <lastmod>2022-11-16</lastmod>
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-42/tags/red-hat-israel/</loc>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-42/tags/face/</loc>
     <lastmod>2022-11-16</lastmod>
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-42/tags/open-source/</loc>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-42/tags/custom-elements/</loc>
+    <lastmod>2022-11-16</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-42/tags/javascript/</loc>
+    <lastmod>2022-11-16</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-42/tags/lit/</loc>
     <lastmod>2022-11-16</lastmod>
   </url>
 </urlset>

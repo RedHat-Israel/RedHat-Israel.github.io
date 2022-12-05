@@ -57,7 +57,7 @@ jobs:
         id: git_status
         run: |
             changedCount=$(git status --porcelain=v1 --short --untracked-files=all | wc -l)
-            echo "::set-output name=changedCount::$changedCount"
+            echo "changedCount=$changedCount" >> "$GITHUB_OUTPUT"
 
       - name: Push generated site
         if: steps.git_status.outputs.changedCount > 0

@@ -87,26 +87,6 @@
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/pr-previews/pr-49/tags/properties/</loc>
-    <lastmod>2022-12-05</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://israel.redhat.com/pr-previews/pr-49/tags/apache/</loc>
-    <lastmod>2022-12-05</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://israel.redhat.com/pr-previews/pr-49/tags/apache-commons/</loc>
-    <lastmod>2022-12-05</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://israel.redhat.com/pr-previews/pr-49/tags/apache-commons-configuration/</loc>
-    <lastmod>2022-12-05</lastmod>
-  </url>
-  
-  <url>
     <loc>https://israel.redhat.com/pr-previews/pr-49/tags/web-components/</loc>
     <lastmod>2022-12-05</lastmod>
   </url>
@@ -128,6 +108,26 @@
   
   <url>
     <loc>https://israel.redhat.com/pr-previews/pr-49/tags/lit/</loc>
+    <lastmod>2022-12-05</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-49/tags/properties/</loc>
+    <lastmod>2022-12-05</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-49/tags/apache/</loc>
+    <lastmod>2022-12-05</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-49/tags/apache-commons/</loc>
+    <lastmod>2022-12-05</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-49/tags/apache-commons-configuration/</loc>
     <lastmod>2022-12-05</lastmod>
   </url>
 </urlset>

@@ -77,6 +77,29 @@ rh-footer:not(:defined) * {
       display: none;
     }
 
+#home{
+  display: grid;    
+  grid-gap: var(--rh-space-6xl);    
+  gap: var(--rh-space-6xl);
+
+  
+}
+
+.rh-header{
+  text-align: center;
+  display: grid;
+  grid-template-areas: "space text space";
+}
+
+.rh-header h2{
+  font-weight: bold;
+  }
+
+
+#rh-spacer {  	
+
+}
+
 rh-global-footer.no-links::part(primary) { display: none; }
 
 rh-global-footer.no-secondary-links::part(secondary) { display: none; }

@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ways to replace apache.commons.configuration in your project</title>
+    <meta name="description" content="In this post I describe solutions to replace the usage of apache.commons.configuration and describe my implementation of it.
+">
+    <meta name="generator" content="Eleventy v1.0.2">
+
+    <link rel="preconnect" href="https://www.redhat.com">
+    <link rel="preconnect" href="https://static.redhat.com">
+    <link rel="shortcut icon" href="https://www.redhat.com/misc/favicon.ico" type="image/x-icon">
+    <link rel="alternate" href="/pr-previews/pr-49/feed/feed.xml" type="application/atom+xml" title="Red Hat Israel">
+    <link rel="alternate" href="/pr-previews/pr-49/feed/feed.json" type="application/json" title="Red Hat Israel">
+
+    <link rel="stylesheet" href="https://static.redhat.com/libs/redhat/redhat-font/2/webfonts/red-hat-font.css" media="all">
+    <link rel="stylesheet" href="/pr-previews/pr-49/assets/css/rhds.css">
+    <link rel="stylesheet" href="/pr-previews/pr-49/assets/css/index.css">
+    <link rel="stylesheet" href="/pr-previews/pr-49/assets/css/prism.css">
+    <link rel="stylesheet" href="/pr-previews/pr-49/assets/css/prism-diff.css">
+    <link rel="stylesheet" href="/pr-previews/pr-49/assets/@rhds/elements/elements/rh-footer/rh-footer-lightdom.css">
+    <link rel="stylesheet" href="/pr-previews/pr-49/assets/@rhds/elements/elements/rh-pagination/rh-pagination-lightdom.css">
+    
+    <noscript><link rel="stylesheet" href="/pr-previews/pr-49/assets/css/noscript.css"></noscript>
+
+    <script type="importmap">{"imports":{"@patternfly/pfe-accordion":"https://ga.jspm.io/npm:@patternfly/pfe-accordion@2.0.0-next.9/pfe-accordion.js","@patternfly/pfe-core":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.11/core.js","@patternfly/pfe-core/controllers/cascade-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.11/controllers/cascade-controller.js","@patternfly/pfe-core/controllers/color-context.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.11/controllers/color-context.js","@patternfly/pfe-core/controllers/css-variable-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.11/controllers/css-variable-controller.js","@patternfly/pfe-core/controllers/light-dom-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.11/controllers/light-dom-controller.js","@patternfly/pfe-core/controllers/logger.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.11/controllers/logger.js","@patternfly/pfe-core/controllers/perf-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.11/controllers/perf-controller.js","@patternfly/pfe-core/controllers/property-observer-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.11/controllers/property-observer-controller.js","@patternfly/pfe-core/controllers/slot-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.11/controllers/slot-controller.js","@patternfly/pfe-core/controllers/style-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.11/controllers/style-controller.js","@patternfly/pfe-core/decorators.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.11/decorators.js","@patternfly/pfe-core/decorators/bound.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.11/decorators/bound.js","@patternfly/pfe-core/decorators/cascades.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.11/decorators/cascades.js","@patternfly/pfe-core/decorators/color-context.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.11/decorators/color-context.js","@patternfly/pfe-core/decorators/deprecation.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.11/decorators/deprecation.js","@patternfly/pfe-core/decorators/initializer.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.11/decorators/initializer.js","@patternfly/pfe-core/decorators/observed.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.11/decorators/observed.js","@patternfly/pfe-core/decorators/pfelement.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.11/decorators/pfelement.js","@patternfly/pfe-core/decorators/time.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.11/decorators/time.js","@patternfly/pfe-core/decorators/trace.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.11/decorators/trace.js","@patternfly/pfe-core/functions/debounce.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.11/functions/debounce.js","@patternfly/pfe-core/functions/deprecatedCustomEvent.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.11/functions/deprecatedCustomEvent.js","@patternfly/pfe-core/functions/random.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.11/functions/random.js","@patternfly/pfe-icon":"https://ga.jspm.io/npm:@patternfly/pfe-icon@2.0.0-next.5/pfe-icon.js","@patternfly/pfe-modal":"https://ga.jspm.io/npm:@patternfly/pfe-modal@2.0.0-next.6/pfe-modal.js","@patternfly/pfe-tooltip":"https://ga.jspm.io/npm:@patternfly/pfe-tooltip@1.1.0-next.0/pfe-tooltip.js","@patternfly/pfe-tooltip/BaseTooltip.js":"https://ga.jspm.io/npm:@patternfly/pfe-tooltip@1.1.0-next.0/BaseTooltip.js","lit":"https://ga.jspm.io/npm:lit@2.3.0/index.js","lit/async-directive.js":"https://ga.jspm.io/npm:lit@2.3.0/async-directive.js","lit/decorators.js":"https://ga.jspm.io/npm:lit@2.3.0/decorators.js","lit/directive-helpers.js":"https://ga.jspm.io/npm:lit@2.3.0/directive-helpers.js","lit/directive.js":"https://ga.jspm.io/npm:lit@2.3.0/directive.js","lit/directives/class-map.js":"https://ga.jspm.io/npm:lit@2.3.0/directives/class-map.js","lit/directives/if-defined.js":"https://ga.jspm.io/npm:lit@2.3.0/directives/if-defined.js","lit/experimental-hydrate-support.js":"https://ga.jspm.io/npm:lit@2.3.0/experimental-hydrate-support.js","lit/experimental-hydrate.js":"https://ga.jspm.io/npm:lit@2.3.0/experimental-hydrate.js","lit/static-html.js":"https://ga.jspm.io/npm:lit@2.3.0/static-html.js","tslib":"https://ga.jspm.io/npm:tslib@2.4.1/tslib.es6.js","@rhds/elements":"/pr-previews/pr-49/assets/@rhds/elements/rhds.min.js","@rhds/elements/":"/pr-previews/pr-49/assets/@rhds/elements/elements/"},"scopes":{"https://ga.jspm.io/":{"@lit/reactive-element":"https://ga.jspm.io/npm:@lit/reactive-element@1.4.2/reactive-element.js","@lit/reactive-element/decorators/":"https://ga.jspm.io/npm:@lit/reactive-element@1.4.2/decorators/","@patternfly/pfe-core/controllers/floating-dom-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.11/controllers/floating-dom-controller.js","@popperjs/core":"https://ga.jspm.io/npm:@popperjs/core@2.11.6/lib/index.js","lit-element/":"https://ga.jspm.io/npm:lit-element@3.2.2/","lit-html":"https://ga.jspm.io/npm:lit-html@2.4.0/lit-html.js","lit-html/":"https://ga.jspm.io/npm:lit-html@2.4.0/"}}}</script>
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.5.9/dist/es-module-shims.js"></script>
+    <script type="module" src="/pr-previews/pr-49/assets/@rhds/elements/rhds.min.js"></script>
+  </head>
+  <body>
+    <header id="main-header">
+      <h1 class="home">
+        <a href="/pr-previews/pr-49/">
+          <img src="https://static.redhat.com/libs/redhat/brand-assets/2/corp/logo--on-dark.svg" alt="Red Hat Israel"/>
+        </a>
+      </h1>
+    </header>
+
+    <aside id="main-sidebar">
+      <nav>
+        <ul><li class="">
+          <a href="/pr-previews/pr-49/">בית</a></li><li class="">
+          <a href="/pr-previews/pr-49/about/">אודותינו</a></li><li class="">
+          <a href="/pr-previews/pr-49/posts/">פוסטים</a></li><li class="">
+          <a href="/pr-previews/pr-49/publicity/1/">כותבים עלינו</a></li><li class="">
+          <a href="/pr-previews/pr-49/community/">מעורבות בקהילה</a></li></ul>
+      </nav>
+    </aside>
+
+    <main
+      class="tmpl-post"
+      lang="en"
+      dir="ltr">
+      <h1>Ways to replace apache.commons.configuration in your project</h1>
+
+
+<div itemscope itemtype="https://schema.org/Person">
+  <span itemprop="name">Dana Elfassy</span>
+  
+  - <span itemprop="jobTitle">Software Engineer</span>
+  
+</div>
+
+
+<time datetime="2022-09-15">15 ספט׳ 2022</time>
+<a href="/pr-previews/pr-49/tags/properties/" class="post-tag">properties</a>
+<a href="/pr-previews/pr-49/tags/apache/" class="post-tag">apache</a>
+<a href="/pr-previews/pr-49/tags/apache-commons/" class="post-tag">apache commons</a>
+<a href="/pr-previews/pr-49/tags/apache-commons-configuration/" class="post-tag">apache.commons.configuration</a>
+
+<p>If you’re using <code>apache.commons.configuration</code> to manage <code>.properties</code> files in your project, you’re
+probably facing the following problem:
+<code>Apache.commons.configuration</code> depends on <code>apache.common.logging</code> which is included in <code>maven:3.5</code>,
+but was removed from <code>maven:3.6</code>.
+Thus, if you want to upgrade you will need to find a different way to parse your properties.</p>
+<p>Java offers the <a href="https://docs.oracle.com/javase/tutorial/essential/environment/properties.html"><code>java.util.Properties</code>
+class</a>, which is a
+subclass of <code>java.util.Hashtable</code>.
+It maintains a list of keys and values, both are of type String, and provides methods for the
+following operations:
+Loading and saving the properties, getting a value by key, listing the keys and values, enumerating
+over the keys, and the methods inherited from the <code>Hashtable</code> class.</p>
+<h2 id="but-what-if-our-data-is-complex" tabindex="-1">But what if our data is complex? <a class="direct-link" href="#but-what-if-our-data-is-complex" aria-hidden="true">#</a></h2>
+<p>If we have nested properties <em>(i.e <code>food.apple=red</code>, <code>food.icecream=vanilla</code>, <code>drink.milk=soy</code>,
+<code>drink.soft=coke</code>)</em> how will we find all of the information about the main key (<code>food</code>, in this
+example)?
+In order to retrieve the complete value we will need to iterate over the entire <code>Hashtable</code>,
+searching for all of the keys that contain <code>food.</code>.</p>
+<p>Here comes the biggest advantage of using <code>apache.commons.configuration</code>-
+It offers a generic configuration interface to read data from a variety of sources, and access to
+single and multi-valued configuration parameters.</p>
+<p>When I started working on removing the dependency on <code>apache.commons.configuration</code>, I figured that
+since the properties we use are nested, I should see which methods of <code>apache.commons.configuration</code>
+we are actually using, and then I tried to mimic the original implementation. It was very tricky as
+I faced a whole chain of inheritance and interfaces to implement.
+After already putting some work into it, I decided to drop it all and go with a different approach.
+The main thing I had to handle was being able to set the nested properties properly.
+I decided to save the properties into a <code>HashMap</code> that stores <code>String</code> for the key, and <code>JsonNode</code>
+for the value.
+That way I could set and get each property by its main key easily, and get the specific data of a
+specific secondary key if needed. For other operations I used the <code>HashMap</code>’s builtin methods.</p>
+<p>Here’s a snippet of my implementation for storing the data from the <code>.properties</code> file, where I used
+<code>com.fasterxml.jackson</code> for handling the JsonNode:</p>
+<pre class="language-java"><code class="language-java"><span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">populateProperties</span><span class="token punctuation">(</span><span class="token class-name">File</span> file<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span> <span class="token punctuation">{</span><br>    <span class="token class-name">ObjectMapper</span> mapper <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ObjectMapper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token class-name">List</span> lines <span class="token operator">=</span> <span class="token class-name">Files</span><span class="token punctuation">.</span><span class="token function">readAllLines</span><span class="token punctuation">(</span>file<span class="token punctuation">.</span><span class="token function">toPath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">></span></span> allProps <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">String</span> line<span class="token operator">:</span> lines<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        <span class="token keyword">if</span> <span class="token punctuation">(</span>line<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token string">"="</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            allProps<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>line<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"="</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> line<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"="</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token punctuation">}</span><br>    <span class="token punctuation">}</span><br>    allProps<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span> v<span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token punctuation">{</span><br>        <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> mainKey <span class="token operator">=</span> k<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"\\."</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>mainKey<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>            <span class="token class-name">JsonNode</span> oldNode <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>mainKey<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>            <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">ObjectNode</span><span class="token punctuation">)</span> oldNode<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>mainKey<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> v<span class="token punctuation">)</span><span class="token punctuation">;</span><br>            <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>mainKey<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> oldNode<span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span><br>            <span class="token class-name">ObjectNode</span> node <span class="token operator">=</span> mapper<span class="token punctuation">.</span><span class="token function">createObjectNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>            node<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>mainKey<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> v<span class="token punctuation">)</span><span class="token punctuation">;</span><br>            <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>mainKey<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> node<span class="token punctuation">)</span><span class="token punctuation">;</span><br>        <span class="token punctuation">}</span><br>    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>When choosing to use this implementation, we need to handle the case of an IO Exception. That is a
+small price compared to the convenience of maintaining the nested properties in a simple format.</p>
+<p>To conclude, if you need to replace <code>apache.commons.configuration</code>, you can either use Java’s
+<code>Properties</code> class, or decide on your own implementation — preferably use a data structure to handle
+your <code>.properties</code> file.<br>
+Each method has its own drawbacks.<br>
+Using the <code>Properties</code> class will be most suitable for simple key-value pairs, while for nested data
+I’d recommend using a data structure where the key stores the main key, and the value will hold a
+<code>JsonNode</code> that will store the secondary keys and their values.</p>
+
+<hr>
+<ul><li>Next: <a href="/pr-previews/pr-49/posts/form-associated-custom-elements/">Form-Associated Custom Elements</a></li>
+</ul>
+
+    </main>
+
+    <rh-footer>
+      <a slot="logo" href="/en">
+        <img src="https://static.redhat.com/libs/redhat/brand-assets/2/corp/logo--on-dark.svg" alt="Red Hat Israel logo" loading="lazy"/> 
+      </a>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://www.linkedin.com/company/red-hat">
+          <pfe-icon icon="linkedin" set="fab">LinkedIn</pfe-icon>
+        </a>
+      </rh-footer-social-link>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://www.youtube.com/user/RedHatVideos">
+          <pfe-icon icon="youtube" set="fab">Youtube</pfe-icon>
+        </a>
+      </rh-footer-social-link>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://www.facebook.com/redhatinc">
+          <pfe-icon icon="facebook" set="fab">Facebook</pfe-icon>
+        </a>
+      </rh-footer-social-link>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://twitter.com/RedHat">
+          <pfe-icon icon="twitter" set="fab">Twitter</pfe-icon>
+        </a>
+      </rh-footer-social-link>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://github.com/redhat-israel">
+          <pfe-icon icon="github" set="fab">GitHub</pfe-icon>
+        </a>
+      </rh-footer-social-link>
+      <h3 slot="links">המוצרים שלנו</h3>
+      <ul slot="links">
+        <li><a href="https://www.redhat.com/en/technologies/management/ansible">Red Hat Ansible Automation Platform</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">Red Hat Enterprise Linux</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/cloud-computing/openshift">Red Hat OpenShift</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/cloud-computing/openshift-data-foundation">Red Hat OpenShift Data Foundation</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/linux-platforms/openstack-platform">Red Hat OpenStack Platform</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/all-products">See all products</a></li>
+      </ul>
+      <h3 slot="links">צרו קשר</h3>
+      <ul slot="links">
+        <li><a href="https://www.redhat.com/en/contact">כתבו לנו</a></li>
+        <li><a href="https://www.redhat.com/en/about/feedback">שלחו לנו פידבק</a></li>
+        <li><a href="https://www.redhat.com/en/about/social">עקבו אחרינו ברשתות החברתיות</a></li>
+      </ul>
+      <rh-footer-block slot="main-secondary">
+        <h3 slot="header">רד האט</h3>
+        <p>רד האט היא החברה המובילה בעולם לפתרונות תוכנה מבוססי קוד פתוח לארגוני Enterprise.
+רד האט מבוססת על כוחה של קהילת הקוד הפתוח בפיתוח ואספקת טכנולוגיות Linux, Cloud, Container, ו-Kubernetes.
+אנחנו מסייעים ללקוחות לשלב בין יישומי IT חדשים וקיימים, לפתח יישומים רב-ענניים
+(multi-cloud), לבצע סטנדרטיזציה של מערכת ההפעלה, יחד עם אוטומציה, אבטחה וניהול של סביבות מורכבות.</p>
+
+      </rh-footer-block>
+      <rh-global-footer slot="global" class=" no-secondary-links">
+        <h3 slot="links-primary" hidden>Red Hat legal and privacy links</h3>
+        <ul slot="links-primary">
+          <li><a href="https://www.redhat.com/en/about/privacy-policy">הצהרת פרטיות</a></li>
+          <li><a href="https://www.redhat.com/en/about/terms-use">תנאי שימוש</a></li>
+          <li><a href="https://www.redhat.com/en/about/digital-accessibility">נגישות דיגיטלית</a></li>
+        </ul>
+      </rh-global-footer>
+    </rh-footer>
+
+    <!-- Current page: /pr-previews/pr-49/posts/apache-commons-config/ -->
+  </body>
+</html>

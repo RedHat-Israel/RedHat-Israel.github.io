@@ -3,7 +3,7 @@
 	<title>Red Hat Israel</title>
 	<subtitle>About the Red Hat Israel site</subtitle>
 	
-	<link href="https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-48/feed/feed.xml" rel="self"/>
+	<link href="https://israel.redhat.com/pr-previews/pr-48/feed/feed.xml" rel="self"/>
 	<link href="https://israel.redhat.com/"/>
 	<updated>2022-11-14T00:00:00Z</updated>
 	<id>https://israel.redhat.com/</id>
@@ -14,24 +14,24 @@
 	
 	<entry>
 		<title>Form-Associated Custom Elements</title>
-		<link href="https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-48/posts/form-associated-custom-elements/"/>
+		<link href="https://israel.redhat.com/pr-previews/pr-48/posts/form-associated-custom-elements/"/>
 		<updated>2022-11-14T00:00:00Z</updated>
-		<id>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-48/posts/form-associated-custom-elements/</id>
+		<id>https://israel.redhat.com/pr-previews/pr-48/posts/form-associated-custom-elements/</id>
 		<content type="html">&lt;p&gt;Form-Associated Custom Elements are a new web standard by which to build custom
 interactive form controls like buttons, inputs, checkboxes, etc. They present a
 path forward for design-systems and other custom element authors to more deeply
 integrate with the web platform. In this post, we&#39;ll build a simple FACE to get
 a feel for the APIs.&lt;/p&gt;
-&lt;h2 id=&quot;how-does-this-help&quot; tabindex=&quot;-1&quot;&gt;How Does this Help? &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-48/posts/form-associated-custom-elements/#how-does-this-help&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;how-does-this-help&quot; tabindex=&quot;-1&quot;&gt;How Does this Help? &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/pr-previews/pr-48/posts/form-associated-custom-elements/#how-does-this-help&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;FACE adds crucial &lt;strong&gt;accessibility&lt;/strong&gt; and &lt;strong&gt;interactivity&lt;/strong&gt; features to web
 components, closing gaps between web components, framework components, and
 native browser controls. Before FACE, web component authors had to apply one of
-a number of &lt;a href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-48/posts/form-associated-custom-elements/#workarounds&quot;&gt;workarounds&lt;/a&gt; each with their own trade-offs.&lt;/p&gt;
+a number of &lt;a href=&quot;https://israel.redhat.com/pr-previews/pr-48/posts/form-associated-custom-elements/#workarounds&quot;&gt;workarounds&lt;/a&gt; each with their own trade-offs.&lt;/p&gt;
 &lt;p&gt;Teams &lt;em&gt;developing&lt;/em&gt; FACEs can now implement accessible custom controls with
 simpler HTML APIs while retaining the benefits of Shadow DOM.&lt;/p&gt;
 &lt;p&gt;But before we get to the code, some history:&lt;/p&gt;
 &lt;details open=&quot;&quot;&gt;&lt;summary&gt;Skip the history bit&lt;/summary&gt;
-&lt;h2 id=&quot;how-we-got-here&quot; tabindex=&quot;-1&quot;&gt;How we Got Here &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-48/posts/form-associated-custom-elements/#how-we-got-here&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;how-we-got-here&quot; tabindex=&quot;-1&quot;&gt;How we Got Here &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/pr-previews/pr-48/posts/form-associated-custom-elements/#how-we-got-here&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;The web components v1 standard originally defined two kinds of custom elements.
 The most popular kind is called and &lt;em&gt;&lt;a href=&quot;https://html.spec.whatwg.org/multipage/custom-elements.html#autonomous-custom-element&quot;&gt;autonomous custom element&lt;/a&gt;&lt;/em&gt;, and
 it&#39;s what most people think about when they think of web components. The other
@@ -67,7 +67,7 @@ broader web components community has generally acquiesced to WebKit&#39;s decisi
 &lt;p&gt;Which is how FACE came to be, it&#39;s the alternative to CBIEs that the WebKit team
 championed.&lt;/p&gt;
 &lt;/details&gt;
-&lt;h2 id=&quot;workarounds&quot; tabindex=&quot;-1&quot;&gt;Workarounds &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-48/posts/form-associated-custom-elements/#workarounds&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;workarounds&quot; tabindex=&quot;-1&quot;&gt;Workarounds &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/pr-previews/pr-48/posts/form-associated-custom-elements/#workarounds&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Before FACE, page authors using custom elements had two options to submit forms
 with data from their web components:&lt;/p&gt;
 &lt;ol&gt;
@@ -75,7 +75,7 @@ with data from their web components:&lt;/p&gt;
 &lt;li&gt;Using JavaScript to manually submit form data&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Each of these had their pros and cons.&lt;/p&gt;
-&lt;h3 id=&quot;the-decorator-pattern&quot; tabindex=&quot;-1&quot;&gt;The Decorator Pattern &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-48/posts/form-associated-custom-elements/#the-decorator-pattern&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;the-decorator-pattern&quot; tabindex=&quot;-1&quot;&gt;The Decorator Pattern &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/pr-previews/pr-48/posts/form-associated-custom-elements/#the-decorator-pattern&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;The most versatile workaround for autonomous custom controls involves slotting
 native controls into the custom element.&lt;/p&gt;
 &lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;x-checkbox&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;input&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;checkbox&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;x-checkbox&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
@@ -85,21 +85,21 @@ to the current limitations of &lt;code&gt;::slotted()&lt;/code&gt;. This is comp
 requirement to &lt;code&gt;&amp;lt;label&amp;gt;&lt;/code&gt; elements, leading to stricter HTML requirements,
 copying nodes into the shadow root, producing hidden light DOM nodes, or other
 workarounds-for-the-workaround.&lt;/p&gt;
-&lt;h3 id=&quot;manually-submitting-forms&quot; tabindex=&quot;-1&quot;&gt;Manually Submitting Forms &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-48/posts/form-associated-custom-elements/#manually-submitting-forms&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;manually-submitting-forms&quot; tabindex=&quot;-1&quot;&gt;Manually Submitting Forms &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/pr-previews/pr-48/posts/form-associated-custom-elements/#manually-submitting-forms&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Developers working on SPAs might opt instead to put their native inputs in the
 shadow DOM and use JavaScript to submit the form data to a JSON API. Here&#39;s a
 simple example of how that might work:&lt;/p&gt;
 &lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;form&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;submit&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;  event&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;preventDefault&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; body &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;stringify&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;somehowCollectFormValuesFromCustomControls&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; action&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; method &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&#39;POST&#39;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; form&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token function&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;action&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; method&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; body &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Given the right abstractions this approach could be quite productive for
 developers, but ties the controls to JavaScript.&lt;/p&gt;
-&lt;h2 id=&quot;creating-a-face&quot; tabindex=&quot;-1&quot;&gt;Creating a FACE &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-48/posts/form-associated-custom-elements/#creating-a-face&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;creating-a-face&quot; tabindex=&quot;-1&quot;&gt;Creating a FACE &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/pr-previews/pr-48/posts/form-associated-custom-elements/#creating-a-face&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Form-Associated Custom Elements solves one of the problems that &lt;code&gt;is&lt;/code&gt; and
-customized built-in elements &lt;a href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-48/posts/form-associated-custom-elements/#how-we-got-here&quot;&gt;would have solved&lt;/a&gt;, namely,
+customized built-in elements &lt;a href=&quot;https://israel.redhat.com/pr-previews/pr-48/posts/form-associated-custom-elements/#how-we-got-here&quot;&gt;would have solved&lt;/a&gt;, namely,
 allowing your web component to participate in native web forms.&lt;/p&gt;
 &lt;p&gt;We create a FACE by setting the static &lt;code&gt;formAssociated&lt;/code&gt; boolean flag and
 registering the custom element.&lt;/p&gt;
 &lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;XCheckbox&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;HTMLElement&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br /&gt;  &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; formAssociated &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;customElements&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;define&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;x-checkbox&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; XCheckbox&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;h3 id=&quot;a-free-lunch&quot; tabindex=&quot;-1&quot;&gt;A Free Lunch &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-48/posts/form-associated-custom-elements/#a-free-lunch&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;a-free-lunch&quot; tabindex=&quot;-1&quot;&gt;A Free Lunch &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/pr-previews/pr-48/posts/form-associated-custom-elements/#a-free-lunch&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;So what does this give us? Well, right off the bat, that one static class
 boolean adds a number of form-related behaviours to our otherwise plain element.
 The &lt;code&gt;name&lt;/code&gt;, &lt;code&gt;form&lt;/code&gt;, and &lt;code&gt;disabled&lt;/code&gt; attributes now work the same as native
@@ -133,7 +133,7 @@ of an autocomplete or a navigation.&lt;/li&gt;
 &lt;p&gt;All of that comes for free, even before implementing any actual custom control
 behaviour. So let&#39;s add in the actual checkbox stuff now, just like we would
 have done before the new standards.&lt;/p&gt;
-&lt;h3 id=&quot;customizing-the-ui&quot; tabindex=&quot;-1&quot;&gt;Customizing the UI &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-48/posts/form-associated-custom-elements/#customizing-the-ui&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;customizing-the-ui&quot; tabindex=&quot;-1&quot;&gt;Customizing the UI &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/pr-previews/pr-48/posts/form-associated-custom-elements/#customizing-the-ui&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Let&#39;s start by writing an accessor pair to link our element&#39;s &lt;code&gt;checked&lt;/code&gt; property
 to the corresponding HTML attribute:&lt;/p&gt;
 &lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;checked&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;hasAttribute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;checked&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br /&gt;&lt;span class=&quot;token keyword&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;checked&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toggleAttribute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;checked&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
@@ -148,7 +148,7 @@ attribute&#39;s value or the string &lt;code&gt;on&lt;/code&gt;, so let&#39;s do
 &lt;p&gt;Now that our checkbox looks and feels like a checkbox, the last thing to do is
 to hook into the browser&#39;s HTML form lifecycle with another new standard,
 &lt;a href=&quot;https://html.spec.whatwg.org/multipage/custom-elements.html#the-elementinternals-interface&quot;&gt;&lt;code&gt;ElementInternals&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;h3 id=&quot;form-interactions&quot; tabindex=&quot;-1&quot;&gt;Form Interactions &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-48/posts/form-associated-custom-elements/#form-interactions&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;form-interactions&quot; tabindex=&quot;-1&quot;&gt;Form Interactions &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/pr-previews/pr-48/posts/form-associated-custom-elements/#form-interactions&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Along with FACE, &lt;code&gt;ElementInternals&lt;/code&gt; gives custom element authors new
 capabilities. Specifically, element internals are a standard place to implement
 things like form control validation and accessibility. &lt;code&gt;ElementInternals&lt;/code&gt; is
@@ -185,7 +185,7 @@ counterparts.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Custom validations are a big topic so let&#39;s save their more in-depth explanation
 for another day.&lt;/p&gt;
-&lt;h3 id=&quot;accessibility&quot; tabindex=&quot;-1&quot;&gt;Accessibility &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-48/posts/form-associated-custom-elements/#accessibility&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;accessibility&quot; tabindex=&quot;-1&quot;&gt;Accessibility &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/pr-previews/pr-48/posts/form-associated-custom-elements/#accessibility&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;The other major feature of &lt;code&gt;ElementInternals&lt;/code&gt; are it&#39;s a11y-related properties
 &lt;code&gt;role&lt;/code&gt; and &lt;code&gt;aria*&lt;/code&gt;. Part of the &lt;a href=&quot;https://wicg.github.io/aom/explainer.html&quot;&gt;AOM&lt;/a&gt;, we can now set &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/&quot;&gt;ARIA&lt;/a&gt;
 properties imperatively without needing to set &lt;code&gt;aria-&lt;/code&gt; attributes. These are
@@ -202,7 +202,7 @@ DOM. Like role reflection, we&#39;ll apply a workaround for Firefox:&lt;/p&gt;
 &lt;li&gt;is accessible to users of assistive technologies&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;a href=&quot;https://bennypowers.dev/posts/form-associated-custom-elements/#simple-checkbox-example&quot;&gt;Check out the demo on the original post&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;browser-support-and-polyfills&quot; tabindex=&quot;-1&quot;&gt;Browser Support and Polyfills &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-48/posts/form-associated-custom-elements/#browser-support-and-polyfills&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;browser-support-and-polyfills&quot; tabindex=&quot;-1&quot;&gt;Browser Support and Polyfills &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/pr-previews/pr-48/posts/form-associated-custom-elements/#browser-support-and-polyfills&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;As of initial publication, Chromium (Google Chrome, Microsoft Edge, Brave, Arc)
 supports the full range of APIs described here. Firefox supports
 &lt;code&gt;attachInternals&lt;/code&gt; and &lt;code&gt;formAssociated&lt;/code&gt; but does not support ARIA and role
@@ -253,9 +253,9 @@ covered here.&lt;/p&gt;
 	
 	<entry>
 		<title>Ways to replace apache.commons.configuration in your project</title>
-		<link href="https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-48/posts/apache-commons-config/"/>
+		<link href="https://israel.redhat.com/pr-previews/pr-48/posts/apache-commons-config/"/>
 		<updated>2022-09-15T00:00:00Z</updated>
-		<id>https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-48/posts/apache-commons-config/</id>
+		<id>https://israel.redhat.com/pr-previews/pr-48/posts/apache-commons-config/</id>
 		<content type="html">&lt;p&gt;If you’re using &lt;code&gt;apache.commons.configuration&lt;/code&gt; to manage &lt;code&gt;.properties&lt;/code&gt; files in your project, you’re
 probably facing the following problem:
 &lt;code&gt;Apache.commons.configuration&lt;/code&gt; depends on &lt;code&gt;apache.common.logging&lt;/code&gt; which is included in &lt;code&gt;maven:3.5&lt;/code&gt;,
@@ -268,7 +268,7 @@ It maintains a list of keys and values, both are of type String, and provides me
 following operations:
 Loading and saving the properties, getting a value by key, listing the keys and values, enumerating
 over the keys, and the methods inherited from the &lt;code&gt;Hashtable&lt;/code&gt; class.&lt;/p&gt;
-&lt;h2 id=&quot;but-what-if-our-data-is-complex&quot; tabindex=&quot;-1&quot;&gt;But what if our data is complex? &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/red-hat-israel-site/pr-previews/pr-48/posts/apache-commons-config/#but-what-if-our-data-is-complex&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;but-what-if-our-data-is-complex&quot; tabindex=&quot;-1&quot;&gt;But what if our data is complex? &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/pr-previews/pr-48/posts/apache-commons-config/#but-what-if-our-data-is-complex&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;If we have nested properties &lt;em&gt;(i.e &lt;code&gt;food.apple=red&lt;/code&gt;, &lt;code&gt;food.icecream=vanilla&lt;/code&gt;, &lt;code&gt;drink.milk=soy&lt;/code&gt;,
 &lt;code&gt;drink.soft=coke&lt;/code&gt;)&lt;/em&gt; how will we find all of the information about the main key (&lt;code&gt;food&lt;/code&gt;, in this
 example)?

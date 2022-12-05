@@ -13,13 +13,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/RedHat-Israel/red-hat-israel-site.git"
+    "url": "git://github.com/RedHat-Israel/RedHat-Israel.github.io.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/RedHat-Israel/red-hat-israel-site/issues"
+    "url": "https://github.com/RedHat-Israel/RedHat-Israel.github.io/issues"
   },
-  "homepage": "https://github.com/RedHat-Israel/red-hat-israel-site#readme",
+  "homepage": "https://github.com/RedHat-Israel/RedHat-Israel.github.io#readme",
   "dependencies": {
     "@11ty/eleventy": "^1.0.2",
     "@11ty/eleventy-fetch": "^3.0.0",

@@ -69,6 +69,28 @@ rh-footer {
   }
 }
 
+#home{
+  display: grid;    
+  gap: var(--rh-space-6xl);
+
+  
+}
+
+.rh-header{
+  text-align: center;
+  display: grid;
+  grid-template-areas: "space text space";
+  
+  & h2{
+  font-weight: bold;
+  }
+}
+
+
+#rh-spacer {  	
+
+}
+
 rh-global-footer {
   &.no-links::part(primary) { display: none; }
   &.no-secondary-links::part(secondary) { display: none; }

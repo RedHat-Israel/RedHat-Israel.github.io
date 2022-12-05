@@ -76,7 +76,7 @@ jobs:
         id: git_status
         run: |
             changedCount=$(git status pr-previews/pr-${{ github.event.number }} --porcelain=v1 --short --untracked-files=all | wc -l)
-            echo "::set-output name=changedCount::$changedCount"
+            echo "changedCount=$changedCount" >> "$GITHUB_OUTPUT"
 
       - name: Push preview target
         if: steps.git_status.outputs.changedCount > 0
@@ -92,10 +92,10 @@ jobs:
           cnameFile="CNAME"
           if [ -f "$cnameFile" ]; then
               cname=$(<$cnameFile)
-              echo "::set-output name=link::https://$cname/pr-previews/pr-${{ github.event.number }}/"
+              echo "link=https://$cname/pr-previews/pr-${{ github.event.number }}/" >> "$GITHUB_OUTPUT"
           else
               owner="${{ github.event.repository.owner.login }}"
-              echo "::set-output name=link::https://$owner.github.io/pr-previews/pr-${{ github.event.number }}/"
+              echo "link=https://$owner.github.io/pr-previews/pr-${{ github.event.number }}/" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Comment with the preview link

@@ -11,8 +11,6 @@ jobs:
   deploy-pages:
     runs-on: ubuntu-latest
     name: Build site and deploy to GHPages
-    env:
-      ELEVENTY_PATH_PREFIX: '/${{ github.event.repository.name }}/'
     steps:
       - name: Checkout sources
         uses: actions/checkout@v3

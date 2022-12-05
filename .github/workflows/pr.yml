@@ -27,7 +27,7 @@ jobs:
     name: Build site preview
     if: contains(fromJson('["opened", "reopened", "synchronize"]'), github.event.action)
     env:
-      ELEVENTY_PATH_PREFIX: '/${{ github.event.repository.name }}/pr-previews/pr-${{ github.event.number }}/'
+      ELEVENTY_PATH_PREFIX: '/pr-previews/pr-${{ github.event.number }}/'
     steps:
       - name: Checkout sources
         uses: actions/checkout@v3
@@ -89,14 +89,13 @@ jobs:
         if: steps.git_status.outputs.changedCount > 0
         id: pr_preview
         run: |
-          repoName="${{ github.event.repository.name }}"
           cnameFile="CNAME"
           if [ -f "$cnameFile" ]; then
               cname=$(<$cnameFile)
-              echo "::set-output name=link::https://$cname/$repoName/pr-previews/pr-${{ github.event.number }}/"
+              echo "::set-output name=link::https://$cname/pr-previews/pr-${{ github.event.number }}/"
           else
               owner="${{ github.event.repository.owner.login }}"
-              echo "::set-output name=link::https://$owner.github.io/$repoName/pr-previews/pr-${{ github.event.number }}/"
+              echo "::set-output name=link::https://$owner.github.io/pr-previews/pr-${{ github.event.number }}/"
           fi
 
       - name: Comment with the preview link

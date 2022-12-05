@@ -5,13 +5,13 @@
 ### 1. Clone this Repository
 
 ```
-git clone https://github.com/RedHat-Israel/red-hat-israel-site
+git clone https://github.com/RedHat-Israel/RedHat-Israel.github.io
 ```
 
 ### 2. Navigate to the directory
 
 ```
-cd red-hat-israel-site
+cd RedHat-Israel.github.io
 ```
 
 ### 3. Install dependencies
@@ -21,7 +21,7 @@ npm ci
 ```
 
 #### Add GitHub Personal Access Token
-If you want to develop against the GitHub API, generate a Personal Access Token and save it in a 
+If you want to develop against the GitHub API, generate a Personal Access Token and save it in a
 `.env` in the repository root. **DO NOT COMMIT THIS FILE**.
 
 example:
@@ -54,4 +54,3 @@ Or in debug mode:
 ```
 DEBUG=* npx @11ty/eleventy
 ```
-

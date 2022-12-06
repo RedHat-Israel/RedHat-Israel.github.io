@@ -82,6 +82,7 @@ eleventyNavigation:
 <div class="rh-header"> 
   <h2>מהפרוייקטים שאנחנו תורמי ם אליהם</h2>
 </div>
+<div id="rh-repos">
 
   {% if (repos | length) > 0 %}
   <section id="repos">
@@ -92,7 +93,7 @@ eleventyNavigation:
     {% endfor %}
    </div>
   </section>
-  
+</div> 
 
 
   <script type="module" src="{{ '/assets/gh.min.js' | url }}"></script>

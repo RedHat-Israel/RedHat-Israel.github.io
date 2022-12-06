@@ -151,6 +151,7 @@ rh-global-footer {
 
 #main-sidebar {
   grid-area: side;
+  background-color: var(--rh-color-surface-darker, #212427);
   & nav {
     & ul {
       margin: 0;
@@ -171,11 +172,12 @@ rh-global-footer {
           transition: background-color .25s;
           font-size: 18px;
           padding: .5em 32px;
-          color: var(--rh-color-text-primary-on-light);
+          color:white ;
+          ;
         }
         &.expandable > a::after {
           content: "";
-          color: var(--rh-color-text-primary-on-light);
+          color:white ;
           width: 9px;
           height: 9px;
           rotate: 45deg;
@@ -195,7 +197,7 @@ rh-global-footer {
         }
         &.active {
           & a {
-            background: var(--rh-color-surface-lighter);
+            background: gray;
             box-shadow: var(--main-nav-active-item-shadow);
           }
         }
@@ -258,7 +260,12 @@ img {
   display: flex;
   flex-flow: row wrap;
   gap: var(--rh-space-md);
-  & h2 {
-    width: 100%;
+  & github-repository{ 
+    width: 500px;
   }
+
+}
+
+#rh-repos{
+  background-color: lightgray;
 }

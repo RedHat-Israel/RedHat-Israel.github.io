@@ -71,15 +71,11 @@ rh-footer {
 
 #home{
   display: grid;    
-  gap: var(--rh-space-6xl);
-
-  
+  gap: var(--rh-space-6xl);  
 }
 
 .rh-header{
-  text-align: center;  
-  
-  
+  text-align: center;   
   & h2{
   font-weight: bold;
   width: 500px;
@@ -87,14 +83,30 @@ rh-footer {
   right: 30%;
   font-size: 30px;
   font-family: var(--rh-font-family-body-text)
-
   }
 }
 
+#banner{
 
-#rh-spacer {  	
+  & img {
+    width: 100%;
+  }
+}
+
+#banner_main_text{
+
+  font-weight: bold;
+  font-size: 40px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--rh-font-family-body-text)
 
 }
+
+
 
 rh-global-footer {
   &.no-links::part(primary) { display: none; }
@@ -189,12 +201,7 @@ a[href] {
   }
 }
 
-main {
-  padding: 1em;
-  & :first-child {
-    margin-top: 0;
-  }
-}
+
 
 pre,
 code {

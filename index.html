@@ -8,6 +8,7 @@ eleventyNavigation:
   {% set maxPosts = collections.posts.length | min(3) %}
   <div id="banner">
       <img src="{{ '/assets/img/confetti.jpg' | url }}" alt="עובדי רד הט חוגגים עם קונפטי">
+      <div id="banner_main_text"> בואו להכיר את רד האט ישראל</div>
   </div>
 
   <div class="rh-header">     
@@ -77,7 +78,9 @@ eleventyNavigation:
 </div>
   {% if (repos | length) > 0 %}
   <section id="repos">
-    <h2>מהפרוייקטים שאנחנו תורמי ם אליהם</h2>
+    <div class="rh-header"> 
+        <h2>מהפרוייקטים שאנחנו תורמי ם אליהם</h2>
+    </div>
     {% for repo in repos | randomSort | pick(5) %}
     <github-repository owner-repo="{{ repo }}"></github-repository>
     {% endfor %}

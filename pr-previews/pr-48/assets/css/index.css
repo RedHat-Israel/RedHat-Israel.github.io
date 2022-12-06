@@ -87,12 +87,16 @@ rh-footer:not(:defined) * {
 
 .rh-header{
   text-align: center;
-  display: grid;
-  grid-template-areas: "space text space";
 }
 
 .rh-header h2{
   font-weight: bold;
+  width: 500px;
+  position: relative;
+  right: 30%;
+  font-size: 30px;
+  font-family: var(--rh-font-family-body-text)
+
   }
 
 

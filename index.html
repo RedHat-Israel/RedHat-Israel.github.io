@@ -9,6 +9,8 @@ eleventyNavigation:
   <div id="banner">
       <img src="{{ '/assets/img/confetti.jpg' | url }}" alt="עובדי רד הט חוגגים עם קונפטי">
       <div id="banner_main_text"> בואו להכיר את רד האט ישראל</div>
+      <div id="banner_sub_text"> רד האט ישראל לוקחת חלק חשוב בניית פלטפורמות המבוססות קוד פתוח, בבניית קהילה המבוססת על שיתוף הדדי  </div>
+
   </div>
 
   <div class="rh-header">     
@@ -76,15 +78,23 @@ eleventyNavigation:
 
   </section>
 </div>
+
+<div class="rh-header"> 
+  <h2>מהפרוייקטים שאנחנו תורמי ם אליהם</h2>
+</div>
+
   {% if (repos | length) > 0 %}
   <section id="repos">
-    <div class="rh-header"> 
-        <h2>מהפרוייקטים שאנחנו תורמי ם אליהם</h2>
-    </div>
+
+    <div>
     {% for repo in repos | randomSort | pick(5) %}
     <github-repository owner-repo="{{ repo }}"></github-repository>
     {% endfor %}
+   </div>
   </section>
+  
+
+
   <script type="module" src="{{ '/assets/gh.min.js' | url }}"></script>
   {% endif %}
 
@@ -99,6 +109,8 @@ eleventyNavigation:
 
   <p>יש עוד פוסטים <a href="{{ '/posts/' | url }}">בארכיון</a>.</p>
 </div>
+</div>
+
 <style>
 #stats {
 display: grid;

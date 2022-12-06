@@ -80,9 +80,7 @@ rh-footer:not(:defined) * {
 #home{
   display: grid;    
   grid-gap: var(--rh-space-6xl);    
-  gap: var(--rh-space-6xl);
-
-  
+  gap: var(--rh-space-6xl);  
 }
 
 .rh-header{
@@ -96,15 +94,30 @@ rh-footer:not(:defined) * {
   right: 30%;
   font-size: 30px;
   font-family: var(--rh-font-family-body-text)
-
   }
 
+#banner img {
+    width: 100%;
+  }
 
-#rh-spacer {  	
+#banner_main_text{
+
+  font-weight: bold;
+  font-size: 40px;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--rh-font-family-body-text)
 
 }
 
+
+
 rh-global-footer.no-links::part(primary) { display: none; }
+
+
 
 rh-global-footer.no-secondary-links::part(secondary) { display: none; }
 
@@ -205,13 +218,7 @@ a[href]:visited {
     color: var(--rh-color-interactive-purple-darker);
   }
 
-main {
-  padding: 1em;
-}
 
-main :first-child {
-    margin-top: 0;
-  }
 
 pre,
 code {

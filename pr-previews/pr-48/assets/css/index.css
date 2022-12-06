@@ -167,6 +167,8 @@ rh-global-footer.no-secondary-links::part(secondary) { display: none; }
 
 #main-sidebar {
   grid-area: side;
+  background-color: #212427;
+  background-color: var(--rh-color-surface-darker, #212427);
 }
 
 #main-sidebar nav ul {
@@ -195,12 +197,13 @@ rh-global-footer.no-secondary-links::part(secondary) { display: none; }
           transition: background-color .25s;
           font-size: 18px;
           padding: .5em 32px;
-          color: var(--rh-color-text-primary-on-light);
+          color:white ;
+          ;
         }
 
 #main-sidebar nav ul li.expandable > a::after {
           content: "";
-          color: var(--rh-color-text-primary-on-light);
+          color:white ;
           width: 9px;
           height: 9px;
           rotate: 45deg;
@@ -222,7 +225,7 @@ rh-global-footer.no-secondary-links::part(secondary) { display: none; }
         }
 
 #main-sidebar nav ul li.active a {
-            background: var(--rh-color-surface-lighter);
+            background: gray;
             box-shadow: inset 3px 0 0 0 var(--rh-color-brand-red-on-light);
             box-shadow: var(--main-nav-active-item-shadow);
           }
@@ -285,8 +288,13 @@ img {
   display: flex;
   flex-flow: row wrap;
   gap: var(--rh-space-md);
+
 }
 
-#repos h2 {
-    width: 100%;
+#repos github-repository{ 
+    width: 500px;
   }
+
+#rh-repos{
+  background-color: lightgray;
+}

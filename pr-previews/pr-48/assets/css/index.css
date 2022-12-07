@@ -77,6 +77,10 @@ rh-footer:not(:defined) * {
       display: none;
     }
 
+rh-footer-block{
+  width: 100%;
+}
+
 #home{
   display: grid;    
   grid-gap: var(--rh-space-6xl);    
@@ -225,10 +229,16 @@ rh-global-footer.no-secondary-links::part(secondary) { display: none; }
         }
 
 #main-sidebar nav ul li.active a {
-            background: gray;
+            background: var( --rh-color-surface-dark);
             box-shadow: inset 3px 0 0 0 var(--rh-color-brand-red-on-light);
             box-shadow: var(--main-nav-active-item-shadow);
           }
+
+#home_stats{
+  position: relative;
+  right: 10%;
+}
+
 
 main {
   grid-area: main
@@ -288,7 +298,6 @@ img {
   display: flex;
   flex-flow: row wrap;
   gap: var(--rh-space-md);
-
 }
 
 #repos github-repository{ 
@@ -296,5 +305,5 @@ img {
   }
 
 #rh-repos{
-  background-color: lightgray;
+  background-color: var(--rh-color-surface-light);
 }

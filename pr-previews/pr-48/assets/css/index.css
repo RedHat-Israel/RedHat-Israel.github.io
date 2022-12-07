@@ -24,7 +24,7 @@ body {
 }
 
 h1,
-h2,
+h2, 
 h3,
 h4,
 h5,
@@ -295,15 +295,19 @@ img {
 }
 
 #repos {
-  display: flex;
-  flex-flow: row wrap;
-  gap: var(--rh-space-md);
-}
+  display: grid;
+  /* flex-flow: row wrap; */
+  grid-template-columns: repeat(auto-fill, minmax(400px, 200px));
+  grid-template-rows: masonry;
 
-#repos github-repository{ 
-    width: 500px;
-  }
+  grid-gap: var(--rh-space-6xl);
+
+  gap: var(--rh-space-6xl);
+ 
+}
 
 #rh-repos{
   background-color: var(--rh-color-surface-light);
+  padding-top: 50px;
+  padding-right: 50px;
 }

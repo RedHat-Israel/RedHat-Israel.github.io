@@ -197,7 +197,7 @@ rh-global-footer {
         }
         &.active {
           & a {
-            background: gray;
+            background: var( --rh-color-surface-dark);
             box-shadow: var(--main-nav-active-item-shadow);
           }
         }
@@ -263,9 +263,8 @@ img {
   & github-repository{ 
     width: 500px;
   }
-
 }
 
 #rh-repos{
-  background-color: lightgray;
+  background-color: var(--rh-color-surface-light);
 }

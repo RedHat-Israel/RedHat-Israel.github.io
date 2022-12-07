@@ -69,6 +69,10 @@ rh-footer {
   }
 }
 
+rh-footer-block{
+  width: 100%;
+}
+
 #home{
   display: grid;    
   gap: var(--rh-space-6xl);  
@@ -205,6 +209,12 @@ rh-global-footer {
     }
   }
 }
+
+#home_stats{
+  position: relative;
+  right: 10%;
+}
+
 
 main {
   grid-area: main

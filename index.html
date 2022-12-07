@@ -87,11 +87,9 @@ eleventyNavigation:
   {% if (repos | length) > 0 %}
   <section id="repos">
 
-    <div>
     {% for repo in repos | randomSort | pick(5) %}
     <github-repository owner-repo="{{ repo }}"></github-repository>
     {% endfor %}
-   </div>
   </section>
 </div> 
 

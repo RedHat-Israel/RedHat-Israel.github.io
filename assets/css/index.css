@@ -278,6 +278,6 @@ img {
 
 #rh-repos{
   background-color: var(--rh-color-surface-light);
-  padding-top: 50px;
-  padding-right: 50px;
+  padding: 50px;
+ 
 }

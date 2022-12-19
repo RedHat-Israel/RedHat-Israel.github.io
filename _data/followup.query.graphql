@@ -1,7 +1,0 @@
-query ($org: String!, $maxMembers: Int!, $lastCursor: String!) {
-  organization (login: $org) {
-    membersWithRole(first: $maxMembers, after: $lastCursor) {
-      ...memberAttribs
-    }
-  }
-}

@@ -36,8 +36,8 @@ jobs:
 
       - name: Checkout pages branch
         run: |
-          git checkout gh-pages
-          git pull origin gh-pages
+          git checkout gh-pages -f
+          git pull origin gh-pages -f
 
       - name: Copy new files
         continue-on-error: true

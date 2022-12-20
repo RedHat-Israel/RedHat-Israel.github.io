@@ -50,6 +50,8 @@ jobs:
       - name: Grab PR info
         id: pr-info
         run: |
+          ls
+          cat pr_number
           number=$(cat pr_number)
           echo "{number}={$number}" >> $GITHUB_OUTPUT
 
@@ -60,6 +62,7 @@ jobs:
 
       - name: Create preview target
         run: |
+          echo ${{ steps.pr-info.outputs.number }}
           mkdir -p pr-previews/pr-${{ steps.pr-info.outputs.number }}
           cp -rf _site/* pr-previews/pr-${{ steps.pr-info.outputs.number }}
 

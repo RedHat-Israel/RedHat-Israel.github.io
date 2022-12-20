@@ -1,0 +1,48 @@
+---
+name: PR teardown
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
+
+concurrency:
+  group: preview-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  teardown-site-preview:
+    runs-on: ubuntu-latest
+    name: Teardown site preview
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
+          ref: gh-pages
+
+      - name: Configure git
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+
+      - name: Remove preview target
+        continue-on-error: true
+        run: |
+          rm -r pr-previews/pr-${{ github.event.number }}
+          git add pr-previews/pr-${{ github.event.number }}
+          git commit -m "docs: removed preview for pr #${{ github.event.number }}"
+          git push origin gh-pages
+
+      - name: Remove the preview link comment
+        uses: marocchino/sticky-pull-request-comment@v2.2.0
+        with:
+          header: site-preview
+          delete: true

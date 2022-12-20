@@ -1,0 +1,85 @@
+---
+name: PR Deploy
+
+on:
+  workflow_run:
+    workflows:
+      - "PR Build"
+    types:
+      - completed
+
+concurrency:
+  group: preview-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy-site-preview:
+    runs-on: ubuntu-latest
+    name: Deploy site preview
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v3
+        with:
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
+          ref: gh-pages
+
+      - name: Download site artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: site-artifacts
+
+      - name: Grab PR info
+        id: pr-info
+        run: |
+          number=$(cat pr_number)
+          echo "{number}={$number}" >> $GITHUB_OUTPUT
+
+      - name: Configure git
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+
+      - name: Create preview target
+        run: |
+          mkdir -p pr-previews/pr-${{ steps.pr-info.outputs.number }}
+          cp -rf _site/* pr-previews/pr-${{ steps.pr-info.outputs.number }}
+
+      - name: Remove robots.txt from preview
+        run: rm pr-previews/pr-${{ steps.pr-info.outputs.number }}/robots.txt
+
+      - name: Count changed
+        id: git_status
+        run: |
+            changedCount=$(git status pr-previews/pr-${{ steps.pr-info.outputs.number }} --porcelain=v1 --short --untracked-files=all | wc -l)
+            echo "changedCount=$changedCount" >> "$GITHUB_OUTPUT"
+
+      - name: Push preview target
+        if: steps.git_status.outputs.changedCount > 0
+        run: |
+          git add pr-previews/pr-${{ steps.pr-info.outputs.number }}
+          git commit -m "docs: deployed preview for pr #${{ steps.pr-info.outputs.number }}"
+          git push origin gh-pages
+
+      - name: Create a preview link
+        if: steps.git_status.outputs.changedCount > 0
+        id: pr_preview
+        run: |
+          cnameFile="CNAME"
+          if [ -f "$cnameFile" ]; then
+              cname=$(<$cnameFile)
+              echo "link=https://$cname/pr-previews/pr-${{ steps.pr-info.outputs.number }}/" >> "$GITHUB_OUTPUT"
+          else
+              owner="${{ github.event.repository.owner.login }}"
+              echo "link=https://$owner.github.io/pr-previews/pr-${{ steps.pr-info.outputs.number }}/" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Comment with the preview link
+        if: steps.git_status.outputs.changedCount > 0
+        uses: marocchino/sticky-pull-request-comment@v2.2.0
+        with:
+          header: site-preview
+          number: ${{ steps.pr-info.outputs.number }}
+          message: |
+            :rocket: Deployed site preview ${{ steps.pr_preview.outputs.link }}
+
+            * will be up and ready in a couple of minutes.

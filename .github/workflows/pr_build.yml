@@ -1,0 +1,52 @@
+---
+name: PR Build
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+    paths-ignore:
+      - '.github/**'
+
+concurrency:
+  group: preview-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-site-preview:
+    runs-on: ubuntu-latest
+    name: Build site preview
+    env:
+      ELEVENTY_PATH_PREFIX: '/pr-previews/pr-${{ github.event.number }}/'
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Install node 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: npm
+
+      - name: Install project modules
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      - name: Save PR number
+        run: echo ${{ github.event.number }} > pr_number
+
+      - name: Upload site artifacts
+        uses: actions/upload-artifact@v3.1.1
+        with:
+          name: site-artifacts
+          path: |
+            ./_site/
+            ./pr_number

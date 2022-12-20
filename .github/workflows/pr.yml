@@ -52,7 +52,7 @@ jobs:
           git config user.email "${{ github.actor }}@users.noreply.github.com"
 
       - name: Checkout pages branch
-        run: git checkout gh-pages
+        run: git checkout gh-pages -f
 
       - name: Create preview target
         run: |

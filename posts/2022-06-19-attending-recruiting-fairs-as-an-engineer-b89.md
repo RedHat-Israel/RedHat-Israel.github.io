@@ -17,7 +17,7 @@ tags:
 - culture
 ---
 
-![Recruiting fair at Tel Aviv Academic College](./assets/recruiting_fair1.jpeg)
+![Recruiting fair at Tel Aviv Academic College][recruiting-1]
 
 # Attending recruiting fairs as an engineer
 
@@ -26,7 +26,7 @@ Over the years, I’ve attended many student recruitment fairs representing Red 
 But you might be wondering, is this the best usage of an engineer’s expensive work hours? Isn’t that the job of the talent acquisition team?
 In my opinion, there is a lot of value for engineers to take part in these events, both for the organization and for the engineers themselves.
 
-![Recruiting fair at Tel Aviv Academic College](./assets/recruiting_fair2.jpg)
+![Recruiting fair at Tel Aviv Academic College][recruiting-2]
 
 From the organization's perspective, let’s look at the several different goals from attending these events:
 
@@ -36,7 +36,7 @@ From the organization's perspective, let’s look at the several different goals
 - **Connecting employees to company mission**: When people promote the company, they need to learn more about what it does and how to explain its mission quickly to others. Representing the company is a great way to increase employee engagement with your company, and increase their awareness of the company strategy beyond their day-to-day work.
 
 
-![Recruiting fair at Reichman University](./assets/recruiting_fair3.jpg)
+![Recruiting fair at Reichman University][recruiting-3]
 
 But why should you, as an engineer, take precious time away from your development work to go to a student fair?
 
@@ -44,3 +44,7 @@ But why should you, as an engineer, take precious time away from your developmen
 - **Practice public speaking and interpersonal communication skills**: If you’re an introvert like me, talking to strangers can be very tough. Recruitment fairs provide you with an opportunity to talk to people who you know are interested in what you have to say and hearing about your job. Sometimes you will get a somewhat pre-scripted pitch, so you don’t even have to prepare too much content - only describe the company to candidates and talk with them about your job.
 - **Day out**: Whether you normally work from home or the office, recruitment fairs are a great chance to break out from the regular routine, get a bit of vitamin D into your blood, stretch your muscles and breathe some fresh air. Your body will thank you for it.
 - **Networking**: Building a strong and wide network is key to growing your career and landing future opportunities. You will likely find yourself at the booth with people from your organization who you might not have worked with before. You might even make some connections with candidates or people staffing other companies’ booths. Take the time to get to know some of them better - who knows where they’ll be in the future and how they might be able to help you.
+
+[recruiting-1]: {{ ./assets/recruiting_fair1.jpeg | url }}
+[recruiting-2]: {{ ./assets/recruiting_fair2.jpg | url }}
+[recruiting-3]: {{ ./assets/recruiting_fair3.jpg | url }}

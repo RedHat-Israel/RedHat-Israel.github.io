@@ -2,22 +2,27 @@
 layout: layouts/base.njk
 templateClass: tmpl-post
 ---
-<h1>{{ title }}</h1>
-
-{% if author %}
-<div itemscope itemtype="https://schema.org/Person">
-  <span itemprop="name">{{ author.name }}</span>
-  {% if author.jobTitle %}
-  - <span itemprop="jobTitle">{{ author.jobTitle }}</span>
+<header>
+  <h1>{{ title }}</h1>
+  {% if author %}
+  <div itemscope itemtype="https://schema.org/Person">
+    <span itemprop="name">{{ author.name }}</span>
+    {% if author.jobTitle %}
+    - <span itemprop="jobTitle">{{ author.jobTitle }}</span>
+    {% endif %}
+  </div>
   {% endif %}
-</div>
-{% endif %}
 
-<time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
-{%- for tag in tags | filterTagList %}
-{%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
-<a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
-{%- endfor %}
+  <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+  {%- for tag in tags | filterTagList %}
+  {%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
+  <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
+  {%- endfor %}
+
+  {% if coverImage %}
+  <img class="cover" alt="{{coverImageAlt or ''}}" src="{{ coverImage }}">
+  {% endif %}
+</header>
 
 {{ content | safe }}
 

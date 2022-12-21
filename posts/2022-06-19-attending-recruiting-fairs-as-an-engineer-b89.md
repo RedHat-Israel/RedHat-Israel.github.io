@@ -45,6 +45,6 @@ But why should you, as an engineer, take precious time away from your developmen
 - **Day out**: Whether you normally work from home or the office, recruitment fairs are a great chance to break out from the regular routine, get a bit of vitamin D into your blood, stretch your muscles and breathe some fresh air. Your body will thank you for it.
 - **Networking**: Building a strong and wide network is key to growing your career and landing future opportunities. You will likely find yourself at the booth with people from your organization who you might not have worked with before. You might even make some connections with candidates or people staffing other companies’ booths. Take the time to get to know some of them better - who knows where they’ll be in the future and how they might be able to help you.
 
-[recruiting-1]: {{ ./assets/recruiting_fair1.jpeg | url }}
-[recruiting-2]: {{ ./assets/recruiting_fair2.jpg | url }}
-[recruiting-3]: {{ ./assets/recruiting_fair3.jpg | url }}
+[recruiting-1]: {{ './assets/recruiting_fair1.jpeg' | url }}
+[recruiting-2]: {{ './assets/recruiting_fair2.jpg' | url }}
+[recruiting-3]: {{ './assets/recruiting_fair3.jpg' | url }}

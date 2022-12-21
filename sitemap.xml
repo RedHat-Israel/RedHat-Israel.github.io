@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://israel.redhat.com/posts/2022-06-19-attending-recruiting-fairs-as-an-engineer-b89/</loc>
+    <lastmod>2022-06-19</lastmod>
+  </url>
+  
+  <url>
     <loc>https://israel.redhat.com/posts/apache-commons-config/</loc>
     <lastmod>2022-09-15</lastmod>
   </url>
@@ -12,122 +17,167 @@
   </url>
   
   <url>
+    <loc>https://israel.redhat.com/posts/2022-12-18-decompose-conditionals-and-its-tradeoffs-36ba/</loc>
+    <lastmod>2022-12-18</lastmod>
+  </url>
+  
+  <url>
     <loc>https://israel.redhat.com/about/</loc>
-    <lastmod>2022-12-19</lastmod>
+    <lastmod>2022-12-21</lastmod>
   </url>
   
   <url>
     <loc>https://israel.redhat.com/posts/</loc>
-    <lastmod>2022-12-19</lastmod>
+    <lastmod>2022-12-21</lastmod>
   </url>
   
   <url>
     <loc>https://israel.redhat.com/assets/css/index.css</loc>
-    <lastmod>2022-12-19</lastmod>
+    <lastmod>2022-12-21</lastmod>
   </url>
   
   <url>
     <loc>https://israel.redhat.com/assets/css/noscript.css</loc>
-    <lastmod>2022-12-19</lastmod>
+    <lastmod>2022-12-21</lastmod>
   </url>
   
   <url>
     <loc>https://israel.redhat.com/assets/css/prism-diff.css</loc>
-    <lastmod>2022-12-19</lastmod>
+    <lastmod>2022-12-21</lastmod>
   </url>
   
   <url>
     <loc>https://israel.redhat.com/assets/css/prism.css</loc>
-    <lastmod>2022-12-19</lastmod>
+    <lastmod>2022-12-21</lastmod>
   </url>
   
   <url>
     <loc>https://israel.redhat.com/assets/css/rhds.css</loc>
-    <lastmod>2022-12-19</lastmod>
+    <lastmod>2022-12-21</lastmod>
   </url>
   
   <url>
     <loc>https://israel.redhat.com/community/</loc>
-    <lastmod>2022-12-19</lastmod>
+    <lastmod>2022-12-21</lastmod>
   </url>
   
   <url>
     <loc>https://israel.redhat.com/</loc>
-    <lastmod>2022-12-19</lastmod>
+    <lastmod>2022-12-21</lastmod>
   </url>
   
   <url>
     <loc>https://israel.redhat.com/page-list/</loc>
-    <lastmod>2022-12-19</lastmod>
+    <lastmod>2022-12-21</lastmod>
   </url>
   
   <url>
     <loc>https://israel.redhat.com/publicity/1/</loc>
-    <lastmod>2022-12-19</lastmod>
+    <lastmod>2022-12-21</lastmod>
   </url>
   
   <url>
     <loc>https://israel.redhat.com/tags/</loc>
-    <lastmod>2022-12-19</lastmod>
+    <lastmod>2022-12-21</lastmod>
   </url>
   
   <url>
     <loc>https://israel.redhat.com/tags/red-hat/</loc>
-    <lastmod>2022-12-19</lastmod>
+    <lastmod>2022-12-21</lastmod>
   </url>
   
   <url>
     <loc>https://israel.redhat.com/tags/red-hat-israel/</loc>
-    <lastmod>2022-12-19</lastmod>
+    <lastmod>2022-12-21</lastmod>
   </url>
   
   <url>
     <loc>https://israel.redhat.com/tags/open-source/</loc>
-    <lastmod>2022-12-19</lastmod>
+    <lastmod>2022-12-21</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/tags/hiring/</loc>
+    <lastmod>2022-12-21</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/tags/recruiting/</loc>
+    <lastmod>2022-12-21</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/tags/career/</loc>
+    <lastmod>2022-12-21</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/tags/culture/</loc>
+    <lastmod>2022-12-21</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/tags/refactoring/</loc>
+    <lastmod>2022-12-21</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/tags/cleancode/</loc>
+    <lastmod>2022-12-21</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/tags/go/</loc>
+    <lastmod>2022-12-21</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/tags/codequality/</loc>
+    <lastmod>2022-12-21</lastmod>
   </url>
   
   <url>
     <loc>https://israel.redhat.com/tags/properties/</loc>
-    <lastmod>2022-12-19</lastmod>
+    <lastmod>2022-12-21</lastmod>
   </url>
   
   <url>
     <loc>https://israel.redhat.com/tags/apache/</loc>
-    <lastmod>2022-12-19</lastmod>
+    <lastmod>2022-12-21</lastmod>
   </url>
   
   <url>
     <loc>https://israel.redhat.com/tags/apache-commons/</loc>
-    <lastmod>2022-12-19</lastmod>
+    <lastmod>2022-12-21</lastmod>
   </url>
   
   <url>
     <loc>https://israel.redhat.com/tags/apache-commons-configuration/</loc>
-    <lastmod>2022-12-19</lastmod>
+    <lastmod>2022-12-21</lastmod>
   </url>
   
   <url>
     <loc>https://israel.redhat.com/tags/web-components/</loc>
-    <lastmod>2022-12-19</lastmod>
+    <lastmod>2022-12-21</lastmod>
   </url>
   
   <url>
     <loc>https://israel.redhat.com/tags/face/</loc>
-    <lastmod>2022-12-19</lastmod>
+    <lastmod>2022-12-21</lastmod>
   </url>
   
   <url>
     <loc>https://israel.redhat.com/tags/custom-elements/</loc>
-    <lastmod>2022-12-19</lastmod>
+    <lastmod>2022-12-21</lastmod>
   </url>
   
   <url>
     <loc>https://israel.redhat.com/tags/javascript/</loc>
-    <lastmod>2022-12-19</lastmod>
+    <lastmod>2022-12-21</lastmod>
   </url>
   
   <url>
     <loc>https://israel.redhat.com/tags/lit/</loc>
-    <lastmod>2022-12-19</lastmod>
+    <lastmod>2022-12-21</lastmod>
   </url>
 </urlset>

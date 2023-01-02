@@ -26,9 +26,11 @@ span,
   text-align: center;
 }
 
-.hasIcon #icon {
-  width: var(--rh-size-icon-04, 40px);
-  height: var(--rh-size-icon-04, 40px);
+pfe-icon[size="md"],
+::slotted(pfe-icon[size="md"]) {
+  --pfe-icon--size: var(--rh-font-size-heading-xl, 2.5rem);
+
+  display: contents;
 }
 
 .hasIcon ::slotted([slot="icon"]),
@@ -37,9 +39,6 @@ span,
   display: block;
   color: black;
   margin-bottom: 16px;
-  width: 100%;
-  height: 100%;
-  --pfe-icon--size: 100%;
 }
 
 #title {

@@ -4,12 +4,14 @@
   "description": "Red Hat Israel site blog",
   "private": true,
   "scripts": {
-    "postinstall": "patch-package",
+    "get-latest-stats": "npm update rh-il-org-stats",
+    "prebuild": "npm run get-latest-stats",
     "build": "eleventy",
     "bench": "DEBUG=Eleventy:Benchmark* eleventy",
     "watch": "eleventy --watch",
+    "preserve": "npm run get-latest-stats",
     "serve": "eleventy --serve",
-    "start": "eleventy --serve",
+    "start": "npm run serve",
     "debug": "DEBUG=* eleventy"
   },
   "repository": {
@@ -27,17 +29,16 @@
     "@11ty/eleventy-navigation": "^0.3.5",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.1.0",
-    "@octokit/graphql": "^5.0.1",
     "js-yaml": "^4.1.0",
     "luxon": "^3.0.3",
     "markdown-it": "^13.0.1",
-    "markdown-it-anchor": "^8.6.4"
+    "markdown-it-anchor": "^8.6.4",
+    "rh-il-org-stats": "github:RedHat-Israel/rh-il-org-stats"
   },
   "devDependencies": {
     "@jspm/generator": "^1.0.0-beta.33",
     "@rhds/elements": "^1.0.0-beta.24",
     "@rhds/tokens": "^1.0.0-beta.9",
-    "dotenv": "^16.0.2",
     "eleventy-plugin-postcss": "^1.0.4",
     "esbuild": "^0.15.13",
     "github-repository": "^0.4.0",

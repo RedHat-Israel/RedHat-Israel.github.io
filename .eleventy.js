@@ -29,6 +29,7 @@ function shuffleCopyArray(array) {
 module.exports = function(eleventyConfig) {
   // Copy the `assets` folder to the output
   eleventyConfig.addPassthroughCopy("assets");
+  eleventyConfig.addPassthroughCopy("posts/assets");
 
   // Add plugins
   eleventyConfig.addPlugin(pluginRss);

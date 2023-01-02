@@ -20,15 +20,6 @@ cd RedHat-Israel.github.io
 npm ci
 ```
 
-#### Add GitHub Personal Access Token
-If you want to develop against the GitHub API, generate a Personal Access Token and save it in a
-`.env` in the repository root. **DO NOT COMMIT THIS FILE**.
-
-example:
-```env
-SITE_GITHUB_TOKEN=your_github_pat_here
-```
-
 ### 4. Run Eleventy Dev Server
 
 build and host locally for local development

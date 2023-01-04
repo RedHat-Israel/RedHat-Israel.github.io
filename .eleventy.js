@@ -5,6 +5,7 @@ const yaml = require("js-yaml");
 const { DateTime } = require("luxon");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
+const markdownItEmoji = require("markdown-it-emoji");
 
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
@@ -38,6 +39,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(EleventyRenderPlugin);
   eleventyConfig.addPlugin(PostCSSPlugin);
   eleventyConfig.addPlugin(RHDSPlugin);
+
 
   eleventyConfig.addDataExtension("yaml", contents => yaml.load(contents));
 
@@ -118,7 +120,7 @@ module.exports = function(eleventyConfig) {
     }),
     level: [1,2,3,4],
     slugify: eleventyConfig.getFilter("slugify")
-  });
+  }).use(markdownItEmoji);
   eleventyConfig.setLibrary("md", markdownLibrary);
 
   // Override Browsersync defaults (used only with --serve)

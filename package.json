@@ -33,6 +33,7 @@
     "luxon": "^3.0.3",
     "markdown-it": "^13.0.1",
     "markdown-it-anchor": "^8.6.4",
+    "markdown-it-emoji": "^2.0.2",
     "rh-il-org-stats": "github:RedHat-Israel/rh-il-org-stats"
   },
   "devDependencies": {

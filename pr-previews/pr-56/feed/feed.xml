@@ -916,7 +916,6 @@ Both accomplish the same with a different &lt;em&gt;di framework&lt;/em&gt;.&lt;
 		<id>https://israel.redhat.com/pr-previews/pr-56/posts/2020-08-06-groovying-with-java/</id>
 		<content type="html">&lt;p&gt;Combining &lt;a href=&quot;https://groovy-lang.org/&quot;&gt;Groovy&lt;/a&gt; scripts in our &lt;a href=&quot;https://www.java.com/&quot;&gt;Java&lt;/a&gt;-based code, is easy with &lt;a href=&quot;https://maven.apache.org/&quot;&gt;Maven&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;You can check out the code for this tutorial in &lt;a href=&quot;https://github.com/TomerFi/groovy-script-java-project-tutorial&quot;&gt;Github&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;the-given-environment&quot; tabindex=&quot;-1&quot;&gt;The given environment &lt;a class=&quot;direct-link&quot; href=&quot;https://israel.redhat.com/pr-previews/pr-56/posts/2020-08-06-groovying-with-java/#the-given-environment&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Let&#39;s say we need to produce a text message for sending to customers registering to some sort of call queue for informing them that we got their registration request.&lt;br /&gt;
 The message should include the customer name, queue number, and an informational greeting of some sort.&lt;/p&gt;
 &lt;p&gt;We have a couple of ways to accomplish that in &lt;em&gt;Java&lt;/em&gt;.&lt;/p&gt;

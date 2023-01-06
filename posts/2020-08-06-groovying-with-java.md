@@ -13,9 +13,8 @@ tags:
 - groovy
 - tutorial
 - code
-eleventyComputed:
-  coverImage: https://source.unsplash.com/WrYAR-yDwe8/640x426
-  coverImageAlt: a groovy image
+coverImage: https://source.unsplash.com/WrYAR-yDwe8/640x426
+coverImageAlt: a groovy image
 ---
 
 Combining [Groovy](https://groovy-lang.org/) scripts in our [Java](https://www.java.com/)-based code, is easy with [Maven](https://maven.apache.org/).

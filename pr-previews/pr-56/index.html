@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Hat Israel</title>
+    <meta name="description" content="About the Red Hat Israel site">
+    <meta name="generator" content="Eleventy v1.0.2">
+
+    <link rel="preconnect" href="https://www.redhat.com">
+    <link rel="preconnect" href="https://static.redhat.com">
+    <link rel="shortcut icon" href="https://www.redhat.com/misc/favicon.ico" type="image/x-icon">
+    <link rel="alternate" href="/pr-previews/pr-56/feed/feed.xml" type="application/atom+xml" title="Red Hat Israel">
+    <link rel="alternate" href="/pr-previews/pr-56/feed/feed.json" type="application/json" title="Red Hat Israel">
+
+    <link rel="stylesheet" href="https://static.redhat.com/libs/redhat/redhat-font/2/webfonts/red-hat-font.css" media="all">
+    <link rel="stylesheet" href="/pr-previews/pr-56/assets/css/rhds.css">
+    <link rel="stylesheet" href="/pr-previews/pr-56/assets/css/index.css">
+    <link rel="stylesheet" href="/pr-previews/pr-56/assets/css/prism.css">
+    <link rel="stylesheet" href="/pr-previews/pr-56/assets/css/prism-diff.css">
+    <link rel="stylesheet" href="/pr-previews/pr-56/assets/@rhds/elements/elements/rh-footer/rh-footer-lightdom.css">
+    <link rel="stylesheet" href="/pr-previews/pr-56/assets/@rhds/elements/elements/rh-pagination/rh-pagination-lightdom.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+Hebrew" rel="stylesheet">
+    
+    <noscript><link rel="stylesheet" href="/pr-previews/pr-56/assets/css/noscript.css"></noscript>
+
+    <script type="importmap">{"imports":{"@patternfly/pfe-accordion":"https://ga.jspm.io/npm:@patternfly/pfe-accordion@2.0.0-next.11/pfe-accordion.js","@patternfly/pfe-core":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/core.js","@patternfly/pfe-core/controllers/cascade-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/controllers/cascade-controller.js","@patternfly/pfe-core/controllers/color-context.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/controllers/color-context.js","@patternfly/pfe-core/controllers/css-variable-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/controllers/css-variable-controller.js","@patternfly/pfe-core/controllers/light-dom-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/controllers/light-dom-controller.js","@patternfly/pfe-core/controllers/logger.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/controllers/logger.js","@patternfly/pfe-core/controllers/perf-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/controllers/perf-controller.js","@patternfly/pfe-core/controllers/property-observer-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/controllers/property-observer-controller.js","@patternfly/pfe-core/controllers/slot-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/controllers/slot-controller.js","@patternfly/pfe-core/controllers/style-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/controllers/style-controller.js","@patternfly/pfe-core/decorators.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/decorators.js","@patternfly/pfe-core/decorators/bound.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/decorators/bound.js","@patternfly/pfe-core/decorators/cascades.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/decorators/cascades.js","@patternfly/pfe-core/decorators/color-context.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/decorators/color-context.js","@patternfly/pfe-core/decorators/deprecation.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/decorators/deprecation.js","@patternfly/pfe-core/decorators/initializer.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/decorators/initializer.js","@patternfly/pfe-core/decorators/observed.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/decorators/observed.js","@patternfly/pfe-core/decorators/pfelement.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/decorators/pfelement.js","@patternfly/pfe-core/decorators/time.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/decorators/time.js","@patternfly/pfe-core/decorators/trace.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/decorators/trace.js","@patternfly/pfe-core/functions/debounce.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/functions/debounce.js","@patternfly/pfe-core/functions/deprecatedCustomEvent.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/functions/deprecatedCustomEvent.js","@patternfly/pfe-core/functions/random.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/functions/random.js","@patternfly/pfe-icon":"https://ga.jspm.io/npm:@patternfly/pfe-icon@2.0.0-next.6/pfe-icon.js","@patternfly/pfe-modal":"https://ga.jspm.io/npm:@patternfly/pfe-modal@2.0.0-next.6/pfe-modal.js","@patternfly/pfe-tooltip":"https://ga.jspm.io/npm:@patternfly/pfe-tooltip@1.1.0-next.0/pfe-tooltip.js","@patternfly/pfe-tooltip/BaseTooltip.js":"https://ga.jspm.io/npm:@patternfly/pfe-tooltip@1.1.0-next.0/BaseTooltip.js","lit":"https://ga.jspm.io/npm:lit@2.3.0/index.js","lit/async-directive.js":"https://ga.jspm.io/npm:lit@2.3.0/async-directive.js","lit/decorators.js":"https://ga.jspm.io/npm:lit@2.3.0/decorators.js","lit/directive-helpers.js":"https://ga.jspm.io/npm:lit@2.3.0/directive-helpers.js","lit/directive.js":"https://ga.jspm.io/npm:lit@2.3.0/directive.js","lit/directives/class-map.js":"https://ga.jspm.io/npm:lit@2.3.0/directives/class-map.js","lit/directives/if-defined.js":"https://ga.jspm.io/npm:lit@2.3.0/directives/if-defined.js","lit/experimental-hydrate-support.js":"https://ga.jspm.io/npm:lit@2.3.0/experimental-hydrate-support.js","lit/experimental-hydrate.js":"https://ga.jspm.io/npm:lit@2.3.0/experimental-hydrate.js","lit/static-html.js":"https://ga.jspm.io/npm:lit@2.3.0/static-html.js","tslib":"https://ga.jspm.io/npm:tslib@2.4.1/tslib.es6.js","@rhds/elements":"/pr-previews/pr-56/assets/@rhds/elements/rhds.min.js","@rhds/elements/":"/pr-previews/pr-56/assets/@rhds/elements/elements/"},"scopes":{"https://ga.jspm.io/":{"@floating-ui/core":"https://ga.jspm.io/npm:@floating-ui/core@1.1.0/dist/floating-ui.core.browser.min.mjs","@floating-ui/dom":"https://ga.jspm.io/npm:@floating-ui/dom@1.1.0/dist/floating-ui.dom.browser.min.mjs","@lit/reactive-element":"https://ga.jspm.io/npm:@lit/reactive-element@1.5.0/reactive-element.js","@lit/reactive-element/decorators/":"https://ga.jspm.io/npm:@lit/reactive-element@1.5.0/decorators/","@patternfly/pfe-core/controllers/floating-dom-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/controllers/floating-dom-controller.js","lit-element/":"https://ga.jspm.io/npm:lit-element@3.2.2/","lit-html":"https://ga.jspm.io/npm:lit-html@2.5.0/lit-html.js","lit-html/":"https://ga.jspm.io/npm:lit-html@2.5.0/"}}}</script>
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.5.9/dist/es-module-shims.js"></script>
+    <script type="module" src="/pr-previews/pr-56/assets/@rhds/elements/rhds.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JENJLEJFBY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-JENJLEJFBY');
+    </script>
+  </head>
+  <body>
+    <header id="main-header">
+      <h1 class="home">
+        <a href="/pr-previews/pr-56/">
+          <img src="https://static.redhat.com/libs/redhat/brand-assets/2/corp/logo--on-dark.svg" alt="Red Hat Israel"/>
+        </a>
+      </h1>
+    </header>
+
+    <aside id="main-sidebar">
+      <nav>
+        <ul><li class=" active ">
+          <a href="/pr-previews/pr-56/">בית</a></li><li class="">
+          <a href="/pr-previews/pr-56/about/">אודותינו</a></li><li class="">
+          <a href="/pr-previews/pr-56/posts/">פוסטים</a></li><li class="">
+          <a href="/pr-previews/pr-56/publicity/1/">כותבים עלינו</a></li><li class="">
+          <a href="/pr-previews/pr-56/community/">מעורבות בקהילה</a></li></ul>
+      </nav>
+    </aside>
+
+    <main
+      class="tmpl-home"
+      
+      >
+      <div id="home">
+  
+  <div id="banner">
+      <img src="/pr-previews/pr-56/assets/img/confetti.jpg" alt="עובדי רד הט חוגגים עם קונפטי">
+      <div id="banner_main_text"> בואו להכיר את רד האט ישראל</div>
+      <div id="banner_sub_text"> רד האט ישראל לוקחת חלק חשוב בניית פלטפורמות המבוססות קוד פתוח, בבניית קהילה המבוססת על שיתוף הדדי  </div>
+
+  </div>
+
+  <div class="rh-header">     
+    <h2>בשנה האחרונה. עובדי רד האט בארץ תרמו לפרוייקטים שונים בגיטהאב...</h2>    
+  </div>
+
+  <div id="home_stats">
+    <section id="stats">
+    <rh-stat top="statistic">
+
+      <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+        <path d="M31 4.38H5a.62.62 0 0 0-.62.62v26a.62.62 0 0 0 .62.62h26a.62.62 0 0 0 .62-.62V5a.62.62 0 0 0-.62-.62Zm-.62 26H5.62V5.62h24.76Z"/>
+        <path d="M17.24 21.54a.62.62 0 0 0 .74-.49l1.24-5.84a.64.64 0 0 0-.48-.75.63.63 0 0 0-.74.54l-1.25 5.84a.64.64 0 0 0 .49.7ZM23.12 18 21 20.11a.63.63 0 1 0 .88.89l2.56-2.56a.62.62 0 0 0 0-.89L21.88 15a.63.63 0 1 0-.88.88Zm-9 3a.63.63 0 0 0 .88-.89L12.88 18 15 15.87c.59-.56-.31-1.46-.88-.88l-2.56 2.56a.62.62 0 0 0 0 .89Z"/>
+      </svg>
+      <span slot="title">Commits</span>
+      <span slot="statistic">30882</span>
+      <p slot="description"></p>
+    </rh-stat>
+
+    <rh-stat top="statistic">
+      <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+        <path d="M32.18 20.65h-4.86a9.33 9.33 0 0 0-.75-3.12h2.34a.6.6 0 0 0 .44-.18l2.18-2.18a.62.62 0 0 0-.88-.88l-2 2H25.9a9.41 9.41 0 0 0-5.43-4 3.9 3.9 0 1 0-4.94 0 9.41 9.41 0 0 0-5.43 4H7.35l-2-2a.62.62 0 0 0-.88.88l2.18 2.18a.6.6 0 0 0 .44.18h2.34a9.33 9.33 0 0 0-.75 3.12H3.82a.63.63 0 1 0 0 1.25h4.86a9.21 9.21 0 0 0 .75 3.1H7.09a.65.65 0 0 0-.44.18l-2.18 2.2a.61.61 0 0 0 0 .88.63.63 0 0 0 .88 0l2-2h2.75a9.34 9.34 0 0 0 15.8 0h2.75l2 2a.63.63 0 0 0 .88 0 .61.61 0 0 0 0-.88l-2.18-2.19a.65.65 0 0 0-.44-.18h-2.34a9.21 9.21 0 0 0 .75-3.11h4.86a.63.63 0 1 0 0-1.25ZM15.35 9.27A2.65 2.65 0 1 1 18 11.92a2.65 2.65 0 0 1-2.65-2.65ZM18 29.38a8.11 8.11 0 1 1 8.1-8.11 8.11 8.11 0 0 1-8.1 8.11Z"/>
+      </svg>
+      <span slot="title">Issues</span>
+      <span slot="statistic">1866</span>
+      <p slot="description"></p>
+    </rh-stat>
+
+    <rh-stat top="statistic">
+      <svg slot="icon"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+        <path d="M12.87 24.29a3.86 3.86 0 1 0-4.74 0A7.12 7.12 0 0 0 3.37 31a.63.63 0 0 0 .63.62h13a.62.62 0 0 0 .62-.62 7.12 7.12 0 0 0-4.75-6.71Zm-5-3a2.63 2.63 0 0 1 5.25 0 2.63 2.63 0 0 1-5.25-.04Zm-3.21 9.09c.87-6.95 10.81-6.94 11.68 0Zm23.21-20.09a3.86 3.86 0 1 0-4.74 0A7.12 7.12 0 0 0 18.37 17a.63.63 0 0 0 .63.62h13a.62.62 0 0 0 .62-.62 7.12 7.12 0 0 0-4.75-6.71Zm-5-3a2.63 2.63 0 0 1 5.25 0 2.63 2.63 0 0 1-5.25-.04Zm-3.21 9.13c.87-6.95 10.81-6.94 11.68 0Zm-13.9 2.16a.63.63 0 0 0 .48-1.16.63.63 0 0 0-.48 1.16Zm.37-2.43a.63.63 0 0 0 .25-1.23.62.62 0 0 0-.73.49.64.64 0 0 0 .48.74Zm.63-2.4a.63.63 0 0 0 .5-1.15.63.63 0 0 0-.5 1.15Zm5.1-5.44a.62.62 0 0 0 .32-.09.63.63 0 1 0-.32.08Zm4.66-1.6a.62.62 0 1 0-.08-1.24.62.62 0 0 0 .08 1.24Zm-2.41.56a.62.62 0 1 0-.21-1.21.62.62 0 0 0 .21 1.21ZM9.88 9.79C11 9.7 10.37 8 9.45 8.71a.63.63 0 0 0 .43 1.08Zm-1.64 1.86a.61.61 0 0 0 .5-.26.63.63 0 1 0-.51.26Zm10.32-5.17c.57.58 1.47-.31.88-.88a.62.62 0 0 0-.88.88Zm11.88 13.08a.62.62 0 0 0-.88.88.62.62 0 0 0 .88-.88Zm-2.78 4.74a.62.62 0 0 0 1 .69.62.62 0 0 0-1-.69Zm-1.5 1.85c-.59.55.32 1.47.88.88s-.33-1.47-.88-.88Zm3.4-4.31a.62.62 0 0 0-.45 1.16.62.62 0 0 0 .45-1.16Zm-7.36 6.9a.63.63 0 0 0 .46 1.17.63.63 0 0 0-.46-1.17Zm2.11-1.09A.63.63 0 0 0 25 28.7a.63.63 0 0 0-.69-1.05Zm-3.87 1.91c-.57-.59-1.46.31-.88.88s1.44-.31.88-.88Z"/>
+      </svg>
+      <span slot="title">PRs</span>
+      <span slot="statistic">12067</span>
+      <p slot="description"></p>
+    </rh-stat>
+
+    <rh-stat top="statistic">
+      <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+        <path d="M14 2.37H2a.63.63 0 0 0-.63.63v7.9a.63.63 0 0 0 .63.62h2.37V14a.63.63 0 0 0 .39.58.67.67 0 0 0 .24 0 .61.61 0 0 0 .45-.19l2.81-2.92H14a.62.62 0 0 0 .62-.62V3a.63.63 0 0 0-.62-.63Zm-.63 7.9H8a.66.66 0 0 0-.46.19l-1.92 2V10.9a.63.63 0 0 0-.62-.63H2.62V3.62h10.75Z"/>
+      </svg>
+      <span slot="title">Reviews</span>
+      <span slot="statistic">13270</span>
+      <p slot="description"></p>
+    </rh-stat>
+
+    <rh-stat top="statistic">
+      <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+        <path d="M0 0h30v30H0z" fill="none"/>
+        <path d="M15 4.22a11.05 11.05 0 0 0-3.5 21.54c.56.11.76-.24.76-.53v-1.88c-3.07.67-3.72-1.48-3.72-1.48a2.91 2.91 0 0 0-1.23-1.62c-1-.68.08-.67.08-.67a2.32 2.32 0 0 1 1.69 1.14 2.36 2.36 0 0 0 3.22.92 2.39 2.39 0 0 1 .7-1.48c-2.45-.28-5-1.23-5-5.46a4.3 4.3 0 0 1 1.13-3 4 4 0 0 1 .06-2.9s.93-.3 3 1.14a10.29 10.29 0 0 1 5.54 0c2.11-1.44 3-1.14 3-1.14a4 4 0 0 1 .11 2.93 4.25 4.25 0 0 1 1.13 3c0 4.24-2.58 5.18-5.05 5.45a2.63 2.63 0 0 1 .75 2.05v3c0 .33.2.64.76.53A11.05 11.05 0 0 0 15 4.22Z" fill-rule="evenodd"/>
+      </svg>
+      <span slot="title">Repositories</span>
+      <span slot="statistic">1383</span>
+      <p slot="description"></p>
+    </rh-stat>
+
+    <rh-stat top="statistic">
+      <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+        <path d="M19.62 10.41V9.5a2.6 2.6 0 0 0 1.91-1.88H23a.62.62 0 1 0 0-1.24h-1.45a2.62 2.62 0 0 0-5.15.33A10.63 10.63 0 0 0 8.38 17v10a.62.62 0 0 0 1.24 0V17a9.4 9.4 0 0 1 7-9 2.64 2.64 0 0 0 1.76 1.5v.91a6.62 6.62 0 0 0-6 6.59v14a.62.62 0 0 0 .62.62h12a.62.62 0 0 0 .62-.62V17a6.64 6.64 0 0 0-6-6.59ZM19 5.59a1.36 1.36 0 0 1 1.24.79 19.18 19.18 0 0 0-2.52.08A1.38 1.38 0 0 1 19 5.59ZM17.85 7.7a20.27 20.27 0 0 1 2.35-.08 1.37 1.37 0 0 1-2.35.08ZM19 11.62a5.43 5.43 0 0 1 5.38 5.76H13.62A5.43 5.43 0 0 1 19 11.62Zm5.38 12.76H13.62v-5.76h10.76Zm-10.76 6v-4.76h10.76v4.76Z"/>
+      </svg>
+      <span slot="title">Gists</span>
+      <span slot="statistic">779</span>
+      <p slot="description"></p>
+    </rh-stat>
+
+  </section>
+</div>
+
+<div class="rh-header"> 
+  <h2>מהפרוייקטים שאנחנו תורמים אליהם</h2>
+</div>
+<div id="rh-repos">
+
+  
+  <section id="repos">
+
+    
+    <github-repository owner-repo="open-cluster-management-io/multicloud-operators-subscription"></github-repository>
+    
+    <github-repository owner-repo="wildfly/wildfly-operator"></github-repository>
+    
+    <github-repository owner-repo="RHEcosystemAppEng/schema-pusher"></github-repository>
+    
+    <github-repository owner-repo="redhat-ux/red-hat-design-system"></github-repository>
+    
+    <github-repository owner-repo="open-cluster-management-io/ocm-vscode-extension"></github-repository>
+    
+  </section>
+</div> 
+
+
+  <script type="module" src="/pr-previews/pr-56/assets/gh.min.js"></script>
+  
+
+  <h2>
+    3 הפוסטים האחרונים
+  </h2>
+
+  
+  
+  <ol reversed class="postlist" style="counter-reset: start-from 10">
+
+  <li class="postlist-item">
+    <a href="/pr-previews/pr-56/posts/2022-12-18-decompose-conditionals-and-its-tradeoffs-36ba/" class="postlist-link">Decompose Conditionals and its tradeoffs</a>
+    <time class="postlist-date" datetime="2022-12-18">18 דצמ׳ 2022</time>
+    
+      
+      <a href="/pr-previews/pr-56/tags/refactoring/" class="post-tag">refactoring</a>
+    
+      
+      <a href="/pr-previews/pr-56/tags/cleancode/" class="post-tag">cleancode</a>
+    
+      
+      <a href="/pr-previews/pr-56/tags/go/" class="post-tag">go</a>
+    
+      
+      <a href="/pr-previews/pr-56/tags/codequality/" class="post-tag">codequality</a>
+    
+  </li>
+
+  <li class="postlist-item">
+    <a href="/pr-previews/pr-56/posts/form-associated-custom-elements/" class="postlist-link">Form-Associated Custom Elements</a>
+    <time class="postlist-date" datetime="2022-11-14">14 נוב׳ 2022</time>
+    
+      
+      <a href="/pr-previews/pr-56/tags/web-components/" class="post-tag">web components</a>
+    
+      
+      <a href="/pr-previews/pr-56/tags/face/" class="post-tag">face</a>
+    
+      
+      <a href="/pr-previews/pr-56/tags/custom-elements/" class="post-tag">custom elements</a>
+    
+      
+      <a href="/pr-previews/pr-56/tags/javascript/" class="post-tag">javascript</a>
+    
+      
+      <a href="/pr-previews/pr-56/tags/lit/" class="post-tag">lit</a>
+    
+  </li>
+
+  <li class="postlist-item">
+    <a href="/pr-previews/pr-56/posts/apache-commons-config/" class="postlist-link">Ways to replace apache.commons.configuration in your project</a>
+    <time class="postlist-date" datetime="2022-09-15">15 ספט׳ 2022</time>
+    
+      
+      <a href="/pr-previews/pr-56/tags/properties/" class="post-tag">properties</a>
+    
+      
+      <a href="/pr-previews/pr-56/tags/apache/" class="post-tag">apache</a>
+    
+      
+      <a href="/pr-previews/pr-56/tags/apache-commons/" class="post-tag">apache commons</a>
+    
+      
+      <a href="/pr-previews/pr-56/tags/apache-commons-configuration/" class="post-tag">apache.commons.configuration</a>
+    
+  </li>
+
+</ol>
+
+
+  <p>יש עוד פוסטים <a href="/pr-previews/pr-56/posts/">בארכיון</a>.</p>
+</div>
+</div>
+
+<style>
+#stats {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+</style>
+
+
+    </main>
+
+    <rh-footer>
+      <a slot="logo" href="/en">
+        <img src="https://static.redhat.com/libs/redhat/brand-assets/2/corp/logo--on-dark.svg" alt="Red Hat Israel logo" loading="lazy"/> 
+      </a>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://www.linkedin.com/company/red-hat">
+          <pfe-icon icon="linkedin" set="fab">LinkedIn</pfe-icon>
+        </a>
+      </rh-footer-social-link>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://www.youtube.com/user/RedHatVideos">
+          <pfe-icon icon="youtube" set="fab">Youtube</pfe-icon>
+        </a>
+      </rh-footer-social-link>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://www.facebook.com/redhatinc">
+          <pfe-icon icon="facebook" set="fab">Facebook</pfe-icon>
+        </a>
+      </rh-footer-social-link>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://twitter.com/RedHat">
+          <pfe-icon icon="twitter" set="fab">Twitter</pfe-icon>
+        </a>
+      </rh-footer-social-link>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://github.com/redhat-israel">
+          <pfe-icon icon="github" set="fab">GitHub</pfe-icon>
+        </a>
+      </rh-footer-social-link>
+      <h3 slot="links">המוצרים שלנו</h3>
+      <ul slot="links">
+        <li><a href="https://www.redhat.com/en/technologies/management/ansible">Red Hat Ansible Automation Platform</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">Red Hat Enterprise Linux</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/cloud-computing/openshift">Red Hat OpenShift</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/cloud-computing/openshift-data-foundation">Red Hat OpenShift Data Foundation</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/linux-platforms/openstack-platform">Red Hat OpenStack Platform</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/all-products">See all products</a></li>
+      </ul>
+      <h3 slot="links">צרו קשר</h3>
+      <ul slot="links">
+        <li><a href="https://www.redhat.com/en/contact">כתבו לנו</a></li>
+        <li><a href="https://www.redhat.com/en/about/feedback">שלחו לנו פידבק</a></li>
+        <li><a href="https://www.redhat.com/en/about/social">עקבו אחרינו ברשתות החברתיות</a></li>
+      </ul>
+      <rh-footer-block slot="main-secondary">
+        <h3 slot="header">רד האט</h3>
+        <p>רד האט היא החברה המובילה בעולם לפתרונות תוכנה מבוססי קוד פתוח לארגוני Enterprise.
+רד האט מבוססת על כוחה של קהילת הקוד הפתוח בפיתוח ואספקת טכנולוגיות Linux, Cloud, Container, ו-Kubernetes.
+אנחנו מסייעים ללקוחות לשלב בין יישומי IT חדשים וקיימים, לפתח יישומים רב-ענניים
+(multi-cloud), לבצע סטנדרטיזציה של מערכת ההפעלה, יחד עם אוטומציה, אבטחה וניהול של סביבות מורכבות.</p>
+
+      </rh-footer-block>
+      <rh-global-footer slot="global" class=" no-secondary-links">
+        <h3 slot="links-primary" hidden>Red Hat legal and privacy links</h3>
+        <ul slot="links-primary">
+          <li><a href="https://www.redhat.com/en/about/privacy-policy">הצהרת פרטיות</a></li>
+          <li><a href="https://www.redhat.com/en/about/terms-use">תנאי שימוש</a></li>
+          <li><a href="https://www.redhat.com/en/about/digital-accessibility">נגישות דיגיטלית</a></li>
+        </ul>
+      </rh-global-footer>
+    </rh-footer>
+
+    <!-- Current page: /pr-previews/pr-56/ -->
+  </body>
+</html>

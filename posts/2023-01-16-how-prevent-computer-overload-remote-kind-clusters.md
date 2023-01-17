@@ -41,13 +41,14 @@ coverImageAlt: stylized diagram showing kubernetes logo as the central node in a
 
 <p>Assuming you have SSH, connect to the remote computer as follows:</p>
 
-<pre>
-<code class="language-bash">$ ssh 192.168.1.102</code></pre>
+```shell
+ssh 192.168.1.102
+```
 
 <p>Create a custom kind cluster using the following command. Note the <code>networking</code> property, which is required to make your cluster's API server listen on the right address so you can reach it from your local computer on the same network:</p>
 
-<pre>
-<code class="language-bash">$ kind create cluster --config=- &lt;&lt; EOF
+```bash
+kind create cluster --config=- << EOF
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
 name: remote-cluster1
@@ -56,35 +57,41 @@ nodes:
 networking:
   apiServerAddress: "192.168.1.102"
   apiServerPort: 6443
-EOF</code></pre>
+EOF
+```
 
 <p>Now, still on the remote computer, use kind to export the cluster configuration into a file of your choice; the following command names the file <code>remote_kube_config</code>:</p>
 
-<pre>
-<code class="language-bash">$ kind get kubeconfig --name remote-cluster1 &gt; ~/remote_kube_config</code></pre>
+```bash
+kind get kubeconfig --name remote-cluster1 > ~/remote_kube_config
+```
 
 <p>Now go <em>back to your local computer</em> and copy your current configuration into a file that I'll call <code>local_kube_config</code>. This file can also serve as a backup:</p>
 
-<pre>
-<code class="language-bash">$ cp ~/.kube/config ~/local_kube_config</code></pre>
+```bash
+cp ~/.kube/config ~/local_kube_config
+```
 
 <p>Then run the following command to copy the remote configuration to your local computer over SSH:</p>
 
-<pre>
-<code class="language-bash">$ scp 192.168.1.102:~/remote_kube_config ~</code></pre>
+```bash
+scp 192.168.1.102:~/remote_kube_config ~
+```
 
 <p>Now merge the two configuration files. Note that if you have many remote clusters, you can include multiple configuration files in the following command:</p>
 
-<pre>
-<code class="language-bash">$ KUBECONFIG="${HOME}/local_kube_config:${HOME}/remote_kube_config" kubectl config view --flatten &gt; ~/.kube/config</code></pre>
+```bash
+KUBECONFIG="${HOME}/local_kube_config:${HOME}/remote_kube_config" kubectl config view --flatten > ~/.kube/config
+```
 
 <p>Verify access to your remote kind cluster from your local computer:</p>
 
-<pre>
-<code class="language-bash">$ kubectl get nodes --context kind-remote-cluster1
+```bash
+$ kubectl get nodes --context kind-remote-cluster1
 
 NAME                            STATUS   ROLES           AGE   VERSION
-remote-cluster1-control-plane   Ready    control-plane   19m   v1.25.3</code></pre>
+remote-cluster1-control-plane   Ready    control-plane   19m   v1.25.3
+```
 
 <p>The output shows that you have access to the cluster.</p>
 
@@ -92,8 +99,9 @@ remote-cluster1-control-plane   Ready    control-plane   19m   v1.25.3</code></p
 
 <p>When you need to load images from your local storage to a&nbsp;local kind cluster, you can take advantage of the following useful command:</p>
 
-<pre>
-<code class="language-bash">$ kind load docker-image &lt;image-registry&gt;/&lt;image-owner&gt;/&lt;image-name&gt;:&lt;image-tag&gt; --name local-cluster</code></pre>
+```bash
+kind load docker-image <image-registry>/<image-owner>/<image-name>:<image-tag> --name local-cluster
+```
 
 <p>But when working with remote clusters, this process gets tricky. In the previous section, you made kubectl aware of your remote cluster by merging its <code>kubeconfig</code> configuration, but your local instance of kind has no idea who <code>remote-cluster1</code> is.</p>
 
@@ -101,23 +109,27 @@ remote-cluster1-control-plane   Ready    control-plane   19m   v1.25.3</code></p
 
 <p>To do that, first archive your image:</p>
 
-<pre>
-<code class="language-bash">$ podman save &lt;image-registry&gt;/&lt;image-owner&gt;/&lt;image-name&gt;:&lt;image-tag&gt; -o archive-file-name</code></pre>
+```bash
+podman save <image-registry>/<image-owner>/<image-name>:<image-tag> -o archive-file-name
+```
 
 <p>Then copy the archive to your remote computer:</p>
 
-<pre>
-<code class="language-bash">$ scp archive-file-name 192.168.1.102:~</code></pre>
+```bash
+scp archive-file-name 192.168.1.102:~
+```
 
 <p>Connect using SSH to the remote computer:</p>
 
-<pre>
-<code class="language-bash">$ ssh 192.168.1.102</code></pre>
+```bash
+ssh 192.168.1.102
+```
 
 <p>And load the archive as an image to your kind cluster:</p>
 
-<pre>
-<code class="language-bash">$ kind load image-archive archive-file-name --name remote-cluster1</code></pre>
+```bash
+kind load image-archive archive-file-name --name remote-cluster1
+```
 
 <h2>Tools that simplify&nbsp;Kubernetes</h2>
 

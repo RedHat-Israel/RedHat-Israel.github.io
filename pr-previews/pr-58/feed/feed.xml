@@ -29,57 +29,33 @@
 &lt;h2&gt;How to set up&amp;nbsp;kind remote clusters&lt;/h2&gt;
 &lt;p&gt;The remote computer&#39;s IP address I use in the following examples is 192.168.1.102.&lt;/p&gt;
 &lt;p&gt;Assuming you have SSH, connect to the remote computer as follows:&lt;/p&gt;
-&lt;pre&gt;
-&lt;code class=&quot;language-bash&quot;&gt;$ ssh 192.168.1.102&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token function&quot;&gt;ssh&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;192.168&lt;/span&gt;.1.102&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Create a custom kind cluster using the following command. Note the &lt;code&gt;networking&lt;/code&gt; property, which is required to make your cluster&#39;s API server listen on the right address so you can reach it from your local computer on the same network:&lt;/p&gt;
-&lt;pre&gt;
-&lt;code class=&quot;language-bash&quot;&gt;$ kind create cluster --config=- &amp;lt;&amp;lt; EOF
-kind: Cluster
-apiVersion: kind.x-k8s.io/v1alpha4
-name: remote-cluster1
-nodes:
-- role: control-plane
-networking:
-  apiServerAddress: &quot;192.168.1.102&quot;
-  apiServerPort: 6443
-EOF&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;kind create cluster &lt;span class=&quot;token parameter variable&quot;&gt;--config&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;- &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;EOF&lt;br /&gt;kind: Cluster&lt;br /&gt;apiVersion: kind.x-k8s.io/v1alpha4&lt;br /&gt;name: remote-cluster1&lt;br /&gt;nodes:&lt;br /&gt;- role: control-plane&lt;br /&gt;networking:&lt;br /&gt;  apiServerAddress: &quot;192.168.1.102&quot;&lt;br /&gt;  apiServerPort: 6443&lt;br /&gt;EOF&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Now, still on the remote computer, use kind to export the cluster configuration into a file of your choice; the following command names the file &lt;code&gt;remote_kube_config&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;
-&lt;code class=&quot;language-bash&quot;&gt;$ kind get kubeconfig --name remote-cluster1 &amp;gt; ~/remote_kube_config&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;kind get kubeconfig &lt;span class=&quot;token parameter variable&quot;&gt;--name&lt;/span&gt; remote-cluster1 &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; ~/remote_kube_config&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Now go &lt;em&gt;back to your local computer&lt;/em&gt; and copy your current configuration into a file that I&#39;ll call &lt;code&gt;local_kube_config&lt;/code&gt;. This file can also serve as a backup:&lt;/p&gt;
-&lt;pre&gt;
-&lt;code class=&quot;language-bash&quot;&gt;$ cp ~/.kube/config ~/local_kube_config&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;cp&lt;/span&gt; ~/.kube/config ~/local_kube_config&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Then run the following command to copy the remote configuration to your local computer over SSH:&lt;/p&gt;
-&lt;pre&gt;
-&lt;code class=&quot;language-bash&quot;&gt;$ scp 192.168.1.102:~/remote_kube_config ~&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;scp&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;192.168&lt;/span&gt;.1.102:~/remote_kube_config ~&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Now merge the two configuration files. Note that if you have many remote clusters, you can include multiple configuration files in the following command:&lt;/p&gt;
-&lt;pre&gt;
-&lt;code class=&quot;language-bash&quot;&gt;$ KUBECONFIG=&quot;${HOME}/local_kube_config:${HOME}/remote_kube_config&quot; kubectl config view --flatten &amp;gt; ~/.kube/config&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token assign-left variable&quot;&gt;KUBECONFIG&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&lt;span class=&quot;token variable&quot;&gt;${&lt;span class=&quot;token environment constant&quot;&gt;HOME&lt;/span&gt;}&lt;/span&gt;/local_kube_config:&lt;span class=&quot;token variable&quot;&gt;${&lt;span class=&quot;token environment constant&quot;&gt;HOME&lt;/span&gt;}&lt;/span&gt;/remote_kube_config&quot;&lt;/span&gt; kubectl config view &lt;span class=&quot;token parameter variable&quot;&gt;--flatten&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; ~/.kube/config&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Verify access to your remote kind cluster from your local computer:&lt;/p&gt;
-&lt;pre&gt;
-&lt;code class=&quot;language-bash&quot;&gt;$ kubectl get nodes --context kind-remote-cluster1
-
-NAME                            STATUS   ROLES           AGE   VERSION
-remote-cluster1-control-plane   Ready    control-plane   19m   v1.25.3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;$ kubectl get nodes &lt;span class=&quot;token parameter variable&quot;&gt;--context&lt;/span&gt; kind-remote-cluster1&lt;br /&gt;&lt;br /&gt;NAME                            STATUS   ROLES           AGE   VERSION&lt;br /&gt;remote-cluster1-control-plane   Ready    control-plane   19m   v1.25.3&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The output shows that you have access to the cluster.&lt;/p&gt;
 &lt;h4&gt;Bonus: Loading images to remote clusters&lt;/h4&gt;
 &lt;p&gt;When you need to load images from your local storage to a&amp;nbsp;local kind cluster, you can take advantage of the following useful command:&lt;/p&gt;
-&lt;pre&gt;
-&lt;code class=&quot;language-bash&quot;&gt;$ kind load docker-image &amp;lt;image-registry&amp;gt;/&amp;lt;image-owner&amp;gt;/&amp;lt;image-name&amp;gt;:&amp;lt;image-tag&amp;gt; --name local-cluster&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;kind load docker-image &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;image-registry&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;/&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;image-owner&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;/&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;image-name&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;:&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;image-tag&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;--name&lt;/span&gt; local-cluster&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;But when working with remote clusters, this process gets tricky. In the previous section, you made kubectl aware of your remote cluster by merging its &lt;code&gt;kubeconfig&lt;/code&gt; configuration, but your local instance of kind has no idea who &lt;code&gt;remote-cluster1&lt;/code&gt; is.&lt;/p&gt;
 &lt;p&gt;Images can be loaded only to local kind clusters. This means that to load a file onto a remote computer, you need to get your image into your remote computer&#39;s storage and load it from there.&lt;/p&gt;
 &lt;p&gt;To do that, first archive your image:&lt;/p&gt;
-&lt;pre&gt;
-&lt;code class=&quot;language-bash&quot;&gt;$ podman save &amp;lt;image-registry&amp;gt;/&amp;lt;image-owner&amp;gt;/&amp;lt;image-name&amp;gt;:&amp;lt;image-tag&amp;gt; -o archive-file-name&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;podman&lt;/span&gt; save &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;image-registry&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;/&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;image-owner&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;/&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;image-name&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;:&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;image-tag&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-o&lt;/span&gt; archive-file-name&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Then copy the archive to your remote computer:&lt;/p&gt;
-&lt;pre&gt;
-&lt;code class=&quot;language-bash&quot;&gt;$ scp archive-file-name 192.168.1.102:~&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;scp&lt;/span&gt; archive-file-name &lt;span class=&quot;token number&quot;&gt;192.168&lt;/span&gt;.1.102:~&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Connect using SSH to the remote computer:&lt;/p&gt;
-&lt;pre&gt;
-&lt;code class=&quot;language-bash&quot;&gt;$ ssh 192.168.1.102&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;ssh&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;192.168&lt;/span&gt;.1.102&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;And load the archive as an image to your kind cluster:&lt;/p&gt;
-&lt;pre&gt;
-&lt;code class=&quot;language-bash&quot;&gt;$ kind load image-archive archive-file-name --name remote-cluster1&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;kind load image-archive archive-file-name &lt;span class=&quot;token parameter variable&quot;&gt;--name&lt;/span&gt; remote-cluster1&lt;/code&gt;&lt;/pre&gt;
 &lt;h2&gt;Tools that simplify&amp;nbsp;Kubernetes&lt;/h2&gt;
 &lt;p&gt;For more information on tools that simplify work with Kubernetes, visit Red Hat&#39;s &lt;a href=&quot;https://israel.redhat.com/topics/developer-tools&quot;&gt;Developer Tools&lt;/a&gt; page. Please check out my next article, &lt;a href=&quot;https://developers.redhat.com/articles/2023/01/19/how-distribute-workloads-using-open-cluster-management&quot;&gt;How to distribute workloads using Open Cluster Management&lt;/a&gt;. Feel free to comment below if you have questions. We welcome your feedback. Have a great day, and keep up the good work!&lt;/p&gt;
 </content>

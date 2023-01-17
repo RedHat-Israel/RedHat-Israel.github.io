@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/posts/2020-08-06-groovying-with-java/</loc>
+    <lastmod>2020-08-06</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/posts/2020-08-08-dependency-injection-in-java-is-easy-part-1/</loc>
+    <lastmod>2020-08-08</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/posts/2020-08-10-dependency-injection-in-java-is-easy-part-2/</loc>
+    <lastmod>2020-08-10</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/posts/2020-08-14-dependency-injection-in-java-is-easy-part-3/</loc>
+    <lastmod>2020-08-14</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/posts/2021-04-13-property-based-matrix-testing-in-java%20copy/</loc>
+    <lastmod>2021-04-13</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/posts/2022-06-19-attending-recruiting-fairs-as-an-engineer-b89/</loc>
+    <lastmod>2022-06-19</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/posts/apache-commons-config/</loc>
+    <lastmod>2022-09-15</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/posts/form-associated-custom-elements/</loc>
+    <lastmod>2022-11-14</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/posts/2022-12-18-decompose-conditionals-and-its-tradeoffs-36ba/</loc>
+    <lastmod>2022-12-18</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/posts/2023-01-16-how-prevent-computer-overload-remote-kind-clusters/</loc>
+    <lastmod>2023-01-16</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/about/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/posts/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/assets/css/index.css</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/assets/css/noscript.css</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/assets/css/prism-diff.css</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/assets/css/prism.css</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/assets/css/rhds.css</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/community/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/page-list/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/publicity/1/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/red-hat/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/red-hat-israel/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/open-source/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/java/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/groovy/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/tutorial/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/code/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/programming/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/test/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/pbt/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/junit/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/hiring/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/recruiting/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/career/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/culture/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/refactoring/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/cleancode/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/go/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/codequality/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/kubernetes/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/kind/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/properties/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/apache/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/apache-commons/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/apache-commons-configuration/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/web-components/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/face/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/custom-elements/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/javascript/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/lit/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+</urlset>

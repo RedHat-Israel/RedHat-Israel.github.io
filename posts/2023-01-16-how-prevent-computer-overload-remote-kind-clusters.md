@@ -14,7 +14,7 @@ tags:
 - kind
 coverImage: |
   https://developers.redhat.com/sites/default/files/styles/article_feature/public/2020_Kubernetes_Shared_image_A%20%282%29.png?itok=ZQSD_vps
-coverImageAlt: cool k8s related jpg
+coverImageAlt: stylized diagram showing kubernetes logo as the central node in a graph with database, cloud, and html tag nodes.
 ---
 
 <p><a href="/topics/kubernetes">Kubernetes</a> can require a lot of resources, which can overload a developer's laptop. This article shows you how to use a set of tools—including <a href="https://kind.sigs.k8s.io/">kind</a>, <a href="https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/">kubeconfig</a>, and <a href="https://podman.io/">Podman</a> or <a href="https://www.docker.com/">Docker</a>—to spread your files around remote systems in support of your local development work.</p>

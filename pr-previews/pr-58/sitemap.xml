@@ -132,7 +132,7 @@
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/groovy/</loc>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/programming/</loc>
     <lastmod>2023-01-17</lastmod>
   </url>
   
@@ -147,7 +147,7 @@
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/programming/</loc>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/groovy/</loc>
     <lastmod>2023-01-17</lastmod>
   </url>
   
@@ -163,26 +163,6 @@
   
   <url>
     <loc>https://israel.redhat.com/pr-previews/pr-58/tags/junit/</loc>
-    <lastmod>2023-01-17</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/hiring/</loc>
-    <lastmod>2023-01-17</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/recruiting/</loc>
-    <lastmod>2023-01-17</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/career/</loc>
-    <lastmod>2023-01-17</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/culture/</loc>
     <lastmod>2023-01-17</lastmod>
   </url>
   
@@ -207,12 +187,22 @@
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/kubernetes/</loc>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/hiring/</loc>
     <lastmod>2023-01-17</lastmod>
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/kind/</loc>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/recruiting/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/career/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/culture/</loc>
     <lastmod>2023-01-17</lastmod>
   </url>
   
@@ -233,6 +223,16 @@
   
   <url>
     <loc>https://israel.redhat.com/pr-previews/pr-58/tags/apache-commons-configuration/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/kubernetes/</loc>
+    <lastmod>2023-01-17</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-58/tags/kind/</loc>
     <lastmod>2023-01-17</lastmod>
   </url>
   

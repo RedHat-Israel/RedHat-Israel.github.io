@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to prevent computer overload with remote kind clusters</title>
+    <meta name="description" content="Kubernetes can require a lot of resources, which can overload a developer&#39;s laptop. This article shows you how to use a set of tools—including kind, kubeconfig, and Podman or Docker—to spread your files around remote systems in support of your local development work.
+">
+    <meta name="generator" content="Eleventy v1.0.2">
+
+    <link rel="preconnect" href="https://www.redhat.com">
+    <link rel="preconnect" href="https://static.redhat.com">
+    <link rel="shortcut icon" href="https://www.redhat.com/misc/favicon.ico" type="image/x-icon">
+    <link rel="alternate" href="/pr-previews/pr-59/feed/feed.xml" type="application/atom+xml" title="Red Hat Israel">
+    <link rel="alternate" href="/pr-previews/pr-59/feed/feed.json" type="application/json" title="Red Hat Israel">
+
+    <link rel="stylesheet" href="https://static.redhat.com/libs/redhat/redhat-font/2/webfonts/red-hat-font.css" media="all">
+    <link rel="stylesheet" href="/pr-previews/pr-59/assets/css/rhds.css">
+    <link rel="stylesheet" href="/pr-previews/pr-59/assets/css/index.css">
+    <link rel="stylesheet" href="/pr-previews/pr-59/assets/css/prism.css">
+    <link rel="stylesheet" href="/pr-previews/pr-59/assets/css/prism-diff.css">
+    <link rel="stylesheet" href="/pr-previews/pr-59/assets/@rhds/elements/elements/rh-footer/rh-footer-lightdom.css">
+    <link rel="stylesheet" href="/pr-previews/pr-59/assets/@rhds/elements/elements/rh-pagination/rh-pagination-lightdom.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+Hebrew" rel="stylesheet">
+    
+    <link rel="canonical" href="https://developers.redhat.com/articles/2023/01/16/how-prevent-computer-overload-remote-kind-clusters" />
+    
+    <noscript><link rel="stylesheet" href="/pr-previews/pr-59/assets/css/noscript.css"></noscript>
+
+    <script type="importmap">{"imports":{"@patternfly/pfe-accordion":"https://ga.jspm.io/npm:@patternfly/pfe-accordion@2.0.0-next.11/pfe-accordion.js","@patternfly/pfe-core":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/core.js","@patternfly/pfe-core/controllers/cascade-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/controllers/cascade-controller.js","@patternfly/pfe-core/controllers/color-context.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/controllers/color-context.js","@patternfly/pfe-core/controllers/css-variable-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/controllers/css-variable-controller.js","@patternfly/pfe-core/controllers/light-dom-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/controllers/light-dom-controller.js","@patternfly/pfe-core/controllers/logger.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/controllers/logger.js","@patternfly/pfe-core/controllers/perf-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/controllers/perf-controller.js","@patternfly/pfe-core/controllers/property-observer-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/controllers/property-observer-controller.js","@patternfly/pfe-core/controllers/slot-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/controllers/slot-controller.js","@patternfly/pfe-core/controllers/style-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/controllers/style-controller.js","@patternfly/pfe-core/decorators.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/decorators.js","@patternfly/pfe-core/decorators/bound.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/decorators/bound.js","@patternfly/pfe-core/decorators/cascades.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/decorators/cascades.js","@patternfly/pfe-core/decorators/color-context.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/decorators/color-context.js","@patternfly/pfe-core/decorators/deprecation.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/decorators/deprecation.js","@patternfly/pfe-core/decorators/initializer.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/decorators/initializer.js","@patternfly/pfe-core/decorators/observed.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/decorators/observed.js","@patternfly/pfe-core/decorators/pfelement.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/decorators/pfelement.js","@patternfly/pfe-core/decorators/time.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/decorators/time.js","@patternfly/pfe-core/decorators/trace.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/decorators/trace.js","@patternfly/pfe-core/functions/debounce.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/functions/debounce.js","@patternfly/pfe-core/functions/deprecatedCustomEvent.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/functions/deprecatedCustomEvent.js","@patternfly/pfe-core/functions/random.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/functions/random.js","@patternfly/pfe-icon":"https://ga.jspm.io/npm:@patternfly/pfe-icon@2.0.0-next.6/pfe-icon.js","@patternfly/pfe-modal":"https://ga.jspm.io/npm:@patternfly/pfe-modal@2.0.0-next.6/pfe-modal.js","@patternfly/pfe-tooltip":"https://ga.jspm.io/npm:@patternfly/pfe-tooltip@1.1.0-next.0/pfe-tooltip.js","@patternfly/pfe-tooltip/BaseTooltip.js":"https://ga.jspm.io/npm:@patternfly/pfe-tooltip@1.1.0-next.0/BaseTooltip.js","lit":"https://ga.jspm.io/npm:lit@2.3.0/index.js","lit/async-directive.js":"https://ga.jspm.io/npm:lit@2.3.0/async-directive.js","lit/decorators.js":"https://ga.jspm.io/npm:lit@2.3.0/decorators.js","lit/directive-helpers.js":"https://ga.jspm.io/npm:lit@2.3.0/directive-helpers.js","lit/directive.js":"https://ga.jspm.io/npm:lit@2.3.0/directive.js","lit/directives/class-map.js":"https://ga.jspm.io/npm:lit@2.3.0/directives/class-map.js","lit/directives/if-defined.js":"https://ga.jspm.io/npm:lit@2.3.0/directives/if-defined.js","lit/experimental-hydrate-support.js":"https://ga.jspm.io/npm:lit@2.3.0/experimental-hydrate-support.js","lit/experimental-hydrate.js":"https://ga.jspm.io/npm:lit@2.3.0/experimental-hydrate.js","lit/static-html.js":"https://ga.jspm.io/npm:lit@2.3.0/static-html.js","tslib":"https://ga.jspm.io/npm:tslib@2.4.1/tslib.es6.js","@rhds/elements":"/pr-previews/pr-59/assets/@rhds/elements/rhds.min.js","@rhds/elements/":"/pr-previews/pr-59/assets/@rhds/elements/elements/"},"scopes":{"https://ga.jspm.io/":{"@floating-ui/core":"https://ga.jspm.io/npm:@floating-ui/core@1.1.0/dist/floating-ui.core.browser.min.mjs","@floating-ui/dom":"https://ga.jspm.io/npm:@floating-ui/dom@1.1.0/dist/floating-ui.dom.browser.min.mjs","@lit/reactive-element":"https://ga.jspm.io/npm:@lit/reactive-element@1.6.1/reactive-element.js","@lit/reactive-element/decorators/":"https://ga.jspm.io/npm:@lit/reactive-element@1.6.1/decorators/","@patternfly/pfe-core/controllers/floating-dom-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.13/controllers/floating-dom-controller.js","lit-element/":"https://ga.jspm.io/npm:lit-element@3.2.2/","lit-html":"https://ga.jspm.io/npm:lit-html@2.6.1/lit-html.js","lit-html/":"https://ga.jspm.io/npm:lit-html@2.6.1/"}}}</script>
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.5.9/dist/es-module-shims.js"></script>
+    <script type="module" src="/pr-previews/pr-59/assets/@rhds/elements/rhds.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JENJLEJFBY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-JENJLEJFBY');
+    </script>
+  </head>
+  <body>
+    <header id="main-header">
+      <h1 class="home">
+        <a href="/pr-previews/pr-59/">
+          <img src="https://static.redhat.com/libs/redhat/brand-assets/2/corp/logo--on-dark.svg" alt="Red Hat Israel"/>
+        </a>
+      </h1>
+    </header>
+
+    <aside id="main-sidebar">
+      <nav>
+        <ul><li class="">
+          <a href="/pr-previews/pr-59/">בית</a></li><li class="">
+          <a href="/pr-previews/pr-59/about/">אודותינו</a></li><li class="">
+          <a href="/pr-previews/pr-59/posts/">פוסטים</a></li><li class="">
+          <a href="/pr-previews/pr-59/publicity/1/">כותבים עלינו</a></li><li class="">
+          <a href="/pr-previews/pr-59/community/">מעורבות בקהילה</a></li></ul>
+      </nav>
+    </aside>
+
+    <main
+      class="tmpl-post"
+      lang="en"
+      dir="ltr">
+      <header>
+  <h1>How to prevent computer overload with remote kind clusters</h1>
+  
+  <div itemscope itemtype="https://schema.org/Person">
+    <span itemprop="name">Tomer Figenblat</span>
+    
+    - <span itemprop="jobTitle">Senior Software Engineer</span>
+    
+  </div>
+  
+
+  <time datetime="2023-01-16">16 ינו׳ 2023</time>
+  <a href="/pr-previews/pr-59/tags/kubernetes/" class="post-tag">kubernetes</a>
+  <a href="/pr-previews/pr-59/tags/kind/" class="post-tag">kind</a>
+
+  
+  <img class="cover" alt="stylized diagram showing kubernetes logo as the central node in a graph with database, cloud, and html tag nodes." src="https://developers.redhat.com/sites/default/files/styles/article_feature/public/2020_Kubernetes_Shared_image_A%20%282%29.png?itok=ZQSD_vps
+">
+  
+</header>
+
+<p><a href="/topics/kubernetes">Kubernetes</a> can require a lot of resources, which can overload a developer's laptop. This article shows you how to use a set of tools—including <a href="https://kind.sigs.k8s.io/">kind</a>, <a href="https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/">kubeconfig</a>, and <a href="https://podman.io/">Podman</a> or <a href="https://www.docker.com/">Docker</a>—to spread your files around remote systems in support of your local development work.</p>
+<h2>Why I researched tools to prevent computer overload</h2>
+<p>Lately, I've been working a lot with <a href="https://open-cluster-management.io/">Open Cluster Management</a>, a community-driven project focused on multicluster and multi-cloud scenarios for Kubenetes applications.</p>
+<p>The Open Cluster Management topology is <em>hub-spoke</em> based, calling for one <em>hub</em> cluster and at least one <em>spoke</em> cluster. That means that, throughout my work, I needed at least two clusters running simultaneously.</p>
+<p>The quickest way to get two clusters up and running for development purposes is to use&nbsp;<a href="https://kind.sigs.k8s.io/">kind</a>, a Kubernetes management tool. With kind, you can easily spin up Kubernetes clusters running in containers on your local computer.</p>
+<p>One of my tasks included working with Prometheus, so I needed multiple clusters running the <a href="https://github.com/prometheus-operator/kube-prometheus">Prometheus operator</a> plus the required operators for running Open Cluster Management, including the <a href="https://open-cluster-management.io/getting-started/integration/app-lifecycle/">Application Lifecycle Manager</a> addon. The load on my local computer was, eventually, too much for it to handle, and it eventually stopped cooperating with me.</p>
+<p>To work around this bottleneck, I decided to spread my kind clusters to multiple computers around the office, import their kubeconfig files to my local computer, and continue to work as if the clusters were local.</p>
+<p>Each of the remote computers needed to install kind as well as a container engine. To manage the containers I used Podman, but Docker should do just as well.</p>
+<p>For access to remote clusters, SSH is usually preferable, but any manner of getting access to them should suffice. After spinning up a kind cluster and exporting the relevant kubeconfig file, you will no longer need access to the remote clusters, with the exception of the designated port 6443 for access to the Kubernetes API server.</p>
+<h2>How to set up&nbsp;kind remote clusters</h2>
+<p>The remote computer's IP address I use in the following examples is 192.168.1.102.</p>
+<p>Assuming you have SSH, connect to the remote computer as follows:</p>
+<pre class="language-shell"><code class="language-shell"><span class="token function">ssh</span> <span class="token number">192.168</span>.1.102</code></pre>
+<p>Create a custom kind cluster using the following command. Note the <code>networking</code> property, which is required to make your cluster's API server listen on the right address so you can reach it from your local computer on the same network:</p>
+<pre class="language-bash"><code class="language-bash">kind create cluster <span class="token parameter variable">--config</span><span class="token operator">=</span>- <span class="token operator">&lt;&lt;</span> <span class="token string">EOF<br>kind: Cluster<br>apiVersion: kind.x-k8s.io/v1alpha4<br>name: remote-cluster1<br>nodes:<br>- role: control-plane<br>networking:<br>  apiServerAddress: "192.168.1.102"<br>  apiServerPort: 6443<br>EOF</span></code></pre>
+<p>Now, still on the remote computer, use kind to export the cluster configuration into a file of your choice; the following command names the file <code>remote_kube_config</code>:</p>
+<pre class="language-bash"><code class="language-bash">kind get kubeconfig <span class="token parameter variable">--name</span> remote-cluster1 <span class="token operator">></span> ~/remote_kube_config</code></pre>
+<p>Now go <em>back to your local computer</em> and copy your current configuration into a file that I'll call <code>local_kube_config</code>. This file can also serve as a backup:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">cp</span> ~/.kube/config ~/local_kube_config</code></pre>
+<p>Then run the following command to copy the remote configuration to your local computer over SSH:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">scp</span> <span class="token number">192.168</span>.1.102:~/remote_kube_config ~</code></pre>
+<p>Now merge the two configuration files. Note that if you have many remote clusters, you can include multiple configuration files in the following command:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token assign-left variable">KUBECONFIG</span><span class="token operator">=</span><span class="token string">"<span class="token variable">${<span class="token environment constant">HOME</span>}</span>/local_kube_config:<span class="token variable">${<span class="token environment constant">HOME</span>}</span>/remote_kube_config"</span> kubectl config view <span class="token parameter variable">--flatten</span> <span class="token operator">></span> ~/.kube/config</code></pre>
+<p>Verify access to your remote kind cluster from your local computer:</p>
+<pre class="language-bash"><code class="language-bash">$ kubectl get nodes <span class="token parameter variable">--context</span> kind-remote-cluster1<br><br>NAME                            STATUS   ROLES           AGE   VERSION<br>remote-cluster1-control-plane   Ready    control-plane   19m   v1.25.3</code></pre>
+<p>The output shows that you have access to the cluster.</p>
+<h4>Bonus: Loading images to remote clusters</h4>
+<p>When you need to load images from your local storage to a&nbsp;local kind cluster, you can take advantage of the following useful command:</p>
+<pre class="language-bash"><code class="language-bash">kind load docker-image <span class="token operator">&lt;</span>image-registry<span class="token operator">></span>/<span class="token operator">&lt;</span>image-owner<span class="token operator">></span>/<span class="token operator">&lt;</span>image-name<span class="token operator">></span>:<span class="token operator">&lt;</span>image-tag<span class="token operator">></span> <span class="token parameter variable">--name</span> local-cluster</code></pre>
+<p>But when working with remote clusters, this process gets tricky. In the previous section, you made kubectl aware of your remote cluster by merging its <code>kubeconfig</code> configuration, but your local instance of kind has no idea who <code>remote-cluster1</code> is.</p>
+<p>Images can be loaded only to local kind clusters. This means that to load a file onto a remote computer, you need to get your image into your remote computer's storage and load it from there.</p>
+<p>To do that, first archive your image:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">podman</span> save <span class="token operator">&lt;</span>image-registry<span class="token operator">></span>/<span class="token operator">&lt;</span>image-owner<span class="token operator">></span>/<span class="token operator">&lt;</span>image-name<span class="token operator">></span>:<span class="token operator">&lt;</span>image-tag<span class="token operator">></span> <span class="token parameter variable">-o</span> archive-file-name</code></pre>
+<p>Then copy the archive to your remote computer:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">scp</span> archive-file-name <span class="token number">192.168</span>.1.102:~</code></pre>
+<p>Connect using SSH to the remote computer:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">ssh</span> <span class="token number">192.168</span>.1.102</code></pre>
+<p>And load the archive as an image to your kind cluster:</p>
+<pre class="language-bash"><code class="language-bash">kind load image-archive archive-file-name <span class="token parameter variable">--name</span> remote-cluster1</code></pre>
+<h2>Tools that simplify&nbsp;Kubernetes</h2>
+<p>For more information on tools that simplify work with Kubernetes, visit Red Hat's <a href="/topics/developer-tools">Developer Tools</a> page. Please check out my next article, <a href="https://developers.redhat.com/articles/2023/01/19/how-distribute-workloads-using-open-cluster-management">How to distribute workloads using Open Cluster Management</a>. Feel free to comment below if you have questions. We welcome your feedback. Have a great day, and keep up the good work!</p>
+
+<hr>
+<ul><li>Previous: <a href="/pr-previews/pr-59/posts/2022-12-18-decompose-conditionals-and-its-tradeoffs-36ba/">Decompose Conditionals and its tradeoffs</a></li>
+</ul>
+
+    </main>
+
+    <rh-footer>
+      <a slot="logo" href="/en">
+        <img src="https://static.redhat.com/libs/redhat/brand-assets/2/corp/logo--on-dark.svg" alt="Red Hat Israel logo" loading="lazy"/> 
+      </a>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://www.linkedin.com/company/red-hat">
+          <pfe-icon icon="linkedin" set="fab">LinkedIn</pfe-icon>
+        </a>
+      </rh-footer-social-link>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://www.youtube.com/user/RedHatVideos">
+          <pfe-icon icon="youtube" set="fab">Youtube</pfe-icon>
+        </a>
+      </rh-footer-social-link>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://www.facebook.com/redhatinc">
+          <pfe-icon icon="facebook" set="fab">Facebook</pfe-icon>
+        </a>
+      </rh-footer-social-link>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://twitter.com/RedHat">
+          <pfe-icon icon="twitter" set="fab">Twitter</pfe-icon>
+        </a>
+      </rh-footer-social-link>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://github.com/redhat-israel">
+          <pfe-icon icon="github" set="fab">GitHub</pfe-icon>
+        </a>
+      </rh-footer-social-link>
+      <h3 slot="links">המוצרים שלנו</h3>
+      <ul slot="links">
+        <li><a href="https://www.redhat.com/en/technologies/management/ansible">Red Hat Ansible Automation Platform</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">Red Hat Enterprise Linux</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/cloud-computing/openshift">Red Hat OpenShift</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/cloud-computing/openshift-data-foundation">Red Hat OpenShift Data Foundation</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/linux-platforms/openstack-platform">Red Hat OpenStack Platform</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/all-products">See all products</a></li>
+      </ul>
+      <h3 slot="links">צרו קשר</h3>
+      <ul slot="links">
+        <li><a href="https://www.redhat.com/en/contact">כתבו לנו</a></li>
+        <li><a href="https://www.redhat.com/en/about/feedback">שלחו לנו פידבק</a></li>
+        <li><a href="https://www.redhat.com/en/about/social">עקבו אחרינו ברשתות החברתיות</a></li>
+      </ul>
+      <rh-footer-block slot="main-secondary">
+        <h3 slot="header">רד האט</h3>
+        <p>רד האט היא החברה המובילה בעולם לפתרונות תוכנה מבוססי קוד פתוח לארגוני Enterprise.
+רד האט מבוססת על כוחה של קהילת הקוד הפתוח בפיתוח ואספקת טכנולוגיות Linux, Cloud, Container, ו-Kubernetes.
+אנחנו מסייעים ללקוחות לשלב בין יישומי IT חדשים וקיימים, לפתח יישומים רב-ענניים
+(multi-cloud), לבצע סטנדרטיזציה של מערכת ההפעלה, יחד עם אוטומציה, אבטחה וניהול של סביבות מורכבות.</p>
+
+      </rh-footer-block>
+      <rh-global-footer slot="global" class=" no-secondary-links">
+        <h3 slot="links-primary" hidden>Red Hat legal and privacy links</h3>
+        <ul slot="links-primary">
+          <li><a href="https://www.redhat.com/en/about/privacy-policy">הצהרת פרטיות</a></li>
+          <li><a href="https://www.redhat.com/en/about/terms-use">תנאי שימוש</a></li>
+          <li><a href="https://www.redhat.com/en/about/digital-accessibility">נגישות דיגיטלית</a></li>
+        </ul>
+      </rh-global-footer>
+    </rh-footer>
+
+    <!-- Current page: /pr-previews/pr-59/posts/2023-01-16-how-prevent-computer-overload-remote-kind-clusters/ -->
+  </body>
+</html>

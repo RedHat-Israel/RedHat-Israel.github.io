@@ -152,21 +152,6 @@
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/pr-previews/pr-59/tags/test/</loc>
-    <lastmod>2023-01-30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://israel.redhat.com/pr-previews/pr-59/tags/pbt/</loc>
-    <lastmod>2023-01-30</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://israel.redhat.com/pr-previews/pr-59/tags/junit/</loc>
-    <lastmod>2023-01-30</lastmod>
-  </url>
-  
-  <url>
     <loc>https://israel.redhat.com/pr-previews/pr-59/tags/hiring/</loc>
     <lastmod>2023-01-30</lastmod>
   </url>
@@ -183,6 +168,21 @@
   
   <url>
     <loc>https://israel.redhat.com/pr-previews/pr-59/tags/culture/</loc>
+    <lastmod>2023-01-30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-59/tags/test/</loc>
+    <lastmod>2023-01-30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-59/tags/pbt/</loc>
+    <lastmod>2023-01-30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/pr-previews/pr-59/tags/junit/</loc>
     <lastmod>2023-01-30</lastmod>
   </url>
   

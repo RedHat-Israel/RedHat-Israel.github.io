@@ -120,7 +120,7 @@ rh-footer-block{
     color: white;
     text-align: center;
     position: absolute;
-    top: 32%;
+    top: 50%;
     right: 37%;
     transform: translate(-50%, -50%);  
   }
@@ -129,9 +129,9 @@ rh-footer-block{
     color: white;
     font-weight: bold;
     font-size: 50px;
-    width: 300px;    
+    width: 310px;    
     position: absolute;
-    top: 20%;
+    top: 35%;
     right: 40%;
     transform: translate(-50%, -50%);
   }

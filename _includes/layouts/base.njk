@@ -18,8 +18,9 @@
     <link rel="stylesheet" href="{{ '/assets/css/index.css' | url }}">
     <link rel="stylesheet" href="{{ '/assets/css/prism.css' | url }}">
     <link rel="stylesheet" href="{{ '/assets/css/prism-diff.css' | url }}">
-    <link rel="stylesheet" href="{{ '/assets/@rhds/elements/elements/rh-footer/rh-footer-lightdom.css' | url }}">
-    <link rel="stylesheet" href="{{ '/assets/@rhds/elements/elements/rh-pagination/rh-pagination-lightdom.css' | url }}">
+    <link rel="stylesheet" href="{{ '/assets/packages/@rhds/elements/elements/rh-footer/rh-footer-lightdom.css' | url }}">
+    <link rel="stylesheet" href="{{ '/assets/packages/@rhds/elements/elements/rh-navigation-secondary/rh-navigation-secondary-lightdom.css' | url }}">
+    <link rel="stylesheet" href="{{ '/assets/packages/@rhds/elements/elements/rh-pagination/rh-pagination-lightdom.css' | url }}">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+Hebrew" rel="stylesheet">
     {% if canonical %}
     <link rel="canonical" href="{{ canonical }}" />
@@ -28,41 +29,64 @@
 
     <script type="importmap">{{ importMap | dump | safe }}</script>
     <script async src="https://ga.jspm.io/npm:es-module-shims@1.5.9/dist/es-module-shims.js"></script>
-    <script type="module" src="{{ '/assets/@rhds/elements/rhds.min.js' | url }}"></script>
+    <script type="module">
+    import { PfIcon } from '@patternfly/elements/pf-icon/pf-icon.js';
+    import 'element-internals-polyfill';
+    import '@rhds/elements/rh-alert/rh-alert.js';
+    import '@rhds/elements/rh-pagination/rh-pagination.js';
+    import '@rhds/elements/rh-footer/rh-footer.js';
+    import '@rhds/elements/rh-navigation-secondary/rh-navigation-secondary.js';
+    import '@rhds/elements/rh-stat/rh-stat.js';
+    import '@rhds/elements/rh-tag/rh-tag.js';
+    import '@rhds/elements/rh-cta/rh-cta.js';
+    // Workaround for bundled pf-icon: make icon imports absolute, instead of relative to the bundle
+    PfIcon.getIconUrl = (set, icon) =>
+      new URL(`/assets/packages/@patternfly/elements/pf-icon/icons/${set}/${icon}.js`, import.meta.url);
+    </script>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JENJLEJFBY"></script>
-    <script>
+    <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-JENJLEJFBY"></script>
+    <script async defer>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-JENJLEJFBY');
     </script>
   </head>
   <body>
-    <header id="main-header">
-      <h1 class="home">
+    <header>
+      <div id="main-header">
         <a href="{{ '/' | url }}">
           <img src="{{ 'https://static.redhat.com/libs/redhat/brand-assets/2/corp/logo--on-dark.svg' | url }}" alt="{{ metadata.title }}"/>
         </a>
-      </h1>
-    </header>
-
-    <aside id="main-sidebar">
-      <nav>{% set navPages = collections.all | eleventyNavigation %}
-        <ul>{% macro renderNavListItem(entry) -%}
-        <li class="{% if entry.url == page.url %} active {% endif %}{%
-                      if (entry.children | hasUrl(page.url)) %} has-active {% endif %}{%
-                      if (entry.children.length) -%} expandable {% endif %}">
-          <a href="{{ entry.url | url }}">{{ entry.title }}</a>{%- if entry.children.length -%}
-          <ul>
-            {%- for child in entry.children %}{{ renderNavListItem(child) }}{% endfor -%}
-          </ul>{%- endif -%}
-        </li>{%- endmacro %}
-        {%- for entry in navPages %}{{ renderNavListItem(entry) }}{%- endfor -%}
+      </div>
+      <rh-navigation-secondary role="navigation">
+        <a href="{{ '/' | url }}" slot="logo" id="logo-id">
+          רד הט ישראל
+        </a>{% set navPages = collections.all | eleventyNavigation %}
+        <ul slot="nav" aria-labelledby="logo-id">{%- for entry in navPages %}
+          <li class="{% if entry.url == page.url %} active {% endif %}{%
+                        if (entry.children | hasUrl(page.url)) %} has-active {% endif %}{%
+                        if (entry.children.length) -%} expandable {% endif %}">{%- if entry.children.length -%}
+            <rh-navigation-secondary-dropdown>
+              <a href="{{ entry.url | url }}">{{ entry.title }}</a>
+              <rh-navigation-secondary-menu slot="menu">
+                <rh-navigation-secondary-menu-section>
+                  <ul slot="links" aria-labelledby="ansible-platform"">{%- for child in entry.children %}
+                    <li>
+                      <a href="{{ child.url | url }}" slot="link">{{ child.title }}</a>
+                    </li>{% endfor -%}
+                  </ul>
+                </rh-navigation-secondary-menu-section>
+              </rh-navigation-secondary-menu>
+            </rh-navigation-secondary-dropdown>{%- else -%}
+            <a href="{{ entry.url | url }}">{{ entry.title }}</a>{%- endif -%}
+          </li>{%- endfor %}
         </ul>
-      </nav>
-    </aside>
+        <rh-cta slot="cta">
+          <a href="{{ '/#stats' | url }}">להתחיל</a>
+        </rh-cta>
+      </rh-navigation-secondary>
+    </header>
 
     <main
       {% if templateClass %}class="{{ templateClass }}"{% endif %}
@@ -72,17 +96,17 @@
     </main>
 
     <rh-footer>
-      <a slot="logo" href="/en">
+      <a slot="logo" href="{{ '/' | url }}">
         <img src="{{ 'https://static.redhat.com/libs/redhat/brand-assets/2/corp/logo--on-dark.svg' | url }}" alt="Red Hat Israel logo" loading="lazy"/> 
       </a>{% for link in footer.socialLinks %}
       <rh-footer-social-link slot="social-links">
-        <a href="{{ link.href }}">
-          <pfe-icon icon="{{ link.icon }}" set="{{ link.iconSet or 'fab' }}">{{ link.content }}</pfe-icon>
+        <a href="{{ link.href | url }}">
+          <pf-icon icon="{{ link.icon }}" set="{{ link.iconSet or 'fab' }}">{{ link.content }}</pf-icon>
         </a>
       </rh-footer-social-link>{% endfor %}{% for column in footer.links %}
       <h3 slot="links">{{ column.heading }}</h3>
       <ul slot="links">{% for link in column.links %}
-        <li><a href="{{ link.href }}">{{ link.content }}</a></li>{% endfor %}
+        <li><a href="{{ link.href | url }}">{{ link.content }}</a></li>{% endfor %}
       </ul>{% endfor %}{% for block in footer.secondary %}
       <rh-footer-block slot="main-secondary">
         <h3 slot="header">{{ block.heading }}</h3>
@@ -95,12 +119,12 @@
       }}">{% if footer.globalLinks.length %}
         <h3 slot="links-primary" hidden>Red Hat legal and privacy links</h3>
         <ul slot="links-primary">{% for link in footer.globalLinks %}
-          <li><a href="{{ link.href }}">{{ link.content }}</a></li>{% endfor %}
+          <li><a href="{{ link.href | url }}">{{ link.content }}</a></li>{% endfor %}
         </ul>{% endif %}{% if footer.globalLinksSecondary.length %}
         <rh-footer-copyright slot="links-secondary"></rh-footer-copyright>
         <h3 slot="links-secondary" hidden>Red Hat legal and privacy links</h3>
         <ul slot="links-secondary">{% for link in footer.globalLinksSecondary %}
-          <li><a href="{{ link.href }}">{{ link.content }}</a></li>{% endfor %}
+          <li><a href="{{ link.href | url }}">{{ link.content }}</a></li>{% endfor %}
         </ul>{% endif %}{#
         <div slot="secondary-end">
           <a href="#">*We’ve updated our privacy statement effective December 30, 202X.</a>

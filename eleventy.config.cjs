@@ -71,16 +71,10 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addFilter('importMapURLs', function(importMap) {
     const url = eleventyConfig.getFilter('url');
-    const { imports, scopes } = {...importMap};
-    for (const [k, v] of Object.entries(imports)) {
-      imports[k] = url(v);
-    }
-
-    for (const [k, v] of Object.entries(scopes)) {
-      delete scopes[k];
-      scopes[url(k)] = url(v);
-    }
-
+    const imports = Object.fromEntries(Object.entries(importMap.imports).map(([k, v]) => [k, url(v)]))
+    const scopes = Object.fromEntries(Object.entries(importMap.scopes).map(([k, v]) => [url(k),
+      Object.fromEntries(Object.entries(v).map(([_k, _v]) => [_k, url(_v)])),
+    ]))
     return { imports, scopes };
   });
 

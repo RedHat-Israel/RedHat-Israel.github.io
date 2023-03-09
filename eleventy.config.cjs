@@ -69,6 +69,21 @@ module.exports = function(eleventyConfig) {
     ],
   });
 
+  eleventyConfig.addFilter('importMapURLs', function(importMap) {
+    const url = eleventyConfig.getFilter('url');
+    const { imports, scopes } = {...importMap};
+    for (const [k, v] of Object.entries(imports)) {
+      imports[k] = url(v);
+    }
+
+    for (const [k, v] of Object.entries(scopes)) {
+      delete scopes[k];
+      scopes[url(k)] = url(v);
+    }
+
+    return { imports, scopes };
+  });
+
   eleventyConfig.addDataExtension("yaml", contents => yaml.load(contents));
 
   eleventyConfig.addAsyncFilter('fetchGHRepo', async function(repo) {

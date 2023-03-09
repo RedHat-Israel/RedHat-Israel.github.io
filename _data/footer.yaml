@@ -30,7 +30,7 @@ links:
       content: Red Hat OpenStack Platform
     - href: https://www.redhat.com/en/technologies/all-products
       content: See all products
-  
+
   - heading: צרו קשר
     links:
     - href: https://www.redhat.com/en/contact
@@ -39,7 +39,7 @@ links:
       content: שלחו לנו פידבק
     - href: https://www.redhat.com/en/about/social
       content: עקבו אחרינו ברשתות החברתיות
-    
+
 
 secondary:
   - heading: רד האט

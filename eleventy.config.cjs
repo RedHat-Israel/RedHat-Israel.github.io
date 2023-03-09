@@ -42,6 +42,7 @@ module.exports = function(eleventyConfig) {
     defaultProvider: 'nodemodules',
     localPackages: [
       'lit',
+      'lit-html',
       'tslib',
       '@lit/reactive-element',
       '@patternfly/pfe-core',

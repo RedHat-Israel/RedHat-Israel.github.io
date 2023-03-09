@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>מתוייג “Red Hat”</title>
     <meta name="description" content="About the Red Hat Israel site">
-    <meta name="generator" content="Eleventy v1.0.2">
+    <meta name="generator" content="Eleventy v2.0.0">
 
     <link rel="preconnect" href="https://www.redhat.com">
     <link rel="preconnect" href="https://static.redhat.com">
@@ -18,44 +18,61 @@
     <link rel="stylesheet" href="/assets/css/index.css">
     <link rel="stylesheet" href="/assets/css/prism.css">
     <link rel="stylesheet" href="/assets/css/prism-diff.css">
-    <link rel="stylesheet" href="/assets/@rhds/elements/elements/rh-footer/rh-footer-lightdom.css">
-    <link rel="stylesheet" href="/assets/@rhds/elements/elements/rh-pagination/rh-pagination-lightdom.css">
+    <link rel="stylesheet" href="/assets/packages/@rhds/elements/elements/rh-footer/rh-footer-lightdom.css">
+    <link rel="stylesheet" href="/assets/packages/@rhds/elements/elements/rh-navigation-secondary/rh-navigation-secondary-lightdom.css">
+    <link rel="stylesheet" href="/assets/packages/@rhds/elements/elements/rh-pagination/rh-pagination-lightdom.css">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+Hebrew" rel="stylesheet">
     
     <noscript><link rel="stylesheet" href="/assets/css/noscript.css"></noscript>
 
-    <script type="importmap">{"imports":{"@patternfly/pfe-accordion":"https://ga.jspm.io/npm:@patternfly/pfe-accordion@2.0.0-next.12/pfe-accordion.js","@patternfly/pfe-core":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/core.js","@patternfly/pfe-core/controllers/cascade-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/controllers/cascade-controller.js","@patternfly/pfe-core/controllers/color-context.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/controllers/color-context.js","@patternfly/pfe-core/controllers/css-variable-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/controllers/css-variable-controller.js","@patternfly/pfe-core/controllers/light-dom-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/controllers/light-dom-controller.js","@patternfly/pfe-core/controllers/logger.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/controllers/logger.js","@patternfly/pfe-core/controllers/perf-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/controllers/perf-controller.js","@patternfly/pfe-core/controllers/property-observer-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/controllers/property-observer-controller.js","@patternfly/pfe-core/controllers/slot-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/controllers/slot-controller.js","@patternfly/pfe-core/controllers/style-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/controllers/style-controller.js","@patternfly/pfe-core/decorators.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/decorators.js","@patternfly/pfe-core/decorators/bound.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/decorators/bound.js","@patternfly/pfe-core/decorators/cascades.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/decorators/cascades.js","@patternfly/pfe-core/decorators/color-context.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/decorators/color-context.js","@patternfly/pfe-core/decorators/deprecation.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/decorators/deprecation.js","@patternfly/pfe-core/decorators/initializer.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/decorators/initializer.js","@patternfly/pfe-core/decorators/observed.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/decorators/observed.js","@patternfly/pfe-core/decorators/pfelement.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/decorators/pfelement.js","@patternfly/pfe-core/decorators/time.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/decorators/time.js","@patternfly/pfe-core/decorators/trace.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/decorators/trace.js","@patternfly/pfe-core/functions/debounce.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/functions/debounce.js","@patternfly/pfe-core/functions/deprecatedCustomEvent.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/functions/deprecatedCustomEvent.js","@patternfly/pfe-core/functions/random.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/functions/random.js","@patternfly/pfe-icon":"https://ga.jspm.io/npm:@patternfly/pfe-icon@2.0.0-next.6/pfe-icon.js","@patternfly/pfe-modal":"https://ga.jspm.io/npm:@patternfly/pfe-modal@2.0.0-next.6/pfe-modal.js","@patternfly/pfe-tooltip":"https://ga.jspm.io/npm:@patternfly/pfe-tooltip@1.1.0-next.0/pfe-tooltip.js","@patternfly/pfe-tooltip/BaseTooltip.js":"https://ga.jspm.io/npm:@patternfly/pfe-tooltip@1.1.0-next.0/BaseTooltip.js","lit":"https://ga.jspm.io/npm:lit@2.3.0/index.js","lit/async-directive.js":"https://ga.jspm.io/npm:lit@2.3.0/async-directive.js","lit/decorators.js":"https://ga.jspm.io/npm:lit@2.3.0/decorators.js","lit/directive-helpers.js":"https://ga.jspm.io/npm:lit@2.3.0/directive-helpers.js","lit/directive.js":"https://ga.jspm.io/npm:lit@2.3.0/directive.js","lit/directives/class-map.js":"https://ga.jspm.io/npm:lit@2.3.0/directives/class-map.js","lit/directives/if-defined.js":"https://ga.jspm.io/npm:lit@2.3.0/directives/if-defined.js","lit/experimental-hydrate-support.js":"https://ga.jspm.io/npm:lit@2.3.0/experimental-hydrate-support.js","lit/experimental-hydrate.js":"https://ga.jspm.io/npm:lit@2.3.0/experimental-hydrate.js","lit/static-html.js":"https://ga.jspm.io/npm:lit@2.3.0/static-html.js","tslib":"https://ga.jspm.io/npm:tslib@2.5.0/tslib.es6.js","@rhds/elements":"/assets/@rhds/elements/rhds.min.js","@rhds/elements/":"/assets/@rhds/elements/elements/"},"scopes":{"https://ga.jspm.io/":{"@floating-ui/core":"https://ga.jspm.io/npm:@floating-ui/core@1.1.1/dist/floating-ui.core.browser.min.mjs","@floating-ui/dom":"https://ga.jspm.io/npm:@floating-ui/dom@1.1.1/dist/floating-ui.dom.browser.min.mjs","@lit/reactive-element":"https://ga.jspm.io/npm:@lit/reactive-element@1.6.1/reactive-element.js","@lit/reactive-element/decorators/":"https://ga.jspm.io/npm:@lit/reactive-element@1.6.1/decorators/","@patternfly/pfe-core/controllers/floating-dom-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/controllers/floating-dom-controller.js","lit-element/":"https://ga.jspm.io/npm:lit-element@3.2.2/","lit-html":"https://ga.jspm.io/npm:lit-html@2.6.1/lit-html.js","lit-html/":"https://ga.jspm.io/npm:lit-html@2.6.1/"}}}</script>
+    <script type="importmap">{"imports":{"tslib":"/assets/packages/tslib/tslib.es6.js","@patternfly/pfe-core":"/assets/packages/@patternfly/pfe-core/core.js","@rhds/elements":"/assets/packages/@rhds/elements/rhds.min.js","@rhds/tokens":"/assets/packages/@rhds/tokens/js/tokens.js","@lit/reactive-element":"/assets/packages/@lit/reactive-element/reactive-element.js","lit":"/assets/packages/lit/index.js","@patternfly/elements/pf-accordion/pf-accordion.js":"/assets/packages/@patternfly/elements/pf-accordion/pf-accordion.js","@patternfly/elements/pf-button/pf-button.js":"/assets/packages/@patternfly/elements/pf-button/pf-button.js","@patternfly/elements/pf-card/pf-card.js":"/assets/packages/@patternfly/elements/pf-card/pf-card.js","@patternfly/elements/pf-icon/pf-icon.js":"/assets/packages/@patternfly/elements/pf-icon/pf-icon.js","@patternfly/elements/pf-modal/pf-modal.js":"/assets/packages/@patternfly/elements/pf-modal/pf-modal.js","@patternfly/elements/pf-panel/pf-panel.js":"/assets/packages/@patternfly/elements/pf-panel/pf-panel.js","@patternfly/elements/pf-spinner/BaseSpinner.js":"/assets/packages/@patternfly/elements/pf-spinner/BaseSpinner.js","@patternfly/elements/pf-spinner/pf-spinner.js":"/assets/packages/@patternfly/elements/pf-spinner/pf-spinner.js","@patternfly/elements/pf-tabs/pf-tabs.js":"/assets/packages/@patternfly/elements/pf-tabs/pf-tabs.js","@rhds/elements/rh-alert/rh-alert.js":"/assets/packages/@rhds/elements/elements/rh-alert/rh-alert.js","@rhds/elements/rh-pagination/rh-pagination.js":"/assets/packages/@rhds/elements/elements/rh-pagination/rh-pagination.js","@rhds/elements/rh-tag/rh-tag.js":"/assets/packages/@rhds/elements/elements/rh-tag/rh-tag.js","@rhds/elements/rh-cta/rh-cta.js":"/assets/packages/@rhds/elements/elements/rh-cta/rh-cta.js","@rhds/elements/rh-stat/rh-stat.js":"/assets/packages/@rhds/elements/elements/rh-stat/rh-stat.js","@rhds/elements/rh-navigation-secondary/rh-navigation-secondary.js":"/assets/packages/@rhds/elements/elements/rh-navigation-secondary/rh-navigation-secondary.js","@rhds/elements/rh-footer/rh-footer.js":"/assets/packages/@rhds/elements/elements/rh-footer/rh-footer.js","@patternfly/elements":"/assets/packages/@patternfly/elements/pfe.min.js","@patternfly/elements/pf-tooltip/BaseTooltip.js":"/assets/packages/@patternfly/elements/pf-tooltip/BaseTooltip.js","@patternfly/elements/pf-tooltip/pf-tooltip.js":"/assets/packages/@patternfly/elements/pf-tooltip/pf-tooltip.js","lit-html":"/assets/packages/lit/node_modules/lit-html/lit-html.js","lit-element/lit-element.js":"/assets/packages/lit-element/lit-element.js","@lit/reactive-element/decorators/":"/assets/packages/@lit/reactive-element/decorators/","lit-html/":"/assets/packages/lit/node_modules/lit-html/","element-internals-polyfill":"/assets/packages/element-internals-polyfill/dist/index.js"},"scopes":{"/assets/packages/@patternfly/elements/":{"@patternfly/":"/assets/packages/@patternfly/","lit":"/assets/packages/lit/index.js","tslib":"/assets/packages/tslib/tslib.es6.js","lit/":"/assets/packages/lit/","@patternfly/pfe-core":"/assets/packages/@patternfly/pfe-core/core.js","@floating-ui/dom":"/assets/packages/@floating-ui/dom/dist/floating-ui.dom.browser.min.mjs"},"/assets/packages/@rhds/elements/":{"@rhds/elements/rh-accordion/rh-accordion.js":"/assets/packages/@rhds/elements/elements/rh-accordion/rh-accordion.js","lit":"/assets/packages/lit/index.js","lit/":"/assets/packages/lit/","tslib":"/assets/packages/tslib/tslib.es6.js","@patternfly/pfe-core":"/assets/packages/@patternfly/pfe-core/core.js","@patternfly/":"/assets/packages/@patternfly/"},"/assets/packages/lit/":{"@lit/reactive-element":"/assets/packages/@lit/reactive-element/reactive-element.js","lit-element/lit-element.js":"/assets/packages/lit-element/lit-element.js","lit-html":"/assets/packages/lit/node_modules/lit-html/lit-html.js","@lit/reactive-element/decorators/":"/assets/packages/@lit/reactive-element/decorators/","lit-html/":"/assets/packages/lit/node_modules/lit-html/"},"/assets/packages/lit-element/":{"@lit/reactive-element":"/assets/packages/@lit/reactive-element/reactive-element.js","lit-html":"/assets/packages/lit-element/node_modules/lit-html/lit-html.js"},"/assets/packages/@floating-ui/dom/":{"@floating-ui/core":"/assets/packages/@floating-ui/core/dist/floating-ui.core.browser.min.mjs"},"/assets/packages/@patternfly/pfe-core/":{"@floating-ui/dom":"/assets/packages/@floating-ui/dom/dist/floating-ui.dom.browser.min.mjs","tslib":"/assets/packages/tslib/tslib.es6.js","@patternfly/pfe-core/functions/isElementInView.js":"/assets/packages/@patternfly/pfe-core/functions/isElementInView.js","lit":"/assets/packages/lit/index.js"}}}</script>
     <script async src="https://ga.jspm.io/npm:es-module-shims@1.5.9/dist/es-module-shims.js"></script>
-    <script type="module" src="/assets/@rhds/elements/rhds.min.js"></script>
+    <script type="module">
+    import { PfIcon } from '@patternfly/elements/pf-icon/pf-icon.js';
+    import 'element-internals-polyfill';
+    import '@rhds/elements/rh-alert/rh-alert.js';
+    import '@rhds/elements/rh-pagination/rh-pagination.js';
+    import '@rhds/elements/rh-footer/rh-footer.js';
+    import '@rhds/elements/rh-navigation-secondary/rh-navigation-secondary.js';
+    import '@rhds/elements/rh-stat/rh-stat.js';
+    import '@rhds/elements/rh-tag/rh-tag.js';
+    import '@rhds/elements/rh-cta/rh-cta.js';
+    // Workaround for bundled pf-icon: make icon imports absolute, instead of relative to the bundle
+    PfIcon.getIconUrl = (set, icon) =>
+      new URL(`/assets/packages/@patternfly/elements/pf-icon/icons/${set}/${icon}.js`, import.meta.url);
+    </script>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JENJLEJFBY"></script>
-    <script>
+    <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-JENJLEJFBY"></script>
+    <script async defer>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-JENJLEJFBY');
     </script>
   </head>
   <body>
-    <header id="main-header">
-      <h1 class="home">
+    <header>
+      <div id="main-header">
         <a href="/">
           <img src="https://static.redhat.com/libs/redhat/brand-assets/2/corp/logo--on-dark.svg" alt="Red Hat Israel"/>
         </a>
-      </h1>
+      </div>
+      <rh-navigation-secondary role="navigation">
+        <a href="/" slot="logo" id="logo-id">
+          רד הט ישראל
+        </a>
+        <ul slot="nav" aria-labelledby="logo-id">
+          <li class=""><a href="/">בית</a></li>
+          <li class=""><a href="/about/">אודותינו</a></li>
+          <li class=""><a href="/posts/">פוסטים</a></li>
+          <li class=""><a href="/publicity/1/">כותבים עלינו</a></li>
+          <li class=""><a href="/community/">מעורבות בקהילה</a></li>
+        </ul>
+        <rh-cta slot="cta">
+          <a href="/#stats">להתחיל</a>
+        </rh-cta>
+      </rh-navigation-secondary>
     </header>
-
-    <aside id="main-sidebar">
-      <nav>
-        <ul><li class="">
-          <a href="/">בית</a></li><li class="">
-          <a href="/about/">אודותינו</a></li><li class="">
-          <a href="/posts/">פוסטים</a></li><li class="">
-          <a href="/publicity/1/">כותבים עלינו</a></li><li class="">
-          <a href="/community/">מעורבות בקהילה</a></li></ul>
-      </nav>
-    </aside>
 
     <main
       class="tmpl-home"
@@ -68,7 +85,7 @@
 
   <li class="postlist-item">
     <a href="/about/" class="postlist-link">תכירו את רד האט</a>
-    <time class="postlist-date" datetime="2023-02-01">01 פבר׳ 2023</time>
+    <time class="postlist-date" datetime="2023-03-09">10 מרץ 2023</time>
     
       
       <a href="/tags/red-hat/" class="post-tag">Red Hat</a>
@@ -90,32 +107,32 @@
     </main>
 
     <rh-footer>
-      <a slot="logo" href="/en">
+      <a slot="logo" href="/">
         <img src="https://static.redhat.com/libs/redhat/brand-assets/2/corp/logo--on-dark.svg" alt="Red Hat Israel logo" loading="lazy"/> 
       </a>
       <rh-footer-social-link slot="social-links">
         <a href="https://www.linkedin.com/company/red-hat">
-          <pfe-icon icon="linkedin" set="fab">LinkedIn</pfe-icon>
+          <pf-icon icon="linkedin" set="fab">LinkedIn</pf-icon>
         </a>
       </rh-footer-social-link>
       <rh-footer-social-link slot="social-links">
         <a href="https://www.youtube.com/user/RedHatVideos">
-          <pfe-icon icon="youtube" set="fab">Youtube</pfe-icon>
+          <pf-icon icon="youtube" set="fab">Youtube</pf-icon>
         </a>
       </rh-footer-social-link>
       <rh-footer-social-link slot="social-links">
         <a href="https://www.facebook.com/redhatinc">
-          <pfe-icon icon="facebook" set="fab">Facebook</pfe-icon>
+          <pf-icon icon="facebook" set="fab">Facebook</pf-icon>
         </a>
       </rh-footer-social-link>
       <rh-footer-social-link slot="social-links">
         <a href="https://twitter.com/RedHat">
-          <pfe-icon icon="twitter" set="fab">Twitter</pfe-icon>
+          <pf-icon icon="twitter" set="fab">Twitter</pf-icon>
         </a>
       </rh-footer-social-link>
       <rh-footer-social-link slot="social-links">
         <a href="https://github.com/redhat-israel">
-          <pfe-icon icon="github" set="fab">GitHub</pfe-icon>
+          <pf-icon icon="github" set="fab">GitHub</pf-icon>
         </a>
       </rh-footer-social-link>
       <h3 slot="links">המוצרים שלנו</h3>

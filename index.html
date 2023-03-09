@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Red Hat Israel</title>
     <meta name="description" content="About the Red Hat Israel site">
-    <meta name="generator" content="Eleventy v1.0.2">
+    <meta name="generator" content="Eleventy v2.0.0">
 
     <link rel="preconnect" href="https://www.redhat.com">
     <link rel="preconnect" href="https://static.redhat.com">
@@ -18,157 +18,208 @@
     <link rel="stylesheet" href="/assets/css/index.css">
     <link rel="stylesheet" href="/assets/css/prism.css">
     <link rel="stylesheet" href="/assets/css/prism-diff.css">
-    <link rel="stylesheet" href="/assets/@rhds/elements/elements/rh-footer/rh-footer-lightdom.css">
-    <link rel="stylesheet" href="/assets/@rhds/elements/elements/rh-pagination/rh-pagination-lightdom.css">
+    <link rel="stylesheet" href="/assets/packages/@rhds/elements/elements/rh-footer/rh-footer-lightdom.css">
+    <link rel="stylesheet" href="/assets/packages/@rhds/elements/elements/rh-navigation-secondary/rh-navigation-secondary-lightdom.css">
+    <link rel="stylesheet" href="/assets/packages/@rhds/elements/elements/rh-pagination/rh-pagination-lightdom.css">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+Hebrew" rel="stylesheet">
     
     <noscript><link rel="stylesheet" href="/assets/css/noscript.css"></noscript>
 
-    <script type="importmap">{"imports":{"@patternfly/pfe-accordion":"https://ga.jspm.io/npm:@patternfly/pfe-accordion@2.0.0-next.12/pfe-accordion.js","@patternfly/pfe-core":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/core.js","@patternfly/pfe-core/controllers/cascade-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/controllers/cascade-controller.js","@patternfly/pfe-core/controllers/color-context.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/controllers/color-context.js","@patternfly/pfe-core/controllers/css-variable-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/controllers/css-variable-controller.js","@patternfly/pfe-core/controllers/light-dom-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/controllers/light-dom-controller.js","@patternfly/pfe-core/controllers/logger.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/controllers/logger.js","@patternfly/pfe-core/controllers/perf-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/controllers/perf-controller.js","@patternfly/pfe-core/controllers/property-observer-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/controllers/property-observer-controller.js","@patternfly/pfe-core/controllers/slot-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/controllers/slot-controller.js","@patternfly/pfe-core/controllers/style-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/controllers/style-controller.js","@patternfly/pfe-core/decorators.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/decorators.js","@patternfly/pfe-core/decorators/bound.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/decorators/bound.js","@patternfly/pfe-core/decorators/cascades.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/decorators/cascades.js","@patternfly/pfe-core/decorators/color-context.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/decorators/color-context.js","@patternfly/pfe-core/decorators/deprecation.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/decorators/deprecation.js","@patternfly/pfe-core/decorators/initializer.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/decorators/initializer.js","@patternfly/pfe-core/decorators/observed.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/decorators/observed.js","@patternfly/pfe-core/decorators/pfelement.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/decorators/pfelement.js","@patternfly/pfe-core/decorators/time.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/decorators/time.js","@patternfly/pfe-core/decorators/trace.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/decorators/trace.js","@patternfly/pfe-core/functions/debounce.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/functions/debounce.js","@patternfly/pfe-core/functions/deprecatedCustomEvent.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/functions/deprecatedCustomEvent.js","@patternfly/pfe-core/functions/random.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/functions/random.js","@patternfly/pfe-icon":"https://ga.jspm.io/npm:@patternfly/pfe-icon@2.0.0-next.6/pfe-icon.js","@patternfly/pfe-modal":"https://ga.jspm.io/npm:@patternfly/pfe-modal@2.0.0-next.6/pfe-modal.js","@patternfly/pfe-tooltip":"https://ga.jspm.io/npm:@patternfly/pfe-tooltip@1.1.0-next.0/pfe-tooltip.js","@patternfly/pfe-tooltip/BaseTooltip.js":"https://ga.jspm.io/npm:@patternfly/pfe-tooltip@1.1.0-next.0/BaseTooltip.js","lit":"https://ga.jspm.io/npm:lit@2.3.0/index.js","lit/async-directive.js":"https://ga.jspm.io/npm:lit@2.3.0/async-directive.js","lit/decorators.js":"https://ga.jspm.io/npm:lit@2.3.0/decorators.js","lit/directive-helpers.js":"https://ga.jspm.io/npm:lit@2.3.0/directive-helpers.js","lit/directive.js":"https://ga.jspm.io/npm:lit@2.3.0/directive.js","lit/directives/class-map.js":"https://ga.jspm.io/npm:lit@2.3.0/directives/class-map.js","lit/directives/if-defined.js":"https://ga.jspm.io/npm:lit@2.3.0/directives/if-defined.js","lit/experimental-hydrate-support.js":"https://ga.jspm.io/npm:lit@2.3.0/experimental-hydrate-support.js","lit/experimental-hydrate.js":"https://ga.jspm.io/npm:lit@2.3.0/experimental-hydrate.js","lit/static-html.js":"https://ga.jspm.io/npm:lit@2.3.0/static-html.js","tslib":"https://ga.jspm.io/npm:tslib@2.5.0/tslib.es6.js","@rhds/elements":"/assets/@rhds/elements/rhds.min.js","@rhds/elements/":"/assets/@rhds/elements/elements/"},"scopes":{"https://ga.jspm.io/":{"@floating-ui/core":"https://ga.jspm.io/npm:@floating-ui/core@1.1.1/dist/floating-ui.core.browser.min.mjs","@floating-ui/dom":"https://ga.jspm.io/npm:@floating-ui/dom@1.1.1/dist/floating-ui.dom.browser.min.mjs","@lit/reactive-element":"https://ga.jspm.io/npm:@lit/reactive-element@1.6.1/reactive-element.js","@lit/reactive-element/decorators/":"https://ga.jspm.io/npm:@lit/reactive-element@1.6.1/decorators/","@patternfly/pfe-core/controllers/floating-dom-controller.js":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.0.0-next.14/controllers/floating-dom-controller.js","lit-element/":"https://ga.jspm.io/npm:lit-element@3.2.2/","lit-html":"https://ga.jspm.io/npm:lit-html@2.6.1/lit-html.js","lit-html/":"https://ga.jspm.io/npm:lit-html@2.6.1/"}}}</script>
+    <script type="importmap">{"imports":{"tslib":"/assets/packages/tslib/tslib.es6.js","@patternfly/pfe-core":"/assets/packages/@patternfly/pfe-core/core.js","@rhds/elements":"/assets/packages/@rhds/elements/rhds.min.js","@rhds/tokens":"/assets/packages/@rhds/tokens/js/tokens.js","@lit/reactive-element":"/assets/packages/@lit/reactive-element/reactive-element.js","lit":"/assets/packages/lit/index.js","@patternfly/elements/pf-accordion/pf-accordion.js":"/assets/packages/@patternfly/elements/pf-accordion/pf-accordion.js","@patternfly/elements/pf-button/pf-button.js":"/assets/packages/@patternfly/elements/pf-button/pf-button.js","@patternfly/elements/pf-card/pf-card.js":"/assets/packages/@patternfly/elements/pf-card/pf-card.js","@patternfly/elements/pf-icon/pf-icon.js":"/assets/packages/@patternfly/elements/pf-icon/pf-icon.js","@patternfly/elements/pf-modal/pf-modal.js":"/assets/packages/@patternfly/elements/pf-modal/pf-modal.js","@patternfly/elements/pf-panel/pf-panel.js":"/assets/packages/@patternfly/elements/pf-panel/pf-panel.js","@patternfly/elements/pf-spinner/BaseSpinner.js":"/assets/packages/@patternfly/elements/pf-spinner/BaseSpinner.js","@patternfly/elements/pf-spinner/pf-spinner.js":"/assets/packages/@patternfly/elements/pf-spinner/pf-spinner.js","@patternfly/elements/pf-tabs/pf-tabs.js":"/assets/packages/@patternfly/elements/pf-tabs/pf-tabs.js","@rhds/elements/rh-alert/rh-alert.js":"/assets/packages/@rhds/elements/elements/rh-alert/rh-alert.js","@rhds/elements/rh-pagination/rh-pagination.js":"/assets/packages/@rhds/elements/elements/rh-pagination/rh-pagination.js","@rhds/elements/rh-tag/rh-tag.js":"/assets/packages/@rhds/elements/elements/rh-tag/rh-tag.js","@rhds/elements/rh-cta/rh-cta.js":"/assets/packages/@rhds/elements/elements/rh-cta/rh-cta.js","@rhds/elements/rh-stat/rh-stat.js":"/assets/packages/@rhds/elements/elements/rh-stat/rh-stat.js","@rhds/elements/rh-navigation-secondary/rh-navigation-secondary.js":"/assets/packages/@rhds/elements/elements/rh-navigation-secondary/rh-navigation-secondary.js","@rhds/elements/rh-footer/rh-footer.js":"/assets/packages/@rhds/elements/elements/rh-footer/rh-footer.js","@patternfly/elements":"/assets/packages/@patternfly/elements/pfe.min.js","@patternfly/elements/pf-tooltip/BaseTooltip.js":"/assets/packages/@patternfly/elements/pf-tooltip/BaseTooltip.js","@patternfly/elements/pf-tooltip/pf-tooltip.js":"/assets/packages/@patternfly/elements/pf-tooltip/pf-tooltip.js","lit-html":"/assets/packages/lit/node_modules/lit-html/lit-html.js","lit-element/lit-element.js":"/assets/packages/lit-element/lit-element.js","@lit/reactive-element/decorators/":"/assets/packages/@lit/reactive-element/decorators/","lit-html/":"/assets/packages/lit/node_modules/lit-html/","element-internals-polyfill":"/assets/packages/element-internals-polyfill/dist/index.js"},"scopes":{"/assets/packages/@patternfly/elements/":{"@patternfly/":"/assets/packages/@patternfly/","lit":"/assets/packages/lit/index.js","tslib":"/assets/packages/tslib/tslib.es6.js","lit/":"/assets/packages/lit/","@patternfly/pfe-core":"/assets/packages/@patternfly/pfe-core/core.js","@floating-ui/dom":"/assets/packages/@floating-ui/dom/dist/floating-ui.dom.browser.min.mjs"},"/assets/packages/@rhds/elements/":{"@rhds/elements/rh-accordion/rh-accordion.js":"/assets/packages/@rhds/elements/elements/rh-accordion/rh-accordion.js","lit":"/assets/packages/lit/index.js","lit/":"/assets/packages/lit/","tslib":"/assets/packages/tslib/tslib.es6.js","@patternfly/pfe-core":"/assets/packages/@patternfly/pfe-core/core.js","@patternfly/":"/assets/packages/@patternfly/"},"/assets/packages/lit/":{"@lit/reactive-element":"/assets/packages/@lit/reactive-element/reactive-element.js","lit-element/lit-element.js":"/assets/packages/lit-element/lit-element.js","lit-html":"/assets/packages/lit/node_modules/lit-html/lit-html.js","@lit/reactive-element/decorators/":"/assets/packages/@lit/reactive-element/decorators/","lit-html/":"/assets/packages/lit/node_modules/lit-html/"},"/assets/packages/lit-element/":{"@lit/reactive-element":"/assets/packages/@lit/reactive-element/reactive-element.js","lit-html":"/assets/packages/lit-element/node_modules/lit-html/lit-html.js"},"/assets/packages/@floating-ui/dom/":{"@floating-ui/core":"/assets/packages/@floating-ui/core/dist/floating-ui.core.browser.min.mjs"},"/assets/packages/@patternfly/pfe-core/":{"@floating-ui/dom":"/assets/packages/@floating-ui/dom/dist/floating-ui.dom.browser.min.mjs","tslib":"/assets/packages/tslib/tslib.es6.js","@patternfly/pfe-core/functions/isElementInView.js":"/assets/packages/@patternfly/pfe-core/functions/isElementInView.js","lit":"/assets/packages/lit/index.js"}}}</script>
     <script async src="https://ga.jspm.io/npm:es-module-shims@1.5.9/dist/es-module-shims.js"></script>
-    <script type="module" src="/assets/@rhds/elements/rhds.min.js"></script>
+    <script type="module">
+    import { PfIcon } from '@patternfly/elements/pf-icon/pf-icon.js';
+    import 'element-internals-polyfill';
+    import '@rhds/elements/rh-alert/rh-alert.js';
+    import '@rhds/elements/rh-pagination/rh-pagination.js';
+    import '@rhds/elements/rh-footer/rh-footer.js';
+    import '@rhds/elements/rh-navigation-secondary/rh-navigation-secondary.js';
+    import '@rhds/elements/rh-stat/rh-stat.js';
+    import '@rhds/elements/rh-tag/rh-tag.js';
+    import '@rhds/elements/rh-cta/rh-cta.js';
+    // Workaround for bundled pf-icon: make icon imports absolute, instead of relative to the bundle
+    PfIcon.getIconUrl = (set, icon) =>
+      new URL(`/assets/packages/@patternfly/elements/pf-icon/icons/${set}/${icon}.js`, import.meta.url);
+    </script>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JENJLEJFBY"></script>
-    <script>
+    <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-JENJLEJFBY"></script>
+    <script async defer>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-JENJLEJFBY');
     </script>
   </head>
   <body>
-    <header id="main-header">
-      <h1 class="home">
+    <header>
+      <div id="main-header">
         <a href="/">
           <img src="https://static.redhat.com/libs/redhat/brand-assets/2/corp/logo--on-dark.svg" alt="Red Hat Israel"/>
         </a>
-      </h1>
+      </div>
+      <rh-navigation-secondary role="navigation">
+        <a href="/" slot="logo" id="logo-id">
+          רד הט ישראל
+        </a>
+        <ul slot="nav" aria-labelledby="logo-id">
+          <li class=" active "><a href="/">בית</a></li>
+          <li class=""><a href="/about/">אודותינו</a></li>
+          <li class=""><a href="/posts/">פוסטים</a></li>
+          <li class=""><a href="/publicity/1/">כותבים עלינו</a></li>
+          <li class=""><a href="/community/">מעורבות בקהילה</a></li>
+        </ul>
+        <rh-cta slot="cta">
+          <a href="/#stats">להתחיל</a>
+        </rh-cta>
+      </rh-navigation-secondary>
     </header>
-
-    <aside id="main-sidebar">
-      <nav>
-        <ul><li class=" active ">
-          <a href="/">בית</a></li><li class="">
-          <a href="/about/">אודותינו</a></li><li class="">
-          <a href="/posts/">פוסטים</a></li><li class="">
-          <a href="/publicity/1/">כותבים עלינו</a></li><li class="">
-          <a href="/community/">מעורבות בקהילה</a></li></ul>
-      </nav>
-    </aside>
 
     <main
       class="tmpl-home"
       
       >
-      <div id="home">
-  
-  <div id="banner">
-      <img src="/assets/img/ocp_commons2022.jpg" alt="עובדי רד האט בכנס אופנשיפט קומונס">
-      <div id="banner_main_text"> בואו להכיר את רד האט ישראל</div>
-      <div id="banner_sub_text"> רד האט ישראל לוקחת חלק חשוב בניית פלטפורמות המבוססות קוד פתוח, בבניית קהילה המבוססת על שיתוף הדדי  </div>
+      
+<header id="hero">
+  <img src="/assets/img/ocp_commons2022.jpg" alt="עובדי רד האט בכנס אופנשיפט קומונס">
+  <h1> בואו להכיר את רד האט ישראל</h1>
+  <p> רד האט ישראל לוקחת חלק חשוב בניית פלטפורמות המבוססות קוד פתוח, בבניית קהילה המבוססת על שיתוף הדדי  </p>
+</header>
 
-  </div>
+<h2 class="rh-header">בשנה האחרונה, עובדי רד האט בארץ תרמו לפרוייקטים שונים בגיטהאב...</h2>
 
-  <div class="rh-header">     
-    <h2>בשנה האחרונה. עובדי רד האט בארץ תרמו לפרוייקטים שונים בגיטהאב...</h2>    
-  </div>
+<section id="stats">
+  <rh-stat top="statistic">
+    <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+      <path d="M31 4.38H5a.62.62 0 0 0-.62.62v26a.62.62 0 0 0 .62.62h26a.62.62 0 0 0 .62-.62V5a.62.62 0 0 0-.62-.62Zm-.62 26H5.62V5.62h24.76Z"/>
+      <path d="M17.24 21.54a.62.62 0 0 0 .74-.49l1.24-5.84a.64.64 0 0 0-.48-.75.63.63 0 0 0-.74.54l-1.25 5.84a.64.64 0 0 0 .49.7ZM23.12 18 21 20.11a.63.63 0 1 0 .88.89l2.56-2.56a.62.62 0 0 0 0-.89L21.88 15a.63.63 0 1 0-.88.88Zm-9 3a.63.63 0 0 0 .88-.89L12.88 18 15 15.87c.59-.56-.31-1.46-.88-.88l-2.56 2.56a.62.62 0 0 0 0 .89Z"/>
+    </svg>
+    <span slot="title">Commits</span>
+    <span slot="statistic">31228</span>
+    <p slot="description"></p>
+  </rh-stat>
 
-  <div id="home_stats">
-    <section id="stats">
-    <rh-stat top="statistic">
+  <rh-stat top="statistic">
+    <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+      <path d="M32.18 20.65h-4.86a9.33 9.33 0 0 0-.75-3.12h2.34a.6.6 0 0 0 .44-.18l2.18-2.18a.62.62 0 0 0-.88-.88l-2 2H25.9a9.41 9.41 0 0 0-5.43-4 3.9 3.9 0 1 0-4.94 0 9.41 9.41 0 0 0-5.43 4H7.35l-2-2a.62.62 0 0 0-.88.88l2.18 2.18a.6.6 0 0 0 .44.18h2.34a9.33 9.33 0 0 0-.75 3.12H3.82a.63.63 0 1 0 0 1.25h4.86a9.21 9.21 0 0 0 .75 3.1H7.09a.65.65 0 0 0-.44.18l-2.18 2.2a.61.61 0 0 0 0 .88.63.63 0 0 0 .88 0l2-2h2.75a9.34 9.34 0 0 0 15.8 0h2.75l2 2a.63.63 0 0 0 .88 0 .61.61 0 0 0 0-.88l-2.18-2.19a.65.65 0 0 0-.44-.18h-2.34a9.21 9.21 0 0 0 .75-3.11h4.86a.63.63 0 1 0 0-1.25ZM15.35 9.27A2.65 2.65 0 1 1 18 11.92a2.65 2.65 0 0 1-2.65-2.65ZM18 29.38a8.11 8.11 0 1 1 8.1-8.11 8.11 8.11 0 0 1-8.1 8.11Z"/>
+    </svg>
+    <span slot="title">Issues</span>
+    <span slot="statistic">1884</span>
+    <p slot="description"></p>
+  </rh-stat>
 
-      <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
-        <path d="M31 4.38H5a.62.62 0 0 0-.62.62v26a.62.62 0 0 0 .62.62h26a.62.62 0 0 0 .62-.62V5a.62.62 0 0 0-.62-.62Zm-.62 26H5.62V5.62h24.76Z"/>
-        <path d="M17.24 21.54a.62.62 0 0 0 .74-.49l1.24-5.84a.64.64 0 0 0-.48-.75.63.63 0 0 0-.74.54l-1.25 5.84a.64.64 0 0 0 .49.7ZM23.12 18 21 20.11a.63.63 0 1 0 .88.89l2.56-2.56a.62.62 0 0 0 0-.89L21.88 15a.63.63 0 1 0-.88.88Zm-9 3a.63.63 0 0 0 .88-.89L12.88 18 15 15.87c.59-.56-.31-1.46-.88-.88l-2.56 2.56a.62.62 0 0 0 0 .89Z"/>
-      </svg>
-      <span slot="title">Commits</span>
-      <span slot="statistic">31422</span>
-      <p slot="description"></p>
-    </rh-stat>
+  <rh-stat top="statistic">
+    <svg slot="icon"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+      <path d="M12.87 24.29a3.86 3.86 0 1 0-4.74 0A7.12 7.12 0 0 0 3.37 31a.63.63 0 0 0 .63.62h13a.62.62 0 0 0 .62-.62 7.12 7.12 0 0 0-4.75-6.71Zm-5-3a2.63 2.63 0 0 1 5.25 0 2.63 2.63 0 0 1-5.25-.04Zm-3.21 9.09c.87-6.95 10.81-6.94 11.68 0Zm23.21-20.09a3.86 3.86 0 1 0-4.74 0A7.12 7.12 0 0 0 18.37 17a.63.63 0 0 0 .63.62h13a.62.62 0 0 0 .62-.62 7.12 7.12 0 0 0-4.75-6.71Zm-5-3a2.63 2.63 0 0 1 5.25 0 2.63 2.63 0 0 1-5.25-.04Zm-3.21 9.13c.87-6.95 10.81-6.94 11.68 0Zm-13.9 2.16a.63.63 0 0 0 .48-1.16.63.63 0 0 0-.48 1.16Zm.37-2.43a.63.63 0 0 0 .25-1.23.62.62 0 0 0-.73.49.64.64 0 0 0 .48.74Zm.63-2.4a.63.63 0 0 0 .5-1.15.63.63 0 0 0-.5 1.15Zm5.1-5.44a.62.62 0 0 0 .32-.09.63.63 0 1 0-.32.08Zm4.66-1.6a.62.62 0 1 0-.08-1.24.62.62 0 0 0 .08 1.24Zm-2.41.56a.62.62 0 1 0-.21-1.21.62.62 0 0 0 .21 1.21ZM9.88 9.79C11 9.7 10.37 8 9.45 8.71a.63.63 0 0 0 .43 1.08Zm-1.64 1.86a.61.61 0 0 0 .5-.26.63.63 0 1 0-.51.26Zm10.32-5.17c.57.58 1.47-.31.88-.88a.62.62 0 0 0-.88.88Zm11.88 13.08a.62.62 0 0 0-.88.88.62.62 0 0 0 .88-.88Zm-2.78 4.74a.62.62 0 0 0 1 .69.62.62 0 0 0-1-.69Zm-1.5 1.85c-.59.55.32 1.47.88.88s-.33-1.47-.88-.88Zm3.4-4.31a.62.62 0 0 0-.45 1.16.62.62 0 0 0 .45-1.16Zm-7.36 6.9a.63.63 0 0 0 .46 1.17.63.63 0 0 0-.46-1.17Zm2.11-1.09A.63.63 0 0 0 25 28.7a.63.63 0 0 0-.69-1.05Zm-3.87 1.91c-.57-.59-1.46.31-.88.88s1.44-.31.88-.88Z"/>
+    </svg>
+    <span slot="title">PRs</span>
+    <span slot="statistic">11984</span>
+    <p slot="description"></p>
+  </rh-stat>
 
-    <rh-stat top="statistic">
-      <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
-        <path d="M32.18 20.65h-4.86a9.33 9.33 0 0 0-.75-3.12h2.34a.6.6 0 0 0 .44-.18l2.18-2.18a.62.62 0 0 0-.88-.88l-2 2H25.9a9.41 9.41 0 0 0-5.43-4 3.9 3.9 0 1 0-4.94 0 9.41 9.41 0 0 0-5.43 4H7.35l-2-2a.62.62 0 0 0-.88.88l2.18 2.18a.6.6 0 0 0 .44.18h2.34a9.33 9.33 0 0 0-.75 3.12H3.82a.63.63 0 1 0 0 1.25h4.86a9.21 9.21 0 0 0 .75 3.1H7.09a.65.65 0 0 0-.44.18l-2.18 2.2a.61.61 0 0 0 0 .88.63.63 0 0 0 .88 0l2-2h2.75a9.34 9.34 0 0 0 15.8 0h2.75l2 2a.63.63 0 0 0 .88 0 .61.61 0 0 0 0-.88l-2.18-2.19a.65.65 0 0 0-.44-.18h-2.34a9.21 9.21 0 0 0 .75-3.11h4.86a.63.63 0 1 0 0-1.25ZM15.35 9.27A2.65 2.65 0 1 1 18 11.92a2.65 2.65 0 0 1-2.65-2.65ZM18 29.38a8.11 8.11 0 1 1 8.1-8.11 8.11 8.11 0 0 1-8.1 8.11Z"/>
-      </svg>
-      <span slot="title">Issues</span>
-      <span slot="statistic">1859</span>
-      <p slot="description"></p>
-    </rh-stat>
+  <rh-stat top="statistic">
+    <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+      <path d="M14 2.37H2a.63.63 0 0 0-.63.63v7.9a.63.63 0 0 0 .63.62h2.37V14a.63.63 0 0 0 .39.58.67.67 0 0 0 .24 0 .61.61 0 0 0 .45-.19l2.81-2.92H14a.62.62 0 0 0 .62-.62V3a.63.63 0 0 0-.62-.63Zm-.63 7.9H8a.66.66 0 0 0-.46.19l-1.92 2V10.9a.63.63 0 0 0-.62-.63H2.62V3.62h10.75Z"/>
+    </svg>
+    <span slot="title">Reviews</span>
+    <span slot="statistic">13925</span>
+    <p slot="description"></p>
+  </rh-stat>
 
-    <rh-stat top="statistic">
-      <svg slot="icon"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
-        <path d="M12.87 24.29a3.86 3.86 0 1 0-4.74 0A7.12 7.12 0 0 0 3.37 31a.63.63 0 0 0 .63.62h13a.62.62 0 0 0 .62-.62 7.12 7.12 0 0 0-4.75-6.71Zm-5-3a2.63 2.63 0 0 1 5.25 0 2.63 2.63 0 0 1-5.25-.04Zm-3.21 9.09c.87-6.95 10.81-6.94 11.68 0Zm23.21-20.09a3.86 3.86 0 1 0-4.74 0A7.12 7.12 0 0 0 18.37 17a.63.63 0 0 0 .63.62h13a.62.62 0 0 0 .62-.62 7.12 7.12 0 0 0-4.75-6.71Zm-5-3a2.63 2.63 0 0 1 5.25 0 2.63 2.63 0 0 1-5.25-.04Zm-3.21 9.13c.87-6.95 10.81-6.94 11.68 0Zm-13.9 2.16a.63.63 0 0 0 .48-1.16.63.63 0 0 0-.48 1.16Zm.37-2.43a.63.63 0 0 0 .25-1.23.62.62 0 0 0-.73.49.64.64 0 0 0 .48.74Zm.63-2.4a.63.63 0 0 0 .5-1.15.63.63 0 0 0-.5 1.15Zm5.1-5.44a.62.62 0 0 0 .32-.09.63.63 0 1 0-.32.08Zm4.66-1.6a.62.62 0 1 0-.08-1.24.62.62 0 0 0 .08 1.24Zm-2.41.56a.62.62 0 1 0-.21-1.21.62.62 0 0 0 .21 1.21ZM9.88 9.79C11 9.7 10.37 8 9.45 8.71a.63.63 0 0 0 .43 1.08Zm-1.64 1.86a.61.61 0 0 0 .5-.26.63.63 0 1 0-.51.26Zm10.32-5.17c.57.58 1.47-.31.88-.88a.62.62 0 0 0-.88.88Zm11.88 13.08a.62.62 0 0 0-.88.88.62.62 0 0 0 .88-.88Zm-2.78 4.74a.62.62 0 0 0 1 .69.62.62 0 0 0-1-.69Zm-1.5 1.85c-.59.55.32 1.47.88.88s-.33-1.47-.88-.88Zm3.4-4.31a.62.62 0 0 0-.45 1.16.62.62 0 0 0 .45-1.16Zm-7.36 6.9a.63.63 0 0 0 .46 1.17.63.63 0 0 0-.46-1.17Zm2.11-1.09A.63.63 0 0 0 25 28.7a.63.63 0 0 0-.69-1.05Zm-3.87 1.91c-.57-.59-1.46.31-.88.88s1.44-.31.88-.88Z"/>
-      </svg>
-      <span slot="title">PRs</span>
-      <span slot="statistic">12070</span>
-      <p slot="description"></p>
-    </rh-stat>
+  <rh-stat top="statistic">
+    <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+      <path d="M0 0h30v30H0z" fill="none"/>
+      <path d="M15 4.22a11.05 11.05 0 0 0-3.5 21.54c.56.11.76-.24.76-.53v-1.88c-3.07.67-3.72-1.48-3.72-1.48a2.91 2.91 0 0 0-1.23-1.62c-1-.68.08-.67.08-.67a2.32 2.32 0 0 1 1.69 1.14 2.36 2.36 0 0 0 3.22.92 2.39 2.39 0 0 1 .7-1.48c-2.45-.28-5-1.23-5-5.46a4.3 4.3 0 0 1 1.13-3 4 4 0 0 1 .06-2.9s.93-.3 3 1.14a10.29 10.29 0 0 1 5.54 0c2.11-1.44 3-1.14 3-1.14a4 4 0 0 1 .11 2.93 4.25 4.25 0 0 1 1.13 3c0 4.24-2.58 5.18-5.05 5.45a2.63 2.63 0 0 1 .75 2.05v3c0 .33.2.64.76.53A11.05 11.05 0 0 0 15 4.22Z" fill-rule="evenodd"/>
+    </svg>
+    <span slot="title">Repositories</span>
+    <span slot="statistic">1354</span>
+    <p slot="description"></p>
+  </rh-stat>
 
-    <rh-stat top="statistic">
-      <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-        <path d="M14 2.37H2a.63.63 0 0 0-.63.63v7.9a.63.63 0 0 0 .63.62h2.37V14a.63.63 0 0 0 .39.58.67.67 0 0 0 .24 0 .61.61 0 0 0 .45-.19l2.81-2.92H14a.62.62 0 0 0 .62-.62V3a.63.63 0 0 0-.62-.63Zm-.63 7.9H8a.66.66 0 0 0-.46.19l-1.92 2V10.9a.63.63 0 0 0-.62-.63H2.62V3.62h10.75Z"/>
-      </svg>
-      <span slot="title">Reviews</span>
-      <span slot="statistic">13561</span>
-      <p slot="description"></p>
-    </rh-stat>
+  <rh-stat top="statistic">
+    <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+      <path d="M19.62 10.41V9.5a2.6 2.6 0 0 0 1.91-1.88H23a.62.62 0 1 0 0-1.24h-1.45a2.62 2.62 0 0 0-5.15.33A10.63 10.63 0 0 0 8.38 17v10a.62.62 0 0 0 1.24 0V17a9.4 9.4 0 0 1 7-9 2.64 2.64 0 0 0 1.76 1.5v.91a6.62 6.62 0 0 0-6 6.59v14a.62.62 0 0 0 .62.62h12a.62.62 0 0 0 .62-.62V17a6.64 6.64 0 0 0-6-6.59ZM19 5.59a1.36 1.36 0 0 1 1.24.79 19.18 19.18 0 0 0-2.52.08A1.38 1.38 0 0 1 19 5.59ZM17.85 7.7a20.27 20.27 0 0 1 2.35-.08 1.37 1.37 0 0 1-2.35.08ZM19 11.62a5.43 5.43 0 0 1 5.38 5.76H13.62A5.43 5.43 0 0 1 19 11.62Zm5.38 12.76H13.62v-5.76h10.76Zm-10.76 6v-4.76h10.76v4.76Z"/>
+    </svg>
+    <span slot="title">Gists</span>
+    <span slot="statistic">794</span>
+    <p slot="description"></p>
+  </rh-stat>
 
-    <rh-stat top="statistic">
-      <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-        <path d="M0 0h30v30H0z" fill="none"/>
-        <path d="M15 4.22a11.05 11.05 0 0 0-3.5 21.54c.56.11.76-.24.76-.53v-1.88c-3.07.67-3.72-1.48-3.72-1.48a2.91 2.91 0 0 0-1.23-1.62c-1-.68.08-.67.08-.67a2.32 2.32 0 0 1 1.69 1.14 2.36 2.36 0 0 0 3.22.92 2.39 2.39 0 0 1 .7-1.48c-2.45-.28-5-1.23-5-5.46a4.3 4.3 0 0 1 1.13-3 4 4 0 0 1 .06-2.9s.93-.3 3 1.14a10.29 10.29 0 0 1 5.54 0c2.11-1.44 3-1.14 3-1.14a4 4 0 0 1 .11 2.93 4.25 4.25 0 0 1 1.13 3c0 4.24-2.58 5.18-5.05 5.45a2.63 2.63 0 0 1 .75 2.05v3c0 .33.2.64.76.53A11.05 11.05 0 0 0 15 4.22Z" fill-rule="evenodd"/>
-      </svg>
-      <span slot="title">Repositories</span>
-      <span slot="statistic">1393</span>
-      <p slot="description"></p>
-    </rh-stat>
+</section>
 
-    <rh-stat top="statistic">
-      <svg slot="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
-        <path d="M19.62 10.41V9.5a2.6 2.6 0 0 0 1.91-1.88H23a.62.62 0 1 0 0-1.24h-1.45a2.62 2.62 0 0 0-5.15.33A10.63 10.63 0 0 0 8.38 17v10a.62.62 0 0 0 1.24 0V17a9.4 9.4 0 0 1 7-9 2.64 2.64 0 0 0 1.76 1.5v.91a6.62 6.62 0 0 0-6 6.59v14a.62.62 0 0 0 .62.62h12a.62.62 0 0 0 .62-.62V17a6.64 6.64 0 0 0-6-6.59ZM19 5.59a1.36 1.36 0 0 1 1.24.79 19.18 19.18 0 0 0-2.52.08A1.38 1.38 0 0 1 19 5.59ZM17.85 7.7a20.27 20.27 0 0 1 2.35-.08 1.37 1.37 0 0 1-2.35.08ZM19 11.62a5.43 5.43 0 0 1 5.38 5.76H13.62A5.43 5.43 0 0 1 19 11.62Zm5.38 12.76H13.62v-5.76h10.76Zm-10.76 6v-4.76h10.76v4.76Z"/>
-      </svg>
-      <span slot="title">Gists</span>
-      <span slot="statistic">787</span>
-      <p slot="description"></p>
-    </rh-stat>
-
-  </section>
-</div>
-
-<div class="rh-header"> 
-  <h2>מהפרוייקטים שאנחנו תורמים אליהם</h2>
-</div>
-<div id="rh-repos">
-
-  
-  <section id="repos">
-
-    
-    <github-repository owner-repo="wildfly/wildfly-operator"></github-repository>
-    
-    <github-repository owner-repo="coffr/poc"></github-repository>
-    
-    <github-repository owner-repo="redhat-ux/red-hat-design-system"></github-repository>
-    
-    <github-repository owner-repo="RHEcosystemAppEng/fsi-common-helm"></github-repository>
-    
-    <github-repository owner-repo="open-cluster-management-io/clusteradm"></github-repository>
-    
-  </section>
-</div> 
+<h2 class="rh-header">מהפרוייקטים שאנחנו תורמים אליהם</h2>
 
 
-  <script type="module" src="/assets/gh.min.js"></script>
-  
-
-  <h2>
-    3 הפוסטים האחרונים
-  </h2>
-
+<section id="repos">
   
   
-  <ol reversed class="postlist" style="counter-reset: start-from 11">
+  <pf-card>
+    <img slot="header" src="https://avatars.githubusercontent.com/u/46440835?v=4" alt="apollo-elements">
+    <h3 slot="header"><a href="https://github.com/apollo-elements/apollo-elements">apollo-elements/apollo-elements</a></h3>
+    <p>🚀🌛 Use the Launch Platform 👩‍🚀👨‍🚀</p>
+    <p>עודכן <time datetime="2023-03-09T18:53:19Z">09 מרץ 2023</time></p>
+    <span slot="footer"><abbr title="כוכבים">⭐</abbr> 384</span>
+    <span slot="footer"><abbr title="forks"><pf-icon icon="code-branch" size="sm"></pf-icon></abbr> 24</span>
+    <span slot="footer">ISC License</span>
+  </pf-card>
+  
+  
+  <pf-card>
+    <img slot="header" src="https://avatars.githubusercontent.com/u/82061998?v=4" alt="RHEcosystemAppEng">
+    <h3 slot="header"><a href="https://github.com/RHEcosystemAppEng/fsi-common-helm">RHEcosystemAppEng/fsi-common-helm</a></h3>
+    <p></p>
+    <p>עודכן <time datetime="2022-03-09T10:13:35Z">09 מרץ 2022</time></p>
+    <span slot="footer"><abbr title="כוכבים">⭐</abbr> 2</span>
+    <span slot="footer"><abbr title="forks"><pf-icon icon="code-branch" size="sm"></pf-icon></abbr> 1</span>
+    <span slot="footer">MIT License</span>
+  </pf-card>
+  
+  
+  <pf-card>
+    <img slot="header" src="https://avatars.githubusercontent.com/u/118207545?v=4" alt="platform-engineering-org">
+    <h3 slot="header"><a href="https://github.com/platform-engineering-org/poc">platform-engineering-org/poc</a></h3>
+    <p></p>
+    <p>עודכן <time datetime="2023-01-31T21:05:10Z">31 ינו׳ 2023</time></p>
+    <span slot="footer"><abbr title="כוכבים">⭐</abbr> 0</span>
+    <span slot="footer"><abbr title="forks"><pf-icon icon="code-branch" size="sm"></pf-icon></abbr> 2</span>
+    <span slot="footer">Apache License 2.0</span>
+  </pf-card>
+  
+  
+  <pf-card>
+    <img slot="header" src="https://avatars.githubusercontent.com/u/82061998?v=4" alt="RHEcosystemAppEng">
+    <h3 slot="header"><a href="https://github.com/RHEcosystemAppEng/schema-pusher">RHEcosystemAppEng/schema-pusher</a></h3>
+    <p>Application for pushing schemas to Red Hat&#39;s Service Registry</p>
+    <p>עודכן <time datetime="2022-11-15T10:48:04Z">15 נוב׳ 2022</time></p>
+    <span slot="footer"><abbr title="כוכבים">⭐</abbr> 2</span>
+    <span slot="footer"><abbr title="forks"><pf-icon icon="code-branch" size="sm"></pf-icon></abbr> 1</span>
+    <span slot="footer">MIT License</span>
+  </pf-card>
+  
+  
+  <pf-card>
+    <img slot="header" src="https://avatars.githubusercontent.com/u/6391110?v=4" alt="patternfly">
+    <h3 slot="header"><a href="https://github.com/patternfly/patternfly-elements">patternfly/patternfly-elements</a></h3>
+    <p>PatternFly Elements. A set of community-created web components based on PatternFly design.</p>
+    <p>עודכן <time datetime="2023-03-04T07:15:24Z">04 מרץ 2023</time></p>
+    <span slot="footer"><abbr title="כוכבים">⭐</abbr> 318</span>
+    <span slot="footer"><abbr title="forks"><pf-icon icon="code-branch" size="sm"></pf-icon></abbr> 69</span>
+    <span slot="footer">MIT License</span>
+  </pf-card>
+  
+</section>
+
+<script type="module">
+import '@patternfly/elements/pf-card/pf-card.js';
+</script>
+
+
+<h2>
+  3 הפוסטים האחרונים
+</h2>
+
+
+
+<ol reversed class="postlist" style="counter-reset: start-from 11">
 
   <li class="postlist-item">
     <a href="/posts/2023-01-16-how-prevent-computer-overload-remote-kind-clusters/" class="postlist-link">How to prevent computer overload with remote kind clusters</a>
@@ -224,9 +275,7 @@
 </ol>
 
 
-  <p>יש עוד פוסטים <a href="/posts/">בארכיון</a>.</p>
-</div>
-</div>
+<p>יש עוד פוסטים <a href="/posts/">בארכיון</a>.</p>
 
 <style>
 #stats {
@@ -239,32 +288,32 @@ grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     </main>
 
     <rh-footer>
-      <a slot="logo" href="/en">
+      <a slot="logo" href="/">
         <img src="https://static.redhat.com/libs/redhat/brand-assets/2/corp/logo--on-dark.svg" alt="Red Hat Israel logo" loading="lazy"/> 
       </a>
       <rh-footer-social-link slot="social-links">
         <a href="https://www.linkedin.com/company/red-hat">
-          <pfe-icon icon="linkedin" set="fab">LinkedIn</pfe-icon>
+          <pf-icon icon="linkedin" set="fab">LinkedIn</pf-icon>
         </a>
       </rh-footer-social-link>
       <rh-footer-social-link slot="social-links">
         <a href="https://www.youtube.com/user/RedHatVideos">
-          <pfe-icon icon="youtube" set="fab">Youtube</pfe-icon>
+          <pf-icon icon="youtube" set="fab">Youtube</pf-icon>
         </a>
       </rh-footer-social-link>
       <rh-footer-social-link slot="social-links">
         <a href="https://www.facebook.com/redhatinc">
-          <pfe-icon icon="facebook" set="fab">Facebook</pfe-icon>
+          <pf-icon icon="facebook" set="fab">Facebook</pf-icon>
         </a>
       </rh-footer-social-link>
       <rh-footer-social-link slot="social-links">
         <a href="https://twitter.com/RedHat">
-          <pfe-icon icon="twitter" set="fab">Twitter</pfe-icon>
+          <pf-icon icon="twitter" set="fab">Twitter</pf-icon>
         </a>
       </rh-footer-social-link>
       <rh-footer-social-link slot="social-links">
         <a href="https://github.com/redhat-israel">
-          <pfe-icon icon="github" set="fab">GitHub</pfe-icon>
+          <pf-icon icon="github" set="fab">GitHub</pf-icon>
         </a>
       </rh-footer-social-link>
       <h3 slot="links">המוצרים שלנו</h3>

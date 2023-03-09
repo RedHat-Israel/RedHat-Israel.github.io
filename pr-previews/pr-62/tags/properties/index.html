@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מתוייג “properties”</title>
+    <meta name="description" content="About the Red Hat Israel site">
+    <meta name="generator" content="Eleventy v2.0.0">
+
+    <link rel="preconnect" href="https://www.redhat.com">
+    <link rel="preconnect" href="https://static.redhat.com">
+    <link rel="shortcut icon" href="https://www.redhat.com/misc/favicon.ico" type="image/x-icon">
+    <link rel="alternate" href="/pr-previews/pr-62/feed/feed.xml" type="application/atom+xml" title="Red Hat Israel">
+    <link rel="alternate" href="/pr-previews/pr-62/feed/feed.json" type="application/json" title="Red Hat Israel">
+
+    <link rel="stylesheet" href="https://static.redhat.com/libs/redhat/redhat-font/2/webfonts/red-hat-font.css" media="all">
+    <link rel="stylesheet" href="/pr-previews/pr-62/assets/css/rhds.css">
+    <link rel="stylesheet" href="/pr-previews/pr-62/assets/css/index.css">
+    <link rel="stylesheet" href="/pr-previews/pr-62/assets/css/prism.css">
+    <link rel="stylesheet" href="/pr-previews/pr-62/assets/css/prism-diff.css">
+    <link rel="stylesheet" href="/pr-previews/pr-62/assets/packages/@rhds/elements/elements/rh-footer/rh-footer-lightdom.css">
+    <link rel="stylesheet" href="/pr-previews/pr-62/assets/packages/@rhds/elements/elements/rh-navigation-secondary/rh-navigation-secondary-lightdom.css">
+    <link rel="stylesheet" href="/pr-previews/pr-62/assets/packages/@rhds/elements/elements/rh-pagination/rh-pagination-lightdom.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+Hebrew" rel="stylesheet">
+    
+    <noscript><link rel="stylesheet" href="/pr-previews/pr-62/assets/css/noscript.css"></noscript>
+
+    <script type="importmap">{"imports":{"tslib":"/assets/packages/tslib/tslib.es6.js","@patternfly/pfe-core":"/assets/packages/@patternfly/pfe-core/core.js","@rhds/elements":"/assets/packages/@rhds/elements/rhds.min.js","@rhds/tokens":"/assets/packages/@rhds/tokens/js/tokens.js","@lit/reactive-element":"/assets/packages/@lit/reactive-element/reactive-element.js","lit":"/assets/packages/lit/index.js","@patternfly/elements/pf-accordion/pf-accordion.js":"/assets/packages/@patternfly/elements/pf-accordion/pf-accordion.js","@patternfly/elements/pf-button/pf-button.js":"/assets/packages/@patternfly/elements/pf-button/pf-button.js","@patternfly/elements/pf-card/pf-card.js":"/assets/packages/@patternfly/elements/pf-card/pf-card.js","@patternfly/elements/pf-icon/pf-icon.js":"/assets/packages/@patternfly/elements/pf-icon/pf-icon.js","@patternfly/elements/pf-modal/pf-modal.js":"/assets/packages/@patternfly/elements/pf-modal/pf-modal.js","@patternfly/elements/pf-panel/pf-panel.js":"/assets/packages/@patternfly/elements/pf-panel/pf-panel.js","@patternfly/elements/pf-spinner/BaseSpinner.js":"/assets/packages/@patternfly/elements/pf-spinner/BaseSpinner.js","@patternfly/elements/pf-spinner/pf-spinner.js":"/assets/packages/@patternfly/elements/pf-spinner/pf-spinner.js","@patternfly/elements/pf-tabs/pf-tabs.js":"/assets/packages/@patternfly/elements/pf-tabs/pf-tabs.js","@rhds/elements/rh-alert/rh-alert.js":"/assets/packages/@rhds/elements/elements/rh-alert/rh-alert.js","@rhds/elements/rh-pagination/rh-pagination.js":"/assets/packages/@rhds/elements/elements/rh-pagination/rh-pagination.js","@rhds/elements/rh-tag/rh-tag.js":"/assets/packages/@rhds/elements/elements/rh-tag/rh-tag.js","@rhds/elements/rh-cta/rh-cta.js":"/assets/packages/@rhds/elements/elements/rh-cta/rh-cta.js","@rhds/elements/rh-stat/rh-stat.js":"/assets/packages/@rhds/elements/elements/rh-stat/rh-stat.js","@rhds/elements/rh-navigation-secondary/rh-navigation-secondary.js":"/assets/packages/@rhds/elements/elements/rh-navigation-secondary/rh-navigation-secondary.js","@rhds/elements/rh-footer/rh-footer.js":"/assets/packages/@rhds/elements/elements/rh-footer/rh-footer.js","@patternfly/elements":"/assets/packages/@patternfly/elements/pfe.min.js","@patternfly/elements/pf-tooltip/BaseTooltip.js":"/assets/packages/@patternfly/elements/pf-tooltip/BaseTooltip.js","@patternfly/elements/pf-tooltip/pf-tooltip.js":"/assets/packages/@patternfly/elements/pf-tooltip/pf-tooltip.js","lit-element/lit-element.js":"/assets/packages/lit-element/lit-element.js","lit-html":"/assets/packages/lit/node_modules/lit-html/lit-html.js","@lit/reactive-element/decorators/":"/assets/packages/@lit/reactive-element/decorators/","lit-html/":"/assets/packages/lit/node_modules/lit-html/","element-internals-polyfill":"/assets/packages/element-internals-polyfill/dist/index.js"},"scopes":{"/assets/packages/@patternfly/elements/":{"@patternfly/":"/assets/packages/@patternfly/","lit":"/assets/packages/lit/index.js","tslib":"/assets/packages/tslib/tslib.es6.js","lit/":"/assets/packages/lit/","@patternfly/pfe-core":"/assets/packages/@patternfly/pfe-core/core.js","@floating-ui/dom":"/assets/packages/@floating-ui/dom/dist/floating-ui.dom.browser.min.mjs"},"/assets/packages/@rhds/elements/":{"@rhds/elements/rh-accordion/rh-accordion.js":"/assets/packages/@rhds/elements/elements/rh-accordion/rh-accordion.js","lit":"/assets/packages/lit/index.js","lit/":"/assets/packages/lit/","tslib":"/assets/packages/tslib/tslib.es6.js","@patternfly/pfe-core":"/assets/packages/@patternfly/pfe-core/core.js","@patternfly/":"/assets/packages/@patternfly/"},"/assets/packages/lit/":{"@lit/reactive-element":"/assets/packages/@lit/reactive-element/reactive-element.js","lit-element/lit-element.js":"/assets/packages/lit-element/lit-element.js","lit-html":"/assets/packages/lit/node_modules/lit-html/lit-html.js","@lit/reactive-element/decorators/":"/assets/packages/@lit/reactive-element/decorators/","lit-html/":"/assets/packages/lit/node_modules/lit-html/"},"/assets/packages/lit-element/":{"@lit/reactive-element":"/assets/packages/@lit/reactive-element/reactive-element.js","lit-html":"/assets/packages/lit-element/node_modules/lit-html/lit-html.js"},"/assets/packages/@floating-ui/dom/":{"@floating-ui/core":"/assets/packages/@floating-ui/core/dist/floating-ui.core.browser.min.mjs"},"/assets/packages/@patternfly/pfe-core/":{"@floating-ui/dom":"/assets/packages/@floating-ui/dom/dist/floating-ui.dom.browser.min.mjs","tslib":"/assets/packages/tslib/tslib.es6.js","@patternfly/pfe-core/functions/isElementInView.js":"/assets/packages/@patternfly/pfe-core/functions/isElementInView.js","lit":"/assets/packages/lit/index.js"}}}</script>
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.5.9/dist/es-module-shims.js"></script>
+    <script type="module">
+    import { PfIcon } from '@patternfly/elements/pf-icon/pf-icon.js';
+    import 'element-internals-polyfill';
+    import '@rhds/elements/rh-alert/rh-alert.js';
+    import '@rhds/elements/rh-pagination/rh-pagination.js';
+    import '@rhds/elements/rh-footer/rh-footer.js';
+    import '@rhds/elements/rh-navigation-secondary/rh-navigation-secondary.js';
+    import '@rhds/elements/rh-stat/rh-stat.js';
+    import '@rhds/elements/rh-tag/rh-tag.js';
+    import '@rhds/elements/rh-cta/rh-cta.js';
+    // Workaround for bundled pf-icon: make icon imports absolute, instead of relative to the bundle
+    PfIcon.getIconUrl = (set, icon) =>
+      new URL(`/assets/packages/@patternfly/elements/pf-icon/icons/${set}/${icon}.js`, import.meta.url);
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-JENJLEJFBY"></script>
+    <script async defer>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JENJLEJFBY');
+    </script>
+  </head>
+  <body>
+    <header>
+      <div id="main-header">
+        <a href="/pr-previews/pr-62/">
+          <img src="https://static.redhat.com/libs/redhat/brand-assets/2/corp/logo--on-dark.svg" alt="Red Hat Israel"/>
+        </a>
+      </div>
+      <rh-navigation-secondary role="navigation">
+        <a href="/pr-previews/pr-62/" slot="logo" id="logo-id">
+          רד הט ישראל
+        </a>
+        <ul slot="nav" aria-labelledby="logo-id">
+          <li class=""><a href="/pr-previews/pr-62/">בית</a></li>
+          <li class=""><a href="/pr-previews/pr-62/about/">אודותינו</a></li>
+          <li class=""><a href="/pr-previews/pr-62/posts/">פוסטים</a></li>
+          <li class=""><a href="/pr-previews/pr-62/publicity/1/">כותבים עלינו</a></li>
+          <li class=""><a href="/pr-previews/pr-62/community/">מעורבות בקהילה</a></li>
+        </ul>
+        <rh-cta slot="cta">
+          <a href="/pr-previews/pr-62/#stats">להתחיל</a>
+        </rh-cta>
+      </rh-navigation-secondary>
+    </header>
+
+    <main
+      class="tmpl-home"
+      
+      >
+      <h1>מתוייג “properties”</h1>
+
+
+<ol reversed class="postlist" style="counter-reset: start-from 2">
+
+  <li class="postlist-item">
+    <a href="/pr-previews/pr-62/posts/apache-commons-config/" class="postlist-link">Ways to replace apache.commons.configuration in your project</a>
+    <time class="postlist-date" datetime="2022-09-15">15 ספט׳ 2022</time>
+    
+      
+      <a href="/pr-previews/pr-62/tags/properties/" class="post-tag">properties</a>
+    
+      
+      <a href="/pr-previews/pr-62/tags/apache/" class="post-tag">apache</a>
+    
+      
+      <a href="/pr-previews/pr-62/tags/apache-commons/" class="post-tag">apache commons</a>
+    
+      
+      <a href="/pr-previews/pr-62/tags/apache-commons-configuration/" class="post-tag">apache.commons.configuration</a>
+    
+  </li>
+
+</ol>
+
+
+<p>ראו <a href="/pr-previews/pr-62/tags/">כל התגים</a>.</p>
+
+
+    </main>
+
+    <rh-footer>
+      <a slot="logo" href="/pr-previews/pr-62/">
+        <img src="https://static.redhat.com/libs/redhat/brand-assets/2/corp/logo--on-dark.svg" alt="Red Hat Israel logo" loading="lazy"/> 
+      </a>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://www.linkedin.com/company/red-hat">
+          <pf-icon icon="linkedin" set="fab">LinkedIn</pf-icon>
+        </a>
+      </rh-footer-social-link>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://www.youtube.com/user/RedHatVideos">
+          <pf-icon icon="youtube" set="fab">Youtube</pf-icon>
+        </a>
+      </rh-footer-social-link>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://www.facebook.com/redhatinc">
+          <pf-icon icon="facebook" set="fab">Facebook</pf-icon>
+        </a>
+      </rh-footer-social-link>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://twitter.com/RedHat">
+          <pf-icon icon="twitter" set="fab">Twitter</pf-icon>
+        </a>
+      </rh-footer-social-link>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://github.com/redhat-israel">
+          <pf-icon icon="github" set="fab">GitHub</pf-icon>
+        </a>
+      </rh-footer-social-link>
+      <h3 slot="links">המוצרים שלנו</h3>
+      <ul slot="links">
+        <li><a href="https://www.redhat.com/en/technologies/management/ansible">Red Hat Ansible Automation Platform</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">Red Hat Enterprise Linux</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/cloud-computing/openshift">Red Hat OpenShift</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/cloud-computing/openshift-data-foundation">Red Hat OpenShift Data Foundation</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/linux-platforms/openstack-platform">Red Hat OpenStack Platform</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/all-products">See all products</a></li>
+      </ul>
+      <h3 slot="links">צרו קשר</h3>
+      <ul slot="links">
+        <li><a href="https://www.redhat.com/en/contact">כתבו לנו</a></li>
+        <li><a href="https://www.redhat.com/en/about/feedback">שלחו לנו פידבק</a></li>
+        <li><a href="https://www.redhat.com/en/about/social">עקבו אחרינו ברשתות החברתיות</a></li>
+      </ul>
+      <rh-footer-block slot="main-secondary">
+        <h3 slot="header">רד האט</h3>
+        <p>רד האט היא החברה המובילה בעולם לפתרונות תוכנה מבוססי קוד פתוח לארגוני Enterprise.
+רד האט מבוססת על כוחה של קהילת הקוד הפתוח בפיתוח ואספקת טכנולוגיות Linux, Cloud, Container, ו-Kubernetes.
+אנחנו מסייעים ללקוחות לשלב בין יישומי IT חדשים וקיימים, לפתח יישומים רב-ענניים
+(multi-cloud), לבצע סטנדרטיזציה של מערכת ההפעלה, יחד עם אוטומציה, אבטחה וניהול של סביבות מורכבות.</p>
+
+      </rh-footer-block>
+      <rh-global-footer slot="global" class=" no-secondary-links">
+        <h3 slot="links-primary" hidden>Red Hat legal and privacy links</h3>
+        <ul slot="links-primary">
+          <li><a href="https://www.redhat.com/en/about/privacy-policy">הצהרת פרטיות</a></li>
+          <li><a href="https://www.redhat.com/en/about/terms-use">תנאי שימוש</a></li>
+          <li><a href="https://www.redhat.com/en/about/digital-accessibility">נגישות דיגיטלית</a></li>
+        </ul>
+      </rh-global-footer>
+    </rh-footer>
+
+    <!-- Current page: /pr-previews/pr-62/tags/properties/ -->
+  </body>
+</html>

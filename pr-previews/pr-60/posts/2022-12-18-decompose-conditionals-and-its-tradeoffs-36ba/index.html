@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decompose Conditionals and its tradeoffs</title>
+    <meta name="description" content="When used correctly, decomposing conditionals is a useful refactoring method that can make our code easier to understand, easier to test, and more reusable. But it has its costs.
+">
+    <meta name="generator" content="Eleventy v2.0.0">
+
+    <link rel="preconnect" href="https://www.redhat.com">
+    <link rel="preconnect" href="https://static.redhat.com">
+    <link rel="shortcut icon" href="https://www.redhat.com/misc/favicon.ico" type="image/x-icon">
+    <link rel="alternate" href="/pr-previews/pr-60/feed/feed.xml" type="application/atom+xml" title="Red Hat Israel">
+    <link rel="alternate" href="/pr-previews/pr-60/feed/feed.json" type="application/json" title="Red Hat Israel">
+
+    <link rel="stylesheet" href="https://static.redhat.com/libs/redhat/redhat-font/2/webfonts/red-hat-font.css" media="all">
+    <link rel="stylesheet" href="/pr-previews/pr-60/assets/css/rhds.css">
+    <link rel="stylesheet" href="/pr-previews/pr-60/assets/css/index.css">
+    <link rel="stylesheet" href="/pr-previews/pr-60/assets/css/prism.css">
+    <link rel="stylesheet" href="/pr-previews/pr-60/assets/css/prism-diff.css">
+    <link rel="stylesheet" href="/pr-previews/pr-60/assets/packages/@rhds/elements/elements/rh-footer/rh-footer-lightdom.css">
+    <link rel="stylesheet" href="/pr-previews/pr-60/assets/packages/@rhds/elements/elements/rh-navigation-secondary/rh-navigation-secondary-lightdom.css">
+    <link rel="stylesheet" href="/pr-previews/pr-60/assets/packages/@rhds/elements/elements/rh-pagination/rh-pagination-lightdom.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+Hebrew" rel="stylesheet">
+    
+    <link rel="canonical" href="https://dev.to/tbrisker/decompose-conditionals-and-its-tradeoffs-36ba" />
+    
+    <noscript><link rel="stylesheet" href="/pr-previews/pr-60/assets/css/noscript.css"></noscript>
+
+    <script type="importmap">{"imports":{"tslib":"/pr-previews/pr-60/assets/packages/tslib/tslib.es6.js","@patternfly/pfe-core":"/pr-previews/pr-60/assets/packages/@patternfly/pfe-core/core.js","@rhds/elements":"/pr-previews/pr-60/assets/packages/@rhds/elements/rhds.min.js","@rhds/tokens":"/pr-previews/pr-60/assets/packages/@rhds/tokens/js/tokens.js","@lit/reactive-element":"/pr-previews/pr-60/assets/packages/@lit/reactive-element/reactive-element.js","lit":"/pr-previews/pr-60/assets/packages/lit/index.js","@patternfly/elements/pf-accordion/pf-accordion.js":"/pr-previews/pr-60/assets/packages/@patternfly/elements/pf-accordion/pf-accordion.js","@patternfly/elements/pf-button/pf-button.js":"/pr-previews/pr-60/assets/packages/@patternfly/elements/pf-button/pf-button.js","@patternfly/elements/pf-card/pf-card.js":"/pr-previews/pr-60/assets/packages/@patternfly/elements/pf-card/pf-card.js","@patternfly/elements/pf-icon/pf-icon.js":"/pr-previews/pr-60/assets/packages/@patternfly/elements/pf-icon/pf-icon.js","@patternfly/elements/pf-modal/pf-modal.js":"/pr-previews/pr-60/assets/packages/@patternfly/elements/pf-modal/pf-modal.js","@patternfly/elements/pf-panel/pf-panel.js":"/pr-previews/pr-60/assets/packages/@patternfly/elements/pf-panel/pf-panel.js","@patternfly/elements/pf-spinner/BaseSpinner.js":"/pr-previews/pr-60/assets/packages/@patternfly/elements/pf-spinner/BaseSpinner.js","@patternfly/elements/pf-spinner/pf-spinner.js":"/pr-previews/pr-60/assets/packages/@patternfly/elements/pf-spinner/pf-spinner.js","@patternfly/elements/pf-tabs/pf-tabs.js":"/pr-previews/pr-60/assets/packages/@patternfly/elements/pf-tabs/pf-tabs.js","@rhds/elements/rh-alert/rh-alert.js":"/pr-previews/pr-60/assets/packages/@rhds/elements/elements/rh-alert/rh-alert.js","@rhds/elements/rh-pagination/rh-pagination.js":"/pr-previews/pr-60/assets/packages/@rhds/elements/elements/rh-pagination/rh-pagination.js","@rhds/elements/rh-tag/rh-tag.js":"/pr-previews/pr-60/assets/packages/@rhds/elements/elements/rh-tag/rh-tag.js","@rhds/elements/rh-cta/rh-cta.js":"/pr-previews/pr-60/assets/packages/@rhds/elements/elements/rh-cta/rh-cta.js","@rhds/elements/rh-stat/rh-stat.js":"/pr-previews/pr-60/assets/packages/@rhds/elements/elements/rh-stat/rh-stat.js","@rhds/elements/rh-navigation-secondary/rh-navigation-secondary.js":"/pr-previews/pr-60/assets/packages/@rhds/elements/elements/rh-navigation-secondary/rh-navigation-secondary.js","@rhds/elements/rh-footer/rh-footer.js":"/pr-previews/pr-60/assets/packages/@rhds/elements/elements/rh-footer/rh-footer.js","@patternfly/elements":"/pr-previews/pr-60/assets/packages/@patternfly/elements/pfe.min.js","@patternfly/elements/pf-tooltip/BaseTooltip.js":"/pr-previews/pr-60/assets/packages/@patternfly/elements/pf-tooltip/BaseTooltip.js","@patternfly/elements/pf-tooltip/pf-tooltip.js":"/pr-previews/pr-60/assets/packages/@patternfly/elements/pf-tooltip/pf-tooltip.js","lit-html":"/pr-previews/pr-60/assets/packages/lit/node_modules/lit-html/lit-html.js","lit-element/lit-element.js":"/pr-previews/pr-60/assets/packages/lit-element/lit-element.js","@lit/reactive-element/decorators/":"/pr-previews/pr-60/assets/packages/@lit/reactive-element/decorators/","lit-html/":"/pr-previews/pr-60/assets/packages/lit/node_modules/lit-html/","element-internals-polyfill":"/pr-previews/pr-60/assets/packages/element-internals-polyfill/dist/index.js"},"scopes":{"/pr-previews/pr-60/assets/packages/@patternfly/elements/":{"@patternfly/":"/pr-previews/pr-60/assets/packages/@patternfly/","lit":"/pr-previews/pr-60/assets/packages/lit/index.js","tslib":"/pr-previews/pr-60/assets/packages/tslib/tslib.es6.js","lit/":"/pr-previews/pr-60/assets/packages/lit/","@patternfly/pfe-core":"/pr-previews/pr-60/assets/packages/@patternfly/pfe-core/core.js","@floating-ui/dom":"/pr-previews/pr-60/assets/packages/@floating-ui/dom/dist/floating-ui.dom.browser.min.mjs"},"/pr-previews/pr-60/assets/packages/@rhds/elements/":{"@rhds/elements/rh-accordion/rh-accordion.js":"/pr-previews/pr-60/assets/packages/@rhds/elements/elements/rh-accordion/rh-accordion.js","lit":"/pr-previews/pr-60/assets/packages/lit/index.js","lit/":"/pr-previews/pr-60/assets/packages/lit/","tslib":"/pr-previews/pr-60/assets/packages/tslib/tslib.es6.js","@patternfly/pfe-core":"/pr-previews/pr-60/assets/packages/@patternfly/pfe-core/core.js","@patternfly/":"/pr-previews/pr-60/assets/packages/@patternfly/"},"/pr-previews/pr-60/assets/packages/lit/":{"@lit/reactive-element":"/pr-previews/pr-60/assets/packages/@lit/reactive-element/reactive-element.js","lit-element/lit-element.js":"/pr-previews/pr-60/assets/packages/lit-element/lit-element.js","lit-html":"/pr-previews/pr-60/assets/packages/lit/node_modules/lit-html/lit-html.js","@lit/reactive-element/decorators/":"/pr-previews/pr-60/assets/packages/@lit/reactive-element/decorators/","lit-html/":"/pr-previews/pr-60/assets/packages/lit/node_modules/lit-html/"},"/pr-previews/pr-60/assets/packages/lit-element/":{"@lit/reactive-element":"/pr-previews/pr-60/assets/packages/@lit/reactive-element/reactive-element.js","lit-html":"/pr-previews/pr-60/assets/packages/lit-element/node_modules/lit-html/lit-html.js"},"/pr-previews/pr-60/assets/packages/@floating-ui/dom/":{"@floating-ui/core":"/pr-previews/pr-60/assets/packages/@floating-ui/core/dist/floating-ui.core.browser.min.mjs"},"/pr-previews/pr-60/assets/packages/@patternfly/pfe-core/":{"@floating-ui/dom":"/pr-previews/pr-60/assets/packages/@floating-ui/dom/dist/floating-ui.dom.browser.min.mjs","tslib":"/pr-previews/pr-60/assets/packages/tslib/tslib.es6.js","@patternfly/pfe-core/functions/isElementInView.js":"/pr-previews/pr-60/assets/packages/@patternfly/pfe-core/functions/isElementInView.js","lit":"/pr-previews/pr-60/assets/packages/lit/index.js"}}}</script>
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.5.9/dist/es-module-shims.js"></script>
+    <script type="module">
+    import { PfIcon } from '@patternfly/elements/pf-icon/pf-icon.js';
+    import 'element-internals-polyfill';
+    import '@rhds/elements/rh-alert/rh-alert.js';
+    import '@rhds/elements/rh-pagination/rh-pagination.js';
+    import '@rhds/elements/rh-footer/rh-footer.js';
+    import '@rhds/elements/rh-navigation-secondary/rh-navigation-secondary.js';
+    import '@rhds/elements/rh-stat/rh-stat.js';
+    import '@rhds/elements/rh-tag/rh-tag.js';
+    import '@rhds/elements/rh-cta/rh-cta.js';
+    // Workaround for bundled pf-icon: make icon imports absolute, instead of relative to the bundle
+    PfIcon.getIconUrl = (set, icon) =>
+      new URL(`/assets/packages/@patternfly/elements/pf-icon/icons/${set}/${icon}.js`, import.meta.url);
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-JENJLEJFBY"></script>
+    <script async defer>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JENJLEJFBY');
+    </script>
+  </head>
+  <body>
+    <header>
+      <div id="main-header">
+        <a href="/pr-previews/pr-60/">
+          <img src="https://static.redhat.com/libs/redhat/brand-assets/2/corp/logo--on-dark.svg" alt="Red Hat Israel"/>
+        </a>
+      </div>
+      <rh-navigation-secondary role="navigation">
+        <a href="/pr-previews/pr-60/" slot="logo" id="logo-id">
+          רד הט ישראל
+        </a>
+        <ul slot="nav" aria-labelledby="logo-id">
+          <li class=""><a href="/pr-previews/pr-60/">בית</a></li>
+          <li class=""><a href="/pr-previews/pr-60/about/">אודותינו</a></li>
+          <li class=""><a href="/pr-previews/pr-60/posts/">פוסטים</a></li>
+          <li class=""><a href="/pr-previews/pr-60/publicity/1/">כותבים עלינו</a></li>
+          <li class=""><a href="/pr-previews/pr-60/community/">מעורבות בקהילה</a></li>
+        </ul>
+        <rh-cta slot="cta">
+          <a href="/pr-previews/pr-60/#stats">להתחיל</a>
+        </rh-cta>
+      </rh-navigation-secondary>
+    </header>
+
+    <main
+      class="tmpl-post"
+      lang="en"
+      dir="ltr">
+      <header>
+  <h1>Decompose Conditionals and its tradeoffs</h1>
+  
+  <div itemscope itemtype="https://schema.org/Person">
+    <span itemprop="name">Tomer Brisker</span>
+    
+    - <span itemprop="jobTitle">Principal Software Engineer</span>
+    
+  </div>
+  
+
+  <time datetime="2022-12-18">18 דצמ׳ 2022</time>
+
+</header>
+
+<aside>
+  <h2>תגיות</h2>
+  <ul id="post-tags">
+    <li><rh-tag><a href="/pr-previews/pr-60/tags/refactoring/" class="post-tag">refactoring</a></rh-tag></li>
+    <li><rh-tag><a href="/pr-previews/pr-60/tags/cleancode/" class="post-tag">cleancode</a></rh-tag></li>
+    <li><rh-tag><a href="/pr-previews/pr-60/tags/go/" class="post-tag">go</a></rh-tag></li>
+    <li><rh-tag><a href="/pr-previews/pr-60/tags/codequality/" class="post-tag">codequality</a></rh-tag></li>
+  </ul>
+  <ul>
+    <li>הבא: <a href="/pr-previews/pr-60/posts/2023-01-16-how-prevent-computer-overload-remote-kind-clusters/">How to prevent computer overload with remote kind clusters</a></li>
+    <li>הקודם: <a href="/pr-previews/pr-60/posts/form-associated-custom-elements/">Form-Associated Custom Elements</a></li>
+  </ul>
+</aside>
+
+<div id="post-body">
+  
+  <h1 id="decompose-conditionals-and-its-tradeoffs" tabindex="-1">Decompose Conditionals and its tradeoffs <a class="direct-link" href="#decompose-conditionals-and-its-tradeoffs" aria-hidden="true">#</a></h1>
+<p>Decomposing conditionals is a common refactoring strategy.
+The main idea is that a complex <code>if... else...</code> statement is difficult to follow and understand, and can be decomposed into smaller pieces. But it does not come without a cost.</p>
+<hr>
+<p>Instead of having multi-line conditions, the decompose conditional pattern states that conditional logic should be extracted to 3 separate methods, one for each part of the statement: one for the condition itself, one for the &quot;true&quot; branch and one for the &quot;false&quot; branch.</p>
+<p>For example, if your code looks like this:</p>
+<pre class="language-go"><code class="language-go"><span class="token operator">...</span><span class="token punctuation">.</span><br><span class="token keyword">if</span> baby<span class="token punctuation">.</span><span class="token function">IsAwake</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> baby<span class="token punctuation">.</span>State <span class="token operator">==</span> <span class="token string">"Crying"</span> <span class="token operator">&amp;&amp;</span> baby<span class="token punctuation">.</span>TimeSinceLastMeal <span class="token operator">></span> <span class="token number">3</span> <span class="token operator">*</span> time<span class="token punctuation">.</span>Hour <span class="token punctuation">{</span><br>    <span class="token keyword">if</span> baby<span class="token punctuation">.</span>Diaper<span class="token punctuation">.</span><span class="token function">IsDirty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        baby<span class="token punctuation">.</span><span class="token function">ChangeDiaper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>    <span class="token punctuation">}</span><br>    bottle <span class="token operator">:=</span> <span class="token function">NewBabyBottle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>    bottle<span class="token punctuation">.</span><span class="token function">FillWater</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>    bottle<span class="token punctuation">.</span><span class="token function">AddMilkFormula</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>    bottle<span class="token punctuation">.</span><span class="token function">Shake</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>    baby<span class="token punctuation">.</span><span class="token function">Feed</span><span class="token punctuation">(</span>bottle<span class="token punctuation">)</span><br>    baby<span class="token punctuation">.</span><span class="token function">Burp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span><br>    baby<span class="token punctuation">.</span><span class="token function">Cuddle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>    baby<span class="token punctuation">.</span><span class="token function">Play</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><br><span class="token operator">...</span><span class="token punctuation">.</span></code></pre>
+<p>Decomposing the conditional would mean refactoring your code to look something like this:</p>
+<pre class="language-go"><code class="language-go"><span class="token operator">...</span><span class="token punctuation">.</span><br><span class="token keyword">if</span> baby<span class="token punctuation">.</span><span class="token function">IsHungry</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    baby<span class="token punctuation">.</span><span class="token function">ChangeAndFeed</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span><br>    baby<span class="token punctuation">.</span><span class="token function">FunTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><br><span class="token operator">...</span><span class="token punctuation">.</span><br><span class="token keyword">func</span> <span class="token punctuation">(</span>baby <span class="token operator">*</span>Baby<span class="token punctuation">)</span> <span class="token function">IsHungry</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">return</span> baby<span class="token punctuation">.</span><span class="token function">IsAwake</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> baby<span class="token punctuation">.</span>State <span class="token operator">==</span> <span class="token string">"Crying"</span> <span class="token operator">&amp;&amp;</span> baby<span class="token punctuation">.</span>TimeSinceLastMeal <span class="token operator">></span> <span class="token number">3</span> <span class="token operator">*</span> time<span class="token punctuation">.</span>Hour<br><span class="token punctuation">}</span><br><br><span class="token keyword">func</span> <span class="token punctuation">(</span>baby <span class="token operator">*</span>Baby<span class="token punctuation">)</span> <span class="token function">ChangeAndFeed</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">if</span> baby<span class="token punctuation">.</span>Diaper<span class="token punctuation">.</span><span class="token function">IsDirty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>        baby<span class="token punctuation">.</span><span class="token function">ChangeDiaper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>    <span class="token punctuation">}</span><br>    bottle <span class="token operator">:=</span> <span class="token function">NewBabyBottle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>    bottle<span class="token punctuation">.</span><span class="token function">FillWater</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>    bottle<span class="token punctuation">.</span><span class="token function">AddMilkFormula</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>    bottle<span class="token punctuation">.</span><span class="token function">Shake</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>    baby<span class="token punctuation">.</span><span class="token function">Feed</span><span class="token punctuation">(</span>bottle<span class="token punctuation">)</span><br>    baby<span class="token punctuation">.</span><span class="token function">Burp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><br><br><span class="token keyword">func</span> <span class="token punctuation">(</span>baby <span class="token operator">*</span>Baby<span class="token punctuation">)</span> <span class="token function">FunTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    baby<span class="token punctuation">.</span><span class="token function">Cuddle</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br>    baby<span class="token punctuation">.</span><span class="token function">Play</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span></code></pre>
+<p>This change makes the main method flow much simpler to understand and follow, by abstracting away the complex logic that might not always be relevant for the reader.</p>
+<p>Extracting the logic to separate methods also allows us to more easily reuse or refactor our code in the future, as the logic is better encapsulated. For example, once our baby starts eating solid foods, we can modify the <code>ChangeAndFeed</code> method to reflect that easily, without needing to touch any code that is not directly related to this change, and the same is true if the logic for checking if the baby is hungry ever changes - for example, once our baby starts eating at 4 hour intervals.</p>
+<p>Another benefit from decomposing the conditional is that we can now write unit tests for the decomposed methods, ensuring that our logic is correct, and that it will not break due to future changes.</p>
+<hr>
+<p>If decomposing conditionals is so great, than why don't we always do it?
+Like everything in software engineering, there is a tradeoff.</p>
+<p>When extracting logic to a separate method, there is additional overhead. While the overhead of a function call in most languages is minimal (except in very extreme cases, such as deep recursion or tightly resource-constrained environments), the overhead for the code reader is not. Software engineers spend much more time reading code than they do writing code, and we should always think about how we can make our code more readable. Jumping back and forth between method definitions and calls adds complexity for the reader who is interested in understanding what the code does, for example when reviewing or debugging it.</p>
+<p>Take the following code for example. Which version is easier to understand and follow, this one:</p>
+<pre class="language-go"><code class="language-go"><span class="token keyword">if</span> <span class="token function">len</span><span class="token punctuation">(</span>orgIDs<span class="token punctuation">)</span> <span class="token operator">></span> maxItems <span class="token operator">||</span> <span class="token function">len</span><span class="token punctuation">(</span>userIDs<span class="token punctuation">)</span> <span class="token operator">></span> maxItems <span class="token punctuation">{</span><br>   <span class="token keyword">return</span> errors<span class="token punctuation">.</span><span class="token function">BadRequest</span><span class="token punctuation">(</span><span class="token string">"Too Many Items"</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span></code></pre>
+<p>or this one?</p>
+<pre class="language-go"><code class="language-go"><span class="token keyword">if</span> <span class="token function">validateIDsSize</span><span class="token punctuation">(</span>orgIDs<span class="token punctuation">,</span> userIDs<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">return</span> <span class="token function">tooManyItems</span><span class="token punctuation">(</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span><br><span class="token operator">...</span><span class="token punctuation">.</span><br><span class="token keyword">func</span> <span class="token function">validateIDsSize</span><span class="token punctuation">(</span>ids <span class="token operator">...</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token builtin">bool</span> <span class="token punctuation">{</span><br>	<span class="token keyword">for</span> <span class="token boolean">_</span><span class="token punctuation">,</span> idGroup <span class="token operator">:=</span> <span class="token keyword">range</span> ids <span class="token punctuation">{</span><br>		<span class="token keyword">if</span> <span class="token function">len</span><span class="token punctuation">(</span>idGroup<span class="token punctuation">)</span> <span class="token operator">></span> maxItems <span class="token punctuation">{</span><br>			<span class="token keyword">return</span> <span class="token boolean">true</span><br>		<span class="token punctuation">}</span><br>	<span class="token punctuation">}</span><br>	<span class="token keyword">return</span> <span class="token boolean">false</span><br><span class="token punctuation">}</span><br><br><span class="token keyword">func</span> <span class="token function">tooManyItems</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token builtin">error</span> <span class="token punctuation">{</span><br>    <span class="token keyword">return</span> errors<span class="token punctuation">.</span><span class="token function">BadRequest</span><span class="token punctuation">(</span><span class="token string">"Too Many Items"</span><span class="token punctuation">)</span><br><span class="token punctuation">}</span></code></pre>
+<p>The keyword here is <em>Complexity</em>. The question we should be asking is: &quot;Is this piece of code complex enough that extracting it to a separate method will make it more readable or not?&quot;
+If the answer is that the code is clear enough to understand inline, we should avoid decomposing it to a separate function unless there is a very good reason to do so - such as a need for re-usability or testing.</p>
+<hr>
+<p>The second example also shows another common risk we face when extracting logic to separate methods: a premature attempt at generalization. While the first version only checks two specific values, the second one tries to create a generic function that can accept any number of values.</p>
+<p>The generic version of the check creates additional complexity to handle all possible cases, instead of a simpler check to handle the specific case we are facing.
+If we have many similar cases with different values being checked, it could make sense to create a generic function that handles all cases.
+However, we often find a generic function being only used in one or two places, in which case - the added complexity usually doesn't pay off when compared to a non-generic version.</p>
+<p>We also don't yet know that all potential future cases will behave the same. For example, what if in the future different values will have different limits? The generic implementation assumes all values are limited by <code>maxItems</code> - meaning if this assumption ever changes, this method will become even more complex. A non-generic implementation is easier to change as we discover new requirements.</p>
+<hr>
+<p>When used correctly, decomposing conditionals is a useful refactoring method that can make our code easier to understand, easier to test, and more reusable. However, before we approach refactoring our code, we must always keep in mind our end goals and consider the possible tradeoffs in each approach.</p>
+
+</div>
+
+    </main>
+
+    <rh-footer>
+      <a slot="logo" href="/pr-previews/pr-60/">
+        <img src="https://static.redhat.com/libs/redhat/brand-assets/2/corp/logo--on-dark.svg" alt="Red Hat Israel logo" loading="lazy"/> 
+      </a>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://www.linkedin.com/company/red-hat">
+          <pf-icon icon="linkedin" set="fab">LinkedIn</pf-icon>
+        </a>
+      </rh-footer-social-link>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://www.youtube.com/user/RedHatVideos">
+          <pf-icon icon="youtube" set="fab">Youtube</pf-icon>
+        </a>
+      </rh-footer-social-link>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://www.facebook.com/redhatinc">
+          <pf-icon icon="facebook" set="fab">Facebook</pf-icon>
+        </a>
+      </rh-footer-social-link>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://twitter.com/RedHat">
+          <pf-icon icon="twitter" set="fab">Twitter</pf-icon>
+        </a>
+      </rh-footer-social-link>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://github.com/redhat-israel">
+          <pf-icon icon="github" set="fab">GitHub</pf-icon>
+        </a>
+      </rh-footer-social-link>
+      <h3 slot="links">המוצרים שלנו</h3>
+      <ul slot="links">
+        <li><a href="https://www.redhat.com/en/technologies/management/ansible">Red Hat Ansible Automation Platform</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">Red Hat Enterprise Linux</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/cloud-computing/openshift">Red Hat OpenShift</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/cloud-computing/openshift-data-foundation">Red Hat OpenShift Data Foundation</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/linux-platforms/openstack-platform">Red Hat OpenStack Platform</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/all-products">See all products</a></li>
+      </ul>
+      <h3 slot="links">צרו קשר</h3>
+      <ul slot="links">
+        <li><a href="https://www.redhat.com/en/contact">כתבו לנו</a></li>
+        <li><a href="https://www.redhat.com/en/about/feedback">שלחו לנו פידבק</a></li>
+        <li><a href="https://www.redhat.com/en/about/social">עקבו אחרינו ברשתות החברתיות</a></li>
+      </ul>
+      <rh-footer-block slot="main-secondary">
+        <h3 slot="header">רד האט</h3>
+        <p>רד האט היא החברה המובילה בעולם לפתרונות תוכנה מבוססי קוד פתוח לארגוני Enterprise.
+רד האט מבוססת על כוחה של קהילת הקוד הפתוח בפיתוח ואספקת טכנולוגיות Linux, Cloud, Container, ו-Kubernetes.
+אנחנו מסייעים ללקוחות לשלב בין יישומי IT חדשים וקיימים, לפתח יישומים רב-ענניים
+(multi-cloud), לבצע סטנדרטיזציה של מערכת ההפעלה, יחד עם אוטומציה, אבטחה וניהול של סביבות מורכבות.</p>
+
+      </rh-footer-block>
+      <rh-global-footer slot="global" class=" no-secondary-links">
+        <h3 slot="links-primary" hidden>Red Hat legal and privacy links</h3>
+        <ul slot="links-primary">
+          <li><a href="https://www.redhat.com/en/about/privacy-policy">הצהרת פרטיות</a></li>
+          <li><a href="https://www.redhat.com/en/about/terms-use">תנאי שימוש</a></li>
+          <li><a href="https://www.redhat.com/en/about/digital-accessibility">נגישות דיגיטלית</a></li>
+        </ul>
+      </rh-global-footer>
+    </rh-footer>
+
+    <!-- Current page: /pr-previews/pr-60/posts/2022-12-18-decompose-conditionals-and-its-tradeoffs-36ba/ -->
+  </body>
+</html>

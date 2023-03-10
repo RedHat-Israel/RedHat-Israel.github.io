@@ -30,6 +30,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("posts/assets");
   eleventyConfig.addPassthroughCopy({"node_modules/element-internals-polyfill/": "/assets/packages/"});
+  eleventyConfig.setQuietMode(true)
 
   // Add plugins
   eleventyConfig.addPlugin(pluginRss);
@@ -42,11 +43,7 @@ module.exports = function(eleventyConfig) {
     defaultProvider: 'nodemodules',
     localPackages: [
       'lit',
-      'lit-html',
       'tslib',
-      '@lit/reactive-element',
-      '@patternfly/pfe-core',
-      '@patternfly/elements',
       '@patternfly/elements/pf-accordion/pf-accordion.js',
       '@patternfly/elements/pf-button/pf-button.js',
       '@patternfly/elements/pf-card/pf-card.js',
@@ -58,7 +55,6 @@ module.exports = function(eleventyConfig) {
       '@patternfly/elements/pf-tabs/pf-tabs.js',
       '@patternfly/elements/pf-tooltip/BaseTooltip.js',
       '@patternfly/elements/pf-tooltip/pf-tooltip.js',
-      '@rhds/elements',
       '@rhds/elements/rh-alert/rh-alert.js',
       '@rhds/elements/rh-cta/rh-cta.js',
       '@rhds/elements/rh-footer/rh-footer.js',

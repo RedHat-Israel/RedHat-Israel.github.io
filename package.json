@@ -35,7 +35,6 @@
     "element-internals-polyfill": "^1.2.6",
     "eleventy-plugin-postcss": "^1.0.4",
     "esbuild": "^0.17.11",
-    "github-repository": "^0.4.0",
     "js-yaml": "^4.1.0",
     "luxon": "^3.3.0",
     "markdown-it": "^13.0.1",

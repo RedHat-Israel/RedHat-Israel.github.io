@@ -43,27 +43,24 @@ module.exports = function(eleventyConfig, {
     await generator.install(localPackages);
     performance.mark('importMap-afterLocalPackages');
 
-    // Node modules
-    generator.importMap.replace(pathToFileURL(join(cwd, 'node_modules/')).href, '/assets/packages/');
+    generator.importMap
+      .flatten()
+      .replace(pathToFileURL(join(cwd, 'node_modules/')).href, '/assets/packages/')
+      .combineSubpaths()
 
+    const json = generator.importMap.toJSON();
 
-    const json = generator.importMap/*.flatten()*/.combineSubpaths().toJSON();
+    Object.entries(json.scopes).forEach(([k, v]) => {
+      Object.entries(v).forEach(([K, V]) => {
+        json.scopes[k][K] = V.replace('./node_modules', '/assets/packages')
+      });
+    });
 
-    // HACK: extract the scoped imports to the main map, since they're all local
-    // this might not be necessary if we flatten to a single lit version
-    Object.assign(json.imports ?? {}, Object.values(json.scopes ?? {}).find(x => 'lit-html' in x));
-    // ENDHACK
+    json.scopes['/assets/packages/']['@patternfly/pfe-core'] = '/assets/packages/@patternfly/pfe-core/core.js';
 
     Object.assign(json.imports ?? {}, {
       'element-internals-polyfill': '/assets/packages/element-internals-polyfill/dist/index.js',
     });
-
-    // TODO: automate this
-    // Object.assign(json.imports ?? {}, {
-    //   '@rhds/elements/lib/': '/assets/packages/@rhds/elements/lib/',
-    //   '@rhds/elements/lib/context/': '/assets/packages/@rhds/elements/lib/context/',
-    //   '@rhds/elements/lib/context/color/': '/assets/packages/@rhds/elements/lib/context/color/',
-    // });
 
     performance.mark('importMap-end');
 

@@ -30,6 +30,27 @@
     <script async src="https://ga.jspm.io/npm:es-module-shims@1.7.0/dist/es-module-shims.js"></script>
     <script type="importmap">{{ (importMap | importMapURLs) | dump | safe }}</script>
     <script type="module">
+    import { PfIcon } from '@patternfly/elements/pf-icon/pf-icon.js';
+    const iconBase = '{{"/assets/packages/@patternfly/elements/pf-icon/icons"|url}}';
+    PfIcon.getIconUrl = (set, icon) => new URL(`${iconBase}/${set}/${icon}.js`, new URL(location.origin));;
+    PfIcon.prototype.load = async function load() {
+      const { set, icon, } = this;
+      const getter = PfIcon.getters.get(set) ?? PfIcon.getIconUrl;
+      let pathname = 'UNKNOWN ICON';
+      if (set && icon) {
+        try {
+          ({ pathname } = getter(set, icon));
+          const mod = await import(pathname);
+          this.content = mod.default instanceof Node ? mod.default.cloneNode(true) : mod.default;
+          await this.updateComplete;
+          this.dispatchEvent(new Event('load', { bubbles: true }));
+        } catch (error) {
+          const event = new IconLoadError(pathname, error);
+          console.error.error(error.message);
+          this.dispatchEvent(event);
+        }
+      }
+    }
     import 'element-internals-polyfill';
     import '@rhds/elements/rh-alert/rh-alert.js';
     import '@rhds/elements/rh-pagination/rh-pagination.js';
@@ -38,10 +59,6 @@
     import '@rhds/elements/rh-stat/rh-stat.js';
     import '@rhds/elements/rh-tag/rh-tag.js';
     import '@rhds/elements/rh-cta/rh-cta.js';
-    // Workaround for bundled pf-icon: make icon imports absolute, instead of relative to the bundle
-    import { PfIcon } from '@patternfly/elements/pf-icon/pf-icon.js';
-    const iconBase = '{{"/assets/packages/@patternfly/elements/pf-icon/icons"|url}}';
-    PfIcon.getIconUrl = (set, icon) => new URL(`${iconBase}/${set}/${icon}.js`, location.origin);
     </script>
   </head>
   <body>

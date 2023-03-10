@@ -10,18 +10,6 @@ module.exports = function(eleventyConfig, {
     packageName: spec.replace(/^@/, '$').replace(/@.*$/, '').replace(/^\$/, '@')
   }));
 
-  // copy over local packages
-  for (const { packageName } of specs) {
-    eleventyConfig.addPassthroughCopy({ [`node_modules/${packageName}`]: `/assets/packages/${packageName}` });
-  }
-
-  // HACK: copy lit transitive deps
-  // this might not be necessary if we flatten to a single lit version
-  for (const packageName of ['lit-html', 'lit-element']) {
-    eleventyConfig.addPassthroughCopy({ [`node_modules/${packageName}`]: `/assets/packages/${packageName}` });
-  }
-  // ENDHACK
-
   eleventyConfig.addGlobalData('importMap', async function importMap() {
     performance.mark('importMap-start');
 

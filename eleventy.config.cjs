@@ -29,8 +29,10 @@ module.exports = function(eleventyConfig) {
   // Copy the `assets` folder to the output
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("posts/assets");
-  eleventyConfig.addPassthroughCopy({"node_modules/element-internals-polyfill/": "/assets/packages/"});
-  eleventyConfig.setQuietMode(true)
+  eleventyConfig.addPassthroughCopy({
+    'node_modules/@rhds/elements/': "/assets/packages/@rhds/elements/",
+    'node_modules/@patternfly/elements/pf-icon/icons/': '/assets/packages/@patternfly/elements/pf-icon/icons/',
+  });
 
   // Add plugins
   eleventyConfig.addPlugin(pluginRss);
@@ -65,10 +67,6 @@ module.exports = function(eleventyConfig) {
       '@rhds/tokens',
     ],
   });
-
-  eleventyConfig.addPassthroughCopy({
-    'node_modules/@patternfly/elements/pf-icon/icons/': '/assets/packages/@patternfly/elements/pf-icon/icons',
-  })
 
   eleventyConfig.addFilter('importMapURLs', function(importMap) {
     const url = eleventyConfig.getFilter('url');

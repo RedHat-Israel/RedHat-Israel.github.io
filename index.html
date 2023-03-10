@@ -25,11 +25,11 @@
     
     <noscript><link rel="stylesheet" href="/assets/css/noscript.css"></noscript>
 
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.7.0/dist/es-module-shims.js"></script>
     <script type="importmap">{"imports":{"tslib":"/assets/packages/tslib/tslib.es6.js","@patternfly/pfe-core":"/assets/packages/@patternfly/pfe-core/core.js","@rhds/elements":"/assets/packages/@rhds/elements/rhds.min.js","@rhds/tokens":"/assets/packages/@rhds/tokens/js/tokens.js","@lit/reactive-element":"/assets/packages/@lit/reactive-element/reactive-element.js","lit":"/assets/packages/lit/index.js","@patternfly/elements/pf-accordion/pf-accordion.js":"/assets/packages/@patternfly/elements/pf-accordion/pf-accordion.js","@patternfly/elements/pf-button/pf-button.js":"/assets/packages/@patternfly/elements/pf-button/pf-button.js","@patternfly/elements/pf-card/pf-card.js":"/assets/packages/@patternfly/elements/pf-card/pf-card.js","@patternfly/elements/pf-icon/pf-icon.js":"/assets/packages/@patternfly/elements/pf-icon/pf-icon.js","@patternfly/elements/pf-modal/pf-modal.js":"/assets/packages/@patternfly/elements/pf-modal/pf-modal.js","@patternfly/elements/pf-panel/pf-panel.js":"/assets/packages/@patternfly/elements/pf-panel/pf-panel.js","@patternfly/elements/pf-spinner/BaseSpinner.js":"/assets/packages/@patternfly/elements/pf-spinner/BaseSpinner.js","@patternfly/elements/pf-spinner/pf-spinner.js":"/assets/packages/@patternfly/elements/pf-spinner/pf-spinner.js","@patternfly/elements/pf-tabs/pf-tabs.js":"/assets/packages/@patternfly/elements/pf-tabs/pf-tabs.js","@rhds/elements/rh-alert/rh-alert.js":"/assets/packages/@rhds/elements/elements/rh-alert/rh-alert.js","@rhds/elements/rh-pagination/rh-pagination.js":"/assets/packages/@rhds/elements/elements/rh-pagination/rh-pagination.js","@rhds/elements/rh-tag/rh-tag.js":"/assets/packages/@rhds/elements/elements/rh-tag/rh-tag.js","@rhds/elements/rh-cta/rh-cta.js":"/assets/packages/@rhds/elements/elements/rh-cta/rh-cta.js","@rhds/elements/rh-stat/rh-stat.js":"/assets/packages/@rhds/elements/elements/rh-stat/rh-stat.js","@rhds/elements/rh-navigation-secondary/rh-navigation-secondary.js":"/assets/packages/@rhds/elements/elements/rh-navigation-secondary/rh-navigation-secondary.js","@rhds/elements/rh-footer/rh-footer.js":"/assets/packages/@rhds/elements/elements/rh-footer/rh-footer.js","@patternfly/elements":"/assets/packages/@patternfly/elements/pfe.min.js","@patternfly/elements/pf-tooltip/BaseTooltip.js":"/assets/packages/@patternfly/elements/pf-tooltip/BaseTooltip.js","@patternfly/elements/pf-tooltip/pf-tooltip.js":"/assets/packages/@patternfly/elements/pf-tooltip/pf-tooltip.js","lit-html":"/assets/packages/lit/node_modules/lit-html/lit-html.js","lit-element/lit-element.js":"/assets/packages/lit-element/lit-element.js","@lit/reactive-element/decorators/":"/assets/packages/@lit/reactive-element/decorators/","lit-html/":"/assets/packages/lit/node_modules/lit-html/","element-internals-polyfill":"/assets/packages/element-internals-polyfill/dist/index.js"},"scopes":{"/assets/packages/@patternfly/elements/":{"@patternfly/":"/assets/packages/@patternfly/","lit":"/assets/packages/lit/index.js","tslib":"/assets/packages/tslib/tslib.es6.js","lit/":"/assets/packages/lit/","@patternfly/pfe-core":"/assets/packages/@patternfly/pfe-core/core.js","@floating-ui/dom":"/assets/packages/@floating-ui/dom/dist/floating-ui.dom.browser.min.mjs"},"/assets/packages/@rhds/elements/":{"@rhds/elements/rh-accordion/rh-accordion.js":"/assets/packages/@rhds/elements/elements/rh-accordion/rh-accordion.js","lit":"/assets/packages/lit/index.js","lit/":"/assets/packages/lit/","tslib":"/assets/packages/tslib/tslib.es6.js","@patternfly/pfe-core":"/assets/packages/@patternfly/pfe-core/core.js","@patternfly/":"/assets/packages/@patternfly/"},"/assets/packages/lit/":{"@lit/reactive-element":"/assets/packages/@lit/reactive-element/reactive-element.js","lit-element/lit-element.js":"/assets/packages/lit-element/lit-element.js","lit-html":"/assets/packages/lit/node_modules/lit-html/lit-html.js","@lit/reactive-element/decorators/":"/assets/packages/@lit/reactive-element/decorators/","lit-html/":"/assets/packages/lit/node_modules/lit-html/"},"/assets/packages/lit-element/":{"@lit/reactive-element":"/assets/packages/@lit/reactive-element/reactive-element.js","lit-html":"/assets/packages/lit-element/node_modules/lit-html/lit-html.js"},"/assets/packages/@floating-ui/dom/":{"@floating-ui/core":"/assets/packages/@floating-ui/core/dist/floating-ui.core.browser.min.mjs"},"/assets/packages/@patternfly/pfe-core/":{"@floating-ui/dom":"/assets/packages/@floating-ui/dom/dist/floating-ui.dom.browser.min.mjs","tslib":"/assets/packages/tslib/tslib.es6.js","@patternfly/pfe-core/functions/isElementInView.js":"/assets/packages/@patternfly/pfe-core/functions/isElementInView.js","lit":"/assets/packages/lit/index.js"}}}</script>
-    <script async src="https://ga.jspm.io/npm:es-module-shims@1.5.9/dist/es-module-shims.js"></script>
     <script type="module">
-    import { PfIcon } from '@patternfly/elements/pf-icon/pf-icon.js';
     import 'element-internals-polyfill';
+    import { PfIcon } from '@patternfly/elements/pf-icon/pf-icon.js';
     import '@rhds/elements/rh-alert/rh-alert.js';
     import '@rhds/elements/rh-pagination/rh-pagination.js';
     import '@rhds/elements/rh-footer/rh-footer.js';
@@ -38,16 +38,9 @@
     import '@rhds/elements/rh-tag/rh-tag.js';
     import '@rhds/elements/rh-cta/rh-cta.js';
     // Workaround for bundled pf-icon: make icon imports absolute, instead of relative to the bundle
+    const iconBase = '/assets/packages/@patternfly/elements/pf-icon/icons';
     PfIcon.getIconUrl = (set, icon) =>
-      new URL(`/assets/packages/@patternfly/elements/pf-icon/icons/${set}/${icon}.js`, import.meta.url);
-    </script>
-    <!-- Google tag (gtag.js) -->
-    <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-JENJLEJFBY"></script>
-    <script async defer>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-JENJLEJFBY');
+      new URL(`${iconBase}/${set}/${icon}.js`, import.meta.url);
     </script>
   </head>
   <body>
@@ -67,6 +60,7 @@
           <li class=""><a href="/posts/">פוסטים</a></li>
           <li class=""><a href="/publicity/1/">כותבים עלינו</a></li>
           <li class=""><a href="/community/">מעורבות בקהילה</a></li>
+          <li><a href="https://talkingopen.podbean.com/">הסכת - מדברים פתוח</a></li>
         </ul>
         <rh-cta slot="cta">
           <a href="/#stats">להתחיל</a>
@@ -94,7 +88,7 @@
       <path d="M17.24 21.54a.62.62 0 0 0 .74-.49l1.24-5.84a.64.64 0 0 0-.48-.75.63.63 0 0 0-.74.54l-1.25 5.84a.64.64 0 0 0 .49.7ZM23.12 18 21 20.11a.63.63 0 1 0 .88.89l2.56-2.56a.62.62 0 0 0 0-.89L21.88 15a.63.63 0 1 0-.88.88Zm-9 3a.63.63 0 0 0 .88-.89L12.88 18 15 15.87c.59-.56-.31-1.46-.88-.88l-2.56 2.56a.62.62 0 0 0 0 .89Z"/>
     </svg>
     <span slot="title">Commits</span>
-    <span slot="statistic">31228</span>
+    <span slot="statistic">31378</span>
     <p slot="description"></p>
   </rh-stat>
 
@@ -103,7 +97,7 @@
       <path d="M32.18 20.65h-4.86a9.33 9.33 0 0 0-.75-3.12h2.34a.6.6 0 0 0 .44-.18l2.18-2.18a.62.62 0 0 0-.88-.88l-2 2H25.9a9.41 9.41 0 0 0-5.43-4 3.9 3.9 0 1 0-4.94 0 9.41 9.41 0 0 0-5.43 4H7.35l-2-2a.62.62 0 0 0-.88.88l2.18 2.18a.6.6 0 0 0 .44.18h2.34a9.33 9.33 0 0 0-.75 3.12H3.82a.63.63 0 1 0 0 1.25h4.86a9.21 9.21 0 0 0 .75 3.1H7.09a.65.65 0 0 0-.44.18l-2.18 2.2a.61.61 0 0 0 0 .88.63.63 0 0 0 .88 0l2-2h2.75a9.34 9.34 0 0 0 15.8 0h2.75l2 2a.63.63 0 0 0 .88 0 .61.61 0 0 0 0-.88l-2.18-2.19a.65.65 0 0 0-.44-.18h-2.34a9.21 9.21 0 0 0 .75-3.11h4.86a.63.63 0 1 0 0-1.25ZM15.35 9.27A2.65 2.65 0 1 1 18 11.92a2.65 2.65 0 0 1-2.65-2.65ZM18 29.38a8.11 8.11 0 1 1 8.1-8.11 8.11 8.11 0 0 1-8.1 8.11Z"/>
     </svg>
     <span slot="title">Issues</span>
-    <span slot="statistic">1884</span>
+    <span slot="statistic">1892</span>
     <p slot="description"></p>
   </rh-stat>
 
@@ -112,7 +106,7 @@
       <path d="M12.87 24.29a3.86 3.86 0 1 0-4.74 0A7.12 7.12 0 0 0 3.37 31a.63.63 0 0 0 .63.62h13a.62.62 0 0 0 .62-.62 7.12 7.12 0 0 0-4.75-6.71Zm-5-3a2.63 2.63 0 0 1 5.25 0 2.63 2.63 0 0 1-5.25-.04Zm-3.21 9.09c.87-6.95 10.81-6.94 11.68 0Zm23.21-20.09a3.86 3.86 0 1 0-4.74 0A7.12 7.12 0 0 0 18.37 17a.63.63 0 0 0 .63.62h13a.62.62 0 0 0 .62-.62 7.12 7.12 0 0 0-4.75-6.71Zm-5-3a2.63 2.63 0 0 1 5.25 0 2.63 2.63 0 0 1-5.25-.04Zm-3.21 9.13c.87-6.95 10.81-6.94 11.68 0Zm-13.9 2.16a.63.63 0 0 0 .48-1.16.63.63 0 0 0-.48 1.16Zm.37-2.43a.63.63 0 0 0 .25-1.23.62.62 0 0 0-.73.49.64.64 0 0 0 .48.74Zm.63-2.4a.63.63 0 0 0 .5-1.15.63.63 0 0 0-.5 1.15Zm5.1-5.44a.62.62 0 0 0 .32-.09.63.63 0 1 0-.32.08Zm4.66-1.6a.62.62 0 1 0-.08-1.24.62.62 0 0 0 .08 1.24Zm-2.41.56a.62.62 0 1 0-.21-1.21.62.62 0 0 0 .21 1.21ZM9.88 9.79C11 9.7 10.37 8 9.45 8.71a.63.63 0 0 0 .43 1.08Zm-1.64 1.86a.61.61 0 0 0 .5-.26.63.63 0 1 0-.51.26Zm10.32-5.17c.57.58 1.47-.31.88-.88a.62.62 0 0 0-.88.88Zm11.88 13.08a.62.62 0 0 0-.88.88.62.62 0 0 0 .88-.88Zm-2.78 4.74a.62.62 0 0 0 1 .69.62.62 0 0 0-1-.69Zm-1.5 1.85c-.59.55.32 1.47.88.88s-.33-1.47-.88-.88Zm3.4-4.31a.62.62 0 0 0-.45 1.16.62.62 0 0 0 .45-1.16Zm-7.36 6.9a.63.63 0 0 0 .46 1.17.63.63 0 0 0-.46-1.17Zm2.11-1.09A.63.63 0 0 0 25 28.7a.63.63 0 0 0-.69-1.05Zm-3.87 1.91c-.57-.59-1.46.31-.88.88s1.44-.31.88-.88Z"/>
     </svg>
     <span slot="title">PRs</span>
-    <span slot="statistic">11984</span>
+    <span slot="statistic">12047</span>
     <p slot="description"></p>
   </rh-stat>
 
@@ -121,7 +115,7 @@
       <path d="M14 2.37H2a.63.63 0 0 0-.63.63v7.9a.63.63 0 0 0 .63.62h2.37V14a.63.63 0 0 0 .39.58.67.67 0 0 0 .24 0 .61.61 0 0 0 .45-.19l2.81-2.92H14a.62.62 0 0 0 .62-.62V3a.63.63 0 0 0-.62-.63Zm-.63 7.9H8a.66.66 0 0 0-.46.19l-1.92 2V10.9a.63.63 0 0 0-.62-.63H2.62V3.62h10.75Z"/>
     </svg>
     <span slot="title">Reviews</span>
-    <span slot="statistic">13925</span>
+    <span slot="statistic">13988</span>
     <p slot="description"></p>
   </rh-stat>
 
@@ -131,7 +125,7 @@
       <path d="M15 4.22a11.05 11.05 0 0 0-3.5 21.54c.56.11.76-.24.76-.53v-1.88c-3.07.67-3.72-1.48-3.72-1.48a2.91 2.91 0 0 0-1.23-1.62c-1-.68.08-.67.08-.67a2.32 2.32 0 0 1 1.69 1.14 2.36 2.36 0 0 0 3.22.92 2.39 2.39 0 0 1 .7-1.48c-2.45-.28-5-1.23-5-5.46a4.3 4.3 0 0 1 1.13-3 4 4 0 0 1 .06-2.9s.93-.3 3 1.14a10.29 10.29 0 0 1 5.54 0c2.11-1.44 3-1.14 3-1.14a4 4 0 0 1 .11 2.93 4.25 4.25 0 0 1 1.13 3c0 4.24-2.58 5.18-5.05 5.45a2.63 2.63 0 0 1 .75 2.05v3c0 .33.2.64.76.53A11.05 11.05 0 0 0 15 4.22Z" fill-rule="evenodd"/>
     </svg>
     <span slot="title">Repositories</span>
-    <span slot="statistic">1354</span>
+    <span slot="statistic">1358</span>
     <p slot="description"></p>
   </rh-stat>
 
@@ -153,45 +147,34 @@
   
   
   <pf-card>
-    <img slot="header" src="https://avatars.githubusercontent.com/u/83772337?v=4" alt="open-cluster-management-io">
-    <h3 slot="header"><a href="https://github.com/open-cluster-management-io/ocm-vscode-extension">open-cluster-management-io/ocm-vscode-extension</a></h3>
-    <p>OCM VScode Extension is a UI tool for creating and managing OCM related Kubernetes resources</p>
-    <p>עודכן <time datetime="2023-02-16T15:19:40Z">16 פבר׳ 2023</time></p>
-    <span slot="footer"><abbr title="כוכבים">⭐</abbr> 5</span>
-    <span slot="footer"><abbr title="forks"><pf-icon icon="code-branch" size="sm"></pf-icon></abbr> 6</span>
-    <span slot="footer">Apache License 2.0</span>
-  </pf-card>
-  
-  
-  <pf-card>
-    <img slot="header" src="https://avatars.githubusercontent.com/u/46440835?v=4" alt="apollo-elements">
-    <h3 slot="header"><a href="https://github.com/apollo-elements/apollo-elements">apollo-elements/apollo-elements</a></h3>
-    <p>🚀🌛 Use the Launch Platform 👩‍🚀👨‍🚀</p>
-    <p>עודכן <time datetime="2023-03-09T18:53:19Z">09 מרץ 2023</time></p>
-    <span slot="footer"><abbr title="כוכבים">⭐</abbr> 384</span>
-    <span slot="footer"><abbr title="forks"><pf-icon icon="code-branch" size="sm"></pf-icon></abbr> 24</span>
-    <span slot="footer">ISC License</span>
-  </pf-card>
-  
-  
-  <pf-card>
-    <img slot="header" src="https://avatars.githubusercontent.com/u/65787031?v=4" alt="RedHat-UX">
-    <h3 slot="header"><a href="https://github.com/RedHat-UX/red-hat-design-tokens">RedHat-UX/red-hat-design-tokens</a></h3>
-    <p>Red Hat design tokens</p>
-    <p>עודכן <time datetime="2023-01-22T14:38:26Z">22 ינו׳ 2023</time></p>
-    <span slot="footer"><abbr title="כוכבים">⭐</abbr> 10</span>
-    <span slot="footer"><abbr title="forks"><pf-icon icon="code-branch" size="sm"></pf-icon></abbr> 2</span>
+    <img slot="header" src="https://avatars.githubusercontent.com/u/29605090?v=4" alt="RedHat-Israel">
+    <h3 slot="header"><a href="https://github.com/RedHat-Israel/RedHat-Israel.github.io">RedHat-Israel/RedHat-Israel.github.io</a></h3>
+    <p>Website showcasing Red Hat Israel&#39;s Accomplishments</p>
+    <p>עודכן <time datetime="2022-12-08T08:14:50Z">08 דצמ׳ 2022</time></p>
+    <span slot="footer"><abbr title="כוכבים">⭐</abbr> 4</span>
+    <span slot="footer"><abbr title="forks"><pf-icon icon="code-branch" size="sm"></pf-icon></abbr> 7</span>
     <span slot="footer">MIT License</span>
   </pf-card>
   
   
   <pf-card>
-    <img slot="header" src="https://avatars.githubusercontent.com/u/83772337?v=4" alt="open-cluster-management-io">
-    <h3 slot="header"><a href="https://github.com/open-cluster-management-io/multicloud-operators-subscription">open-cluster-management-io/multicloud-operators-subscription</a></h3>
-    <p>Enables multicluster application delivery.</p>
-    <p>עודכן <time datetime="2023-03-02T03:16:03Z">02 מרץ 2023</time></p>
-    <span slot="footer"><abbr title="כוכבים">⭐</abbr> 32</span>
-    <span slot="footer"><abbr title="forks"><pf-icon icon="code-branch" size="sm"></pf-icon></abbr> 34</span>
+    <img slot="header" src="https://avatars.githubusercontent.com/u/65787031?v=4" alt="RedHat-UX">
+    <h3 slot="header"><a href="https://github.com/RedHat-UX/red-hat-design-system">RedHat-UX/red-hat-design-system</a></h3>
+    <p>Red Hat&#39;s Design System</p>
+    <p>עודכן <time datetime="2023-02-17T05:45:13Z">17 פבר׳ 2023</time></p>
+    <span slot="footer"><abbr title="כוכבים">⭐</abbr> 34</span>
+    <span slot="footer"><abbr title="forks"><pf-icon icon="code-branch" size="sm"></pf-icon></abbr> 12</span>
+    <span slot="footer">MIT License</span>
+  </pf-card>
+  
+  
+  <pf-card>
+    <img slot="header" src="https://avatars.githubusercontent.com/u/118207545?v=4" alt="platform-engineering-org">
+    <h3 slot="header"><a href="https://github.com/platform-engineering-org/poc">platform-engineering-org/poc</a></h3>
+    <p></p>
+    <p>עודכן <time datetime="2023-01-31T21:05:10Z">31 ינו׳ 2023</time></p>
+    <span slot="footer"><abbr title="כוכבים">⭐</abbr> 0</span>
+    <span slot="footer"><abbr title="forks"><pf-icon icon="code-branch" size="sm"></pf-icon></abbr> 2</span>
     <span slot="footer">Apache License 2.0</span>
   </pf-card>
   
@@ -201,6 +184,17 @@
     <h3 slot="header"><a href="https://github.com/RHEcosystemAppEng/schema-pusher">RHEcosystemAppEng/schema-pusher</a></h3>
     <p>Application for pushing schemas to Red Hat&#39;s Service Registry</p>
     <p>עודכן <time datetime="2022-11-15T10:48:04Z">15 נוב׳ 2022</time></p>
+    <span slot="footer"><abbr title="כוכבים">⭐</abbr> 2</span>
+    <span slot="footer"><abbr title="forks"><pf-icon icon="code-branch" size="sm"></pf-icon></abbr> 1</span>
+    <span slot="footer">MIT License</span>
+  </pf-card>
+  
+  
+  <pf-card>
+    <img slot="header" src="https://avatars.githubusercontent.com/u/82061998?v=4" alt="RHEcosystemAppEng">
+    <h3 slot="header"><a href="https://github.com/RHEcosystemAppEng/fsi-common-helm">RHEcosystemAppEng/fsi-common-helm</a></h3>
+    <p></p>
+    <p>עודכן <time datetime="2022-03-09T10:13:35Z">09 מרץ 2022</time></p>
     <span slot="footer"><abbr title="כוכבים">⭐</abbr> 2</span>
     <span slot="footer"><abbr title="forks"><pf-icon icon="code-branch" size="sm"></pf-icon></abbr> 1</span>
     <span slot="footer">MIT License</span>
@@ -340,6 +334,14 @@ grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       </rh-global-footer>
     </rh-footer>
 
+    <!-- Google tag (gtag.js) -->
+    <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-JENJLEJFBY"></script>
+    <script async defer>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JENJLEJFBY');
+    </script>
     <!-- Current page: / -->
   </body>
 </html>

@@ -41,6 +41,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(RHDSPlugin);
   eleventyConfig.addPlugin(ImportMapPlugin, {
     remotePackages: [
+      'element-internals-polyfill',
       'lit',
       'tslib',
       '@patternfly/elements/pf-accordion/pf-accordion.js',

@@ -39,7 +39,7 @@ module.exports = function(eleventyConfig, {
     await generator.install(localPackages);
     await generator.install(remotePackages);
 
-    performance.mark('importMap-afterLocalPackages');
+    performance.mark('importMap-afterInstall');
 
     const json = generator.importMap
       .flatten()
@@ -59,16 +59,16 @@ function logPerf() {
   /* eslint-disable no-console */
   const chalk = require('chalk');
   const TOTAL = performance.measure('importMap-total', 'importMap-start', 'importMap-end');
-  const RESOLVE = performance.measure('importMap-resolve', 'importMap-start', 'importMap-afterLocalPackages');
+  const RESOLVE = performance.measure('importMap-resolve', 'importMap-start', 'importMap-afterInstall');
   if (TOTAL.duration > 2000) {
     console.log(
       `🦥 Import map generator done in ${chalk.red(TOTAL.duration)}ms\n`,
-      `  Resolving local packages took ${chalk.red(RESOLVE.duration)}ms\n`,
+      `  Resolving packages took ${chalk.red(RESOLVE.duration)}ms\n`,
     );
   } else if (TOTAL.duration > 1000) {
     console.log(
       `🐢 Import map generator done in ${chalk.yellow(TOTAL.duration)}ms\n`,
-      `  Resolving local packages took ${chalk.yellow(RESOLVE.duration)}ms\n`,
+      `  Resolving packages took ${chalk.yellow(RESOLVE.duration)}ms\n`,
     );
   } else {
     console.log(

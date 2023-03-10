@@ -31,7 +31,6 @@
     <script type="importmap">{{ (importMap | importMapURLs) | dump | safe }}</script>
     <script type="module">
     import 'element-internals-polyfill';
-    import { PfIcon } from '@patternfly/elements/pf-icon/pf-icon.js';
     import '@rhds/elements/rh-alert/rh-alert.js';
     import '@rhds/elements/rh-pagination/rh-pagination.js';
     import '@rhds/elements/rh-footer/rh-footer.js';
@@ -40,9 +39,9 @@
     import '@rhds/elements/rh-tag/rh-tag.js';
     import '@rhds/elements/rh-cta/rh-cta.js';
     // Workaround for bundled pf-icon: make icon imports absolute, instead of relative to the bundle
-    const iconBase = '{{"/assets/packages/@patternfly/elements/pf-icon/icons" | url }}';
-    PfIcon.getIconUrl = (set, icon) =>
-      new URL(`${iconBase}/${set}/${icon}.js`, import.meta.url);
+    import { PfIcon } from '@patternfly/elements/pf-icon/pf-icon.js';
+    const iconBase = '{{"/assets/packages/@patternfly/elements/pf-icon/icons"|url}}';
+    PfIcon.getIconUrl = (set, icon) => new URL(`${iconBase}/${set}/${icon}.js`, location.origin);
     </script>
   </head>
   <body>

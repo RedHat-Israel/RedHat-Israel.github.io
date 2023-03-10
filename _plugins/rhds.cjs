@@ -1,21 +1,7 @@
 // @ts-check
 const path = require('node:path');
 const fs = require('node:fs');
-const { copyFile, lstat, mkdir, readdir } = fs.promises;
-
-async function copyRecursive(from, to) {
-  await mkdir(to, { recursive: true });
-  for (const element of await readdir(from)) {
-    const _from = path.join(from, element);
-    const _to = path.join(to, element);
-    const stat = await lstat(_from);
-    if (stat.isFile()) {
-      await copyFile(_from, _to);
-    } else {
-      await copyRecursive(_from, _to);
-    }
-  }
-}
+const { copyFile } = fs.promises;
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.on('eleventy.before', async (e) => {
@@ -25,10 +11,6 @@ module.exports = function(eleventyConfig) {
     if (!fs.existsSync(globalStylesOut)) {
       await copyFile( globalStylesIn, globalStylesOut);
     }
-    console.log('Copying RHDS elements assets...');
-    const from = path.join(require.resolve('@rhds/elements'), '..');
-    const to = path.join(process.cwd(), 'assets', '@rhds', 'elements');
-    await copyRecursive(from, to);
     console.log('  ...done');
   });
 

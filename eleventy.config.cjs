@@ -66,6 +66,10 @@ module.exports = function(eleventyConfig) {
     ],
   });
 
+  eleventyConfig.addPassthroughCopy({
+    'node_modules/@patternfly/elements/pf-icon/icons/': '/assets/packages/@patternfly/elements/pf-icon/icons',
+  })
+
   eleventyConfig.addFilter('importMapURLs', function(importMap) {
     const url = eleventyConfig.getFilter('url');
     const imports = Object.fromEntries(Object.entries(importMap.imports).map(([k, v]) => [k, url(v)]))

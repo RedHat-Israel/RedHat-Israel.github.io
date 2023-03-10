@@ -1,14 +1,10 @@
 // @ts-check
-const { join } = require('node:path');
-const { pathToFileURL } = require('node:url');
-
 module.exports = function(eleventyConfig, {
   inputMap = undefined,
   defaultProvider = undefined,
   localPackages = [],
+  remotePackages = [],
 } = {}) {
-  const cwd = process.cwd();
-
   const specs = localPackages.map(spec => ({
     spec,
     packageName: spec.replace(/^@/, '$').replace(/@.*$/, '').replace(/^\$/, '@')
@@ -41,26 +37,14 @@ module.exports = function(eleventyConfig, {
     });
 
     await generator.install(localPackages);
+    await generator.install(remotePackages);
+
     performance.mark('importMap-afterLocalPackages');
 
-    generator.importMap
+    const json = generator.importMap
       .flatten()
-      .replace(pathToFileURL(join(cwd, 'node_modules/')).href, '/assets/packages/')
       .combineSubpaths()
-
-    const json = generator.importMap.toJSON();
-
-    Object.entries(json.scopes).forEach(([k, v]) => {
-      Object.entries(v).forEach(([K, V]) => {
-        json.scopes[k][K] = V.replace('./node_modules', '/assets/packages')
-      });
-    });
-
-    json.scopes['/assets/packages/']['@patternfly/pfe-core'] = '/assets/packages/@patternfly/pfe-core/core.js';
-
-    Object.assign(json.imports ?? {}, {
-      'element-internals-polyfill': '/assets/packages/element-internals-polyfill/dist/index.js',
-    });
+      .toJSON()
 
     performance.mark('importMap-end');
 

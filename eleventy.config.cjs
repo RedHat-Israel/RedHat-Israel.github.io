@@ -40,8 +40,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(PostCSSPlugin);
   eleventyConfig.addPlugin(RHDSPlugin);
   eleventyConfig.addPlugin(ImportMapPlugin, {
-    defaultProvider: 'nodemodules',
-    localPackages: [
+    remotePackages: [
       'lit',
       'tslib',
       '@patternfly/elements/pf-accordion/pf-accordion.js',

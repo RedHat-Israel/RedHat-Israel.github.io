@@ -19,7 +19,7 @@ eleventyNavigation:
   <p>קראו עוד באתר{{ 'י' if mult }}</p>{% if mult %}
   <ul>{% endif %}{% for link in story.links %}{% if mult %}
     <li>{% endif %}
-      <a href="{{ link.url }}" rel="noreferrer nofollow" target="_blank">{{ link.site }}</a>{% if mult %}
+      <a href="{{ link.url | url }}" rel="noreferrer nofollow" target="_blank">{{ link.site }}</a>{% if mult %}
     </li>{% endif %}{% endfor %}{% if mult %}
   </ul>{% endif %}
 {% endfor %}

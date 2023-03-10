@@ -1,9 +1,6 @@
-const fs = require("fs");
-const path = require("path");
 const yaml = require("js-yaml");
 
 const { DateTime } = require("luxon");
-const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const markdownItEmoji = require("markdown-it-emoji");
 
@@ -13,6 +10,7 @@ const { EleventyRenderPlugin } = require("@11ty/eleventy");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 const PostCSSPlugin = require("eleventy-plugin-postcss");
 const RHDSPlugin = require("./_plugins/rhds.cjs");
+const ImportMapPlugin = require("./_plugins/importMap.cjs");
 
 /**
  * @see https://stackoverflow.com/a/12646864/2515275
@@ -31,6 +29,7 @@ module.exports = function(eleventyConfig) {
   // Copy the `assets` folder to the output
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("posts/assets");
+  eleventyConfig.addPassthroughCopy({"node_modules/element-internals-polyfill/": "/assets/packages/"});
 
   // Add plugins
   eleventyConfig.addPlugin(pluginRss);
@@ -39,12 +38,62 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(EleventyRenderPlugin);
   eleventyConfig.addPlugin(PostCSSPlugin);
   eleventyConfig.addPlugin(RHDSPlugin);
+  eleventyConfig.addPlugin(ImportMapPlugin, {
+    defaultProvider: 'nodemodules',
+    localPackages: [
+      'lit',
+      'lit-html',
+      'tslib',
+      '@lit/reactive-element',
+      '@patternfly/pfe-core',
+      '@patternfly/elements',
+      '@patternfly/elements/pf-accordion/pf-accordion.js',
+      '@patternfly/elements/pf-button/pf-button.js',
+      '@patternfly/elements/pf-card/pf-card.js',
+      '@patternfly/elements/pf-icon/pf-icon.js',
+      '@patternfly/elements/pf-modal/pf-modal.js',
+      '@patternfly/elements/pf-panel/pf-panel.js',
+      '@patternfly/elements/pf-spinner/BaseSpinner.js',
+      '@patternfly/elements/pf-spinner/pf-spinner.js',
+      '@patternfly/elements/pf-tabs/pf-tabs.js',
+      '@patternfly/elements/pf-tooltip/BaseTooltip.js',
+      '@patternfly/elements/pf-tooltip/pf-tooltip.js',
+      '@rhds/elements',
+      '@rhds/elements/rh-alert/rh-alert.js',
+      '@rhds/elements/rh-cta/rh-cta.js',
+      '@rhds/elements/rh-footer/rh-footer.js',
+      '@rhds/elements/rh-navigation-secondary/rh-navigation-secondary.js',
+      '@rhds/elements/rh-pagination/rh-pagination.js',
+      '@rhds/elements/rh-stat/rh-stat.js',
+      '@rhds/elements/rh-tag/rh-tag.js',
+      '@rhds/tokens',
+    ],
+  });
 
+  eleventyConfig.addFilter('importMapURLs', function(importMap) {
+    const url = eleventyConfig.getFilter('url');
+    const imports = Object.fromEntries(Object.entries(importMap.imports).map(([k, v]) => [k, url(v)]))
+    const scopes = Object.fromEntries(Object.entries(importMap.scopes).map(([k, v]) => [url(k),
+      Object.fromEntries(Object.entries(v).map(([_k, _v]) => [_k, url(_v)])),
+    ]))
+    return { imports, scopes };
+  });
 
   eleventyConfig.addDataExtension("yaml", contents => yaml.load(contents));
 
+  eleventyConfig.addAsyncFilter('fetchGHRepo', async function(repo) {
+    const [owner, name] = repo.split('/');
+    const EleventyFetch = require('@11ty/eleventy-fetch');
+    return EleventyFetch(`https://api.github.com/repos/${owner}/${name}`, {
+      duration: '1d',
+      type: 'json',
+    });
+  })
+
   eleventyConfig.addFilter("randomSort", /** @param {unknown[]} list */list =>
     shuffleCopyArray(list));
+
+  eleventyConfig.addFilter("toDate", string => new Date(string));
 
   eleventyConfig.addFilter("readableDate", dateObj =>
     DateTime.fromJSDate(dateObj, {zone: 'Asia/Jerusalem', locale: 'he'})
@@ -92,27 +141,7 @@ module.exports = function(eleventyConfig) {
     return filterTagList([...tagSet]);
   });
 
-  eleventyConfig.on('eleventy.before', async (e) => {
-    console.log('bundling <github-repository>');
-    const { build } = await import('esbuild');
-    await build({
-      bundle: true,
-      outfile: '_site/assets/gh.min.js',
-      minify: true,
-      format: 'esm',
-      stdin: {
-        contents: 'import "github-repository";',
-        sourcefile: 'github-repository.js',
-        resolveDir: path.join(__dirname, 'node_modules'),
-      }
-    });
-    console.log('  ...done');
-  });
-  // Customize Markdown library and settings:
-  let markdownLibrary = markdownIt({
-    html: true,
-    linkify: true
-  }).use(markdownItAnchor, {
+  eleventyConfig.amendLibrary("md", md => md.use(markdownItAnchor, {
     permalink: markdownItAnchor.permalink.ariaHidden({
       placement: "after",
       class: "direct-link",
@@ -120,26 +149,7 @@ module.exports = function(eleventyConfig) {
     }),
     level: [1,2,3,4],
     slugify: eleventyConfig.getFilter("slugify")
-  }).use(markdownItEmoji);
-  eleventyConfig.setLibrary("md", markdownLibrary);
-
-  // Override Browsersync defaults (used only with --serve)
-  eleventyConfig.setBrowserSyncConfig({
-    callbacks: {
-      ready: function(err, browserSync) {
-        const content_404 = fs.readFileSync('_site/404.html');
-
-        browserSync.addMiddleware("*", (req, res) => {
-          // Provides the 404 content without redirect.
-          res.writeHead(404, {"Content-Type": "text/html; charset=UTF-8"});
-          res.write(content_404);
-          res.end();
-        });
-      },
-    },
-    ui: false,
-    ghostMode: false
-  });
+  }).use(markdownItEmoji));
 
   return {
     // Control which files Eleventy will process

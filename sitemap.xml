@@ -207,16 +207,6 @@
   </url>
   
   <url>
-    <loc>https://israel.redhat.com/tags/education/</loc>
-    <lastmod>2023-03-10</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://israel.redhat.com/tags/university/</loc>
-    <lastmod>2023-03-10</lastmod>
-  </url>
-  
-  <url>
     <loc>https://israel.redhat.com/tags/properties/</loc>
     <lastmod>2023-03-10</lastmod>
   </url>
@@ -233,6 +223,16 @@
   
   <url>
     <loc>https://israel.redhat.com/tags/apache-commons-configuration/</loc>
+    <lastmod>2023-03-10</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/tags/education/</loc>
+    <lastmod>2023-03-10</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://israel.redhat.com/tags/university/</loc>
     <lastmod>2023-03-10</lastmod>
   </url>
   

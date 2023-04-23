@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property-Based Matrix Testing in Java</title>
+    <meta name="description" content="Learn how to use PBT (property-based testing) leveraged with a properties matrix.">
+    <meta name="generator" content="Eleventy v2.0.0">
+
+    <link rel="preconnect" href="https://www.redhat.com">
+    <link rel="preconnect" href="https://static.redhat.com">
+    <link rel="shortcut icon" href="https://www.redhat.com/misc/favicon.ico" type="image/x-icon">
+    <link rel="alternate" href="/pr-previews/pr-63/feed/feed.xml" type="application/atom+xml" title="Red Hat Israel">
+    <link rel="alternate" href="/pr-previews/pr-63/feed/feed.json" type="application/json" title="Red Hat Israel">
+
+    <link rel="stylesheet" href="https://static.redhat.com/libs/redhat/redhat-font/2/webfonts/red-hat-font.css" media="all">
+    <link rel="stylesheet" href="/pr-previews/pr-63/assets/css/rhds.css">
+    <link rel="stylesheet" href="/pr-previews/pr-63/assets/css/index.css">
+    <link rel="stylesheet" href="/pr-previews/pr-63/assets/css/prism.css">
+    <link rel="stylesheet" href="/pr-previews/pr-63/assets/css/prism-diff.css">
+    <link rel="stylesheet" href="/pr-previews/pr-63/assets/packages/@rhds/elements/elements/rh-footer/rh-footer-lightdom.css">
+    <link rel="stylesheet" href="/pr-previews/pr-63/assets/packages/@rhds/elements/elements/rh-navigation-secondary/rh-navigation-secondary-lightdom.css">
+    <link rel="stylesheet" href="/pr-previews/pr-63/assets/packages/@rhds/elements/elements/rh-pagination/rh-pagination-lightdom.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+Hebrew" rel="stylesheet">
+    
+    <link rel="canonical" href="https://dev.to/tomerfi/property-based-matrix-testing-in-java-47p4" />
+    
+    <noscript><link rel="stylesheet" href="/pr-previews/pr-63/assets/css/noscript.css"></noscript>
+
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.7.0/dist/es-module-shims.js"></script>
+    <script type="importmap">{"imports":{"tslib":"https://ga.jspm.io/npm:tslib@2.5.0/tslib.es6.js","element-internals-polyfill":"https://ga.jspm.io/npm:element-internals-polyfill@1.3.0/dist/index.js","lit":"https://ga.jspm.io/npm:lit@2.7.2/index.js","@rhds/tokens":"https://ga.jspm.io/npm:@rhds/tokens@1.0.0/js/tokens.js","@patternfly/elements/pf-spinner/BaseSpinner.js":"https://ga.jspm.io/npm:@patternfly/elements@2.0.5/pf-spinner/BaseSpinner.js","@patternfly/elements/pf-icon/pf-icon.js":"https://ga.jspm.io/npm:@patternfly/elements@2.0.5/pf-icon/pf-icon.js","@rhds/elements/rh-cta/rh-cta.js":"https://ga.jspm.io/npm:@rhds/elements@1.0.0/elements/rh-cta/rh-cta.js","@patternfly/elements/pf-spinner/pf-spinner.js":"https://ga.jspm.io/npm:@patternfly/elements@2.0.5/pf-spinner/pf-spinner.js","@rhds/elements/rh-pagination/rh-pagination.js":"https://ga.jspm.io/npm:@rhds/elements@1.0.0/elements/rh-pagination/rh-pagination.js","@rhds/elements/rh-alert/rh-alert.js":"https://ga.jspm.io/npm:@rhds/elements@1.0.0/elements/rh-alert/rh-alert.js","@patternfly/elements/pf-panel/pf-panel.js":"https://ga.jspm.io/npm:@patternfly/elements@2.0.5/pf-panel/pf-panel.js","@rhds/elements/rh-stat/rh-stat.js":"https://ga.jspm.io/npm:@rhds/elements@1.0.0/elements/rh-stat/rh-stat.js","@patternfly/elements/pf-card/pf-card.js":"https://ga.jspm.io/npm:@patternfly/elements@2.0.5/pf-card/pf-card.js","@rhds/elements/rh-tag/rh-tag.js":"https://ga.jspm.io/npm:@rhds/elements@1.0.0/elements/rh-tag/rh-tag.js","@patternfly/elements/pf-accordion/pf-accordion.js":"https://ga.jspm.io/npm:@patternfly/elements@2.0.5/pf-accordion/pf-accordion.js","@rhds/elements/rh-navigation-secondary/rh-navigation-secondary.js":"https://ga.jspm.io/npm:@rhds/elements@1.0.0/elements/rh-navigation-secondary/rh-navigation-secondary.js","@patternfly/elements/pf-modal/pf-modal.js":"https://ga.jspm.io/npm:@patternfly/elements@2.0.5/pf-modal/pf-modal.js","@patternfly/elements/pf-button/pf-button.js":"https://ga.jspm.io/npm:@patternfly/elements@2.0.5/pf-button/pf-button.js","@rhds/elements/rh-footer/rh-footer.js":"https://ga.jspm.io/npm:@rhds/elements@1.0.0/elements/rh-footer/rh-footer.js","@patternfly/elements/pf-tabs/pf-tabs.js":"https://ga.jspm.io/npm:@patternfly/elements@2.0.5/pf-tabs/pf-tabs.js","@patternfly/elements/pf-tooltip/pf-tooltip.js":"https://ga.jspm.io/npm:@patternfly/elements@2.0.5/pf-tooltip/pf-tooltip.js","@patternfly/elements/pf-tooltip/BaseTooltip.js":"https://ga.jspm.io/npm:@patternfly/elements@2.0.5/pf-tooltip/BaseTooltip.js"},"scopes":{"https://ga.jspm.io/npm:@rhds/elements@1.0.0/":{"lit/":"https://ga.jspm.io/npm:lit@2.7.2/"},"https://ga.jspm.io/":{"@floating-ui/core":"https://ga.jspm.io/npm:@floating-ui/core@1.2.6/dist/floating-ui.core.browser.min.mjs","@floating-ui/dom":"https://ga.jspm.io/npm:@floating-ui/dom@1.2.6/dist/floating-ui.dom.browser.min.mjs","@lit/reactive-element":"https://ga.jspm.io/npm:@lit/reactive-element@1.6.1/reactive-element.js","@lit/reactive-element/decorators/":"https://ga.jspm.io/npm:@lit/reactive-element@1.6.1/decorators/","@patternfly/elements/":"https://ga.jspm.io/npm:@patternfly/elements@2.0.5/","@patternfly/pfe-core":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.2.0/core.js","@patternfly/pfe-core/":"https://ga.jspm.io/npm:@patternfly/pfe-core@2.2.0/","@rhds/elements/rh-accordion/rh-accordion.js":"https://ga.jspm.io/npm:@rhds/elements@1.0.0/elements/rh-accordion/rh-accordion.js","@rhds/tokens/media.js":"https://ga.jspm.io/npm:@rhds/tokens@1.0.0/js/media.js","lit":"https://ga.jspm.io/npm:lit@2.6.1/index.js","lit-element/lit-element.js":"https://ga.jspm.io/npm:lit-element@3.3.1/lit-element.js","lit-html":"https://ga.jspm.io/npm:lit-html@2.7.2/lit-html.js","lit-html/":"https://ga.jspm.io/npm:lit-html@2.7.2/","lit/":"https://ga.jspm.io/npm:lit@2.6.1/"}}}</script>
+    <script type="module">
+    import { PfIcon } from '@patternfly/elements/pf-icon/pf-icon.js';
+    const iconBase = '/pr-previews/pr-63/assets/packages/@patternfly/elements/pf-icon/icons';
+    PfIcon.getIconUrl = (set, icon) => new URL(`${iconBase}/${set}/${icon}.js`, new URL(location.origin));;
+    PfIcon.prototype.load = async function load() {
+      const { set, icon, } = this;
+      const getter = PfIcon.getters.get(set) ?? PfIcon.getIconUrl;
+      let pathname = 'UNKNOWN ICON';
+      if (set && icon) {
+        try {
+          ({ pathname } = getter(set, icon));
+          const mod = await import(pathname);
+          this.content = mod.default instanceof Node ? mod.default.cloneNode(true) : mod.default;
+          await this.updateComplete;
+          this.dispatchEvent(new Event('load', { bubbles: true }));
+        } catch (error) {
+          const event = new IconLoadError(pathname, error);
+          console.error.error(error.message);
+          this.dispatchEvent(event);
+        }
+      }
+    }
+    import 'element-internals-polyfill';
+    import '@rhds/elements/rh-alert/rh-alert.js';
+    import '@rhds/elements/rh-pagination/rh-pagination.js';
+    import '@rhds/elements/rh-footer/rh-footer.js';
+    import '@rhds/elements/rh-navigation-secondary/rh-navigation-secondary.js';
+    import '@rhds/elements/rh-stat/rh-stat.js';
+    import '@rhds/elements/rh-tag/rh-tag.js';
+    import '@rhds/elements/rh-cta/rh-cta.js';
+    </script>
+  </head>
+  <body>
+    <header>
+      <div id="main-header">
+        <a href="/pr-previews/pr-63/">
+          <img src="https://static.redhat.com/libs/redhat/brand-assets/2/corp/logo--on-dark.svg" alt="Red Hat Israel"/>
+        </a>
+      </div>
+      <rh-navigation-secondary role="navigation">
+        <a href="/pr-previews/pr-63/" slot="logo" id="logo-id">
+          רד הט ישראל
+        </a>
+        <ul slot="nav" aria-labelledby="logo-id">
+          <li class=""><a href="/pr-previews/pr-63/">בית</a></li>
+          <li class=""><a href="/pr-previews/pr-63/about/">אודותינו</a></li>
+          <li class=""><a href="/pr-previews/pr-63/posts/">פוסטים</a></li>
+          <li class=""><a href="/pr-previews/pr-63/publicity/1/">כותבים עלינו</a></li>
+          <li class=""><a href="/pr-previews/pr-63/community/">מעורבות בקהילה</a></li>
+          <li><a href="https://talkingopen.podbean.com/">הסכת - מדברים פתוח</a></li>
+          <li><a href="https://careers-redhat.icims.com/jobs/search?ss=1&searchLocation=13269--Raanana&mobile=false&width=1140&height=500&bga=true&needsRedirect=false&jan1offset=120&jun1offset=180">Careers in Israel</a></li>
+        </ul>
+        <rh-cta slot="cta">
+          <a href="/pr-previews/pr-63/#stats">להתחיל</a>
+        </rh-cta>
+      </rh-navigation-secondary>
+    </header>
+
+    <main
+      class="tmpl-post"
+      lang="en"
+      dir="ltr">
+      <header>
+  <h1>Property-Based Matrix Testing in Java</h1>
+  
+  <div itemscope itemtype="https://schema.org/Person">
+    <span itemprop="name">Tomer Figenblat</span>
+    
+    - <span itemprop="jobTitle">Senior Software Engineer</span>
+    
+  </div>
+  
+
+  <time datetime="2021-04-13">13 אפר׳ 2021</time>
+
+</header>
+
+<aside>
+  <h2>תגיות</h2>
+  <ul id="post-tags">
+    <li><rh-tag><a href="/pr-previews/pr-63/tags/java/" class="post-tag">java</a></rh-tag></li>
+    <li><rh-tag><a href="/pr-previews/pr-63/tags/test/" class="post-tag">test</a></rh-tag></li>
+    <li><rh-tag><a href="/pr-previews/pr-63/tags/pbt/" class="post-tag">pbt</a></rh-tag></li>
+    <li><rh-tag><a href="/pr-previews/pr-63/tags/junit/" class="post-tag">junit</a></rh-tag></li>
+  </ul>
+  <ul>
+    <li>הבא: <a href="/pr-previews/pr-63/posts/2022-06-19-attending-recruiting-fairs-as-an-engineer-b89/">Attending recruiting fairs as an engineer</a></li>
+    <li>הקודם: <a href="/pr-previews/pr-63/posts/2020-08-14-dependency-injection-in-java-is-easy-part-3/">Dependency Injection in Java is easy - Part 3 - Leveraging with Spring Context</a></li>
+  </ul>
+</aside>
+
+<div id="post-body">
+  
+  <img id="cover-image" alt="an image of some js code" src="https://source.unsplash.com/EWLHA4T-mso/640x426">
+  
+  <p>I've been using the same technique to accomplish property-based matrix testing in <em>Java</em> for a long time.</br>
+It's not very pretty, or clean, but it gets the job done. 😎</br></p>
+<p>Using <em>JUnit's</em> <a href="https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests">ParameterizedTest</a> and a <a href="https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests-sources-MethodSource">MethodSource</a> annotations to point to a method as an argument supplier that spits out a stream representing my matrix.</br>
+It's pretty straightforward, but the more parameter types I have in my matrix, the harder it is to read or write the method supplying them. 😵</br></p>
+<p>Let's take a look.</br>
+First, these are the two types for our matrix, these should spit out 6 test cases:</p>
+<pre class="language-java"><code class="language-java">  <span class="token keyword">enum</span> <span class="token class-name">Direction</span> <span class="token punctuation">{</span><br>    <span class="token constant">INCOMING</span><span class="token punctuation">,</span><br>    <span class="token constant">OUTGOING</span><br>  <span class="token punctuation">}</span><br><br>  <span class="token keyword">enum</span> <span class="token class-name">Status</span> <span class="token punctuation">{</span><br>    <span class="token constant">SUCCESS</span><span class="token punctuation">,</span><br>    <span class="token constant">FAILURE</span><span class="token punctuation">,</span><br>    <span class="token constant">WAITING</span><br>  <span class="token punctuation">}</span></code></pre>
+<p>Implementing a matrix from these <em>Enums</em> with <a href="https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests">JUnit's ParameterizedTest</a> and a <a href="https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests-sources-MethodSource">MethodSource</a>:</p>
+<pre class="language-java"><code class="language-java">  <span class="token annotation punctuation">@ParameterizedTest</span><br>  <span class="token annotation punctuation">@MethodSource</span><span class="token punctuation">(</span><span class="token string">"getArguments"</span><span class="token punctuation">)</span><br>  <span class="token keyword">void</span> <span class="token function">using_junit_parameterized_test_with_method_source</span><span class="token punctuation">(</span><br>      <span class="token keyword">final</span> <span class="token class-name">Direction</span> direction<span class="token punctuation">,</span> <span class="token keyword">final</span> <span class="token class-name">Status</span> status<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token function">assertTrue</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><br>  <span class="token keyword">static</span> <span class="token class-name">Stream</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Arguments</span><span class="token punctuation">></span></span> <span class="token function">getArguments</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token keyword">return</span> <span class="token class-name">Stream</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token class-name">Direction</span><span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br>        <span class="token punctuation">.</span><span class="token function">flatMap</span><span class="token punctuation">(</span>d <span class="token operator">-></span> <span class="token class-name">Stream</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token class-name">Status</span><span class="token punctuation">.</span><span class="token function">values</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>s <span class="token operator">-></span> <span class="token function">arguments</span><span class="token punctuation">(</span>d<span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span></code></pre>
+<p>As you can see, adding members to the existing <em>Enums</em> will dynamically increase the matrix,</br>
+and therefore the number of tests performed, there's no need to modify the test code.</br></p>
+<p>But, adding a third type to the matrix, and the <code>getArguments</code> method, will start losing its readability.</p>
+<p>Lately, I discovered <a href="https://junit-pioneer.org/">JUnit Pioneer</a>, which is a <em>JUnit 5 Extension Pack</em>.</br>
+Using its <a href="https://junit-pioneer.org/docs/cartesian-product/">CartesianProductTest</a> and <a href="https://junit-pioneer.org/docs/cartesian-product/#cartesianenumsource">CartesianEnumSource</a> annotations we can implement the same exact matrix simply and elegantly: 😃</p>
+<pre class="language-java"><code class="language-java">  <span class="token annotation punctuation">@CartesianProductTest</span><br>  <span class="token annotation punctuation">@CartesianEnumSource</span><span class="token punctuation">(</span><span class="token class-name">Direction</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><br>  <span class="token annotation punctuation">@CartesianEnumSource</span><span class="token punctuation">(</span><span class="token class-name">Status</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><br>  <span class="token keyword">void</span> <span class="token function">using_junit_pioneer_cartesian_product_test_with_enum_source</span><span class="token punctuation">(</span><br>      <span class="token keyword">final</span> <span class="token class-name">Direction</span> direction<span class="token punctuation">,</span> <span class="token keyword">final</span> <span class="token class-name">Status</span> status<span class="token punctuation">)</span> <span class="token punctuation">{</span><br>    <span class="token function">assertTrue</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token punctuation">}</span></code></pre>
+<p>This will spit out the same matrix, only now, adding a third element is quite simple, just add another <a href="https://junit-pioneer.org/docs/cartesian-product/#cartesianenumsource">CartesianEnumSource</a> annotation.</br>
+You can find other types of sources beside <em>Enums</em>, in <em>JUnit Pioneer</em>'s <a href="https://junit-pioneer.org/docs/cartesian-product/#annotating-your-test-method">Documentation</a>.</p>
+<p>As demonstrated in <a href="https://github.com/TomerFi/property-based-matrix-testing-tutorial">this repository</a>, executing both matrix tests will print out:</p>
+<pre class="language-text"><code class="language-text">[INFO] '-- JUnit Jupiter [OK]<br>[INFO]   '-- Property Based Matrix Test [OK]<br>[INFO]     +-- using junit pioneer cartesian product test with enum source (Direction, Status) [OK]<br>[INFO]     | +-- [1] INCOMING, SUCCESS [OK]<br>[INFO]     | +-- [2] INCOMING, FAILURE [OK]<br>[INFO]     | +-- [3] INCOMING, WAITING [OK]<br>[INFO]     | +-- [4] OUTGOING, SUCCESS [OK]<br>[INFO]     | +-- [5] OUTGOING, FAILURE [OK]<br>[INFO]     | '-- [6] OUTGOING, WAITING [OK]<br>[INFO]     '-- using junit parameterized test with method source (Direction, Status) [OK]<br>[INFO]       +-- [1] INCOMING, SUCCESS [OK]<br>[INFO]       +-- [2] INCOMING, FAILURE [OK]<br>[INFO]       +-- [3] INCOMING, WAITING [OK]<br>[INFO]       +-- [4] OUTGOING, SUCCESS [OK]<br>[INFO]       +-- [5] OUTGOING, FAILURE [OK]<br>[INFO]       '-- [6] OUTGOING, WAITING [OK]</code></pre>
+<p>You can check out the code for this tutorial in <a href="https://github.com/TomerFi/property-based-matrix-testing-tutorial">Github</a>.</p>
+<p><strong>👋 See you in the next tutorial 👋</strong></p>
+
+</div>
+
+    </main>
+
+    <rh-footer>
+      <a slot="logo" href="/pr-previews/pr-63/">
+        <img src="https://static.redhat.com/libs/redhat/brand-assets/2/corp/logo--on-dark.svg" alt="Red Hat Israel logo" loading="lazy"/> 
+      </a>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://www.linkedin.com/company/red-hat">
+          <pf-icon icon="linkedin" set="fab">LinkedIn</pf-icon>
+        </a>
+      </rh-footer-social-link>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://www.youtube.com/user/RedHatVideos">
+          <pf-icon icon="youtube" set="fab">Youtube</pf-icon>
+        </a>
+      </rh-footer-social-link>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://www.facebook.com/redhatinc">
+          <pf-icon icon="facebook" set="fab">Facebook</pf-icon>
+        </a>
+      </rh-footer-social-link>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://twitter.com/RedHat">
+          <pf-icon icon="twitter" set="fab">Twitter</pf-icon>
+        </a>
+      </rh-footer-social-link>
+      <rh-footer-social-link slot="social-links">
+        <a href="https://github.com/redhat-israel">
+          <pf-icon icon="github" set="fab">GitHub</pf-icon>
+        </a>
+      </rh-footer-social-link>
+      <h3 slot="links">המוצרים שלנו</h3>
+      <ul slot="links">
+        <li><a href="https://www.redhat.com/en/technologies/management/ansible">Red Hat Ansible Automation Platform</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">Red Hat Enterprise Linux</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/cloud-computing/openshift">Red Hat OpenShift</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/cloud-computing/openshift-data-foundation">Red Hat OpenShift Data Foundation</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/linux-platforms/openstack-platform">Red Hat OpenStack Platform</a></li>
+        <li><a href="https://www.redhat.com/en/technologies/all-products">See all products</a></li>
+      </ul>
+      <h3 slot="links">צרו קשר</h3>
+      <ul slot="links">
+        <li><a href="https://www.redhat.com/en/contact">כתבו לנו</a></li>
+        <li><a href="https://www.redhat.com/en/about/feedback">שלחו לנו פידבק</a></li>
+        <li><a href="https://www.redhat.com/en/about/social">עקבו אחרינו ברשתות החברתיות</a></li>
+      </ul>
+      <rh-footer-block slot="main-secondary">
+        <h3 slot="header">רד האט</h3>
+        <p>רד האט היא החברה המובילה בעולם לפתרונות תוכנה מבוססי קוד פתוח לארגוני Enterprise.
+רד האט מבוססת על כוחה של קהילת הקוד הפתוח בפיתוח ואספקת טכנולוגיות Linux, Cloud, Container, ו-Kubernetes.
+אנחנו מסייעים ללקוחות לשלב בין יישומי IT חדשים וקיימים, לפתח יישומים רב-ענניים
+(multi-cloud), לבצע סטנדרטיזציה של מערכת ההפעלה, יחד עם אוטומציה, אבטחה וניהול של סביבות מורכבות.</p>
+
+      </rh-footer-block>
+      <rh-global-footer slot="global" class=" no-secondary-links">
+        <h3 slot="links-primary" hidden>Red Hat legal and privacy links</h3>
+        <ul slot="links-primary">
+          <li><a href="https://www.redhat.com/en/about/privacy-policy">הצהרת פרטיות</a></li>
+          <li><a href="https://www.redhat.com/en/about/terms-use">תנאי שימוש</a></li>
+          <li><a href="https://www.redhat.com/en/about/digital-accessibility">נגישות דיגיטלית</a></li>
+        </ul>
+      </rh-global-footer>
+    </rh-footer>
+
+    <!-- Google tag (gtag.js) -->
+    <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-JENJLEJFBY"></script>
+    <script async defer>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JENJLEJFBY');
+    </script>
+    <!-- Current page: /pr-previews/pr-63/posts/2021-04-13-property-based-matrix-testing-in-java copy/ -->
+  </body>
+</html>
